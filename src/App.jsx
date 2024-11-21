@@ -36,7 +36,7 @@ export default function App() {
   return (
     <>
       <p>Token: {token}</p>
-      <button onClick={handleFetchPosts}></button>
+      <button onClick={handleFetchPosts}>Хуй</button>
 
       {posts.map((post) => (
         <div key={post.id}>
