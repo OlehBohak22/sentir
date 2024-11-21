@@ -40,7 +40,7 @@ export default function App() {
 
       {posts.map((post) => (
         <div key={post.id}>
-          <h2>{post.title.rendered}</h2>
+          <div dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
           <p>{post.service_description}</p>
           <img className={s.icon} src={post.service_icon} alt="" />
         </div>
