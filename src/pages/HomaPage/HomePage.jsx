@@ -5,7 +5,7 @@ import { HomeHero } from "../../components/HomeHero/HomeHero";
 export const HomePage = () => {
   return (
     <HeroHeaderLayout
-      backgroundImage={"/public/images/sections-bg/home-hero-bg.jpg"}
+      backgroundImage={"/images/sections-bg/home-hero-bg.jpg"} // виправлено шлях до зображення
     >
       <Header />
       <HomeHero />
