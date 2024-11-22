@@ -1,0 +1,50 @@
+.navList {
+  display: flex;
+  align-items: center;
+
+  a {
+    display: block;
+    position: relative;
+    font-family: DM Sans;
+    font-size: 0.9vw;
+    font-weight: 500;
+    line-height: 1.4vw;
+    text-align: left;
+    color: #ffffff;
+    padding: 1.5vw 1.5vw 1.2vw 1.5vw;
+  }
+
+  a::after {
+    content: "";
+    position: absolute;
+    width: calc(100% - 3vw);
+    background-color: #ffffff;
+    height: 1px;
+    bottom: 1.4vw;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition-duration: 0.3s;
+  }
+
+  a:hover::after {
+    opacity: 1;
+  }
+}
+
+.headerContactBtn {
+  padding: 0.5vw 1.3vw;
+  border: 0.06vw solid var(--White, #ffffff);
+  border-radius: 2.6vw;
+  font-family: Inter;
+  font-size: 0.9vw;
+  font-weight: 600;
+  line-height: 1.4vw;
+  color: #ffffff;
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  gap: 3.5vw;
+}

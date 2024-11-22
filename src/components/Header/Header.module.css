@@ -1,0 +1,27 @@
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.2vw;
+
+  svg {
+    width: 2.2vw;
+    height: 2.2vw;
+  }
+
+  span {
+    font-family: DM Sans;
+    font-size: 1.3vw;
+    font-weight: 500;
+    line-height: 1.3vw;
+    color: #ffffff;
+  }
+}
+
+header {
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

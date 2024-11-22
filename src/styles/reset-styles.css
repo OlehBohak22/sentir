@@ -1,0 +1,55 @@
+/* Скидання відступів, полів та ліній висоти */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Видалення стандартного стилю списків */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Видалення стандартного підкреслення посилань */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Нормалізація шрифтів */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #000;
+}
+
+/* Видалення рамок для елементів форм */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  outline: none;
+  border: none;
+}
+
+/* Скидання таблиць */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Задаємо більш передбачуваний стиль для зображень */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Встановлення загальних розмірів для кнопок */
+button {
+  cursor: pointer;
+  background: none;
+}

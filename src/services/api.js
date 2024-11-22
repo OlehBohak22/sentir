@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const API_URL = "https://www.sentir.projection-learn.website";
+axios.defaults.baseURL = "https://www.sentir.projection-learn.website";
 
 export const login = async (username, password) => {
   try {
-    const res = await axios.post(`${API_URL}/wp-json/jwt-auth/v1/token`, {
+    const res = await axios.post(`/wp-json/jwt-auth/v1/token`, {
       username,
       password,
     });
@@ -16,7 +16,7 @@ export const login = async (username, password) => {
 
 export const getData = async (token, endpoint) => {
   try {
-    const res = await axios.get(`${API_URL}/${endpoint}`, {
+    const res = await axios.get(`/${endpoint}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

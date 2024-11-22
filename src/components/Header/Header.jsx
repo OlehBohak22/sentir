@@ -1,17 +1,22 @@
+import { Link } from "react-router-dom";
+import { Layout } from "../../components/Layout/Layout";
+import { SentirLogo } from "../../components/SentirLogo/SentirLogo";
+import s from "./Header.module.css";
+import { HeaderNavigation } from "../HeaderNavigation/HeaderNavigation";
+
 export default function Header() {
   return (
     <header>
-      <ul>
-        <li>
-          <a href="">Home</a>
-        </li>
-        <li>
-          <a href="">About</a>
-        </li>
-        <li>
-          <a href="">Contact</a>
-        </li>
-      </ul>
+      <Layout>
+        <div className={s.headerContainer}>
+          <Link to="/" className={s.logoContainer}>
+            <SentirLogo />
+            <span>Sentir</span>
+          </Link>
+
+          <HeaderNavigation />
+        </div>
+      </Layout>
     </header>
   );
 }
