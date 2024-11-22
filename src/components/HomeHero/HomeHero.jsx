@@ -7,9 +7,22 @@ export const HomeHero = () => {
     <Layout>
       <section className={s.heroSection}>
         <h1 className={s.heroTitle}>
+          <div className={s.rotatingCircles}>
+            <img
+              className={s.circle1}
+              src="/icons/animated_circles/circle1.svg"
+              alt="Circle 1"
+            />
+            <img
+              className={s.circle2}
+              src="/icons/animated_circles/circle2.svg"
+              alt="Circle 2"
+            />
+          </div>
+
           <motion.span
             initial={{ opacity: 0, x: "0" }} // Початкова позиція: зліва
-            animate={{ opacity: 1, x: "-50%" }} // Кінцева позиція: звичайна
+            animate={{ opacity: 1, x: "-60%" }} // Кінцева позиція: звичайна
             transition={{ duration: 1, ease: "easeOut" }}
           >
             BUILDING
@@ -17,7 +30,7 @@ export const HomeHero = () => {
           <br />
           <motion.span
             initial={{ opacity: 0, x: "0" }} // Початкова позиція: справа
-            animate={{ opacity: 1, x: "-15%" }}
+            animate={{ opacity: 1, x: "-25%" }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
             PRODUCTS
