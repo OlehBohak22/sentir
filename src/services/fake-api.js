@@ -40,3 +40,58 @@ export const services = [
     link: "/services/staff-augmentation",
   },
 ];
+
+export const projects = [
+  {
+    id: 1,
+    name: "APDATED/ABE/Net-Trade Discovery",
+    description:
+      "AI-driven job seeker copilot that connects talent with companies, offering a vetted pool of candidates based on skills and culture fit to streamline the hiring process.",
+    tags: ["NDA", "Discovery", "UX/UI", "Web & Mobile Development"],
+    image: "/images/sections-bg/titular-image.jpg",
+    features: [
+      { id: 101, name: "AI-powered matching" },
+      { id: 102, name: "Skills-based vetting" },
+      { id: 103, name: "Streamlined hiring process" },
+    ],
+  },
+  {
+    id: 2,
+    name: "Healthcare Dashboard",
+    description:
+      "An intuitive dashboard for healthcare providers to track patient data, manage schedules, and optimize workflows.",
+    tags: ["Healthcare", "Dashboard", "UX/UI", "Data Visualization"],
+    image: "url_to_image_2",
+    features: [
+      { id: 201, name: "Real-time patient tracking" },
+      { id: 202, name: "Schedule optimization" },
+      { id: 203, name: "Comprehensive analytics" },
+    ],
+  },
+  {
+    id: 3,
+    name: "E-Commerce Optimization Suite",
+    description:
+      "A toolkit for online retailers to enhance customer experience, increase conversion rates, and analyze sales performance.",
+    tags: ["E-Commerce", "Optimization", "AI", "Analytics"],
+    image: "url_to_image_3",
+    features: [
+      { id: 301, name: "Personalized recommendations" },
+      { id: 302, name: "Conversion rate tracking" },
+      { id: 303, name: "Sales performance analytics" },
+    ],
+  },
+  {
+    id: 4,
+    name: "Smart Home Control Panel",
+    description:
+      "A centralized control panel for managing smart home devices, improving usability and energy efficiency.",
+    tags: ["IoT", "Smart Home", "Dashboard", "Energy Efficiency"],
+    image: "url_to_image_4",
+    features: [
+      { id: 401, name: "Device synchronization" },
+      { id: 402, name: "Energy usage monitoring" },
+      { id: 403, name: "Customizable automation rules" },
+    ],
+  },
+];

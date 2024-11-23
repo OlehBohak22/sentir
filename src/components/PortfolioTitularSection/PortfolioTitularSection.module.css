@@ -1,0 +1,74 @@
+.titularContainer {
+  position: relative;
+  padding-top: 28vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 4.6vw;
+  padding-left: 4.3vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  margin-bottom: 2.6vw;
+}
+
+.titularContainer::before {
+  content: "";
+  position: absolute;
+  left: 0; /* Відступ від лівого краю */
+  bottom: -2.5vw; /* Відступ від нижнього краю */
+  border-bottom: 2px solid rgba(11, 11, 11, 0.1); /* Рамка */
+  width: 100%;
+  pointer-events: none; /* Рамка не перешкоджає взаємодії з елементами */
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10vw;
+  height: 10vw;
+  border-radius: 100%;
+  pointer-events: none; /* Курсор не впливає на кліки */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 1; /* Початково стрілка прихована */
+}
+
+.titularContent {
+  p {
+    font-family: DM Sans;
+    font-size: 0.9vw;
+    font-weight: 400;
+    line-height: 1.4vw;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+    max-width: 20vw;
+    margin-bottom: 4.4vw;
+  }
+
+  ul {
+    display: flex;
+    gap: 0.4vw;
+    margin-bottom: 2.5vw;
+
+    li {
+      font-family: DM Sans;
+      font-size: 1.1vw;
+      font-weight: 500;
+      line-height: 1.6vw;
+      text-align: left;
+      color: rgba(255, 255, 255, 1);
+      padding: 0.13vw 0.7vw;
+      border-radius: 2.3vw;
+      background: rgba(11, 11, 11, 0.1);
+    }
+  }
+
+  h3 {
+    font-family: Almarai;
+    font-size: 6.2vw;
+    font-weight: 400;
+    line-height: 5.6vw;
+    color: rgba(255, 255, 255, 1);
+  }
+}

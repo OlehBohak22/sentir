@@ -2,6 +2,7 @@ import { services } from "../../services/fake-api";
 import s from "./ServicesSection.module.css";
 import { Layout } from "../Layout/Layout";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const ServicesSection = () => {
   return (
