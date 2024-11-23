@@ -1,0 +1,117 @@
+.section {
+  background-color: #000; /* Чорний фон */
+  background-image: url("/images/sections-bg/service-elipse-bg.png"); /* Шлях до картинки */
+  background-size: contain; /* Картинка покриває всю секцію */
+  background-position: right; /* Картинка вирівнюється по центру */
+  background-repeat: no-repeat; /* Картинка не повторюється */
+  padding: 7vw 0;
+
+  h2 {
+    color: #ffffff;
+    font-family: Almarai;
+    font-size: 4.1vw;
+    font-weight: 400;
+    line-height: 4.1vw;
+    text-align: left;
+    margin-bottom: 1.8vw;
+  }
+
+  ul {
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.6vw;
+
+    a {
+      position: relative; /* Потрібно для позиціонування псевдоелемента */
+      padding: 2.7vw 2.2vw 2.5vw 0;
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-bottom: 0.06vw solid rgba(255, 255, 255, 0.1);
+
+      div {
+        transition: 0.5s;
+      }
+
+      /* Псевдоелемент для градієнтного border-bottom */
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 0.06vw; /* Товщина лінії */
+        background: linear-gradient(90deg, #66d2fd, #ed50b9, #f80864);
+
+        transition: width 0.5s ease;
+      }
+    }
+
+    a:hover .arrowIcon {
+      transform: translateX(calc(29.5vw - 200%));
+    }
+
+    a:hover div {
+      transform: translateY(-10%);
+    }
+
+    /* Ефект на псевдоелементі під час ховера */
+    a:hover::after {
+      width: 100%; /* Розтягуємо лінію на всю ширину елемента */
+    }
+  }
+
+  svg {
+    fill: rgb(105, 105, 105);
+    width: 10.5vw;
+    height: 10.5vw;
+    margin-bottom: 0.8vw;
+  }
+
+  h3 {
+    color: #ffffff;
+    font-family: DM Sans;
+    font-size: 2.2vw;
+    font-weight: 500;
+    line-height: 2.2vw;
+    text-align: left;
+    margin-bottom: 1.1vw;
+  }
+
+  p {
+    color: var(--White, rgba(255, 255, 255, 0.7));
+    font-family: DM Sans;
+    font-size: 0.9vw;
+    font-weight: 400;
+    line-height: 1.4vw;
+    text-align: left;
+  }
+
+  .arrowIcon {
+    width: 2.2vw;
+    height: 2.2vw;
+    transition: 0.5s;
+  }
+}
+
+/* Стилі для іконок */
+.serviceIcon {
+  fill: #b0b0b0; /* Початковий колір іконки */
+  transition: fill 0.3s ease; /* Анімація для зміни кольору */
+}
+
+a {
+  transition: transform 0.3s ease; /* Анімація для li */
+}
+
+a:hover .serviceIcon {
+  fill: url(#gradient); /* Градієнт, що змінюється при ховері */
+}
+
+/* Опис градієнта */
+svg {
+  width: 0;
+  height: 0;
+}
