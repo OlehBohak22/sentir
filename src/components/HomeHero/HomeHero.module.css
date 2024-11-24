@@ -1,7 +1,17 @@
 .heroSection {
   padding-top: 12.8vw;
   padding-bottom: 3.1vw;
-  background-image: url(/images/sections-bg/home-hero-bg.jpg);
+  /* background-image: url(/images/sections-bg/home-hero-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; */
+
+  background: rgb(0, 169, 238);
+  background: linear-gradient(
+    45deg,
+    rgba(0, 169, 238, 1) 20%,
+    rgba(200, 25, 196, 1) 50%,
+    rgba(255, 72, 41, 1) 80%
+  );
 
   .heroTitle {
     position: relative;
@@ -22,8 +32,8 @@
       top: 50%;
       left: 50%;
       transform: translateY(-50%) translateX(-50%);
-      width: 24.5vw;
-      height: 24.5vw;
+      width: 22vw;
+      height: 22vw;
 
       img {
         position: absolute;
@@ -151,5 +161,27 @@
 @keyframes drawPath {
   to {
     stroke-dashoffset: 0; /* Лінія з'являється */
+  }
+}
+
+.svg {
+  position: absolute;
+  top: 5.7vw;
+  width: 100%;
+  height: auto;
+  stroke: rgba(255, 255, 255, 0.2);
+}
+
+.path {
+  fill: none;
+  stroke-width: 3;
+  stroke-dasharray: 3000; /* Довжина шляху, можна підібрати */
+  stroke-dashoffset: 3000; /* Початкове значення для прихованої лінії */
+  animation: draw 5s linear forwards; /* Анімація */
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0; /* Лінія повністю малюється */
   }
 }
