@@ -4,7 +4,7 @@ import { SentirLogo } from "../../components/SentirLogo/SentirLogo";
 import s from "./Header.module.css";
 import { HeaderNavigation } from "../HeaderNavigation/HeaderNavigation";
 
-export default function Header() {
+export const Header = () => {
   return (
     <header>
       <Layout>
@@ -19,4 +19,4 @@ export default function Header() {
       </Layout>
     </header>
   );
-}
+};

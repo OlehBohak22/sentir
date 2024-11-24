@@ -4,8 +4,8 @@ import s from "./HomeHero.module.css";
 
 export const HomeHero = () => {
   return (
-    <Layout>
-      <section className={s.heroSection}>
+    <section className={s.heroSection}>
+      <Layout>
         <h1 className={s.heroTitle}>
           <div className={s.rotatingCircles}>
             <img
@@ -122,7 +122,7 @@ export const HomeHero = () => {
             </p>
           </motion.li>
         </motion.ul>
-      </section>
-    </Layout>
+      </Layout>
+    </section>
   );
 };

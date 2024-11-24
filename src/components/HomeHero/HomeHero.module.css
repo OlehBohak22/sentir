@@ -1,6 +1,7 @@
 .heroSection {
-  padding-top: 7.6vw;
+  padding-top: 12.8vw;
   padding-bottom: 3.1vw;
+  background-image: url(/images/sections-bg/home-hero-bg.jpg);
 
   .heroTitle {
     position: relative;

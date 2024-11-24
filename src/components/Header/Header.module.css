@@ -18,6 +18,8 @@
 }
 
 header {
+  position: absolute; /* Фіксуємо елемент */
+  left: 3.3vw;
 }
 
 .headerContainer {

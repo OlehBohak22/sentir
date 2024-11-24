@@ -50,7 +50,7 @@
     }
 
     a:hover .arrowIcon {
-      transform: translateX(calc(29.5vw - 200%));
+      transform: translateX(calc(29.5vw - 200%)) rotate(45deg);
     }
 
     a:hover div {
