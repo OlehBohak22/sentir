@@ -53,3 +53,7 @@ button {
   cursor: pointer;
   background: none;
 }
+
+html {
+  scroll-behavior: smooth;
+}
