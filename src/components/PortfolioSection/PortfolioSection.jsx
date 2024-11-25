@@ -16,7 +16,7 @@ export const PortfolioSection = ({ restInfo }) => {
 const PortfolioItem = ({ item }) => {
   const { ref, inView } = useInView({
     threshold: 0.2,
-    triggerOnce: true,
+    triggerOnce: false,
   });
 
   // Налаштування анімації

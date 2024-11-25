@@ -43,7 +43,7 @@
         left: 0;
         width: 0;
         height: 0.06vw; /* Товщина лінії */
-        background: linear-gradient(90deg, #66d2fd, #ed50b9, #f80864);
+        background: var(--primary-gradient);
 
         transition: width 0.5s ease;
       }
@@ -81,7 +81,7 @@
   }
 
   p {
-    color: var(--White, rgba(255, 255, 255, 0.7));
+    color: rgba(255, 255, 255, 0.7);
     font-family: DM Sans;
     font-size: 0.9vw;
     font-weight: 400;

@@ -40,32 +40,35 @@ export const HomeHero = () => {
 
           <motion.span
             initial={{ opacity: 0, x: "0" }} // Початкова позиція: зліва
-            animate={{ opacity: 1, x: "-60%" }} // Кінцева позиція: звичайна
+            whileInView={{ opacity: 1, x: "-60%" }} // Кінцева позиція: звичайна
             transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.5 }} // Повторна анімація при поверненні у видиму зону
           >
             BUILDING
           </motion.span>
           <br />
           <motion.span
             initial={{ opacity: 0, x: "0" }} // Початкова позиція: справа
-            animate={{ opacity: 1, x: "-25%" }}
+            whileInView={{ opacity: 1, x: "-25%" }}
             transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.5 }}
           >
             PRODUCTS
           </motion.span>
           <motion.span
             initial={{ opacity: 0, x: "0" }} // Початкова позиція: зверху
-            animate={{ opacity: 1, x: "20%" }}
+            whileInView={{ opacity: 1, x: "20%" }}
             transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.5 }}
           >
             THROUGH
           </motion.span>
           <br />
-
           <motion.span
             initial={{ opacity: 0, x: "0" }} // Початкова позиція: знизу
-            animate={{ opacity: 1, x: "65%" }}
+            whileInView={{ opacity: 1, x: "65%" }}
             transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.5 }}
           >
             EMPATHY
           </motion.span>
@@ -104,7 +107,7 @@ export const HomeHero = () => {
           <motion.li
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} // Анімація спрацює лише один раз при вході у видиму область
+            viewport={{ once: false }} // Анімація спрацює лише один раз при вході у видиму область
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p>
@@ -117,7 +120,7 @@ export const HomeHero = () => {
           <motion.li
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <p>
@@ -130,7 +133,7 @@ export const HomeHero = () => {
           <motion.li
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
             <p>

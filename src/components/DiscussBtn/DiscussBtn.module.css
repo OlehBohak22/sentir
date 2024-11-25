@@ -1,0 +1,51 @@
+.discussBtn {
+  width: fit-content;
+  position: relative;
+  font-family: "Abril Fatface", sans-serif;
+  background: var(--primary-gradient);
+  background-size: 200% 200%;
+  animation: rainbow 2s ease-in-out infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(0, 0, 0, 1);
+  font-family: DM Sans;
+  font-size: 1.6vw;
+  font-weight: 700;
+  line-height: 2.5vw;
+  letter-spacing: -0.02em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  text-transform: uppercase;
+}
+.discussBtn:hover {
+  color: rgba(0, 0, 0, 0);
+}
+@keyframes rainbow {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+
+.discussBtn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px; /* Висота лінії підкреслення */
+  background: var(--primary-gradient); /* Колір підкреслення */
+  transition: 0.3s ease; /* Анімація для розширення */
+}
+
+.discussBtn:hover::after {
+  width: 0; /* Лінія підкреслення з'являється по всій ширині елементу */
+}

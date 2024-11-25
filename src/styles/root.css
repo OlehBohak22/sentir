@@ -1,0 +1,26 @@
+#root {
+  --primary-gradient: radial-gradient(
+      115.99% 115.99% at 0% 100%,
+      #66d2fd 0%,
+      #6bb6f0 20%,
+      #54aaf0 40%,
+      #f354c4 60%,
+      #fa2677 80%,
+      #ff5a4a 94.01%
+    ),
+    radial-gradient(
+      90% 90% at 10% 40%,
+      #4d77e6 10%,
+      rgba(77, 119, 230, 0.3) 80%
+    ),
+    radial-gradient(
+      73.83% 73.83% at 100% 95.89%,
+      #fadac7 0%,
+      rgba(250, 218, 199, 0.2) 92.42%
+    ),
+    radial-gradient(
+      60% 55% at 25% 100%,
+      #65cdfc 0%,
+      rgba(101, 205, 252, 0.2) 100%
+    );
+}

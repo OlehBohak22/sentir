@@ -1,0 +1,239 @@
+.approachContainer {
+  position: relative;
+  padding-top: 13vw;
+  padding-bottom: 10.4vw;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+
+  gap: 12vw;
+}
+
+.leftSideContent {
+  padding-top: 17.3vw;
+  position: sticky;
+  height: fit-content;
+  top: 0;
+
+  p {
+    font-family: DM Sans;
+    font-size: 1.9vw;
+    font-weight: 400;
+    line-height: 1.9vw;
+    text-align: left;
+    color: rgba(11, 11, 11, 0.3);
+    margin-bottom: 2.6vw;
+  }
+}
+
+.rotatingTextBlock {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 31.5vw;
+  height: 31.5vw;
+  overflow: hidden;
+
+  .shadow {
+    position: absolute;
+    top: -9vw;
+    left: -5vw;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+  }
+
+  .text {
+    position: absolute;
+    top: -5vw;
+    left: -2vw;
+    width: 27vw;
+    height: 27vw;
+    animation: rotateText 15s linear infinite; /* Додаємо анімацію */
+  }
+}
+
+/* Визначення анімації для обертання */
+@keyframes rotateText {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.title {
+  width: 50vw;
+  font-family: Almarai;
+  font-size: 4.1vw;
+  font-weight: 400;
+  line-height: 4.1vw;
+  text-transform: uppercase;
+  margin-bottom: 5vw;
+
+  .secondSpan {
+    display: block;
+    text-indent: 4vw;
+  }
+}
+
+.mainItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5vw;
+
+  .topBlocks {
+    flex-basis: calc((100% - 2.5vw) / 2);
+    aspect-ratio: 412 / 366;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.7vw;
+    overflow: hidden;
+
+    h3 {
+      font-family: DM Sans;
+      font-size: 2.2vw;
+      font-weight: 500;
+      line-height: 2.2vw;
+      width: 20vw;
+    }
+
+    p {
+      font-family: DM Sans;
+      font-size: 0.9vw;
+      font-weight: 400;
+      line-height: 1.4vw;
+      text-align: left;
+    }
+  }
+
+  .gradient {
+    background-image: url(/images/sections-bg/home-hero-bg.jpg);
+    background-size: cover;
+    position: relative;
+
+    svg {
+      position: absolute;
+      top: -16vw;
+      height: 60vw;
+      width: 36.3vw;
+    }
+
+    p,
+    h3 {
+      color: #ffffff;
+    }
+  }
+
+  .grey {
+    background-color: rgba(245, 247, 249, 1);
+  }
+}
+
+.bottomBlock::after {
+  content: "";
+  position: absolute;
+  width: 20vw;
+  height: 20vw;
+  bottom: 0;
+  right: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent);
+  filter: blur(8vw);
+  pointer-events: none;
+}
+
+.bottomBlock {
+  overflow: hidden;
+  position: relative;
+  background-color: black;
+  width: 100%;
+  padding: 4.1vw;
+  padding-top: 36vw;
+  h3,
+  p {
+    color: #ffffff;
+  }
+  svg {
+    top: -43vw;
+    right: -7vw;
+    position: absolute;
+    display: block;
+    margin-left: auto;
+    width: auto;
+    height: auto;
+    width: 106vw;
+    stroke: #ed50b9;
+  }
+
+  h3 {
+    font-family: DM Sans;
+    font-size: 3.6vw;
+    font-weight: 400;
+    line-height: 3.9vw;
+    margin-bottom: 3.1vw;
+    width: 30vw;
+  }
+
+  p {
+    font-family: DM Sans;
+    font-size: 1.2vw;
+    font-weight: 400;
+    line-height: 1.8vw;
+  }
+}
+
+.rotatingCircles {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(14vw) translateX(-14vw);
+  width: 8vw;
+  height: 8vw;
+
+  img {
+    display: block;
+    position: absolute;
+
+    transform: translateY(-50%) translateX(-50%);
+  }
+}
+
+.circle1,
+.circle2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation-duration: 10s; /* Тривалість обертання */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.circle1 {
+  animation-name: rotateClockwise;
+}
+
+.circle2 {
+  animation-name: rotateCounterClockwise;
+  width: 7vw;
+  margin-left: 0.5vw;
+}
+
+@keyframes rotateClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Анімація проти годинникової стрілки */
+@keyframes rotateCounterClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}

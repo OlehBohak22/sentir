@@ -42,7 +42,7 @@ export const ServicesSection = () => {
               custom={index} // Передаємо індекс для затримки
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }} // Запуск анімації, коли елемент у полі зору
+              viewport={{ once: false, amount: 0.3 }} // Запуск анімації, коли елемент у полі зору
               variants={listItemVariants}
             >
               <Link>

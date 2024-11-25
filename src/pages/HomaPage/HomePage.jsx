@@ -1,3 +1,4 @@
+import { ApproachSection } from "../../components/ApproachSection/ApproachSection";
 import { HomeHero } from "../../components/HomeHero/HomeHero";
 import { PortfolioSection } from "../../components/PortfolioSection/PortfolioSection";
 import { PortfolioTitularSection } from "../../components/PortfolioTitularSection/PortfolioTitularSection";
@@ -17,6 +18,8 @@ export const HomePage = () => {
 
         <PortfolioSection restInfo={projects.slice(1)} />
       </section>
+
+      <ApproachSection />
     </>
   );
 };

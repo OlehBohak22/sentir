@@ -6,7 +6,7 @@ import s from "./PortfolioTitularSection.module.css";
 export const PortfolioTitularSection = ({ titulInfo }) => {
   const { ref, inView } = useInView({
     threshold: 0.3, // Триггер при 30% видимості
-    triggerOnce: true,
+    triggerOnce: false,
   });
 
   // Анімація для контейнера

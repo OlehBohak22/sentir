@@ -3,10 +3,16 @@
   grid-template-columns: 2fr 1fr;
   gap: 2.5vw;
   padding: 2.5vw 0;
+  position: relative;
+  z-index: 10;
 }
 
 .container:not(:last-child) {
   border-bottom: 2px solid rgba(11, 11, 11, 0.1); /* Рамка */
+}
+
+.container:last-child {
+  padding-bottom: 0;
 }
 
 .containerContent {
