@@ -1,0 +1,9 @@
+.custom-pagination .swiper-pagination-progressbar-fill {
+  background: linear-gradient(
+    to right,
+    #54aaf0 40%,
+    #f354c4 60%,
+    #fa2677 80%,
+    #ff5a4a 94.01%
+  );
+}

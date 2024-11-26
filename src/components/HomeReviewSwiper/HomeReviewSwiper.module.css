@@ -1,0 +1,104 @@
+.swiperContainer {
+  position: relative;
+}
+
+.swiperSlide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 4vw;
+}
+
+.reviewerInfo {
+  display: flex;
+  gap: 1.3vw;
+}
+
+.reviewerAvatar {
+  width: 5.5vw;
+  height: 5.5vw;
+  border-radius: 100%;
+}
+
+.reviewerFullname {
+  font-family: DM Sans;
+  font-size: 3.6vw;
+  font-weight: 400;
+  line-height: 3.9vw;
+  margin-bottom: 0.2vw;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.reviewerDirect {
+  font-family: DM Sans;
+  font-size: 1.6vw;
+  font-weight: 400;
+  line-height: 1.8vw;
+  margin-bottom: 0.8vw;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.reviewerCompany {
+  display: flex;
+  align-items: center;
+  gap: 0.7vw;
+
+  img {
+    width: 2vw;
+    height: 2vw;
+    border-radius: 100%;
+  }
+
+  p {
+    font-family: DM Sans;
+    font-size: 1.1vw;
+    font-weight: 500;
+    line-height: 1.6vw;
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+.reviewContent {
+  font-family: DM Sans;
+  font-size: 2vw;
+  font-weight: 400;
+  line-height: 3vw;
+  color: rgba(255, 255, 255, 1);
+  padding-bottom: 2vw;
+  border-bottom: 0.06vw solid rgba(255, 255, 255, 0.1);
+}
+
+.swiperNav {
+  display: flex;
+  cursor: pointer;
+
+  div {
+    padding: 1.3vw;
+    transition: 0.5s;
+  }
+
+  div:hover {
+    background-color: #222;
+    border-radius: 100%;
+  }
+
+  img {
+    width: 2.2vw;
+    height: 2.2vw;
+  }
+}
+
+.swiperOptions {
+  padding-left: 4vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin-top: 5vw;
+}
+
+.customPaginationContainer {
+  position: relative;
+  border-radius: 1vw;
+  overflow: hidden;
+  width: 13vw;
+  height: 0.1vw; /* Висота прогрес-бару */
+}
