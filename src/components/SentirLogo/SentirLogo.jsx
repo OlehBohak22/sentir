@@ -6,9 +6,14 @@ export const SentirLogo = () => {
       <svg
         className={s.logo}
         viewBox="0 0 34 30"
-        fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <defs>
+          <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style={{ stopColor: "red", stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: "blue", stopOpacity: 1 }} />
+          </linearGradient>
+        </defs>
         <path
           fillRule="evenodd"
           clipRule="evenodd"

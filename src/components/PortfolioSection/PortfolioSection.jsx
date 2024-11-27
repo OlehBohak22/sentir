@@ -15,11 +15,10 @@ export const PortfolioSection = ({ restInfo }) => {
 
 const PortfolioItem = ({ item }) => {
   const mors = item.case_mors.split("|||").filter((item) => item.trim() !== "");
-  console.log(mors);
 
   const { ref, inView } = useInView({
     threshold: 0.2,
-    triggerOnce: false,
+    triggerOnce: true,
   });
 
   // Налаштування анімації

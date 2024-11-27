@@ -1,0 +1,134 @@
+footer {
+  padding: 2.7vw 0 3.8vw 0;
+}
+
+.footerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 2fr;
+  margin-bottom: 6.3vw;
+
+  h4 {
+    font-family: DM Sans;
+    font-size: 0.9vw;
+    font-weight: 400;
+    line-height: 1.4vw;
+    color: rgba(11, 11, 11, 0.5);
+    margin-bottom: 0.4vw;
+    text-transform: uppercase;
+  }
+
+  a {
+    display: block;
+    background: var(--primary-gradient);
+    background-size: 200% 200%;
+    animation: rainbow 2s ease-in-out infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: rgba(0, 0, 0, 1);
+    font-family: DM Sans;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+  }
+
+  a:hover {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  @keyframes rainbow {
+    0% {
+      background-position: left;
+    }
+    50% {
+      background-position: right;
+    }
+    100% {
+      background-position: left;
+    }
+  }
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.3vw;
+  height: fit-content;
+
+  img {
+    width: 3.7vw;
+  }
+
+  span {
+    font-family: DM Sans;
+    font-size: 2.2vw;
+    font-weight: 500;
+    line-height: 2.2vw;
+  }
+}
+
+.menuNav {
+  a {
+    font-family: DM Sans;
+    font-size: 0.9vw;
+    font-weight: 400;
+    line-height: 1.4vw;
+  }
+
+  ul {
+    li:not(:last-child) {
+      margin-bottom: 0.7vw;
+    }
+  }
+}
+
+.serviceNav {
+  a {
+    font-family: DM Sans;
+    font-size: 1.6vw;
+    font-weight: 500;
+    line-height: 2.5vw;
+  }
+
+  ul {
+    li:not(:last-child) {
+      margin-bottom: 0.8vw;
+    }
+  }
+}
+
+.socialContainer {
+  a {
+    font-family: DM Sans;
+    font-size: 1.6vw;
+    font-weight: 500;
+    line-height: 2.5vw;
+
+    svg {
+      width: 2vw;
+      height: 2vw;
+    }
+  }
+  ul {
+    margin-top: 1.3vw;
+    display: flex;
+    gap: 1.6vw;
+  }
+
+  div:not(:last-child) {
+    margin-bottom: 1.4vw;
+  }
+}
+
+.footerBottomContainer {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+
+  a,
+  p {
+    font-family: DM Sans;
+    font-size: 1vw;
+    font-weight: 400;
+    line-height: 1.4vw;
+  }
+}

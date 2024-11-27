@@ -10,10 +10,12 @@ import { getData, login } from "../../services/api";
 import { HomeReviewSection } from "../../components/HomeReviewSection/HomeReviewSection";
 import { HomeReviewSwiper } from "../../components/HomeReviewSwiper/HomeReviewSwiper";
 import { CompanyList } from "../../components/CompanyList/CompanyList";
+import { FormSection } from "../../components/FormSection/FormSection";
 
 export const HomePage = () => {
   const [token, setToken] = useState();
   const [posts, setPosts] = useState([]);
+  const [review, setReview] = useState([]);
 
   useEffect(() => {
     // Функція для отримання токена
@@ -47,8 +49,23 @@ export const HomePage = () => {
     fetchPosts();
   }, [token]); // Цей useEffect спрацює тільки тоді, коли токен зміниться
 
+  useEffect(() => {
+    // Якщо токен є, отримуємо пости
+    const fetchPosts = async () => {
+      if (!token) return; // Перевіряємо, чи є токен
+      try {
+        const fetchedPosts = await getData(token, "wp-json/wp/v2/reviews"); // Отримуємо пости
+        setReview(fetchedPosts);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+
+    fetchPosts();
+  }, [token]); // Цей useEffect спрацює тільки тоді, коли токен зміниться
+
   return (
-    <>
+    <main>
       <HomeHero className={s.homeHero} />
 
       <ServicesSection />
@@ -63,10 +80,12 @@ export const HomePage = () => {
 
       <HomeReviewSection>
         <div className="mb-[23vw]">
-          <HomeReviewSwiper reviews={posts} />
+          <HomeReviewSwiper reviews={review} />
         </div>
         <CompanyList />
       </HomeReviewSection>
-    </>
+
+      <FormSection />
+    </main>
   );
 };

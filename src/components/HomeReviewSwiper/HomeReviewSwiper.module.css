@@ -99,6 +99,8 @@
   position: relative;
   border-radius: 1vw;
   overflow: hidden;
+
+  background-color: rgba(240, 240, 240, 0.3);
   width: 13vw;
   height: 0.1vw; /* Висота прогрес-бару */
 }

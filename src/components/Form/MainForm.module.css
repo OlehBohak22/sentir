@@ -1,0 +1,240 @@
+.formTitle {
+  font-family: DM Sans;
+  font-size: 2.2vw;
+  font-weight: 500;
+  line-height: 2.2vw;
+  color: #ffffff;
+  margin-bottom: 4.4vw;
+}
+
+.shortInputs {
+  display: flex;
+  gap: 2vw;
+
+  div {
+    flex: 1;
+  }
+}
+
+.shortInputs {
+  margin-bottom: 2.5vw;
+}
+
+.shortInputs div {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.label {
+  display: block;
+  font-family: DM Sans;
+  font-size: 1.3vw;
+  font-weight: 400;
+  line-height: 1.3vw;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5vw;
+  transition: transform 0.3s ease, font-size 0.3s ease;
+  transform: translateY(100%);
+  cursor: pointer;
+}
+
+.input {
+  position: relative;
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 0.06vw solid rgba(255, 255, 255, 0.2); /* Задаємо базовий колір лінії */
+  font-family: DM Sans;
+  font-size: 1.3vw;
+  font-weight: 400;
+  line-height: 1.3vw;
+  color: rgba(255, 255, 255, 1);
+  padding-bottom: 0.2vw;
+}
+
+/* Псевдоелемент для лінії */
+.input::after {
+  position: absolute;
+  content: "";
+  bottom: -0.1vw; /* Відступ вниз для точного розташування */
+  left: 0;
+  width: 100%;
+  height: 0.06vw; /* Висота лінії */
+  background-color: rgba(255, 255, 255, 0.2); /* Колір лінії за замовчуванням */
+  transition: background-color 0.3s ease; /* Анімація зміни кольору */
+}
+
+/* Підкреслення при ховері */
+.input:hover::after {
+  background-color: rgba(255, 255, 255, 1); /* Колір лінії при ховері */
+}
+
+/* Логіка для піднятого лейбла */
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label {
+  transform: translateY(0);
+}
+
+.uploadContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+  margin-bottom: 2.5vw;
+}
+
+.uploadLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  padding: 1vw;
+  border: 0.06vw solid #ffffff;
+  transition: background-color 0.5s;
+}
+
+.uploadInput {
+  display: none; /* Сховуємо стандартний input */
+}
+
+.uploadIcon {
+  width: 1.5vw;
+  height: 1.5vw;
+}
+
+.uploadLabel:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.uploadLabel:active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.2vw;
+  cursor: pointer;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.2vw;
+  cursor: pointer;
+}
+
+/* Сховати стандартний чекбокс */
+.checkboxContainer input[type="checkbox"] {
+  display: none;
+}
+
+/* Кастомний чекбокс */
+.checkmark {
+  display: inline-block;
+  width: 1.2vw;
+  height: 1.2vw;
+  border: 0.06vw solid #ffffff;
+  border-radius: 0.2vw;
+  background-color: transparent;
+  margin-right: 0.6vw;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+/* Коли чекбокс вибраний */
+.checkboxContainer input[type="checkbox"]:checked + .checkmark {
+  background-color: #ffffff;
+}
+
+/* Hover ефект для кастомного чекбокса */
+.checkboxContainer .checkmark:hover {
+  transform: scale(1.1);
+}
+
+/* Стиль тексту */
+.checkboxContainer label {
+  font-family: DM Sans, sans-serif;
+  font-size: 1.2vw;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.6vw;
+  cursor: pointer;
+}
+
+.btn {
+  position: relative;
+  display: flex; /* inline-flex, щоб кнопка займала лише потрібну ширину */
+  align-items: center;
+  gap: 0.4vw;
+  padding: 1vw 2vw; /* Додати відступи для кнопки */
+  cursor: pointer;
+  border-radius: 1dvw;
+
+  span {
+    font-family: DM Sans, sans-serif;
+    font-size: 1.9vw;
+    font-weight: 500;
+    line-height: 2.9vw;
+    color: #ffffff;
+    position: relative; /* Щоб текст був над псевдоелементом */
+    z-index: 2; /* Текст над `::before` */
+    transition: color 0.3s ease; /* Плавна зміна кольору тексту */
+  }
+}
+
+.btn::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 1; /* Зробити фон позаду тексту */
+  transition: transform 0.3s ease; /* Плавна анімація фону */
+  transform: scale(0.01);
+  border-radius: 3.4vw; /* Закруглені краї */
+}
+
+.btn:hover::before {
+  transform: scale(1); /* Фон заповнює кнопку при ховері */
+  opacity: 1;
+}
+
+.sendContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hoverContainer {
+  position: relative;
+}
+
+.hoverContainer::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 0;
+  height: 0.05vw;
+  background-color: #ffffff;
+  transition: width 0.5s ease;
+}
+
+.hoverContainer:hover::before {
+  width: 100%;
+}
+
+.hoverContainer:focus-within::before {
+  width: 100%;
+}
