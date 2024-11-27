@@ -82,3 +82,22 @@ export const projects = [
     ],
   },
 ];
+
+export const companyes = [
+  {
+    id: 1,
+    logo: "/images/companyes/Galiot.png",
+  },
+  {
+    id: 2,
+    logo: "/images/companyes/greenm-logo 1.png",
+  },
+  {
+    id: 3,
+    logo: "/images/companyes/Langate.png",
+  },
+  {
+    id: 4,
+    logo: "/images/companyes/Mask group.png",
+  },
+];

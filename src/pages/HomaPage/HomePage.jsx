@@ -8,6 +8,8 @@ import s from "./HomePage.module.css";
 import { useEffect, useState } from "react";
 import { getData, login } from "../../services/api";
 import { HomeReviewSection } from "../../components/HomeReviewSection/HomeReviewSection";
+import { HomeReviewSwiper } from "../../components/HomeReviewSwiper/HomeReviewSwiper";
+import { CompanyList } from "../../components/CompanyList/CompanyList";
 
 export const HomePage = () => {
   const [token, setToken] = useState();
@@ -22,7 +24,6 @@ export const HomePage = () => {
           "mkGp6Rpv5$On7BR&VU"
         );
         setToken(fetchedToken); // Зберігаємо токен у стані
-        console.log("Token:", fetchedToken);
       } catch (error) {
         console.error("Error fetching token:", error);
       }
@@ -38,7 +39,6 @@ export const HomePage = () => {
       try {
         const fetchedPosts = await getData(token, "wp-json/wp/v2/cases"); // Отримуємо пости
         setPosts(fetchedPosts);
-        console.log("Posts:", fetchedPosts);
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
@@ -56,12 +56,17 @@ export const HomePage = () => {
       <section className={s.portfolioSection}>
         <PortfolioTitularSection titulInfo={projects[0]} />
 
-        <PortfolioSection restInfo={projects.slice(1)} />
+        <PortfolioSection restInfo={posts} />
       </section>
 
       <ApproachSection />
 
-      <HomeReviewSection reviews={posts} />
+      <HomeReviewSection>
+        <div className="mb-[23vw]">
+          <HomeReviewSwiper reviews={posts} />
+        </div>
+        <CompanyList />
+      </HomeReviewSection>
     </>
   );
 };

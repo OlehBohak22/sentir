@@ -29,6 +29,8 @@ export const PortfolioTitularSection = ({ titulInfo }) => {
     }),
   };
 
+  // console.log(titulInfo);
+
   return (
     <Layout>
       <motion.div

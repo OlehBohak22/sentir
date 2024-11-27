@@ -14,6 +14,9 @@ export const PortfolioSection = ({ restInfo }) => {
 };
 
 const PortfolioItem = ({ item }) => {
+  const mors = item.case_mors.split("|||").filter((item) => item.trim() !== "");
+  console.log(mors);
+
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: false,
@@ -47,33 +50,25 @@ const PortfolioItem = ({ item }) => {
       variants={containerVariants}
     >
       <div>
-        <img src={item.image} alt={item.name} />
+        <img src={item.case_title_pictures} alt={item.case_title} />
       </div>
 
       <motion.div className={s.containerContent}>
         {/* Анімація заголовка */}
         <motion.h3 variants={childVariants} custom={0}>
-          {item.name}
+          {item.case_title}
         </motion.h3>
 
         <div>
           {/* Анімація списку */}
           <motion.ul>
-            {item.features.map((feature, index) => (
-              <motion.li
-                key={feature.id}
-                variants={childVariants}
-                custom={index + 1}
-              >
-                {feature.name}
-              </motion.li>
+            {mors.map((item) => (
+              <li>{item}</li>
             ))}
           </motion.ul>
 
           {/* Анімація опису */}
-          <motion.p variants={childVariants} custom={item.features.length + 1}>
-            {item.description}
-          </motion.p>
+          <motion.p variants={childVariants}>{item.case_description}</motion.p>
         </div>
       </motion.div>
     </motion.div>
