@@ -49,7 +49,7 @@ const PortfolioItem = ({ item }) => {
       animate={inView ? "visible" : "hidden"}
       variants={containerVariants}
     >
-      <div>
+      <div className={s.imageContainer}>
         <img src={item.case_title_pictures} alt={item.case_title} />
       </div>
 

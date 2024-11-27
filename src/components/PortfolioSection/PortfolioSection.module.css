@@ -5,6 +5,7 @@
   padding: 2.5vw 0;
   position: relative;
   z-index: 10;
+  overflow: hidden;
 }
 
 .container:not(:last-child) {
@@ -55,5 +56,15 @@
     line-height: 1.4vw;
     text-align: left;
     color: rgba(11, 11, 11, 0.5);
+  }
+}
+
+.imageContainer {
+  height: 30vw;
+  width: 100%;
+
+  img {
+    width: 100%;
+    object-fit: cover;
   }
 }
