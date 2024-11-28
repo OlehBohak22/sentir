@@ -101,3 +101,55 @@ export const companyes = [
     logo: "/images/companyes/Mask group.png",
   },
 ];
+
+export const slides = [
+  {
+    id: 1,
+    image: "/icons/about-swiper-icons/6.svg",
+    title: "Enjoy the journey",
+    description:
+      "We believe the path to success is as significant as the success itself. We look forward to a new week and find fulfillment in work that energizes us. Even when financial success is here, we will continue doing what we love.",
+  },
+  {
+    id: 2,
+    image: "/icons/about-swiper-icons/2.svg",
+    title: "Freedom for Mistakes",
+    description:
+      "We foster a safe and supportive environment where each of us is empowered to take calculated risks, explore new ideas, and learn from our experiences without fear of retribution.",
+  },
+  {
+    id: 3,
+    image: "/icons/about-swiper-icons/8.svg",
+    title: "Care in Every Action",
+    description:
+      "We place equal importance on our relationships and interactions. We believe that genuine consideration for others lays the foundation for trust and collaboration. We value each individual's unique perspective, take the extra step to ensure our communications are clear, and understand what truly matters to those around us.",
+  },
+  {
+    id: 4,
+    image: "/icons/about-swiper-icons/11.svg",
+    title: "Cherish the Feedback",
+    description:
+      "We recognize the essential role of constructive feedback. We encourage open dialogue, where every voice is heard, and every perspective is valued. Yet, we approach feedback with empathy and patience, ensuring our words stem from a place of genuine care, not fleeting emotions.",
+  },
+  {
+    id: 5,
+    image: "/icons/about-swiper-icons/11-1.svg",
+    title: "Cultivate Independence",
+    description:
+      "We empower team members to immerse themselves fully in their tasks, savoring the liberty of decision-making and delving into the nuances. We uphold a space where delegation is not just allowed, but celebrated, ensuring that trust and autonomy stand as our guiding lights.",
+  },
+  {
+    id: 6,
+    image: "/icons/about-swiper-icons/9.svg",
+    title: "Target Satisfying Achievements",
+    description:
+      "We embark on a collective quest, ensuring each individual finds purpose and significance in their contributions. By placing emphasis on projects that resonate and positively impact others, we cultivate a deep sense of accomplishment that extends beyond mere financial gain.",
+  },
+  {
+    id: 7,
+    image: "/icons/about-swiper-icons/10.svg",
+    title: "Flexibility Over Constraints",
+    description:
+      "We cultivate a space where individuals prioritize adaptability in their schedules, fostering a harmonious work-life equilibrium. By championing this freedom, we recognize the importance of balance and well-being in our professional journey.",
+  },
+];
