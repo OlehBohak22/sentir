@@ -25,7 +25,7 @@
     font-weight: 500;
     line-height: 2.2vw;
     margin-bottom: 1.5vw;
-    width: 12vw;
+    width: 15vw;
   }
 
   p {
@@ -41,10 +41,10 @@
   position: relative;
   border-radius: 1vw;
   overflow: hidden;
-
+  margin-bottom: 1vw;
   background-color: rgba(240, 240, 240, 0.3);
   width: 100%;
-  height: 0.1vw; /* Висота прогрес-бару */
+  height: 0.2vw; /* Висота прогрес-бару */
 }
 
 .customSlide {

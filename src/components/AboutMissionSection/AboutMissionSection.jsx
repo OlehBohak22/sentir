@@ -1,9 +1,9 @@
-import s from "./AboutReviewSection.module.css";
+import s from "./AboutMissionSection.module.css";
 import { Layout } from "../Layout/Layout";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
-export const AboutReviewSection = () => {
+export const AboutMissionSection = () => {
   const { ref, inView } = useInView({
     triggerOnce: false, // Анімація спрацьовує тільки один раз
     threshold: 0.2, // Активується, коли 20% секції видно на екрані

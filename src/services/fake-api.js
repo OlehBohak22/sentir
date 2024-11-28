@@ -153,3 +153,30 @@ export const slides = [
       "We cultivate a space where individuals prioritize adaptability in their schedules, fostering a harmonious work-life equilibrium. By championing this freedom, we recognize the importance of balance and well-being in our professional journey.",
   },
 ];
+
+export const professionals = [
+  {
+    id: 1,
+    image: "/icons/about-swiper-icons/6.svg",
+    title: "Product Managers",
+    description: 2,
+  },
+  {
+    id: 2,
+    image: "/icons/about-swiper-icons/2.svg",
+    title: "Software Engineers",
+    description: 10,
+  },
+  {
+    id: 3,
+    image: "/icons/about-swiper-icons/8.svg",
+    title: "UX/UI Designers",
+    description: 2,
+  },
+  {
+    id: 4,
+    image: "/icons/about-swiper-icons/11.svg",
+    title: "QA Engineers",
+    description: 3,
+  },
+];

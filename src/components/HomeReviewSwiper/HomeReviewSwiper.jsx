@@ -31,30 +31,35 @@ export const HomeReviewSwiper = ({ reviews }) => {
           setProgress(currentProgress); // Оновлюємо прогрес
         }}
       >
-        {reviews.map((review) => (
-          <SwiperSlide key={review.id}>
-            <div className={s.swiperSlide}>
-              <div className={s.reviewerInfo}>
-                <img
-                  className={s.reviewerAvatar}
-                  src={review.avatar}
-                  alt={review.full_name}
-                />
-                <div>
-                  <p className={s.reviewerFullname}>{review.full_name}</p>
-                  <p className={s.reviewerDirect}>{review.direction}</p>
-                  <div className={s.reviewerCompany}>
-                    <img src={review.company_icon} alt={review.company_name} />
-                    <p>{review.company_name}</p>
+        {reviews
+          .filter((review) => review.add_to_reviews == 1)
+          .map((review) => (
+            <SwiperSlide key={review.id}>
+              <div className={s.swiperSlide}>
+                <div className={s.reviewerInfo}>
+                  <img
+                    className={s.reviewerAvatar}
+                    src={review.avatar}
+                    alt={review.full_name}
+                  />
+                  <div>
+                    <p className={s.reviewerFullname}>{review.full_name}</p>
+                    <p className={s.reviewerDirect}>{review.direction}</p>
+                    <div className={s.reviewerCompany}>
+                      <img
+                        src={review.company_icon}
+                        alt={review.company_name}
+                      />
+                      <p>{review.company_name}</p>
+                    </div>
                   </div>
                 </div>
+                <div>
+                  <p className={s.reviewContent}>{review.review}</p>
+                </div>
               </div>
-              <div>
-                <p className={s.reviewContent}>{review.review}</p>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          ))}
       </Swiper>
 
       <div className={s.swiperOptions}>

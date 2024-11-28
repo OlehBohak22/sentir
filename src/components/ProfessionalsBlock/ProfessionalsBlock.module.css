@@ -1,0 +1,47 @@
+.rotatingCircles {
+  position: relative;
+  width: 16vw;
+  height: 16vw;
+}
+
+.circle1,
+.circle2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation-duration: 10s; /* Тривалість обертання */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.circle1 {
+  animation-name: rotateClockwise;
+}
+
+.circle2 {
+  animation-name: rotateCounterClockwise;
+  width: 90%;
+  height: 90%;
+  margin-left: 0.6vw;
+  margin-top: 0.6vw;
+}
+
+/* Анімація за годинниковою стрілкою */
+@keyframes rotateClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Анімація проти годинникової стрілки */
+@keyframes rotateCounterClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
