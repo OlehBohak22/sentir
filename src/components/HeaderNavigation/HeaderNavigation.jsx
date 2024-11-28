@@ -6,7 +6,7 @@ export const HeaderNavigation = () => {
     <nav className={s.navContainer}>
       <ul className={s.navList}>
         <li>
-          <NavLink>Home</NavLink>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
           <NavLink>Portfolio</NavLink>
@@ -15,7 +15,7 @@ export const HeaderNavigation = () => {
           <NavLink>Workflow</NavLink>
         </li>
         <li>
-          <NavLink>About</NavLink>
+          <NavLink to="/about">About</NavLink>
         </li>
       </ul>
 

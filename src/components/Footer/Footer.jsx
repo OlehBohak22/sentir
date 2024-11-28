@@ -16,7 +16,7 @@ export const Footer = () => {
             <ul>
               <h4>MENU</h4>
               <li>
-                <Link>About Us</Link>
+                <Link to="/about">About Us</Link>
               </li>
               <li>
                 <Link>Portfolio</Link>

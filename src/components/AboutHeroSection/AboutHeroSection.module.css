@@ -1,0 +1,22 @@
+.section {
+  background-image: url(/images/sections-bg/home-hero-bg.jpg);
+  background-size: cover;
+  padding-top: 12vw;
+  height: 100vh;
+}
+
+.section ::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(0, 0, 0, 0.8) 70%
+  );
+  z-index: 1; /* Поверх основного фону */
+  pointer-events: none; /* Щоб не заважав взаємодії */
+}
