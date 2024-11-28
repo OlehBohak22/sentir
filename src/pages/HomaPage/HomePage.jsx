@@ -6,63 +6,43 @@ import { ServicesSection } from "../../components/ServicesSection/ServicesSectio
 import { projects } from "../../services/fake-api";
 import s from "./HomePage.module.css";
 import { useEffect, useState } from "react";
-import { getData, login } from "../../services/api";
+import { getData } from "../../services/api";
 import { HomeReviewSection } from "../../components/HomeReviewSection/HomeReviewSection";
 import { HomeReviewSwiper } from "../../components/HomeReviewSwiper/HomeReviewSwiper";
 import { CompanyList } from "../../components/CompanyList/CompanyList";
 import { FormSection } from "../../components/FormSection/FormSection";
 
-export const HomePage = () => {
-  const [token, setToken] = useState();
-  const [posts, setPosts] = useState([]);
+export const HomePage = ({ token }) => {
+  const [cases, setCases] = useState([]);
   const [review, setReview] = useState([]);
 
   useEffect(() => {
-    // Функція для отримання токена
-    const fetchToken = async () => {
-      try {
-        const fetchedToken = await login(
-          "admin_projection",
-          "mkGp6Rpv5$On7BR&VU"
-        );
-        setToken(fetchedToken); // Зберігаємо токен у стані
-      } catch (error) {
-        console.error("Error fetching token:", error);
-      }
-    };
-
-    fetchToken();
-  }, []); // Цей useEffect спрацює один раз при завантаженні компонента
-
-  useEffect(() => {
-    // Якщо токен є, отримуємо пости
     const fetchPosts = async () => {
-      if (!token) return; // Перевіряємо, чи є токен
+      if (!token) return;
       try {
-        const fetchedPosts = await getData(token, "wp-json/wp/v2/cases"); // Отримуємо пости
-        setPosts(fetchedPosts);
+        const data = await getData(token, "wp-json/wp/v2/cases");
+        setCases(data);
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
     };
 
     fetchPosts();
-  }, [token]); // Цей useEffect спрацює тільки тоді, коли токен зміниться
+  }, [token]);
 
   useEffect(() => {
-    // Якщо токен є, отримуємо пости
-    const fetchPosts = async () => {
-      if (!token) return; // Перевіряємо, чи є токен
+    const fetchReviews = async () => {
+      if (!token) return;
       try {
-        const fetchedPosts = await getData(token, "wp-json/wp/v2/reviews"); // Отримуємо пости
-        setReview(fetchedPosts);
+        const data = await getData(token, "wp-json/wp/v2/reviews");
+        setReview(data);
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error("Error fetching reviews:", error);
       }
     };
 
-    fetchPosts();
-  }, [token]); // Цей useEffect спрацює тільки тоді, коли токен зміниться
+    fetchReviews();
+  }, [token]);
 
   return (
     <main>
@@ -73,7 +53,7 @@ export const HomePage = () => {
       <section className={s.portfolioSection}>
         <PortfolioTitularSection titulInfo={projects[0]} />
 
-        <PortfolioSection restInfo={posts} />
+        <PortfolioSection restInfo={cases} />
       </section>
 
       <ApproachSection />

@@ -2,7 +2,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://www.sentir.projection-learn.website";
 
-export const login = async (username, password) => {
+export const getToken = async (username, password) => {
   try {
     const res = await axios.post(`/wp-json/jwt-auth/v1/token`, {
       username,
