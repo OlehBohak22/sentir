@@ -4,7 +4,10 @@ footer {
 
 .footerContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr 2fr;
+  grid-template-areas:
+    "logo menu services social"
+    "bottom bottom bottom bottom";
+  grid-template-columns: 1.3fr 1.3fr 2.5fr 2fr;
   margin-bottom: 6.3vw;
 
   h4 {
@@ -122,7 +125,7 @@ footer {
 
 .footerBottomContainer {
   display: grid;
-  grid-template-columns: 4fr 2fr;
+  grid-template-columns: 5.1fr 2fr;
 
   a,
   p {
