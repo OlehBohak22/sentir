@@ -3,7 +3,6 @@ import { HomeHero } from "../../components/HomeHero/HomeHero";
 import { PortfolioSection } from "../../components/PortfolioSection/PortfolioSection";
 import { PortfolioTitularSection } from "../../components/PortfolioTitularSection/PortfolioTitularSection";
 import { ServicesSection } from "../../components/ServicesSection/ServicesSection";
-import { projects } from "../../services/fake-api";
 import s from "./HomePage.module.css";
 import { useEffect, useState } from "react";
 import { getData } from "../../services/api";
@@ -51,7 +50,7 @@ export const HomePage = ({ token }) => {
       <ServicesSection />
 
       <section className={s.portfolioSection}>
-        <PortfolioTitularSection titulInfo={projects[0]} />
+        {cases.length > 0 && <PortfolioTitularSection titulInfo={cases[0]} />}
 
         <PortfolioSection restInfo={cases} />
       </section>

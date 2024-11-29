@@ -1,0 +1,12 @@
+.section {
+  padding-top: 13.6vw;
+
+  h1 {
+    font-family: Almarai;
+    font-size: 7vw;
+    font-weight: 400;
+    line-height: 7vw;
+    text-transform: uppercase;
+    margin-bottom: 3.4vw;
+  }
+}

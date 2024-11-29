@@ -3,9 +3,9 @@ import { HomePage } from "./pages/HomaPage/HomePage";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
 import { AboutPage } from "./pages/AboutPage/AboutPage";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import { useState, useEffect } from "react";
 import { getToken } from "./services/api";
+import { PortfilioPage } from "./pages/PortfilioPage/PortfilioPage";
 
 export default function App() {
   const [token, setToken] = useState();
@@ -29,12 +29,12 @@ export default function App() {
 
   return (
     <>
-      <SpeedInsights />
       <Header />
 
       <Routes>
         <Route path="/" element={<HomePage token={token} />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/portfolio" element={<PortfilioPage token={token} />} />
       </Routes>
 
       <Footer />
