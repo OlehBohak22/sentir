@@ -7,6 +7,7 @@ import { ProfessionalsBlock } from "../../components/ProfessionalsBlock/Professi
 import { useEffect, useState } from "react";
 import { getData } from "../../services/api";
 import { SeparateReviewBlock } from "../../components/SeparateReviewBlock/SeparateReviewBlock";
+import { FormSection } from "../../components/FormSection/FormSection";
 
 export const AboutPage = ({ token }) => {
   const [review, setReview] = useState([]);
@@ -35,6 +36,7 @@ export const AboutPage = ({ token }) => {
         <SeparateReviewBlock review={review} className="mb=[2vw}" />
         <CompanyList />
       </HomeReviewSection>
+      <FormSection />
     </main>
   );
 };

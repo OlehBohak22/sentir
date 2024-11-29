@@ -18,7 +18,7 @@
     content: "";
     position: absolute;
     width: calc(100% - 3vw);
-    background-color: inherit;
+    background-color: #ffffff;
     height: 1px;
     bottom: 1.4vw;
     left: 50%;

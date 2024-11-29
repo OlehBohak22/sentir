@@ -6,11 +6,23 @@ import { motion } from "framer-motion";
 export const AboutHeroSection = () => {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Варіанти анімації для заголовка, тексту та кнопки
+  const textVariants = {
+    hidden: { opacity: 0, y: "5vw" },
+    visible: { opacity: 1, y: "0" },
+  };
+
   return (
     <section className={`${s.section} ${isHovered ? s.noOverlay : ""}`}>
       <Layout className="relative z-10">
         <div className={s.content}>
-          <div className={s.rotatingCircles}>
+          {/* Обертання кіл */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className={s.rotatingCircles}
+          >
             <img
               className={s.circle1}
               src="/icons/animated_circles/circle1.svg"
@@ -21,16 +33,35 @@ export const AboutHeroSection = () => {
               src="/icons/animated_circles/circle2.svg"
               alt="Circle"
             />
-          </div>
+          </motion.div>
 
-          <h2 className={s.title}>SENTIR</h2>
+          {/* Заголовок із затримкою */}
+          <motion.h2
+            initial="hidden"
+            animate="visible"
+            variants={textVariants}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+            className={s.title}
+          >
+            SENTIR
+          </motion.h2>
 
-          <p>making digital experiences feel human</p>
+          {/* Текст із трохи довшою затримкою */}
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            variants={textVariants}
+            transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+          >
+            making digital experiences feel human
+          </motion.p>
 
+          {/* Кнопка */}
           <motion.div
-            initial={{ opacity: 0, y: "5vw" }}
-            animate={{ opacity: 1, y: "0" }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            initial="hidden"
+            animate="visible"
+            variants={textVariants}
+            transition={{ duration: 1, delay: 0.9, ease: "easeOut" }}
             className={s.heroHoverLink}
             onMouseEnter={() => setIsHovered(true)} // Знімаємо затемнення
             onMouseLeave={() => setIsHovered(false)} // Повертаємо затемнення

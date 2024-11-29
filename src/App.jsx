@@ -33,12 +33,9 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<HomePage token={token} />} />
-<<<<<<< HEAD
         <Route path="/about" element={<AboutPage token={token} />} />
-=======
         <Route path="/about" element={<AboutPage />} />
         <Route path="/portfolio" element={<PortfilioPage token={token} />} />
->>>>>>> 275df85c8ea82968f251fd4fe17aca2ad16f7707
       </Routes>
 
       <Footer />
