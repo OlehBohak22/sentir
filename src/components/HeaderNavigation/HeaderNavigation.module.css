@@ -10,7 +10,7 @@
     font-weight: 500;
     line-height: 1.4vw;
     text-align: left;
-    color: #ffffff;
+    color: inherit;
     padding: 1.5vw 1.5vw 1.2vw 1.5vw;
   }
 
@@ -18,7 +18,7 @@
     content: "";
     position: absolute;
     width: calc(100% - 3vw);
-    background-color: #ffffff;
+    background-color: inherit;
     height: 1px;
     bottom: 1.4vw;
     left: 50%;
@@ -34,13 +34,14 @@
 
 .headerContactBtn {
   padding: 0.5vw 1.3vw;
-  border: 0.06vw solid var(--White, #ffffff);
+  border: 0.06vw solid;
+  border-color: inherit;
   border-radius: 2.6vw;
   font-family: Inter;
   font-size: 0.9vw;
   font-weight: 600;
   line-height: 1.4vw;
-  color: #ffffff;
+  color: inherit;
 }
 
 .navContainer {

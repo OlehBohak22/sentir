@@ -29,14 +29,16 @@ export const PortfolioTitularSection = ({ titulInfo }) => {
     }),
   };
 
-  // console.log(titulInfo);
+  const mors = titulInfo.case_mors
+    .split("|||")
+    .filter((item) => item.trim() !== "");
 
   return (
     <Layout>
       <motion.div
         ref={ref}
         className={s.titularContainer}
-        style={{ backgroundImage: `url(${titulInfo.image})` }}
+        style={{ backgroundImage: `url(${titulInfo.case_title_pictures})` }}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={containerVariants}
@@ -54,28 +56,25 @@ export const PortfolioTitularSection = ({ titulInfo }) => {
         <motion.div className={s.titularContent}>
           {/* Анімація опису */}
           <motion.p variants={childVariants} custom={1}>
-            {titulInfo.description}
+            {titulInfo.case_description}
           </motion.p>
 
           {/* Анімація списку */}
           <motion.ul>
-            {titulInfo.features.map((item, index) => (
+            {mors.map((item, index) => (
               <motion.li
                 key={item.id}
                 variants={childVariants}
                 custom={index + 2}
               >
-                {item.name}
+                {item}
               </motion.li>
             ))}
           </motion.ul>
 
           {/* Анімація заголовку */}
-          <motion.h3
-            variants={childVariants}
-            custom={titulInfo.features.length + 2}
-          >
-            {titulInfo.name}
+          <motion.h3 variants={childVariants} custom={mors.length + 2}>
+            {titulInfo.case_title}
           </motion.h3>
         </motion.div>
       </motion.div>
