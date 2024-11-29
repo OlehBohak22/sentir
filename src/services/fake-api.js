@@ -157,26 +157,26 @@ export const slides = [
 export const professionals = [
   {
     id: 1,
-    image: "/icons/about-swiper-icons/6.svg",
+    image: "/icons/professional-block/product.svg",
     title: "Product Managers",
-    description: 2,
+    qty: 2,
   },
   {
     id: 2,
-    image: "/icons/about-swiper-icons/2.svg",
+    image: "/icons/professional-block/soft.svg",
     title: "Software Engineers",
-    description: 10,
+    qty: 10,
   },
   {
     id: 3,
-    image: "/icons/about-swiper-icons/8.svg",
+    image: "/icons/professional-block/ux.svg",
     title: "UX/UI Designers",
-    description: 2,
+    qty: 2,
   },
   {
     id: 4,
-    image: "/icons/about-swiper-icons/11.svg",
+    image: "/icons/professional-block/qa.svg",
     title: "QA Engineers",
-    description: 3,
+    qty: 3,
   },
 ];

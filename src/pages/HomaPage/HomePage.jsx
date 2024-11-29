@@ -14,7 +14,7 @@ import { FormSection } from "../../components/FormSection/FormSection";
 
 export const HomePage = ({ token }) => {
   const [cases, setCases] = useState([]);
-  const [review, setReview] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -35,7 +35,7 @@ export const HomePage = ({ token }) => {
       if (!token) return;
       try {
         const data = await getData(token, "wp-json/wp/v2/reviews");
-        setReview(data);
+        setReviews(data);
       } catch (error) {
         console.error("Error fetching reviews:", error);
       }
@@ -60,7 +60,7 @@ export const HomePage = ({ token }) => {
 
       <HomeReviewSection>
         <div className="mb-[23vw]">
-          <HomeReviewSwiper reviews={review} />
+          <HomeReviewSwiper reviews={reviews} />
         </div>
         <CompanyList />
       </HomeReviewSection>

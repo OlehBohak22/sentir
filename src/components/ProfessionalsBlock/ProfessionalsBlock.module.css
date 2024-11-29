@@ -45,3 +45,73 @@
     transform: rotate(-360deg);
   }
 }
+
+.container {
+  display: flex;
+  gap: 7.7vw;
+  padding: 0 0 5.8vw 7.6vw;
+
+  h2 {
+    font-family: Almarai;
+    font-size: 4.1vw;
+    font-weight: 400;
+    line-height: 4.1vw;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 5.6vw;
+
+    span {
+      display: block;
+      text-indent: 2vw;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 8.5vw;
+    row-gap: 2.4vw;
+    width: 47.5vw;
+
+    li {
+      flex-basis: calc((100% - 8.5vw) / 2);
+      display: flex;
+      align-items: center;
+
+      div {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 100%;
+        margin-right: 2.2vw;
+        min-width: 4.4vw;
+        min-height: 4.4vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 2.7vw;
+          height: 2.7vw;
+        }
+      }
+
+      span {
+        font-family: DM Sans;
+        font-size: 4.4vw;
+        font-weight: 400;
+        line-height: 4.4vw;
+        color: #ffffff;
+        margin-right: 0.8vw;
+      }
+
+      p {
+        font-family: DM Sans;
+        font-size: 1.6vw;
+        font-weight: 400;
+        line-height: 1.8vw;
+        letter-spacing: -0.03em;
+        color: rgba(255, 255, 255, 0.3);
+        width: 7vw;
+      }
+    }
+  }
+}
