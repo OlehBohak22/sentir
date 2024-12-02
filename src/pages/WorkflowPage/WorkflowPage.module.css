@@ -1,0 +1,70 @@
+.heroSection {
+  background-color: #000;
+  /* background-image: url(/images/about-page/about-hero-elipse.png);
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  background-position: center -50vw; */
+  padding-top: 13.5vw;
+  padding-bottom: 5vw;
+
+  .titleContainer {
+    color: #ffffff;
+
+    h1,
+    p {
+      color: inherit;
+    }
+
+    h1 {
+      font-family: Almarai;
+      font-size: 7vw;
+      font-weight: 400;
+      line-height: 7vw;
+      text-transform: uppercase;
+      margin-bottom: 1.6vw;
+    }
+
+    p {
+      font-family: DM Sans;
+      font-size: 2.2vw;
+      font-weight: 500;
+      line-height: 2.2vw;
+      letter-spacing: -0.03em;
+      width: 100%;
+      padding-bottom: 4.3vw;
+      border-bottom: 0.06vw solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 8vw;
+    }
+  }
+}
+
+.heroSection {
+  position: relative;
+  background-color: #000;
+  padding-top: 13.5vw;
+  padding-bottom: 5vw;
+  overflow: hidden; /* Щоб приховати вихід псевдоелемента за межі */
+}
+
+.heroSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  width: 100vw;
+  height: 100vw;
+  background-image: url(/images/about-page/about-hero-elipse.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: rotateElipse 20s linear infinite;
+}
+
+@keyframes rotateElipse {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

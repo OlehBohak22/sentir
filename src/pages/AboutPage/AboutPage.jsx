@@ -34,7 +34,7 @@ export const AboutPage = ({ token }) => {
       <HomeReviewSection>
         <ProfessionalsBlock />
         <SeparateReviewBlock review={review} className="mb=[2vw}" />
-        <CompanyList />
+        <CompanyList token={token} />
       </HomeReviewSection>
       <FormSection />
     </main>

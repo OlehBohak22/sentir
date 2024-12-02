@@ -61,7 +61,7 @@ export const HomePage = ({ token }) => {
         <div className="mb-[23vw]">
           <HomeReviewSwiper reviews={reviews} />
         </div>
-        <CompanyList />
+        <CompanyList token={token} />
       </HomeReviewSection>
 
       <FormSection />

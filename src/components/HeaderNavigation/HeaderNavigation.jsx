@@ -19,7 +19,7 @@ export const HeaderNavigation = () => {
           <NavLink to="/portfolio">Portfolio</NavLink>
         </li>
         <li>
-          <NavLink>Workflow</NavLink>
+          <NavLink to="/workflow">Workflow</NavLink>
         </li>
         <li>
           <NavLink to="/about">About</NavLink>

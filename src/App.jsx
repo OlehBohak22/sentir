@@ -6,6 +6,7 @@ import { AboutPage } from "./pages/AboutPage/AboutPage";
 import { useState, useEffect } from "react";
 import { getToken } from "./services/api";
 import { PortfilioPage } from "./pages/PortfilioPage/PortfilioPage";
+import { WorkflowPage } from "./pages/WorkflowPage/WorkflowPage";
 
 export default function App() {
   const [token, setToken] = useState();
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/about" element={<AboutPage token={token} />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/portfolio" element={<PortfilioPage token={token} />} />
+        <Route path="/workflow" element={<WorkflowPage token={token} />} />
       </Routes>
 
       <Footer />
