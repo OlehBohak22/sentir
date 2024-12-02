@@ -32,7 +32,7 @@
 
 .roadmapContainer {
   padding: 4.6vw 0 6.1vw 0;
-  background-image: url(images/workflow-page/roadmap-bg.png);
+  background-image: url(/images/workflow-page/roadmap-bg.png);
   background-size: cover;
 
   .item:not(:last-child) {
