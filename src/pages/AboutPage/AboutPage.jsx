@@ -17,7 +17,7 @@ export const AboutPage = ({ token }) => {
       if (!token) return;
       try {
         const data = await getData(token, "wp-json/wp/v2/reviews");
-        setReview(data.find((item) => item.case_select == "general"));
+        setReview(data.find((item) => item.case_select == "About"));
       } catch (error) {
         console.error("Error fetching reviews:", error);
       }
