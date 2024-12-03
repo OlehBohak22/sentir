@@ -1,0 +1,60 @@
+.accordion {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 20px auto;
+  background-color: black;
+  background-image: url(/images/sections-bg/service-elipse.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 2vw;
+  padding: 2.7vw;
+
+  h3,
+  p {
+    color: #ffffff;
+  }
+
+  h3 {
+    font-family: DM Sans;
+    font-size: 1.3vw;
+    font-weight: 500;
+    line-height: 2vw;
+  }
+
+  p {
+    font-family: DM Sans;
+    font-size: 0.8vw;
+    font-weight: 200;
+    line-height: 1vw;
+    opacity: 0.7;
+  }
+}
+
+.section {
+  transition: 0.3s;
+}
+
+.section:not(:last-child) {
+  margin-bottom: 1vw;
+}
+
+.section:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.header {
+  display: flex;
+  gap: 1.4vw;
+  padding: 1.3vw 1.6vw;
+  cursor: pointer;
+
+  img {
+    width: 1.4vw;
+    height: 1.4vw;
+  }
+}
+
+.content {
+  padding: 1.3vw 1.6vw;
+  padding-top: 0;
+}

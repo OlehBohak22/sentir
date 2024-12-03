@@ -49,7 +49,7 @@ export const WorkflowPage = ({ token }) => {
         </Layout>
       </section>
 
-      <SectionNavigation />
+      <SectionNavigation token={token} />
     </main>
   );
 };

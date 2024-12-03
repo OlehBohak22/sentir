@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { Link as ScrollLink, Element } from "react-scroll";
 import s from "./SectionNavigation.module.css";
 import { Layout } from "../Layout/Layout";
+import Faq from "../Faq/Faq";
 
-export const SectionNavigation = () => {
+export const SectionNavigation = ({ token }) => {
   const [activeSection, setActiveSection] = useState("");
 
   const sections = [
@@ -12,10 +13,10 @@ export const SectionNavigation = () => {
       id: "time-and-materials",
       label: "Research and Proposal",
     },
-    { id: "fixed-price", label: "Research and Proposal: Fixed Price" },
     { id: "design", label: "Design" },
     { id: "delivery", label: "Delivery and Feedback" },
-    { id: "launch", label: "Soft Launch" },
+    { id: "soft", label: "Soft Launch" },
+    { id: "launch", label: "Launch, Support and Incidents Management" },
   ];
 
   useEffect(() => {
@@ -24,7 +25,7 @@ export const SectionNavigation = () => {
         const element = document.getElementById(section.id);
         if (element) {
           const { top, bottom } = element.getBoundingClientRect();
-          if (top <= 50 && bottom > 50) {
+          if (top <= 1 && bottom > 1) {
             setActiveSection(section.id);
           }
         }
@@ -43,21 +44,12 @@ export const SectionNavigation = () => {
           position: "relative",
         }}
       >
-        <ul
-          style={{
-            position: "sticky",
-            top: "20px",
-            listStyle: "none",
-            paddingTop: 30,
-          }}
-        >
+        <ul className={s.navList}>
           {sections.map((section) => (
-            <li key={section.id} style={{ margin: "10px 0" }}>
+            <li key={section.id}>
               <ScrollLink
                 to={section.id}
                 smooth={true}
-                duration={500}
-                offset={-50}
                 className={activeSection === section.id ? "active-link" : ""}
                 style={{
                   cursor: "pointer",
@@ -130,7 +122,7 @@ export const SectionNavigation = () => {
           </div>
         </Element>
 
-        <Element name="fixed-price" id="fixed-price">
+        <Element>
           <div className={s.navBlock}>
             <h3>Research and Proposal: Fixed Price.</h3>
             <p className="mb-[2vw]">
@@ -191,6 +183,29 @@ export const SectionNavigation = () => {
 
         <Element name="delivery" id="delivery">
           <div className={s.navBlock}>
+            <h3>Delivery and Feedback</h3>
+
+            <p className="mb-[2vw]">
+              After the initial design is approved, the team will commence the
+              project delivery phase. Delivery is typically conducted in
+              two-week iterations following the Scrum methodology, ensuring a
+              transparent process and timely quality assurance and feedback on
+              the developed functionality. This phase includes regular priority
+              sync meetings, demo sessions, and project delivery reports.
+            </p>
+
+            <p>
+              It's important to remember that delivery is a collaborative effort
+              that requires close cooperation from your side, usually involving
+              a Product Manager. This collaboration ensures that the project
+              stays on track and meets your expectations throughout the
+              development process.
+            </p>
+          </div>
+        </Element>
+
+        <Element name="soft" id="soft">
+          <div className={s.navBlock}>
             <h3>Soft Launch</h3>
 
             <p>
@@ -227,6 +242,10 @@ export const SectionNavigation = () => {
               expectations, providing a reliable user experience.
             </p>
           </div>
+        </Element>
+
+        <Element>
+          <Faq token={token} />
         </Element>
       </div>
     </Layout>
