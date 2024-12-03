@@ -1,0 +1,30 @@
+.navBlock {
+  padding: 3vw 0 3.6vw 0;
+  border-bottom: 0.06vw solid rgba(11, 11, 11, 0.1);
+  margin-bottom: 4.4vw;
+
+  h3 {
+    font-family: DM Sans;
+    font-size: 3.3vw;
+    font-weight: 500;
+    line-height: 3.3vw;
+    margin-bottom: 2.7vw;
+  }
+
+  p {
+    font-family: DM Sans;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    color: rgba(11, 11, 11, 0.5);
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.imageContainer {
+  margin-bottom: 4.7vw;
+}

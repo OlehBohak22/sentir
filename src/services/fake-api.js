@@ -161,3 +161,12 @@ export const professionals = [
     qty: 3,
   },
 ];
+
+export const sections = [
+  { id: "intro", label: "Introductory Meeting" },
+  {
+    id: "time-and-materials",
+    label: "Research and Proposal: Time and Materials",
+  },
+  { id: "fixed-price", label: "Research and Proposal: Fixed Price" },
+];

@@ -4,6 +4,7 @@ import s from "./WorkflowPage.module.css";
 import { SeparateReviewBlock } from "../../components/SeparateReviewBlock/SeparateReviewBlock";
 import { useState, useEffect } from "react";
 import { getData } from "../../services/api";
+import { SectionNavigation } from "../../components/SectionNavigation/SectionNavigation";
 
 export const WorkflowPage = ({ token }) => {
   const [review, setReview] = useState([]);
@@ -36,6 +37,19 @@ export const WorkflowPage = ({ token }) => {
 
         <SeparateReviewBlock review={review} />
       </section>
+
+      <section className={s.innovationSection}>
+        <Layout className={s.container}>
+          <h2>Innovation & Empathy</h2>
+          <p>
+            Sentir's brand ethos focuses on innovation and empathy. Using design
+            thinking and empathy mapping, we create products that resonate with
+            users, ensuring solutions are functional, meaningful and impactful.
+          </p>
+        </Layout>
+      </section>
+
+      <SectionNavigation />
     </main>
   );
 };
