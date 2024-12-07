@@ -5,6 +5,7 @@ import { SeparateReviewBlock } from "../../components/SeparateReviewBlock/Separa
 import { useState, useEffect } from "react";
 import { getData } from "../../services/api";
 import { SectionNavigation } from "../../components/SectionNavigation/SectionNavigation";
+import { FormSection } from "../../components/FormSection/FormSection";
 
 export const WorkflowPage = ({ token }) => {
   const [review, setReview] = useState([]);
@@ -50,6 +51,8 @@ export const WorkflowPage = ({ token }) => {
       </section>
 
       <SectionNavigation token={token} />
+
+      <FormSection />
     </main>
   );
 };

@@ -1,7 +1,4 @@
 .accordion {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 20px auto;
   background-color: black;
   background-image: url(/images/sections-bg/service-elipse.png);
   background-repeat: no-repeat;
@@ -12,6 +9,15 @@
   h3,
   p {
     color: #ffffff;
+  }
+
+  h2 {
+    font-family: DM Sans;
+    font-size: 3.3vw;
+    font-weight: 500;
+    line-height: 3.3vw;
+    color: #ffffff;
+    margin-bottom: 2.2vw;
   }
 
   h3 {
@@ -57,4 +63,8 @@
 .content {
   padding: 1.3vw 1.6vw;
   padding-top: 0;
+}
+
+.faq-link a {
+  color: black !important;
 }

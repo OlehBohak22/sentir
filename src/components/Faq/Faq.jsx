@@ -1,18 +1,17 @@
+import { useEffect, useState, useRef } from "react";
 import { getData } from "../../services/api";
 import s from "./Faq.module.css";
 
-import { useEffect, useState } from "react";
-
 const Faq = ({ token }) => {
-  // Початкове значення стану — порожній масив
   const [questions, setQuestions] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(null); // Для відстеження відкритої секції
+  const [activeIndex, setActiveIndex] = useState(null);
+  const contentRefs = useRef([]); // Створюємо масив рефів для контенту
 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
         const res = await getData(token, "wp-json/wp/v2/faqs");
-        setQuestions(res || []); // Встановлення даних, якщо вони є, або порожнього масиву
+        setQuestions(res || []);
       } catch (error) {
         console.log("Помилка завантаження FAQ:", error.message);
       }
@@ -21,46 +20,51 @@ const Faq = ({ token }) => {
     fetchQuestions();
   }, [token]);
 
-  // Функція перемикання активної секції
   const toggleSection = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
     <div className={s.accordion}>
-      {/* Перевірка на наявність питань */}
+      <h2>FAQ</h2>
       {questions.length > 0 ? (
         questions.map((item, index) => (
           <div
             key={index}
-            style={{
-              backgroundColor:
-                activeIndex === index ? "rgba(255, 255, 255, 0.2)" : "", // Перевірка конкретного індекса
-              transition: "transform 0.3s ease", // Анімація обертання
-            }}
-            className={s.section}
+            className={`${s.section} ${activeIndex === index ? s.active : ""}`}
           >
             <div className={s.header} onClick={() => toggleSection(index)}>
               <img
                 style={{
                   transform:
-                    activeIndex === index ? "rotate(180deg)" : "rotate(0deg)", // Перевірка конкретного індекса
-                  transition: "transform 0.3s ease", // Анімація обертання
+                    activeIndex === index ? "rotate(180deg)" : "rotate(0deg)",
+                  transition: "transform 0.3s ease",
                 }}
                 src="/icons/faq-arrow.svg"
                 alt="Arrow"
               />
               <h3>{item.faq_question}</h3>
             </div>
-            {activeIndex === index && (
-              <div className={s.content}>
-                <p>{item.faq_answer}</p>
-              </div>
-            )}
+            <div
+              className={s.content}
+              ref={(el) => (contentRefs.current[index] = el)}
+              style={{
+                maxHeight:
+                  activeIndex === index
+                    ? `${contentRefs.current[index]?.scrollHeight}px`
+                    : "0", // Якщо не активна, висота 0
+                paddingTop: activeIndex === index ? "0.1vw" : "0", // Додаємо паддінг тільки коли розгорнуто
+                paddingBottom: activeIndex === index ? "4vw" : "0",
+                transition: "max-height 0.3s ease, padding 0.3s ease",
+                overflow: "hidden",
+              }}
+            >
+              <p>{item.faq_answer}</p>
+            </div>
           </div>
         ))
       ) : (
-        <p>Немає доступних запитань.</p> // Повідомлення, якщо список порожній
+        <p>Немає доступних запитань.</p>
       )}
     </div>
   );

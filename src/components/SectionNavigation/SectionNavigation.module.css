@@ -24,6 +24,7 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   padding-top: 8.3vw;
+  padding-bottom: 8.3vw;
 }
 
 .imageContainer {
@@ -43,10 +44,17 @@
     font-weight: 500;
     line-height: 1.3vw;
     transition: 0.3s;
+    padding-left: 0;
   }
 
   a:hover {
     color: black !important;
     transform: scale(1.2);
   }
+}
+
+.content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease, padding 0.3s ease;
 }

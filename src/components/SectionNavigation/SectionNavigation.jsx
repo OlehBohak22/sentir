@@ -9,14 +9,12 @@ export const SectionNavigation = ({ token }) => {
 
   const sections = [
     { id: "intro", label: "Introductory Meeting" },
-    {
-      id: "time-and-materials",
-      label: "Research and Proposal",
-    },
+    { id: "time-and-materials", label: "Research and Proposal" },
     { id: "design", label: "Design" },
     { id: "delivery", label: "Delivery and Feedback" },
     { id: "soft", label: "Soft Launch" },
     { id: "launch", label: "Launch, Support and Incidents Management" },
+    { id: "faq", label: "FAQ" }, // Додано секцію FAQ
   ];
 
   useEffect(() => {
@@ -25,7 +23,7 @@ export const SectionNavigation = ({ token }) => {
         const element = document.getElementById(section.id);
         if (element) {
           const { top, bottom } = element.getBoundingClientRect();
-          if (top <= 1 && bottom > 1) {
+          if (top <= 100 && bottom > 100) {
             setActiveSection(section.id);
           }
         }
@@ -46,10 +44,15 @@ export const SectionNavigation = ({ token }) => {
       >
         <ul className={s.navList}>
           {sections.map((section) => (
-            <li key={section.id}>
+            <li
+              key={section.id}
+              className={section.id === "faq" ? "faq-link" : ""}
+            >
               <ScrollLink
                 to={section.id}
                 smooth={true}
+                offset={-50}
+                duration={200}
                 className={activeSection === section.id ? "active-link" : ""}
                 style={{
                   cursor: "pointer",
@@ -244,7 +247,7 @@ export const SectionNavigation = ({ token }) => {
           </div>
         </Element>
 
-        <Element>
+        <Element name="faq" id="faq">
           <Faq token={token} />
         </Element>
       </div>
