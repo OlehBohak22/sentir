@@ -1,0 +1,102 @@
+.section {
+  background-image: url(/images/service-elipse.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom right;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  height: 100vh;
+}
+
+.contentTitleContainer {
+  display: flex;
+  margin-bottom: 5vw;
+  gap: 4.8vw;
+
+  h3 {
+    font-family: DM Sans;
+    font-size: 3.6vw;
+    font-weight: 400;
+    line-height: 3.9vw;
+    flex: 1;
+  }
+
+  div:not(:last-child) {
+    margin-bottom: 1.7vw;
+  }
+
+  .serviceOptionContainer {
+    flex: 1;
+    span {
+      font-family: DM Sans;
+      font-size: 1.1lvw;
+      font-weight: 500;
+      line-height: 1.6vw;
+      color: rgba(11, 11, 11, 0.4);
+      margin-bottom: 0.2vw;
+    }
+
+    p {
+      font-family: DM Sans;
+      font-size: 1.6vw;
+      font-weight: 400;
+      line-height: 1.8vw;
+    }
+  }
+}
+
+.sidebar {
+  position: relative;
+  padding-left: 5vw;
+}
+
+.sidebar .tab {
+  padding: 1.1vw 1.6vw;
+  cursor: pointer;
+  color: #838383;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: DM Sans;
+  font-size: 1.6vw;
+  font-weight: 500;
+  line-height: 1.9vw;
+  transition: 0.3s;
+}
+
+.tab:hover {
+  transform: scale(1.2);
+  color: #000000;
+}
+
+.activeTab {
+  background-color: #fff;
+  font-weight: bold;
+  color: #000000 !important;
+  transform: scale(1.2);
+}
+
+.content {
+  position: relative;
+  padding: 0 4.8vw;
+}
+
+.content::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0.1vw;
+  background: var(--primary-gradient);
+}
+
+.desc {
+  font-family: DM Sans;
+  font-size: 1.1vw;
+  font-weight: 400;
+  line-height: 1.6vw;
+  margin-bottom: 2.2vw;
+}

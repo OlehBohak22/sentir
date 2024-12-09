@@ -1,7 +1,11 @@
 import s from "./ServicesPage.module.css";
 import { Layout } from "../../components/Layout/Layout";
+import { ServicesTabs } from "../../components/ServicesTabs/ServicesTabs";
+import { StackSection } from "../../components/StackSection/StackSection";
+import { FormSection } from "../../components/FormSection/FormSection";
+import { ClientsTalk } from "../../components/ClientsTalk/ClientsTalk";
 
-export const ServicesPage = () => {
+export const ServicesPage = ({ token }) => {
   return (
     <main>
       <section className={s.heroSection}>
@@ -17,6 +21,14 @@ export const ServicesPage = () => {
           </p>
         </Layout>
       </section>
+
+      <ServicesTabs token={token} />
+
+      <StackSection />
+
+      <ClientsTalk token={token} />
+
+      <FormSection />
     </main>
   );
 };

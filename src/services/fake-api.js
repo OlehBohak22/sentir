@@ -170,3 +170,30 @@ export const sections = [
   },
   { id: "fixed-price", label: "Research and Proposal: Fixed Price" },
 ];
+
+export const stackIcons = [
+  {
+    id: 1,
+    icon: "/icons/stack-icons.svg#icon-JS",
+  },
+  {
+    id: 2,
+    icon: "/icons/stack-icons.svg#icon-PY",
+  },
+  {
+    id: 3,
+    icon: "/icons/stack-icons.svg#icon-JAVA",
+  },
+  {
+    id: 4,
+    icon: "/icons/stack-icons.svg#icon-NET",
+  },
+  {
+    id: 5,
+    icon: "/icons/stack-icons.svg#icon-PHP",
+  },
+  {
+    id: 6,
+    icon: "/icons/stack-icons.svg#icon-C",
+  },
+];
