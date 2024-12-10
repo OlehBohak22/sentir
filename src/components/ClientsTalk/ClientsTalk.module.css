@@ -31,30 +31,81 @@
   }
 }
 
-.logosList {
-  display: flex;
-  gap: 2.7vw;
-  flex-wrap: nowrap;
-  animation: scrollLogos 20s linear infinite;
-  width: calc(200%); /* Два списки */
-}
-
-.logosList li {
-  border-radius: 50%;
-  flex: 0 0 auto;
-  width: calc((100vw - (6 * 2.7vw)) / 7); /* Динамічний розрахунок */
-  aspect-ratio: 1; /* Робить елементи квадратними */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(245, 247, 249, 1);
-}
-
-@keyframes scrollLogos {
-  0% {
+@keyframes slide {
+  from {
     transform: translateX(0);
   }
-  100% {
-    transform: translateX(-50%);
+  to {
+    transform: translateX(-100%);
   }
 }
+
+.logos {
+  overflow: hidden;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logosSlide {
+  display: inline-block;
+  animation: 10s slide infinite linear;
+  display: inline-flex;
+  align-items: center;
+
+  div {
+    position: relative;
+    width: 11.1vw;
+    height: 11.1vw;
+    margin: 0 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(245, 247, 249, 1);
+    border-radius: 50%;
+  }
+
+  span {
+    position: absolute;
+    font-family: DM Sans;
+    font-size: 1.1vw;
+    font-weight: 500;
+    line-height: 1.6vw;
+    color: #ffffff;
+    background: rgba(64, 64, 64, 0.5);
+    padding: 0.2vw 1vw;
+    border-radius: 2.3vw;
+  }
+}
+
+.logosSlide img {
+  display: inline;
+}
+
+/* .logosSlide img:last-child {
+  margin-right: 0;
+} */

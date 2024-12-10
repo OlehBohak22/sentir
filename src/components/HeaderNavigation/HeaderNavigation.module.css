@@ -12,6 +12,12 @@
     text-align: left;
     color: inherit;
     padding: 1.5vw 1.5vw 1.2vw 1.5vw;
+
+    svg {
+      width: 0.7vw;
+      height: 0.7vw;
+      transition: 0.3s;
+    }
   }
 
   a::after {
@@ -48,4 +54,46 @@
   display: flex;
   align-items: center;
   gap: 3.5vw;
+}
+
+.backdrop:hover svg {
+  transform: rotate(180deg);
+}
+
+.backdrop:hover .backdropContent {
+  max-height: 20vw;
+  padding: 0.6vw 1.5vw;
+
+  padding-top: 0;
+}
+
+.backdropContent {
+  position: absolute;
+  max-height: 0vw;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(0.9vw);
+
+  transition: 0.5;
+  max-width: 14vw;
+
+  a {
+    display: block;
+    margin: 0.5vw 0;
+    padding: 0;
+    width: fit-content;
+  }
+
+  a::after {
+    bottom: 0;
+    left: 0;
+    transform: translateX(0);
+    width: 100%;
+  }
+}
+
+.serviceLink {
+  display: flex !important;
+  align-items: center;
+  gap: 0.2vw;
 }

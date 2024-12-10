@@ -32,18 +32,25 @@ export const ClientsTalk = ({ token }) => {
           </p>
         </div>
 
-        <ul className={s.logosList}>
-          {logos.map((logo, index) => (
-            <li key={index}>
-              <img src={logo["load-btn-image"]} alt="" />
-            </li>
-          ))}
-          {logos.map((logo, index) => (
-            <li key={index}>
-              <img src={logo["load-btn-image"]} alt="" />
-            </li>
-          ))}
-        </ul>
+        <div className={s.logos}>
+          <div className={s.logosSlide}>
+            {logos.map((logo) => (
+              <div key={logo.id}>
+                <img src={logo["load-btn-image"]} />
+                {logo["nda-checkbox"] == 1 ? <span>NDA</span> : ""}
+              </div>
+            ))}
+          </div>
+
+          <div className={s.logosSlide}>
+            {logos.map((logo) => (
+              <div key={logo.id}>
+                <img src={logo["load-btn-image"]} />
+                {logo["nda-checkbox"] == 1 ? <span>NDA</span> : ""}
+              </div>
+            ))}
+          </div>
+        </div>
       </Layout>
     </section>
   );
