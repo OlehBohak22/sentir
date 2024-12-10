@@ -8,6 +8,7 @@ import { getToken } from "./services/api";
 import { PortfilioPage } from "./pages/PortfilioPage/PortfilioPage";
 import { WorkflowPage } from "./pages/WorkflowPage/WorkflowPage";
 import { ServicesPage } from "./pages/ServicesPage/ServicesPage";
+import { CasePage } from "./pages/CasePage/CasePage";
 
 export default function App() {
   const [token, setToken] = useState();
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="/portfolio" element={<PortfilioPage token={token} />} />
         <Route path="/workflow" element={<WorkflowPage token={token} />} />
         <Route path="/services" element={<ServicesPage token={token} />} />
+        <Route path="/cases/:id" element={<CasePage token={token} />} />
       </Routes>
 
       <Footer />

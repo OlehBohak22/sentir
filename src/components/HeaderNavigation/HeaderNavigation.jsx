@@ -4,8 +4,9 @@ import s from "./HeaderNavigation.module.css";
 export const HeaderNavigation = () => {
   const location = useLocation();
 
+  // Задаємо колір для активних елементів
   const headerStyle =
-    location.pathname === "/portfolio"
+    location.pathname === "/portfolio" || location.pathname.startsWith("/cases")
       ? { color: "black" }
       : { color: "white" };
 
@@ -33,12 +34,62 @@ export const HeaderNavigation = () => {
             </svg>
           </NavLink>
           <div className={s.backdropContent}>
-            <Link to="/services#project">Project Kick-Off</Link>
-            <Link to="/services#discovery">Discovery</Link>
-            <Link to="/services#UXUI">UX/UI</Link>
-            <Link to="/services#web">Web & Mobile Development</Link>
-            <Link to="/services#due">Due Diligence</Link>
-            <Link to="/services#staff">Staff Augmentation</Link>
+            <Link
+              to="/services#project"
+              className={location.hash === "#project" ? s.activeLink : ""}
+              style={
+                location.hash === "#project" ? { color: headerStyle.color } : {}
+              }
+            >
+              Project Kick-Off
+            </Link>
+            <Link
+              to="/services#discovery"
+              className={location.hash === "#discovery" ? s.activeLink : ""}
+              style={
+                location.hash === "#discovery"
+                  ? { color: headerStyle.color }
+                  : {}
+              }
+            >
+              Discovery
+            </Link>
+            <Link
+              to="/services#UXUI"
+              className={location.hash === "#UXUI" ? s.activeLink : ""}
+              style={
+                location.hash === "#UXUI" ? { color: headerStyle.color } : {}
+              }
+            >
+              UX/UI
+            </Link>
+            <Link
+              to="/services#web"
+              className={location.hash === "#web" ? s.activeLink : ""}
+              style={
+                location.hash === "#web" ? { color: headerStyle.color } : {}
+              }
+            >
+              Web & Mobile Development
+            </Link>
+            <Link
+              to="/services#due"
+              className={location.hash === "#due" ? s.activeLink : ""}
+              style={
+                location.hash === "#due" ? { color: headerStyle.color } : {}
+              }
+            >
+              Due Diligence
+            </Link>
+            <Link
+              to="/services#staff"
+              className={location.hash === "#staff" ? s.activeLink : ""}
+              style={
+                location.hash === "#staff" ? { color: headerStyle.color } : {}
+              }
+            >
+              Staff Augmentation
+            </Link>
           </div>
         </li>
 

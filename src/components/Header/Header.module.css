@@ -19,7 +19,7 @@
 header {
   position: absolute; /* Фіксуємо елемент */
   left: 4vw;
-  z-index: 2;
+  z-index: 9;
 }
 
 .headerContainer {

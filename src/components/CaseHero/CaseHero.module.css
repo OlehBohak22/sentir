@@ -1,0 +1,40 @@
+.section {
+  position: relative;
+  padding: 17.4vw 0 4.5vw 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.section::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url(/images/about-page/about-review-elipse.png);
+  background-size: cover;
+  background-position: 0 -10vw;
+}
+
+.titleContainer {
+  position: relative;
+  z-index: 1;
+  p {
+    font-family: DM Sans;
+    font-size: 2.2vw;
+    font-weight: 500;
+    line-height: 2.2vw;
+    color: #ffffff;
+    margin-bottom: 2vw;
+  }
+
+  h1 {
+    font-family: Inter;
+    font-size: 4.4vw;
+    font-weight: 500;
+    line-height: 4.3vw;
+    color: #ffffff;
+    max-width: 55vw;
+  }
+}

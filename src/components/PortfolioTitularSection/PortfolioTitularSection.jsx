@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Layout } from "../Layout/Layout";
 import s from "./PortfolioTitularSection.module.css";
+import { Link } from "react-router-dom";
 
 export const PortfolioTitularSection = ({ titulInfo }) => {
   const { ref, inView } = useInView({
@@ -35,49 +36,51 @@ export const PortfolioTitularSection = ({ titulInfo }) => {
 
   return (
     <Layout>
-      <motion.div
-        ref={ref}
-        className={s.titularContainer}
-        style={{ backgroundImage: `url(${titulInfo.case_title_pictures})` }}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        variants={containerVariants}
-      >
-        {/* Анімація для стрілки */}
-        <motion.div className={s.arrow} variants={childVariants} custom={0}>
-          <img
-            className={s.arrowImage}
-            src="/icons/custom-arrow.png"
-            alt="Cursor"
-          />
+      <Link to={`/cases/${titulInfo.id}`}>
+        <motion.div
+          ref={ref}
+          className={s.titularContainer}
+          style={{ backgroundImage: `url(${titulInfo.case_title_pictures})` }}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={containerVariants}
+        >
+          {/* Анімація для стрілки */}
+          <motion.div className={s.arrow} variants={childVariants} custom={0}>
+            <img
+              className={s.arrowImage}
+              src="/icons/custom-arrow.png"
+              alt="Cursor"
+            />
+          </motion.div>
+
+          {/* Контент секції */}
+          <motion.div className={s.titularContent}>
+            {/* Анімація опису */}
+            <motion.p variants={childVariants} custom={1}>
+              {titulInfo.case_description}
+            </motion.p>
+
+            {/* Анімація списку */}
+            <motion.ul>
+              {mors.map((item, index) => (
+                <motion.li
+                  key={item.id}
+                  variants={childVariants}
+                  custom={index + 2}
+                >
+                  {item}
+                </motion.li>
+              ))}
+            </motion.ul>
+
+            {/* Анімація заголовку */}
+            <motion.h3 variants={childVariants} custom={mors.length + 2}>
+              {titulInfo.case_title}
+            </motion.h3>
+          </motion.div>
         </motion.div>
-
-        {/* Контент секції */}
-        <motion.div className={s.titularContent}>
-          {/* Анімація опису */}
-          <motion.p variants={childVariants} custom={1}>
-            {titulInfo.case_description}
-          </motion.p>
-
-          {/* Анімація списку */}
-          <motion.ul>
-            {mors.map((item, index) => (
-              <motion.li
-                key={item.id}
-                variants={childVariants}
-                custom={index + 2}
-              >
-                {item}
-              </motion.li>
-            ))}
-          </motion.ul>
-
-          {/* Анімація заголовку */}
-          <motion.h3 variants={childVariants} custom={mors.length + 2}>
-            {titulInfo.case_title}
-          </motion.h3>
-        </motion.div>
-      </motion.div>
+      </Link>
     </Layout>
   );
 };

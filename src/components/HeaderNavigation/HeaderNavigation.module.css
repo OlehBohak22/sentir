@@ -10,7 +10,7 @@
     font-weight: 500;
     line-height: 1.4vw;
     text-align: left;
-    color: inherit;
+    color: inherit; /* Використовуємо колір, який буде задано в React */
     padding: 1.5vw 1.5vw 1.2vw 1.5vw;
 
     svg {
@@ -24,7 +24,7 @@
     content: "";
     position: absolute;
     width: calc(100% - 3vw);
-    background-color: #ffffff;
+    background-color: currentColor; /* Фон успадковує колір тексту */
     height: 1px;
     bottom: 1.4vw;
     left: 50%;
@@ -73,7 +73,7 @@
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(0.9vw);
-
+  z-index: 9;
   transition: 0.5;
   max-width: 14vw;
 
