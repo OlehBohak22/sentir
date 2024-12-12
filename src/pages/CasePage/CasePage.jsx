@@ -72,8 +72,9 @@ export const CasePage = ({ token }) => {
       </div>
 
       <CaseHorizontalSection cases={cases} />
-
-      <FormSection />
+      <div className="mt-[5vw]">
+        <FormSection />
+      </div>
     </main>
   );
 };
