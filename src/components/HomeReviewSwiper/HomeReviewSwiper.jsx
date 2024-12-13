@@ -6,9 +6,12 @@ import "swiper/css/pagination";
 import s from "./HomeReviewSwiper.module.css"; // Ваш файл стилів
 import { useState } from "react";
 import "./swiperPagination.css";
+import { useMediaQuery } from "react-responsive";
 
 export const HomeReviewSwiper = ({ reviews }) => {
   const [progress, setProgress] = useState(0); // Початковий прогрес
+  const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
 
   return (
     <div className={s.swiperContainer}>
@@ -45,18 +48,28 @@ export const HomeReviewSwiper = ({ reviews }) => {
                   <div>
                     <p className={s.reviewerFullname}>{review.full_name}</p>
                     <p className={s.reviewerDirect}>{review.direction}</p>
-                    <div className={s.reviewerCompany}>
-                      <img
-                        src={review.company_icon}
-                        alt={review.company_name}
-                      />
-                      <p>{review.company_name}</p>
-                    </div>
+
+                    {isDesktop && (
+                      <div className={s.reviewerCompany}>
+                        <img
+                          src={review.company_icon}
+                          alt={review.company_name}
+                        />
+                        <p>{review.company_name}</p>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div>
                   <p className={s.reviewContent}>{review.review}</p>
                 </div>
+
+                {isMobile && (
+                  <div className={s.reviewerCompany}>
+                    <img src={review.company_icon} alt={review.company_name} />
+                    <p>{review.company_name}</p>
+                  </div>
+                )}
               </div>
             </SwiperSlide>
           ))}

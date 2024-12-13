@@ -5,7 +5,7 @@ export const services = [
     description:
       "Helping you refine product ideas, craft compelling prototypes, and achieve feature-market fit models with your target audience.",
     icon: "/icons/services-icons.svg#icon-1",
-    link: "/services/discovery",
+    link: "/services#discovery",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const services = [
     description:
       "Centered on user needs, we design with purpose for both mobile and web platforms.",
     icon: "/icons/services-icons.svg#icon-2",
-    link: "/icons/services-icons.svg#icon-2",
+    link: "/services#UXUI",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const services = [
     description:
       "Leveraging cutting-edge technologies, our development team builds scalable web & mobile applications that deliver success.",
     icon: "/icons/services-icons.svg#icon-3",
-    link: "/services/web-mobile-development",
+    link: "/services#web",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const services = [
     description:
       "We assess and evaluate your current tech implementations against industry benchmarks and identify opportunities for advancement.",
     icon: "/icons/services-icons.svg#icon-4",
-    link: "/services/due-diligence",
+    link: "/services#due",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export const services = [
     description:
       "We work side by side with clients to deliver business outcomes by scaling your team with seamless integration into your existing workflows.",
     icon: "/icons/services-icons.svg#icon-5",
-    link: "/services/staff-augmentation",
+    link: "/services#staff",
   },
 ];
 

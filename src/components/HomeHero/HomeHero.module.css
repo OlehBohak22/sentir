@@ -1,4 +1,5 @@
 .heroSection {
+  position: relative;
   padding-top: 12.8vw;
   padding-bottom: 3.1vw;
   overflow: hidden;
@@ -249,12 +250,12 @@
   }
 
   .svg {
-    left: -19vw;
-    top: -6.3vw;
-    width: 141vw;
-    height: 152vw;
+    left: 0;
+    top: 23.7vw;
+    height: auto;
     stroke: rgba(255, 255, 255, 0.2);
     box-shadow: none !important;
+    transform: scale(1.5);
   }
 }
 

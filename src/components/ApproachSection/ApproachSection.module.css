@@ -237,3 +237,95 @@
     transform: rotate(-360deg);
   }
 }
+
+@media (max-width: 1024px) {
+  .approachContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-top: 42.5vw;
+    padding-bottom: 24vw;
+    gap: 17vw;
+  }
+
+  .leftSideContent {
+    padding-top: 0;
+
+    p {
+      font-size: 7.4vw;
+      line-height: 7.4vw;
+      text-align: center;
+      margin-bottom: 10vw;
+    }
+  }
+
+  .title {
+    width: auto;
+    font-size: 8.2vw;
+    line-height: 8.2vw;
+    margin-bottom: 16vw;
+  }
+
+  .mainItems {
+    display: flex;
+    flex-direction: column;
+    gap: 4.2vw;
+
+    .topBlocks {
+      display: block;
+      padding: 10.6vw;
+      aspect-ratio: 0;
+
+      h3 {
+        font-size: 6.4vw;
+        line-height: 6.4vw;
+        width: 50vw;
+        margin-bottom: 10.6vw;
+      }
+
+      p {
+        font-size: 3.7vw;
+        line-height: 5.6vw;
+      }
+    }
+
+    .bottomBlock {
+      padding: 8vw;
+      padding-top: 85.3vw;
+
+      h3 {
+        font-size: 8.5vw;
+        line-height: 9.3vw;
+        width: auto;
+        margin-bottom: 10.6vw;
+      }
+
+      p {
+        font-size: 4.2vw;
+        line-height: 6.4vw;
+      }
+
+      .rotatingCircles {
+        transform: translateY(37vw) translateX(-34vw);
+        width: 15vw;
+        height: 15vw;
+
+        .circle2 {
+          width: 13vw;
+          margin-left: 1vw;
+        }
+      }
+
+      svg {
+        top: -60vw;
+        right: 0vw;
+        width: 180vw;
+      }
+    }
+
+    .bottomBlock::after {
+      width: 70vw;
+      height: 70vw;
+      filter: blur(22vw);
+    }
+  }
+}

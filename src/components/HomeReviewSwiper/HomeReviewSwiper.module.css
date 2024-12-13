@@ -104,3 +104,86 @@
   width: 13vw;
   height: 0.1vw; /* Висота прогрес-бару */
 }
+
+@media (max-width: 1024px) {
+  .swiperSlide {
+    display: block;
+  }
+
+  .reviewerInfo {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5.3vw;
+    margin-bottom: 11.2vw;
+  }
+
+  .reviewerAvatar {
+    width: 16.5vw;
+    height: 16.5vw;
+  }
+
+  .reviewerFullname {
+    font-size: 8.5vw;
+    line-height: 9.3vw;
+    margin-bottom: 1.6vw;
+  }
+
+  .reviewerDirect {
+    font-size: 5vw;
+    line-height: 5vw;
+    text-align: center;
+  }
+
+  .reviewerCompany {
+    justify-content: center;
+    gap: 2.6vw;
+
+    img {
+      width: 5.3vw;
+      height: 5.3vw;
+    }
+
+    p {
+      font-size: 3.7vw;
+      line-height: 5.6vw;
+    }
+  }
+
+  .reviewContent {
+    font-size: 5.3vw;
+    line-height: 8vw;
+    text-align: center;
+    border: none;
+    padding: 0;
+    margin-bottom: 11.2vw;
+  }
+
+  .swiperOptions {
+    display: block;
+  }
+
+  .swiperNav {
+    justify-content: center;
+    margin-bottom: 2vw;
+
+    div {
+      width: 18.6vw;
+      height: 18.6vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    img {
+      width: 8.5vw;
+      height: 8.5vw;
+    }
+  }
+
+  .customPaginationContainer {
+    margin: 0 auto;
+    height: 0.5vw;
+    width: 50vw;
+  }
+}

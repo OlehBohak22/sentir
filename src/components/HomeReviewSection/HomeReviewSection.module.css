@@ -3,8 +3,8 @@
 .section {
   background-color: #000;
   background-image: url("/images/sections-bg/company-elipse.png");
-  background-size: 70vw;
+  background-size: cover;
   background-position: left bottom;
   background-repeat: no-repeat;
-  padding: 11vw 0;
+  padding: 24vw 0;
 }

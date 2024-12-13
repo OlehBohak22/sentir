@@ -65,7 +65,8 @@ export const PortfolioTitularSection = ({ titulInfo }) => {
             <motion.ul>
               {mors.map((item, index) => (
                 <motion.li
-                  key={item.id}
+                  className={item == "NDA" ? s.nda : ""}
+                  key={index}
                   variants={childVariants}
                   custom={index + 2}
                 >

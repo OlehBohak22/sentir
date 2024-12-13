@@ -49,3 +49,11 @@
 .discussBtn:hover::after {
   width: 0; /* Лінія підкреслення з'являється по всій ширині елементу */
 }
+
+@media (max-width: 1024px) {
+  .discussBtn {
+    font-size: 6.4vw;
+    line-height: 9.6vw;
+    margin: 0 auto;
+  }
+}

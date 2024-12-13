@@ -47,6 +47,10 @@
       border-radius: 2.3vw;
       background: rgba(11, 11, 11, 0.04);
     }
+    .nda {
+      background: var(--primary-gradient);
+      color: white;
+    }
   }
 
   p {
@@ -68,5 +72,58 @@
     height: 100%;
 
     object-fit: cover;
+  }
+}
+
+.nda {
+  background: var(--primary-gradient) !important;
+  color: white !important;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    display: block;
+    padding: 8.5vw 0;
+  }
+
+  .container:not(:last-child) {
+    border-bottom: 1px solid rgba(11, 11, 11, 0.1); /* Рамка */
+  }
+
+  .containerContent {
+    display: block;
+    width: auto;
+
+    h3 {
+      font-size: 7.4vw;
+      line-height: 7.4vw;
+      margin-bottom: 6.4vw;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4vw;
+      row-gap: 1vw;
+
+      margin-bottom: 3.2vw;
+
+      li {
+        font-size: 3.2vw;
+        line-height: 4.8vw;
+        padding: 0.5vw 1.6vw;
+      }
+    }
+
+    p {
+      font-size: 3.7vw;
+      line-height: 5.6vw;
+    }
+  }
+
+  .imageContainer {
+    height: auto;
+    width: 100%;
+    margin-bottom: 9.6vw;
   }
 }

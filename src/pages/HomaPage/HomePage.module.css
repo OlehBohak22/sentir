@@ -1,3 +1,9 @@
 .portfolioSection {
-  padding-top: 8vw;
+  padding-top: 8.3vw;
+}
+
+@media (max-width: 1024px) {
+  .portfolioSection {
+    padding-top: 21vw;
+  }
 }

@@ -3,8 +3,12 @@ import { services } from "../../services/fake-api";
 import s from "./ServicesSection.module.css";
 import { Layout } from "../Layout/Layout";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 export const ServicesSection = () => {
+  const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
+
   // Анімація для елементів списку
   const listItemVariants = {
     hidden: { opacity: 0, y: 10 },
@@ -45,7 +49,7 @@ export const ServicesSection = () => {
               viewport={{ once: false, amount: 0.3 }} // Запуск анімації, коли елемент у полі зору
               variants={listItemVariants}
             >
-              <Link>
+              <Link to={service.link}>
                 <div>
                   <svg className={s.serviceIcon}>
                     <use href={service.icon}></use>
@@ -54,11 +58,21 @@ export const ServicesSection = () => {
                   <p>{service.description}</p>
                 </div>
 
-                <img
-                  className={s.arrowIcon}
-                  src="/icons/arrow.svg"
-                  alt="Arrow"
-                />
+                {isDesktop && (
+                  <img
+                    className={s.arrowIcon}
+                    src="/icons/arrow.svg"
+                    alt="Arrow"
+                  />
+                )}
+
+                {isMobile && (
+                  <img
+                    className={s.arrowIcon}
+                    src="/icons/arrow-gradient.svg"
+                    alt="Arrow"
+                  />
+                )}
               </Link>
             </motion.li>
           ))}
