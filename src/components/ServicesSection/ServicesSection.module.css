@@ -49,8 +49,10 @@
       }
     }
 
-    a:hover .arrowIcon {
-      transform: translateX(calc(29.5vw - 200%)) rotate(45deg);
+    @media (min-width: 1024px) {
+      a:hover .arrowIcon {
+        transform: translateX(calc(29.5vw - 200%)) rotate(45deg);
+      }
     }
 
     a:hover div {
@@ -114,4 +116,63 @@ a:hover .serviceIcon {
 svg {
   width: 0;
   height: 0;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 21.3vw 0;
+    background-size: cover;
+    background-position: -80vw;
+
+    h2 {
+      font-size: 9.6vw;
+      line-height: 9.6vw;
+      text-align: center;
+      margin-bottom: 10.6vw;
+    }
+
+    ul {
+      display: block;
+
+      & a {
+        padding: 0 4.2vw 8.5vw 4.2vw;
+        aspect-ratio: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-bottom: 0.5vw solid rgba(255, 255, 255, 0.1);
+      }
+
+      li:not(:last-child) {
+        display: block;
+        margin-bottom: 12.5vw;
+      }
+    }
+
+    svg {
+      fill: rgb(105, 105, 105);
+      width: 28.2vw;
+      height: 28.2vw;
+      margin-bottom: 3.2vw;
+    }
+
+    h3 {
+      font-size: 6.4vw;
+      line-height: 6.4vw;
+      margin-bottom: 4.2vw;
+    }
+
+    p {
+      font-size: 3.7vw;
+      line-height: 5.6vw;
+    }
+
+    .arrowIcon {
+      position: absolute;
+      top: 0;
+      right: 4.2vw;
+      width: 8.5vw;
+      height: 8.5vw;
+    }
+  }
 }

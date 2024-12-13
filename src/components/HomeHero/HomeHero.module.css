@@ -1,6 +1,7 @@
 .heroSection {
   padding-top: 12.8vw;
   padding-bottom: 3.1vw;
+  overflow: hidden;
 
   /* background-image: url(/images/sections-bg/home-hero-bg.jpg);
   background-size: cover;
@@ -178,4 +179,97 @@
   to {
     stroke-dashoffset: 0; /* Лінія повністю малюється */
   }
+}
+
+@media (max-width: 1024px) {
+  .heroSection {
+    padding-top: 36.8vw;
+    padding-bottom: 20vw;
+
+    .heroTitle {
+      font-size: 12.8vw;
+      line-height: 12.8vw;
+      text-align: center;
+      margin-bottom: 15vw;
+
+      span {
+        display: inline-block;
+      }
+
+      .rotatingCircles {
+        width: 40vw;
+        height: 40vw;
+
+        img {
+          position: absolute;
+
+          transform: translateY(-50%) translateX(-50%);
+        }
+      }
+    }
+
+    .heroDesc {
+      width: 86vw;
+      font-size: 3.7vw;
+      line-height: 4.8vw;
+      margin-bottom: 8vw;
+    }
+
+    .heroHoverLink {
+      font-size: 6.4vw;
+      line-height: 9.6vw;
+      margin-bottom: 19vw;
+    }
+
+    .swiper {
+      position: relative;
+      overflow: visible;
+      padding-bottom: 15vw;
+    }
+
+    .swiperSlideContent {
+      background-color: rgba(255, 255, 255, 0.2);
+      aspect-ratio: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 95%;
+      width: 85vw;
+      margin: 0 auto;
+
+      p {
+        font-family: DM Sans;
+        font-size: 5.8vw;
+        font-weight: 500;
+        line-height: 7.4vw;
+        color: #ffffff;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .svg {
+    left: -19vw;
+    top: -6.3vw;
+    width: 141vw;
+    height: 152vw;
+    stroke: rgba(255, 255, 255, 0.2);
+    box-shadow: none !important;
+  }
+}
+
+.customBullet {
+  display: inline-block;
+  width: 2vw;
+  height: 2vw;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Стиль для активних точок пагінації */
+.customBulletActive {
+  background-color: #ffffff; /* Колір активної точки */
+  transform: scale(1.3);
 }

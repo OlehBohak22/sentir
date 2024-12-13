@@ -113,9 +113,10 @@ export const CaseHorizontalSection = ({ cases }) => {
                   <div className={s.techStack}>
                     <p>Technology Stack</p>
                     <div className={s.iconList}>
-                      {cases["technology-stack-text"].map((icon, index) => (
-                        <img key={index} src={icon} alt="icon" />
-                      ))}
+                      {Array.isArray(cases["technology-stack-text"]) &&
+                        cases["technology-stack-text"].map((icon, index) => (
+                          <img key={index} src={icon} alt="icon" />
+                        ))}
                     </div>
                   </div>
                 </div>

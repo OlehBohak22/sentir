@@ -27,3 +27,23 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+
+@media (max-width: 1024px) {
+  .logoContainer {
+    gap: 0.5vw;
+
+    svg {
+      width: 8.5vw;
+      height: 8.5vw;
+    }
+
+    span {
+      font-size: 5.3vw;
+      line-height: 5.3vw;
+    }
+  }
+
+  header {
+    padding: 4.2vw 0;
+  }
+}
