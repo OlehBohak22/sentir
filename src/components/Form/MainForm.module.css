@@ -238,3 +238,86 @@
 .hoverContainer:focus-within::before {
   width: 100%;
 }
+
+@media (max-width: 1024px) {
+  .formTitle {
+    font-size: 6.2vw;
+    line-height: 6.9vw;
+    margin-bottom: 6.1vw;
+  }
+
+  .shortInputs {
+    display: block;
+    margin-bottom: 5.6vw;
+
+    .hoverContainer:nth-child(1) {
+      margin-bottom: 6.1vw;
+    }
+  }
+
+  .label {
+    font-size: 5.3vw;
+    line-height: 5.3vw;
+    margin-bottom: 3vw;
+  }
+
+  .input {
+    font-size: 5.3vw;
+    line-height: 5.3vw;
+  }
+
+  .uploadContainer {
+    margin-bottom: 8.5vw;
+  }
+
+  .uploadLabel {
+    font-size: 5.3vw;
+    line-height: 5.3vw;
+    padding: 5.3vw;
+  }
+
+  .uploadIcon {
+    width: 6.4vw;
+    height: 6.4vw;
+  }
+
+  .sendContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .checkboxContainer {
+    margin-bottom: 12vw;
+  }
+
+  .checkboxContainer label {
+    gap: 4.8vw;
+    font-size: 4.2vw;
+    line-height: 6.4vw;
+  }
+
+  .checkmark {
+    width: 5.8vw;
+    height: 5.8vw;
+  }
+
+  .btn {
+    padding: 1.3vw 5.8vw;
+    gap: 1vw;
+
+    span {
+      font-size: 7.4vw;
+      line-height: 11.2vw;
+    }
+
+    img {
+      width: 8.5vw;
+      height: 8.5vw;
+    }
+  }
+
+  .btn::before {
+    transform: scale(1);
+    border-radius: 11.7vw;
+  }
+}

@@ -22,3 +22,20 @@
   color: #ffffff;
   text-transform: uppercase;
 }
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 21.3vw 0;
+    background-size: 100% 100%;
+  }
+  .container {
+    display: block;
+    padding: 0;
+  }
+
+  .title {
+    font-size: 12.8vw;
+    line-height: 12.8vw;
+    margin-bottom: 13.6vw;
+  }
+}

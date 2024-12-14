@@ -108,9 +108,8 @@ footer {
     font-weight: 500;
     line-height: 2.5vw;
 
-    svg {
+    img {
       width: 2vw;
-      height: 2vw;
     }
   }
   ul {
@@ -134,5 +133,89 @@ footer {
     font-size: 1vw;
     font-weight: 400;
     line-height: 1.4vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  footer {
+    padding: 11vw 0;
+  }
+
+  .footerContainer {
+    display: block;
+
+    h4 {
+      text-align: center;
+      font-size: 3.7vw;
+      line-height: 5.6vw;
+    }
+  }
+
+  .logoContainer {
+    justify-content: center;
+    gap: 1vw;
+    margin-bottom: 3.2vw;
+
+    img {
+      width: 8.5vw;
+      height: 8.5vw;
+    }
+
+    span {
+      font-size: 5.8vw;
+      line-height: 5.8vw;
+    }
+  }
+
+  .mobAddText {
+    font-family: DM Sans;
+    font-size: 4.2vw;
+    font-weight: 400;
+    line-height: 4.2vw;
+    text-align: center;
+    color: rgba(11, 11, 11, 0.2);
+    margin-bottom: 8.8vw;
+  }
+
+  .serviceNav {
+    margin-bottom: 10vw;
+
+    a {
+      font-size: 5.3vw;
+      line-height: 10vw;
+      text-align: center;
+    }
+  }
+
+  .socialContainer {
+    div:not(:last-child) {
+      margin-bottom: 9vw;
+    }
+
+    ul {
+      justify-content: center;
+      gap: 7.4vw;
+      margin-bottom: 12vw;
+    }
+
+    a {
+      font-size: 5.3vw;
+      line-height: 8vw;
+      text-align: center;
+
+      img {
+        width: 7.4vw;
+      }
+    }
+  }
+
+  .footerBottomContainer {
+    display: block;
+    a {
+      display: block;
+      text-align: center;
+      font-size: 3.6vw;
+      line-height: 5.6vw;
+    }
   }
 }

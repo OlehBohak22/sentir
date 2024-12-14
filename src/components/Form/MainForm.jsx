@@ -45,7 +45,7 @@ export const MainForm = () => {
         </div>
 
         <div className={s.hoverContainer}>
-          <div className="relative flex flex-col-reverse mb-[2.4vw]">
+          <div className="relative flex flex-col-reverse mb-[8.5vw] lg:mb-[2.4vw]">
             <Field
               className={s.input}
               id="text"
