@@ -13,7 +13,7 @@ export const AboutHeroSection = () => {
   };
 
   return (
-    <section className={`${s.section} ${isHovered ? s.noOverlay : ""}`}>
+    <section className={`${s.section} ${isHovered ? s.hovered : ""}`}>
       <Layout className="relative z-10">
         <div className={s.content}>
           {/* Обертання кіл */}

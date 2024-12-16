@@ -44,10 +44,10 @@ export const Footer = ({ token }) => {
                   <Link to="/about">About Us</Link>
                 </li>
                 <li>
-                  <Link>Portfolio</Link>
+                  <Link to="/portfolio">Portfolio</Link>
                 </li>
                 <li>
-                  <Link>Workflow</Link>
+                  <Link to="/workflow">Workflow</Link>
                 </li>
               </ul>
             </div>

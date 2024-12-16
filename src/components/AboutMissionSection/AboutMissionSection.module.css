@@ -69,3 +69,54 @@
   padding-bottom: 2vw;
   border-bottom: 0.06vw solid rgba(255, 255, 255, 0.3);
 }
+
+@media (max-width: 1024px) {
+  .section {
+    background-size: cover, cover;
+    background-position: 0, 0;
+  }
+
+  .container {
+    display: block;
+    padding-top: 81.3vw;
+    padding-bottom: 24.2vw;
+  }
+
+  .rightText {
+    font-size: 4.2vw;
+    line-height: 6.4vw;
+    width: 50vw;
+    margin-bottom: 21.6vw;
+  }
+
+  .quotes {
+    width: 9.6vw;
+    margin-bottom: 15.2vw;
+  }
+
+  .contentText {
+    font-size: 5.3vw;
+    line-height: 8vw;
+    margin-bottom: 9.6vw;
+    padding-bottom: 7.7vw;
+  }
+
+  .sentirContaienr {
+    gap: 2.6vw;
+
+    div {
+      width: 7.2vw;
+      height: 7.2vw;
+
+      img {
+        width: 3.7vw;
+        height: 3.7vw;
+      }
+    }
+
+    span {
+      font-size: 4.2vw;
+      line-height: 6.4vw;
+    }
+  }
+}
