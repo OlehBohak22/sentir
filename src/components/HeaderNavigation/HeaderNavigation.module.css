@@ -20,6 +20,10 @@
     }
   }
 
+  .active {
+    background-color: azure;
+  }
+
   a::after {
     content: "";
     position: absolute;
@@ -85,7 +89,7 @@
     display: block;
     margin: 0.5vw 0;
     padding: 0;
-    width: fit-content;
+    width: max-content;
   }
 
   a::after {

@@ -73,7 +73,7 @@ export const HeaderNavigation = () => {
                   location.hash === "#web" ? { color: headerStyle.color } : {}
                 }
               >
-                Web & Mobile Development
+                Web & Mobile <br /> Development
               </Link>
               <Link
                 to="/services#due"
