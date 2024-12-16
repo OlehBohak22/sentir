@@ -1,4 +1,6 @@
 .titleContainer {
+  margin-bottom: 5.1vw;
+
   p {
     font-family: DM Sans;
     font-size: 1.2vw;
@@ -26,7 +28,6 @@
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 5.1vw;
   }
 }
 
@@ -104,47 +105,188 @@
     width: 5.5vw;
   }
 
-  .intro:hover {
-    width: 9vw;
+  @media (min-width: 1024px) {
+    .intro:hover {
+      width: 9vw;
+    }
+
+    .research {
+      width: 16vw;
+      margin-left: 2vw;
+    }
+    .research:hover {
+      width: 43vw;
+    }
+
+    .design {
+      width: 7vw;
+      margin-left: 18.5vw;
+    }
+    .design:hover {
+      width: 73vw;
+    }
+
+    .delivery {
+      width: 16vw;
+      margin-left: 28vw;
+    }
+    .delivery:hover {
+      width: 40vw;
+    }
+
+    .soft {
+      width: 10vw;
+      margin-left: 46.5vw;
+    }
+    .soft:hover {
+      width: 17.2vw;
+    }
+
+    .lunch {
+      width: 15vw;
+      margin-left: 58vw;
+    }
+    .lunch:hover {
+      width: 33.6vw;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .titleContainer {
+    margin-bottom: 13.3vw;
+
+    p {
+      font-size: 4.2vw;
+      line-height: 6.4vw;
+      margin-bottom: 3.2vw;
+    }
+
+    h2 {
+      font-size: 6.4vw;
+      line-height: 6.4vw;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .roadmapContainer {
+    position: relative;
+    overflow-x: auto; /* Додає скрол */
+    white-space: nowrap; /* Запобігає переносу елементів */
+    padding: 17vw 0 12.8vw 0; /* Зменшує відступи */
+    gap: 3vw; /* Проміжок між блоками */
+    background-image: none;
+
+    .item {
+      border-radius: 10.6vw;
+      padding: 2.1vw 3.2vw;
+      max-width: none;
+      p {
+        font-size: 2.6vw;
+        line-height: 3.2vw;
+      }
+
+      span {
+        font-size: 2.6vw;
+        line-height: 3.2vw;
+        opacity: 1;
+      }
+    }
+
+    .item:not(:last-child) {
+      margin-bottom: 2.1vw;
+    }
+
+    .item::after {
+      opacity: 1;
+    }
+
+    .intro {
+      width: 29vw;
+    }
+
+    .research {
+      width: 77.2vw;
+      margin-left: 5vw;
+    }
+
+    .design {
+      width: 116vw;
+      margin-left: 34.5vw;
+    }
+
+    .delivery {
+      width: 65vw;
+      margin-left: 51vw;
+    }
+
+    .soft {
+      width: 31vw;
+      margin-left: 119.5vw;
+    }
+
+    .lunch {
+      width: 40vw;
+      margin-left: 127vw;
+    }
   }
 
-  .research {
-    width: 16vw;
-    margin-left: 2vw;
-  }
-  .research:hover {
-    width: 43vw;
+  .roadmapContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 75%;
+    width: 183%;
+    background-image: url(/images/workflow-page/roadmap-bg.png);
+
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
-  .design {
-    width: 7vw;
-    margin-left: 18.5vw;
+  .roadmapLayout {
+    width: 100%;
+    padding-left: 4.2vw;
   }
-  .design:hover {
-    width: 73vw;
-  }
+}
+.scrollbarContainer {
+  width: 77vw; /* Ширина скролбару */
+  height: 0.8vw;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0.4vw;
+  overflow: hidden;
+  z-index: 10;
+}
 
-  .delivery {
-    width: 16vw;
-    margin-left: 28vw;
-  }
-  .delivery:hover {
-    width: 40vw;
-  }
+.scroller {
+  display: flex;
+  align-items: center;
+  gap: 10vw;
+}
 
-  .soft {
-    width: 10vw;
-    margin-left: 46.5vw;
-  }
-  .soft:hover {
-    width: 17.2vw;
-  }
+.scrollbar {
+  height: 100%;
+  width: 0; /* Початковий стан */
+  background: linear-gradient(
+    90deg,
+    #66d2fd 0%,
+    #6bb6f0 20%,
+    #54aaf0 40%,
+    #f354c4 60%,
+    #fa2677 80%,
+    #ff5a4a 94.01%
+  );
+  transition: width 0.1s ease-out; /* Плавне розширення */
+}
 
-  .lunch {
-    width: 15vw;
-    margin-left: 58vw;
-  }
-  .lunch:hover {
-    width: 33.6vw;
-  }
+.roadmapContainer {
+  /* Приховування скролбару для Webkit браузерів (Chrome, Safari, Opera) */
+  -webkit-overflow-scrolling: touch; /* Гладкий скролінг для мобільних */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer/Edge */
+}
+
+.roadmapContainer::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }

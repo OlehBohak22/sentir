@@ -53,7 +53,7 @@ const Faq = ({ token }) => {
                   activeIndex === index
                     ? `${contentRefs.current[index]?.scrollHeight}px`
                     : "0", // Якщо не активна, висота 0
-                paddingTop: activeIndex === index ? "0.1vw" : "0", // Додаємо паддінг тільки коли розгорнуто
+                paddingTop: activeIndex === index ? "0.3vw" : "0", // Додаємо паддінг тільки коли розгорнуто
                 paddingBottom: activeIndex === index ? "4vw" : "0",
                 transition: "max-height 0.3s ease, padding 0.3s ease",
                 overflow: "hidden",

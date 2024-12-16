@@ -58,12 +58,14 @@ html {
   scroll-behavior: smooth;
 }
 
-.faq-link {
-  border-top: 0.06vw solid rgba(0, 0, 0, 0.1);
-  padding-top: 2vw;
-  margin-top: 2vw;
-}
+@media (min-width: 1024px) {
+  .faq-link {
+    border-top: 0.06vw solid rgba(0, 0, 0, 0.1);
+    padding-top: 2vw;
+    margin-top: 2vw;
+  }
 
-.faq-link a {
-  color: black !important;
+  .faq-link a {
+    color: black !important;
+  }
 }

@@ -13,22 +13,35 @@
 
   p {
     font-family: DM Sans;
-    font-size: 18px;
+    font-size: 1.2vw;
     font-weight: 400;
-    line-height: 27px;
+    line-height: 1.8vw;
     color: rgba(11, 11, 11, 0.5);
   }
+}
+
+.section {
+  padding: 8.3vw 0;
 }
 
 .container {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  padding-top: 8.3vw;
-  padding-bottom: 8.3vw;
 }
 
 .imageContainer {
   margin-bottom: 4.7vw;
+}
+
+.navList {
+  /* Приховування скролбару для Webkit браузерів (Chrome, Safari, Opera) */
+  -webkit-overflow-scrolling: touch; /* Гладкий скролінг для мобільних */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer/Edge */
+}
+
+.navList::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .navList {
@@ -47,9 +60,15 @@
     padding-left: 0;
   }
 
+  @media (min-width: 1024px) {
+    a:hover {
+      color: black !important;
+      transform: scale(1.2);
+    }
+  }
+
   a:hover {
     color: black !important;
-    transform: scale(1.2);
   }
 }
 
@@ -57,4 +76,49 @@
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 10.6vw 0;
+  }
+
+  .container {
+    display: block;
+  }
+
+  .navList {
+    position: static;
+    display: flex;
+    overflow-x: auto;
+    width: 100%;
+    margin-bottom: 13.3vw;
+    padding-left: 2vw;
+
+    a {
+      font-size: 4.2vw;
+      line-height: 5vw;
+      white-space: nowrap;
+      padding: 4.2vw 2.1vw;
+    }
+  }
+
+  .imageContainer {
+    margin-bottom: 15vw;
+  }
+
+  .navBlock {
+    padding: 0 0 13.8vw 0;
+    margin-bottom: 13.8vw;
+    h3 {
+      font-size: 7.4vw;
+      line-height: 7.4vw;
+      margin-bottom: 6.4vw;
+    }
+
+    P {
+      font-size: 4.2vw;
+      line-height: 6.4vw;
+    }
+  }
 }

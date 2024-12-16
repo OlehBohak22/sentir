@@ -68,3 +68,42 @@
 .faq-link a {
   color: black !important;
 }
+
+@media (max-width: 1024px) {
+  .accordion {
+    padding: 14vw 4.2vw;
+
+    h2 {
+      font-size: 7.4vw;
+      line-height: 7.4vw;
+      text-align: center;
+      margin-bottom: 4.2vw;
+    }
+
+    p {
+      font-size: 4.8vw;
+      line-height: 7.2vw;
+    }
+
+    .header {
+      padding: 5.3vw 6.4vw;
+      gap: 3.2vw;
+      align-items: center;
+
+      img {
+        width: 4.2vw;
+        height: 4.2vw;
+      }
+
+      h3 {
+        font-size: 4.2vw;
+        line-height: 6.4vw;
+      }
+    }
+
+    .content {
+      padding: 5.3vw 6.4vw;
+      padding-top: 0;
+    }
+  }
+}
