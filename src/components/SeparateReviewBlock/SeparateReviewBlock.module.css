@@ -12,7 +12,7 @@
 .reviewerFullname {
   width: fit-content;
   margin: 0 auto;
-  font-family: DM Sans;
+  font-family: DM Sans, sans-serif;
   font-size: 2.2vw;
   font-weight: 500;
   line-height: 2.2vw;
@@ -38,7 +38,7 @@
   margin-bottom: 3.8vw;
 
   p {
-    font-family: DM Sans;
+    font-family: DM Sans, sans-serif;
     font-size: 1.9vw;
     font-weight: 400;
     line-height: 2.9vw;
@@ -63,10 +63,64 @@
   }
 
   p {
-    font-family: DM Sans;
+    font-family: DM Sans, sans-serif;
     font-size: 1.3vw;
     font-weight: 500;
     line-height: 1.3vw;
     color: #ffffff;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 17vw 0 45vw 0;
+  }
+  .reviewerAvatar {
+    width: 16.5vw;
+    margin-bottom: 5.3vw;
+  }
+
+  .reviewerFullname {
+    font-size: 8.5vw;
+    line-height: 8.5vw;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 3.2vw;
+  }
+
+  .reviewerDirect {
+    font-size: 4.2vw;
+    line-height: 4.2vw;
+    margin-bottom: 9.6vw;
+  }
+
+  .reviewContent {
+    gap: 5.3vw;
+    align-items: center;
+    margin-bottom: 14.4vw;
+
+    img {
+      width: 6.9vw;
+      height: 5.6vw;
+    }
+
+    p {
+      font-size: 4.2vw;
+      line-height: 6.4vw;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .reviewerCompany {
+    gap: 2.1vw;
+
+    img {
+      width: 7.2vw;
+      height: 7.2vw;
+    }
+
+    p {
+      font-size: 4.2vw;
+      line-height: 6.4vw;
+    }
   }
 }

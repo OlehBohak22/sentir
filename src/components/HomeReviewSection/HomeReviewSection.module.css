@@ -8,3 +8,9 @@
   background-repeat: no-repeat;
   padding: 24vw 0;
 }
+
+@media (max-width: 1024px) {
+  .section {
+    background-position: -120vw;
+  }
+}
