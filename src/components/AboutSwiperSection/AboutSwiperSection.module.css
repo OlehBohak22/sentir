@@ -43,8 +43,10 @@
   transition: background-color 0.3s;
 }
 
-.slide:hover {
-  background-color: #f9f9f9;
+@media (min-width: 1024px) {
+  .slide:hover {
+    background-color: #f9f9f9;
+  }
 }
 
 .slide img {
@@ -84,7 +86,7 @@
 
 @media (max-width: 1024px) {
   .scroller {
-    padding: 21vw 0;
+    padding: 21vw 0 !important;
 
     h2 {
       font-size: 9.6vw;
@@ -96,7 +98,6 @@
   .slide {
     flex: 0 0 74vw;
     max-width: 74vw; /* Ширина одного слайда */
-    padding: ;
   }
 
   .slide h3 {
