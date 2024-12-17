@@ -82,7 +82,7 @@
       font-size: 1.1vw;
       font-weight: 500;
       line-height: 1.6vw;
-      color: rgba(11, 11, 11, 0.5);
+      color: rgba(11, 11, 11, 0.4);
     }
   }
 }
@@ -128,4 +128,79 @@
   width: 0;
   background: var(--primary-gradient); /* Градієнтний ефект */
   transition: width 0.1s ease-out;
+}
+
+@media (max-width: 1024px) {
+  .scroller {
+    padding-top: 20vw !important;
+    padding-bottom: 10vw;
+  }
+
+  .progressBarWrapper {
+    top: 15vw;
+    height: 2px;
+  }
+
+  .block {
+    flex-direction: column-reverse;
+  }
+
+  .image {
+    width: 100%;
+    margin-bottom: 13.8vw;
+  }
+
+  .blockDesc {
+    display: block;
+    width: auto;
+
+    h3 {
+      font-size: 7.4vw;
+      line-height: 7.4vw;
+      margin-bottom: 8.5vw;
+    }
+
+    ul {
+      padding-left: 6vw;
+      overflow-y: auto;
+      max-height: 80vw;
+
+      li {
+        font-size: 4.2vw;
+        line-height: 6.4vw;
+      }
+    }
+  }
+
+  .lastCaseList {
+    margin-bottom: 13vw;
+    div {
+      h4 {
+        font-size: 4.8vw;
+        line-height: 5vw;
+        margin-bottom: 2.1vw;
+      }
+      p {
+        font-size: 4.2vw;
+        line-height: 4.5vw;
+      }
+    }
+  }
+
+  .techStack {
+    padding: 4.2vw 5.3vw;
+
+    P {
+      font-size: 4.8vw;
+      line-height: 5vw;
+    }
+
+    .iconList {
+      gap: 3vw;
+
+      img {
+        width: 8.5vw;
+      }
+    }
+  }
 }
