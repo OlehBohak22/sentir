@@ -2,11 +2,15 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import s from "./HeaderNavigation.module.css";
 import { useMediaQuery } from "react-responsive";
 
-export const HeaderNavigation = () => {
+export const HeaderNavigation = ({ openMenu, isOpen }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
 
   const location = useLocation();
+
+  const handleOpen = () => {
+    openMenu();
+  };
 
   // Задаємо колір для активних елементів
   const headerStyle =
@@ -111,8 +115,13 @@ export const HeaderNavigation = () => {
       <div className={s.headerContactBtn}>Contact</div>
 
       {isMobile && (
-        <button className={s.burger} type="button">
-          <img src="/icons/burger.svg" alt="Menu" />
+        <button
+          onClick={handleOpen}
+          className={`${s.burger} ${isOpen ? s.opened : ""} `}
+          type="button"
+        >
+          <div className={s.navBurgerLine}></div>
+          <div className={s.navBurgerLine}></div>
         </button>
       )}
     </nav>

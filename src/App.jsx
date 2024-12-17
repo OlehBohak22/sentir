@@ -9,7 +9,7 @@ import { PortfilioPage } from "./pages/PortfilioPage/PortfilioPage";
 import { WorkflowPage } from "./pages/WorkflowPage/WorkflowPage";
 import { ServicesPage } from "./pages/ServicesPage/ServicesPage";
 import { CasePage } from "./pages/CasePage/CasePage";
-import { ScrollTop } from "./components/ScrollTop";
+// import { ScrollTop } from "./components/ScrollTop";
 
 export default function App() {
   const [token, setToken] = useState();
@@ -35,7 +35,7 @@ export default function App() {
     <>
       <Header />
 
-      <ScrollTop />
+      {/* <ScrollTop /> */}
 
       <Routes>
         <Route path="/" element={<HomePage token={token} />} />

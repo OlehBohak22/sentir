@@ -1,0 +1,90 @@
+.menuOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(11, 11, 11, 1);
+  transition: transform 0.3s;
+}
+
+.container {
+  padding-top: 29vw;
+  padding-bottom: 10vw;
+}
+
+.menuList {
+  li {
+    a {
+      display: block;
+      color: #ffffff;
+      text-align: center;
+      font-family: Almarai, sans-serif;
+      font-size: 9.6vw;
+      font-weight: 400;
+      line-height: 9.6vw;
+      text-transform: uppercase;
+    }
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 12.2vw;
+  }
+
+  .backdrop {
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5vw;
+    }
+    svg {
+      width: 5vw;
+      height: 5vw;
+      transform: rotate(180deg);
+    }
+
+    .overlay {
+      /* Плавне розгортання */
+      max-height: 0; /* Початковий стан */
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(5vw);
+
+      transition: 1s ease, opacity 1s ease, visibility 1s 1s;
+      a {
+        font-family: DM Sans, sans-serif;
+        font-size: 4.2vw;
+        font-weight: 500;
+        line-height: 6.4vw;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    /* Стан відкритого оверлею */
+    .overlayOpen {
+      max-height: 3000px; /* Достатньо велике значення для розгортання */
+      opacity: 1;
+      visibility: visible;
+      transition: 1s ease, opacity 1s ease;
+    }
+  }
+}
+
+/* Плавність для backdrop */
+.backdropOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: 15;
+}
+
+.backdropOpen {
+  opacity: 1;
+}
