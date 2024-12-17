@@ -1,0 +1,13 @@
+.attachmentSection {
+  height: 40vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 1024px) {
+  .attachmentSection {
+    height: 77vw;
+    background-attachment: unset;
+  }
+}

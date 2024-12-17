@@ -89,3 +89,43 @@
     transition: opacity 0.3s;
   }
 }
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 21vw 0;
+  }
+
+  .container {
+    display: block;
+    padding: 0 3vw;
+  }
+
+  .caseDesc {
+    margin-bottom: 13.8vw;
+    p {
+      font-size: 4.8vw;
+      line-height: 7.2vw;
+      max-width: none;
+    }
+  }
+
+  .caseDetails {
+    row-gap: 11vw;
+    column-gap: 4.8vw;
+    max-height: 110vw;
+  }
+
+  .detailsBlock {
+    max-width: 40.4vw;
+    span {
+      font-size: 4.2vw;
+      line-height: 6.4vw;
+    }
+
+    a,
+    p {
+      font-size: 4.8vw;
+      line-height: 5vw;
+    }
+  }
+}

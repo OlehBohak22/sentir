@@ -55,13 +55,12 @@ export const CasePage = ({ token }) => {
       <CaseHero title={cases.title.rendered} bg={cases.case_title_pictures} />
       <CaseDetails details={cases} />
 
-      <section>
-        <img
-          className="w-[100%]"
-          src={cases.case_second_pictures}
-          alt="Case picture"
-        />
-      </section>
+      <section
+        className={s.attachmentSection}
+        style={{
+          backgroundImage: `url(${cases.case_second_pictures})`,
+        }}
+      ></section>
 
       <div className="bg-black">
         {review ? (
