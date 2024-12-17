@@ -74,13 +74,11 @@
   }
 }
 
-/* Застосовується лише для мобільних пристроїв */
 .heroSection::before {
   animation: pulseBackground 10s ease-in-out infinite,
     rotateElipse 20s linear infinite;
 }
 
-/* Ключові кадри для зміни бекграунду */
 @keyframes pulseBackground {
   0%,
   100% {

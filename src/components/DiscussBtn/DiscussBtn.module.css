@@ -1,4 +1,5 @@
 .discussBtn {
+  display: block;
   width: fit-content;
   position: relative;
   font-family: "Abril Fatface", sans-serif;

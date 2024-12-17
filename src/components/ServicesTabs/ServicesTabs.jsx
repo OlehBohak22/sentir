@@ -4,11 +4,15 @@ import { getData } from "../../services/api";
 import { Layout } from "../Layout/Layout";
 import { DiscussBtn } from "../DiscussBtn/DiscussBtn";
 import { useLocation } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import clsx from "clsx";
 
 export const ServicesTabs = ({ token }) => {
   const [activeTab, setActiveTab] = useState(null);
   const [services, setServices] = useState([]);
   const activeService = services.find((tab) => tab.id === activeTab);
+  const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
 
   const location = useLocation();
   const sectionRef = useRef(null); // Ссилка на секцію
@@ -61,8 +65,7 @@ export const ServicesTabs = ({ token }) => {
 
   return (
     <section ref={sectionRef} className={s.section}>
-      <Layout className={s.container}>
-        {/* Список табів */}
+      {isMobile && (
         <div className={s.sidebar}>
           {services.map((tab) => (
             <div
@@ -74,6 +77,23 @@ export const ServicesTabs = ({ token }) => {
             </div>
           ))}
         </div>
+      )}
+      <Layout className={s.container}>
+        {isDesktop && (
+          <div className={s.sidebar}>
+            {services.map((tab) => (
+              <div
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`${s.tab} ${
+                  tab.id === activeTab ? s.activeTab : ""
+                }`}
+              >
+                {tab.title.rendered}
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Контент активного табу */}
         <div className={s.content}>
@@ -103,7 +123,9 @@ export const ServicesTabs = ({ token }) => {
                   {activeService.service_description ||
                     "No description available"}
                 </p>
-                <DiscussBtn>Discuss a project</DiscussBtn>
+                <DiscussBtn className={clsx(isMobile && "m-0")}>
+                  {activeService.service_trigerbtn}
+                </DiscussBtn>
               </div>
             </>
           ) : (
