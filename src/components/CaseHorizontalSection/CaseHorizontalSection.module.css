@@ -1,7 +1,8 @@
 .scroller {
   position: relative;
   width: 100%;
-  height: 100vh; /* Секція займає всю висоту екрану */
+  height: auto !important; /* Секція займає всю висоту екрану */
+  max-height: none !important;
   overflow: hidden; /* Приховуємо все, що виходить за межі */
   padding: 7vw 0;
 }
