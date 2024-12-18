@@ -15,8 +15,8 @@ export const HeaderNavigation = ({ openMenu, isOpen }) => {
   // Задаємо колір для активних елементів
   const headerStyle =
     location.pathname === "/portfolio" || location.pathname.startsWith("/cases")
-      ? { color: "black", fill: "black" }
-      : { color: "white", fill: "white" };
+      ? { color: "black", fill: "black", backgroundColor: "transparent" }
+      : { color: "white", fill: "white", backgroundColor: "transparent" };
 
   return (
     <nav style={headerStyle} className={s.navContainer}>
@@ -117,11 +117,29 @@ export const HeaderNavigation = ({ openMenu, isOpen }) => {
       {isMobile && (
         <button
           onClick={handleOpen}
-          className={`${s.burger} ${isOpen ? s.opened : ""} `}
+          className={`${s.burger} ${isOpen ? s.opened : ""}`}
           type="button"
         >
-          <div className={s.navBurgerLine}></div>
-          <div className={s.navBurgerLine}></div>
+          <div
+            style={{
+              backgroundColor:
+                location.pathname === "/portfolio" ||
+                location.pathname.startsWith("/cases")
+                  ? "black"
+                  : "white",
+            }}
+            className={s.navBurgerLine}
+          ></div>
+          <div
+            style={{
+              backgroundColor:
+                location.pathname === "/portfolio" ||
+                location.pathname.startsWith("/cases")
+                  ? "black"
+                  : "white",
+            }}
+            className={s.navBurgerLine}
+          ></div>
         </button>
       )}
     </nav>

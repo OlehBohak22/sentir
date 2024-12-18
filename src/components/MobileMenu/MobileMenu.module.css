@@ -15,6 +15,20 @@
 }
 
 .menuList {
+  /* Приховування скролбару для Webkit браузерів (Chrome, Safari, Opera) */
+  -webkit-overflow-scrolling: touch; /* Гладкий скролінг для мобільних */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer/Edge */
+}
+
+.menuList::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.menuList {
+  overflow-x: auto;
+  height: 180vw;
+  z-index: 111111111;
   li {
     a {
       display: block;
@@ -51,7 +65,6 @@
       overflow: hidden;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(5vw);
 
       transition: 1s ease, opacity 1s ease, visibility 1s 1s;
       a {
@@ -69,6 +82,7 @@
       opacity: 1;
       visibility: visible;
       transition: 1s ease, opacity 1s ease;
+      padding: 6.4vw 0 5vw 0;
     }
   }
 }
