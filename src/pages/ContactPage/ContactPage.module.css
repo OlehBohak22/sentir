@@ -1,0 +1,107 @@
+.section {
+  min-height: 100vh;
+  background-image: url("/images/sections-bg/form-section-bg.jpg");
+  background-size: cover;
+  background-position: -40vw;
+  background-repeat: no-repeat;
+  padding-top: 11vw;
+  padding-bottom: 12vw;
+}
+
+.container {
+  display: flex;
+  gap: 22vw;
+  align-items: center;
+}
+
+.contactInfo {
+  padding: 4vw 2.2vw;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 30vw;
+
+  div:not(:last-child) {
+    margin-bottom: 2.7vw;
+  }
+
+  h1 {
+    font-family: Almarai, sans-serif;
+    font-size: 4.1vw;
+    font-weight: 400;
+    line-height: 4.1vw;
+    color: #ffffff;
+    margin-bottom: 3.3vw;
+  }
+
+  h4 {
+    font-family: DM Sans, sans-serif;
+    font-size: 1vw;
+    font-weight: 400;
+    line-height: 1.4vw;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  a {
+    font-family: DM Sans, sans-serif;
+    font-size: 1.6vw;
+    font-weight: 500;
+    line-height: 2.5vw;
+    color: #ffffff;
+  }
+
+  ul {
+    display: flex;
+    gap: 1.6vw;
+
+    img {
+      width: 1.9vw;
+      height: 1.9vw;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding-top: 36vw;
+    padding-bottom: 20vw;
+  }
+
+  .container {
+    display: block;
+  }
+
+  .contactInfo {
+    width: auto;
+    margin-bottom: 15vw;
+    padding: 8vw;
+
+    div:not(:last-child) {
+      margin-bottom: 8vw;
+    }
+
+    h1 {
+      font-size: 10vw;
+      line-height: 10vw;
+      margin-bottom: 10vw;
+    }
+
+    h4 {
+      font-size: 5vw;
+      line-height: 5vw;
+      margin-bottom: 2vw;
+    }
+
+    a {
+      display: block;
+      font-size: 5vw;
+      line-height: 5vw;
+    }
+
+    ul {
+      gap: 5vw;
+      img {
+        width: 7vw;
+        height: 7vw;
+      }
+    }
+  }
+}

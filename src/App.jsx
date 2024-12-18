@@ -9,6 +9,7 @@ import { PortfilioPage } from "./pages/PortfilioPage/PortfilioPage";
 import { WorkflowPage } from "./pages/WorkflowPage/WorkflowPage";
 import { ServicesPage } from "./pages/ServicesPage/ServicesPage";
 import { CasePage } from "./pages/CasePage/CasePage";
+import { ContactPage } from "./pages/ContactPage/ContactPage";
 // import { ScrollTop } from "./components/ScrollTop";
 
 export default function App() {
@@ -45,6 +46,7 @@ export default function App() {
         <Route path="/workflow" element={<WorkflowPage token={token} />} />
         <Route path="/services" element={<ServicesPage token={token} />} />
         <Route path="/cases/:id" element={<CasePage token={token} />} />
+        <Route path="/contact" element={<ContactPage token={token} />} />
       </Routes>
 
       <Footer token={token} />

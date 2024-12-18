@@ -1,5 +1,5 @@
 .section {
-  padding-top: 13.6vw;
+  padding-top: 8.3vw;
   padding-bottom: 14.3vw;
 
   h1 {
@@ -9,5 +9,18 @@
     line-height: 7vw;
     text-transform: uppercase;
     margin-bottom: 3.4vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding-top: 16vw;
+    padding-bottom: 24vw;
+
+    h1 {
+      font-size: 12.8vw;
+      line-height: 12.8vw;
+      margin-bottom: 8.5vw;
+    }
   }
 }

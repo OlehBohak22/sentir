@@ -112,7 +112,9 @@ export const HeaderNavigation = ({ openMenu, isOpen }) => {
         </ul>
       )}
 
-      <div className={s.headerContactBtn}>Contact</div>
+      <Link to="/contact" className={s.headerContactBtn}>
+        Contact
+      </Link>
 
       {isMobile && (
         <button
