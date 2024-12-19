@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css"; // Стилі для Swiper
 import "swiper/css/pagination";
+import { Link } from "react-router-dom";
 
 export const HomeHero = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -202,14 +203,17 @@ export const HomeHero = () => {
           Embrace our diverse, collaborative approach to making products that
           resonate with users and drive business success.
         </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: "5vw" }} // Початкова позиція: зліва
-          animate={{ opacity: 1, y: "0" }} // Кінцева позиція: звичайна
-          transition={{ duration: 1, ease: "easeOut" }}
-          className={s.heroHoverLink}
-        >
-          GET NO-COST DISCOVERY
-        </motion.div>
+
+        <Link>
+          <motion.div
+            initial={{ opacity: 0, y: "5vw" }} // Початкова позиція: зліва
+            animate={{ opacity: 1, y: "0" }} // Кінцева позиція: звичайна
+            transition={{ duration: 1, ease: "easeOut" }}
+            className={s.heroHoverLink}
+          >
+            GET NO-COST DISCOVERY
+          </motion.div>
+        </Link>
 
         <div>
           {isDesktop && (

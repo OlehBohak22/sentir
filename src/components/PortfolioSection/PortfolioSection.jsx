@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import s from "./PortfolioSection.module.css";
 import { Link } from "react-router-dom";
+import { div } from "framer-motion/client";
 
 export const PortfolioSection = ({ restInfo }) => {
   return (
@@ -42,41 +43,43 @@ const PortfolioItem = ({ item }) => {
   };
 
   return (
-    <Link to={`/cases/${item.id}`}>
-      <motion.div
-        ref={ref}
-        className={s.container}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        variants={containerVariants}
-      >
-        <div className={s.imageContainer}>
-          <img src={item.case_title_pictures} alt={item.case_title} />
-        </div>
-
-        <motion.div className={s.containerContent}>
-          {/* Анімація заголовка */}
-          <motion.h3 variants={childVariants} custom={0}>
-            {item.case_title}
-          </motion.h3>
-
-          <div>
-            {/* Анімація списку */}
-            <motion.ul>
-              {mors.map((item, index) => (
-                <li className={item == "NDA" ? s.nda : ""} key={index}>
-                  {item}
-                </li>
-              ))}
-            </motion.ul>
-
-            {/* Анімація опису */}
-            <motion.p variants={childVariants}>
-              {item.case_description}
-            </motion.p>
+    <div className="case">
+      <Link to={`/cases/${item.id}`}>
+        <motion.div
+          ref={ref}
+          className={s.container}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={containerVariants}
+        >
+          <div className={s.imageContainer}>
+            <img src={item.case_title_pictures} alt={item.case_title} />
           </div>
+
+          <motion.div className={s.containerContent}>
+            {/* Анімація заголовка */}
+            <motion.h3 variants={childVariants} custom={0}>
+              {item.case_title}
+            </motion.h3>
+
+            <div>
+              {/* Анімація списку */}
+              <motion.ul>
+                {mors.map((item, index) => (
+                  <li className={item == "NDA" ? s.nda : ""} key={index}>
+                    {item}
+                  </li>
+                ))}
+              </motion.ul>
+
+              {/* Анімація опису */}
+              <motion.p variants={childVariants}>
+                {item.case_description}
+              </motion.p>
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
-    </Link>
+      </Link>
+    </div>
   );
 };

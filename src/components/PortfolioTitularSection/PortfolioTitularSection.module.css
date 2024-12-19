@@ -9,24 +9,25 @@
   flex-direction: column;
   justify-content: end;
   margin-bottom: 5vw;
+  overflow: hidden;
 }
 
 .titularContainer::before {
   content: "";
   position: absolute;
-  left: 0; /* Відступ від лівого краю */
-  bottom: -2.5vw; /* Відступ від нижнього краю */
-  border-bottom: 2px solid rgba(11, 11, 11, 0.1); /* Рамка */
+  left: 0;
+  bottom: -2.5vw;
+  border-bottom: 2px solid rgba(11, 11, 11, 0.1);
   width: 100%;
-  pointer-events: none; /* Рамка не перешкоджає взаємодії з елементами */
+  pointer-events: none;
 }
 
 .arrow {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  top: 0;
+  width: 9.8vw;
+  height: 9.8vw;
   pointer-events: none;
-  transition: transform 0.05s ease-out; /* Плавний рух */
 }
 
 .arrowImage {
@@ -49,7 +50,6 @@
   ul {
     display: flex;
     gap: 0.4vw;
-
     margin-bottom: 2.5vw;
     flex-wrap: wrap;
 
@@ -86,9 +86,10 @@
   }
 
   .titularContainer::before {
-    bottom: -6.5vw; /* Відступ від нижнього краю */
-    border-bottom: 1px solid rgba(11, 11, 11, 0.1); /* Рамка */
+    bottom: -6.5vw;
+    border-bottom: 1px solid rgba(11, 11, 11, 0.1);
   }
+
   .titularContent {
     p {
       display: none;

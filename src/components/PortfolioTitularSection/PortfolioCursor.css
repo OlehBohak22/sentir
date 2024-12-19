@@ -1,0 +1,9 @@
+.cursor-case .cursor {
+  transform: scale(5) !important;
+  background-image: url(/icons/custom-arrow.png);
+  background-size: cover;
+}
+
+.cursor-case .cursor::before {
+  opacity: 0 !important;
+}
