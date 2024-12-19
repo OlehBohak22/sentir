@@ -2,6 +2,7 @@
   transform: scale(5) !important;
   background-image: url(/icons/custom-arrow.png);
   background-size: cover;
+  mix-blend-mode: normal;
 }
 
 .cursor-case .cursor::before {
