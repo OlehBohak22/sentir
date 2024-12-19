@@ -95,10 +95,11 @@
 
 .backdrop svg {
   fill: inherit;
+  transform: rotate(180deg);
 }
 
 .backdrop:hover svg {
-  transform: rotate(180deg);
+  transform: rotate(360deg);
 }
 
 .backdrop:hover .backdropContent {

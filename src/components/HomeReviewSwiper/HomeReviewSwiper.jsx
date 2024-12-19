@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -7,6 +8,11 @@ import s from "./HomeReviewSwiper.module.css"; // Ваш файл стилів
 import { useState } from "react";
 import "./swiperPagination.css";
 import { useMediaQuery } from "react-responsive";
+
+const slideVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+};
 
 export const HomeReviewSwiper = ({ reviews }) => {
   const [progress, setProgress] = useState(0); // Початковий прогрес
@@ -38,7 +44,14 @@ export const HomeReviewSwiper = ({ reviews }) => {
           .filter((review) => review.add_to_reviews == 1)
           .map((review) => (
             <SwiperSlide key={review.id}>
-              <div className={s.swiperSlide}>
+              <motion.div
+                className={s.swiperSlide}
+                initial="hidden"
+                whileInView="visible"
+                variants={slideVariants}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: false }}
+              >
                 <div className={s.reviewerInfo}>
                   <img
                     className={s.reviewerAvatar}
@@ -70,7 +83,7 @@ export const HomeReviewSwiper = ({ reviews }) => {
                     <p>{review.company_name}</p>
                   </div>
                 )}
-              </div>
+              </motion.div>
             </SwiperSlide>
           ))}
       </Swiper>

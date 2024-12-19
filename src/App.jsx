@@ -60,6 +60,8 @@ export default function App() {
         if (
           e.target.tagName === "A" ||
           e.target.tagName === "BUTTON" ||
+          e.target.tagName === "INPUT" ||
+          e.target.tagName === "LABEL" ||
           e.target.classList.contains("case")
         ) {
           document.body.classList.add("cursor-hover");
@@ -74,7 +76,12 @@ export default function App() {
     const handleMouseLeave = (e) => {
       // Перевірка, чи існує target і чи має він клас "case"
       if (e.target && e.target.classList) {
-        if (e.target.tagName === "A" || e.target.tagName === "BUTTON") {
+        if (
+          e.target.tagName === "A" ||
+          e.target.tagName === "BUTTON" ||
+          e.target.tagName === "LABEL" ||
+          e.target.tagName === "INPUT"
+        ) {
           document.body.classList.remove("cursor-hover");
         }
 

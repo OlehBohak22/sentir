@@ -14,7 +14,7 @@ export const HomeHero = () => {
 
   const items = [
     "a free-of<br />charge<br />project kick-off",
-    "trully<br/>personalized,<br />boutique<br />experience",
+    "personalized,<br />boutique<br />experience",
     "Accelerated<br />MVP Launch for<br />Startups",
   ];
 

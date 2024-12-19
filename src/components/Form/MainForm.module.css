@@ -3,8 +3,38 @@
   font-size: 2.2vw;
   font-weight: 500;
   line-height: 2.2vw;
-  color: #ffffff;
+  color: white;
   margin-bottom: 4.4vw;
+  overflow: hidden;
+}
+
+.textWrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.textWrapper span {
+  position: relative;
+  z-index: 2;
+  color: white;
+  transition: color 0.5s ease;
+}
+
+.textWrapper .textOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1;
+  transform: translateX(-100%);
+  transition: transform 5s ease;
+}
+
+.textWrapper.visible .textOverlay {
+  transform: translateX(0) rotate(-1deg);
 }
 
 .shortInputs {
@@ -45,7 +75,6 @@
   width: 100%;
   background-color: transparent;
   border-bottom: 0.06vw solid rgba(255, 255, 255, 0.2); /* Задаємо базовий колір лінії */
-  font-family: DM Sans;
   font-size: 1.3vw;
   font-weight: 400;
   line-height: 1.3vw;
@@ -143,7 +172,7 @@
   width: 1.2vw;
   height: 1.2vw;
   border: 0.06vw solid #ffffff;
-  border-radius: 0.2vw;
+  border-radius: 1px;
   background-color: transparent;
   margin-right: 0.6vw;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -153,6 +182,9 @@
 /* Коли чекбокс вибраний */
 .checkboxContainer input[type="checkbox"]:checked + .checkmark {
   background-color: #ffffff;
+  background-image: url(/icons/checkmark.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* Hover ефект для кастомного чекбокса */

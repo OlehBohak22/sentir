@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { getData } from "../../services/api";
 import { SectionNavigation } from "../../components/SectionNavigation/SectionNavigation";
 import { FormSection } from "../../components/FormSection/FormSection";
+import { motion } from "framer-motion"; // Імпортуємо motion
 
 export const WorkflowPage = ({ token }) => {
   const [review, setReview] = useState([]);
@@ -24,29 +25,71 @@ export const WorkflowPage = ({ token }) => {
     fetchReviews();
   }, [token]);
 
+  // Варіанти анімації
+  const fadeInVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1, ease: "easeOut" },
+    },
+  };
+
   return (
     <main>
       <section className={s.heroSection}>
         <Layout>
-          <div className={s.titleContainer}>
+          <motion.div
+            className={s.titleContainer}
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInVariants}
+            viewport={{ once: false, amount: 0.3 }} // Анімація при скролі
+          >
             <h1>WorkFlow</h1>
             <p>Without process, there’s only chaos</p>
-          </div>
+          </motion.div>
         </Layout>
 
-        <Roadmap />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInVariants}
+          viewport={{ once: false, amount: 0.3 }}
+        >
+          <Roadmap />
+        </motion.div>
 
-        <SeparateReviewBlock review={review} />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInVariants}
+          viewport={{ once: false, amount: 0.3 }}
+        >
+          <SeparateReviewBlock review={review} />
+        </motion.div>
       </section>
 
       <section className={s.innovationSection}>
         <Layout className={s.container}>
-          <h2>Innovation & Empathy</h2>
-          <p>
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInVariants}
+            viewport={{ once: false, amount: 0.3 }}
+          >
+            Innovation & Empathy
+          </motion.h2>
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInVariants}
+            viewport={{ once: false, amount: 0.3 }}
+          >
             Sentir's brand ethos focuses on innovation and empathy. Using design
             thinking and empathy mapping, we create products that resonate with
             users, ensuring solutions are functional, meaningful and impactful.
-          </p>
+          </motion.p>
         </Layout>
       </section>
 

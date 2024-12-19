@@ -72,11 +72,21 @@ export const ApproachSection = () => {
           viewport={{ once: false }}
           key="mainContent"
         >
-          <h2 className={s.title}>
+          {/* Заголовок, що анімується при прокручуванні */}
+          <motion.h2
+            className={s.title}
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.8 }}
+            whileInView="visible" // Анімація при видимості
+            viewport={{ once: false }} // Повторне відтворення при скролі
+            key="title"
+          >
             <span>sentir </span>
             <br />
             <span className={s.secondSpan}>tailored approach for success</span>
-          </h2>
+          </motion.h2>
 
           <div className={s.mainItems}>
             {/* Елемент 1 */}

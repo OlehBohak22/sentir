@@ -6,6 +6,7 @@ import { DiscussBtn } from "../DiscussBtn/DiscussBtn";
 import { useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import clsx from "clsx";
+import { motion } from "framer-motion"; // Імпортуємо motion
 
 export const ServicesTabs = ({ token }) => {
   const [activeTab, setActiveTab] = useState(null);
@@ -63,10 +64,26 @@ export const ServicesTabs = ({ token }) => {
     fetchServices();
   }, [token, location.hash]);
 
+  // Варіанти анімації
+  const fadeInVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, ease: "easeOut" },
+    },
+  };
+
   return (
     <section ref={sectionRef} className={s.section}>
       {isMobile && (
-        <div className={s.sidebar}>
+        <motion.div
+          className={s.sidebar}
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInVariants}
+          viewport={{ once: false, amount: 0.3 }} // Анімація при скролі
+        >
           {services.map((tab) => (
             <div
               key={tab.id}
@@ -76,11 +93,18 @@ export const ServicesTabs = ({ token }) => {
               {tab.title.rendered}
             </div>
           ))}
-        </div>
+        </motion.div>
       )}
+
       <Layout className={s.container}>
         {isDesktop && (
-          <div className={s.sidebar}>
+          <motion.div
+            className={s.sidebar}
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInVariants}
+            viewport={{ once: false, amount: 0.3 }} // Анімація при скролі
+          >
             {services.map((tab) => (
               <div
                 key={tab.id}
@@ -92,11 +116,17 @@ export const ServicesTabs = ({ token }) => {
                 {tab.title.rendered}
               </div>
             ))}
-          </div>
+          </motion.div>
         )}
 
         {/* Контент активного табу */}
-        <div className={s.content}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInVariants}
+          viewport={{ once: false, amount: 0.3 }} // Анімація при скролі
+          className={s.content}
+        >
           {activeService ? (
             <>
               <div className={s.contentTitleContainer}>
@@ -131,7 +161,7 @@ export const ServicesTabs = ({ token }) => {
           ) : (
             <p>Loading content...</p>
           )}
-        </div>
+        </motion.div>
       </Layout>
     </section>
   );

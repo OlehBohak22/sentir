@@ -4,7 +4,7 @@ export const services = [
     title: "Discovery",
     description:
       "Helping you refine product ideas, craft compelling prototypes, and achieve feature-market fit models with your target audience.",
-    icon: "/icons/services-icons.svg#icon-1",
+    icon: "/icons/services-icons.svg#icon-4",
     link: "/services#discovery",
   },
   {
@@ -28,7 +28,7 @@ export const services = [
     title: "Due Diligence",
     description:
       "We assess and evaluate your current tech implementations against industry benchmarks and identify opportunities for advancement.",
-    icon: "/icons/services-icons.svg#icon-4",
+    icon: " /icons/services-icons.svg#icon-1",
     link: "/services#due",
   },
   {

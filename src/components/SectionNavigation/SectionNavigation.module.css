@@ -78,6 +78,15 @@
   transition: max-height 0.3s ease, padding 0.3s ease;
 }
 
+.heroHoverSvg {
+  transition: fill 0.3s ease; /* Плавна зміна кольору */
+  fill: #0b0b0b; /* Початковий колір (чорний) */
+}
+
+.discuss:hover .heroHoverSvg {
+  fill: url(#gradient); /* Градієнт при ховері */
+}
+
 @media (max-width: 1024px) {
   .section {
     padding: 10.6vw 0;

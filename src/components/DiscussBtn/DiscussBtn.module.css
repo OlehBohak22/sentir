@@ -18,11 +18,12 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   cursor: pointer;
-  transition: color 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
   text-transform: uppercase;
 }
 .discussBtn:hover {
   color: rgba(0, 0, 0, 0);
+  transform: translateY(-0.5vw);
 }
 @keyframes rainbow {
   0% {
@@ -49,6 +50,7 @@
 
 .discussBtn:hover::after {
   width: 0; /* Лінія підкреслення з'являється по всій ширині елементу */
+  transform: translateY(0.5vw);
 }
 
 @media (max-width: 1024px) {

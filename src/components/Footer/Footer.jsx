@@ -4,6 +4,7 @@ import s from "./Footer.module.css";
 import { getData } from "../../services/api";
 import { useMediaQuery } from "react-responsive";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion"; // додано для анімацій
 
 export const Footer = ({ token }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -29,15 +30,34 @@ export const Footer = ({ token }) => {
     <footer className={s.footer}>
       <Layout>
         <div className={s.footerContainer}>
-          <div className={s.logoContainer}>
+          <motion.div
+            className={s.logoContainer}
+            initial={{ x: -200, opacity: 0 }} // Початкова позиція ліворуч
+            whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+            transition={{ duration: 0.8 }}
+          >
             <img src="/icons/colored-logo.svg" alt="Logo" />
             <span>Sentir</span>
-          </div>
+          </motion.div>
 
-          {isMobile && <p className={s.mobAddText}>To feel through touch</p>}
+          {isMobile && (
+            <motion.p
+              className={s.mobAddText}
+              initial={{ x: 200, opacity: 0 }} // Початкова позиція праворуч
+              whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+              transition={{ duration: 0.8 }}
+            >
+              To feel through touch
+            </motion.p>
+          )}
 
           {isDesktop && (
-            <div className={s.menuNav}>
+            <motion.div
+              className={s.menuNav}
+              initial={{ x: -200, opacity: 0 }} // Початкова позиція ліворуч
+              whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+              transition={{ duration: 1 }}
+            >
               <ul>
                 <h4>MENU</h4>
                 <li>
@@ -50,10 +70,15 @@ export const Footer = ({ token }) => {
                   <Link to="/workflow">Workflow</Link>
                 </li>
               </ul>
-            </div>
+            </motion.div>
           )}
 
-          <div className={s.serviceNav}>
+          <motion.div
+            className={s.serviceNav}
+            initial={{ x: 200, opacity: 0 }} // Початкова позиція праворуч
+            whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+            transition={{ duration: 1 }}
+          >
             <ul>
               {isDesktop && <h4>Services</h4>}
               <li>
@@ -75,30 +100,53 @@ export const Footer = ({ token }) => {
                 <Link to="/services#staff">Staff Augmentation</Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className={s.socialContainer}>
-            <div>
+          <motion.div
+            className={s.socialContainer}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <motion.div
+              initial={{ x: 200, opacity: 0 }} // Початкова позиція ліворуч
+              whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+              transition={{ duration: 1 }}
+            >
               <h4>TALK TO US</h4>
               <a href={`mailto:${contactInfo.talk_to_us_email}`}>
                 {contactInfo.talk_to_us_email}
               </a>
-            </div>
+            </motion.div>
 
-            <div className="w-[auto] lg:w-[20vw]    ">
+            <motion.div
+              className="w-[auto] lg:w-[20vw]"
+              initial={{ x: 200, opacity: 0 }} // Початкова позиція праворуч
+              whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+              transition={{ duration: 1 }}
+            >
               <h4>COME SEE US</h4>
               <Link>{contactInfo.come_see_us}</Link>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div
+              initial={{ x: 200, opacity: 0 }} // Початкова позиція ліворуч
+              whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+              transition={{ duration: 1 }}
+            >
               <h4>WORK WITH US</h4>
               <a href={`mailto:${contactInfo.work_with_us_email}`}>
                 {contactInfo.work_with_us_email}
               </a>
-            </div>
+            </motion.div>
 
             {isMobile && (
-              <div className={s.menuNav}>
+              <motion.div
+                className={s.menuNav}
+                initial={{ x: -200, opacity: 0 }} // Початкова позиція ліворуч
+                whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+                transition={{ duration: 1 }}
+              >
                 <ul>
                   <li>
                     <Link to="/about">About Us</Link>
@@ -110,16 +158,25 @@ export const Footer = ({ token }) => {
                     <Link to="/workflow">Workflow</Link>
                   </li>
                 </ul>
-              </div>
+              </motion.div>
             )}
 
-            <div>
-              {isDesktop && <h4>COME SEE US</h4>}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+            >
+              {isDesktop && <h4>social media</h4>}
               <ul className={s.socialLinks}>
                 {contactInfo.social_media_images &&
                   Object.values(contactInfo.social_media_images).map(
                     (item, index) => (
-                      <li key={index}>
+                      <motion.li
+                        key={index}
+                        initial={{ x: 200, opacity: 0 }} // Початкова позиція праворуч
+                        whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+                        transition={{ duration: 0.8, delay: index * 0.2 }}
+                      >
                         <a
                           href={item.link}
                           target="_blank"
@@ -127,18 +184,23 @@ export const Footer = ({ token }) => {
                         >
                           <img src={item.image} alt={item.name} />
                         </a>
-                      </li>
+                      </motion.li>
                     )
                   )}
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
-        <div className={s.footerBottomContainer}>
+        <motion.div
+          className={s.footerBottomContainer}
+          initial={{ x: 200, opacity: 0 }} // Початкова позиція праворуч
+          whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+          transition={{ duration: 1 }}
+        >
           {isDesktop && <p>All rights reserved 2024 © Sentir</p>}
           <a href="">Privacy Policy</a>
-        </div>
+        </motion.div>
       </Layout>
     </footer>
   );
