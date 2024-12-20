@@ -12,31 +12,30 @@ export const MainForm = () => {
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
+      const token = await getToken("admin_projection", "mkGp6Rpv5$On7BR&VU");
+
       const formData = new FormData();
-      formData.append("name", values.name);
-      formData.append("email", values.email);
-      formData.append("text", values.text);
+      formData.append("name", values.name || ""); // Перевірка та додавання
+      formData.append("email", values.email || "");
+      formData.append("text", values.text || "");
       formData.append("nda", values.nda);
 
+      // Отримання файлу
       const fileInput = document.querySelector("#file-upload");
-      if (fileInput && fileInput.files[0]) {
+      if (fileInput && fileInput.files.length > 0) {
         formData.append("file", fileInput.files[0]);
       }
 
-      // Отримуємо токен (за потреби змініть логін/пароль)
-      const token = await getToken("admin_projection", "mkGp6Rpv5$On7BR&VU");
+      console.log("Form Data:", Array.from(formData.entries()));
 
-      // Відправляємо дані
       const response = await postData(
         token,
-        "wp-json/responces/v1/endpoint",
+        "wp-json/responses/v1/endpoint",
         formData
       );
 
       console.log("Response from server:", response);
       alert("Form submitted successfully!");
-
-      // Очищення форми після успішної відправки
       resetForm();
     } catch (error) {
       console.error("Error submitting form:", error);

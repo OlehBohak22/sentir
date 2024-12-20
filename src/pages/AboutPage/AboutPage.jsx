@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { getData } from "../../services/api";
 import { SeparateReviewBlock } from "../../components/SeparateReviewBlock/SeparateReviewBlock";
 import { FormSection } from "../../components/FormSection/FormSection";
+import { Helmet } from "react-helmet";
 
 export const AboutPage = ({ token }) => {
   const [review, setReview] = useState([]);
@@ -27,16 +28,25 @@ export const AboutPage = ({ token }) => {
   }, [token]);
 
   return (
-    <main>
-      <AboutHeroSection />
-      <AboutMissionSection />
-      <AboutSwiperSection />
-      <HomeReviewSection>
-        <ProfessionalsBlock />
-        <SeparateReviewBlock review={review} className="mb=[2vw}" />
-        <CompanyList token={token} />
-      </HomeReviewSection>
-      <FormSection />
-    </main>
+    <>
+      <Helmet>
+        <title>About</title>
+        <meta name="description" content="Це опис моєї сторінки." />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Helmet>
+      <main>
+        <AboutHeroSection />
+        <AboutMissionSection />
+        <AboutSwiperSection />
+        <HomeReviewSection>
+          <ProfessionalsBlock />
+          <SeparateReviewBlock review={review} className="mb=[2vw}" />
+          <CompanyList token={token} />
+        </HomeReviewSection>
+        <FormSection />
+      </main>
+    </>
   );
 };

@@ -7,6 +7,7 @@ import { getData } from "../../services/api";
 import { SectionNavigation } from "../../components/SectionNavigation/SectionNavigation";
 import { FormSection } from "../../components/FormSection/FormSection";
 import { motion } from "framer-motion"; // Імпортуємо motion
+import { Helmet } from "react-helmet";
 
 export const WorkflowPage = ({ token }) => {
   const [review, setReview] = useState([]);
@@ -36,66 +37,76 @@ export const WorkflowPage = ({ token }) => {
   };
 
   return (
-    <main>
-      <section className={s.heroSection}>
-        <Layout>
+    <>
+      <Helmet>
+        <title>Workflow</title>
+        <meta name="description" content="Це опис моєї сторінки." />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Helmet>
+      <main>
+        <section className={s.heroSection}>
+          <Layout>
+            <motion.div
+              className={s.titleContainer}
+              initial="hidden"
+              whileInView="visible"
+              variants={fadeInVariants}
+              viewport={{ once: false, amount: 0.3 }} // Анімація при скролі
+            >
+              <h1>WorkFlow</h1>
+              <p>Without process, there’s only chaos</p>
+            </motion.div>
+          </Layout>
+
           <motion.div
-            className={s.titleContainer}
             initial="hidden"
             whileInView="visible"
             variants={fadeInVariants}
-            viewport={{ once: false, amount: 0.3 }} // Анімація при скролі
+            viewport={{ once: false, amount: 0.3 }}
           >
-            <h1>WorkFlow</h1>
-            <p>Without process, there’s only chaos</p>
+            <Roadmap />
           </motion.div>
-        </Layout>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeInVariants}
-          viewport={{ once: false, amount: 0.3 }}
-        >
-          <Roadmap />
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeInVariants}
-          viewport={{ once: false, amount: 0.3 }}
-        >
-          <SeparateReviewBlock review={review} />
-        </motion.div>
-      </section>
-
-      <section className={s.innovationSection}>
-        <Layout className={s.container}>
-          <motion.h2
+          <motion.div
             initial="hidden"
             whileInView="visible"
             variants={fadeInVariants}
             viewport={{ once: false, amount: 0.3 }}
           >
-            Innovation & Empathy
-          </motion.h2>
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInVariants}
-            viewport={{ once: false, amount: 0.3 }}
-          >
-            Sentir's brand ethos focuses on innovation and empathy. Using design
-            thinking and empathy mapping, we create products that resonate with
-            users, ensuring solutions are functional, meaningful and impactful.
-          </motion.p>
-        </Layout>
-      </section>
+            <SeparateReviewBlock review={review} />
+          </motion.div>
+        </section>
 
-      <SectionNavigation token={token} />
+        <section className={s.innovationSection}>
+          <Layout className={s.container}>
+            <motion.h2
+              initial="hidden"
+              whileInView="visible"
+              variants={fadeInVariants}
+              viewport={{ once: false, amount: 0.3 }}
+            >
+              Innovation & Empathy
+            </motion.h2>
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              variants={fadeInVariants}
+              viewport={{ once: false, amount: 0.3 }}
+            >
+              Sentir's brand ethos focuses on innovation and empathy. Using
+              design thinking and empathy mapping, we create products that
+              resonate with users, ensuring solutions are functional, meaningful
+              and impactful.
+            </motion.p>
+          </Layout>
+        </section>
 
-      <FormSection />
-    </main>
+        <SectionNavigation token={token} />
+
+        <FormSection />
+      </main>
+    </>
   );
 };

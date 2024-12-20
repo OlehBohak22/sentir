@@ -10,6 +10,7 @@ import { HomeReviewSection } from "../../components/HomeReviewSection/HomeReview
 import { HomeReviewSwiper } from "../../components/HomeReviewSwiper/HomeReviewSwiper";
 import { CompanyList } from "../../components/CompanyList/CompanyList";
 import { FormSection } from "../../components/FormSection/FormSection";
+import { Helmet } from "react-helmet";
 
 export const HomePage = ({ token }) => {
   const [cases, setCases] = useState([]);
@@ -44,27 +45,36 @@ export const HomePage = ({ token }) => {
   }, [token]);
 
   return (
-    <main>
-      <HomeHero className={s.homeHero} />
+    <>
+      <Helmet>
+        <title>Sentir</title>
+        <meta name="description" content="Це опис моєї сторінки." />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Helmet>
+      <main>
+        <HomeHero className={s.homeHero} />
 
-      <ServicesSection />
+        <ServicesSection />
 
-      <section className={s.portfolioSection}>
-        {cases.length > 0 && <PortfolioTitularSection titulInfo={cases[0]} />}
+        <section className={s.portfolioSection}>
+          {cases.length > 0 && <PortfolioTitularSection titulInfo={cases[0]} />}
 
-        <PortfolioSection restInfo={cases} />
-      </section>
+          <PortfolioSection restInfo={cases} />
+        </section>
 
-      <ApproachSection />
+        <ApproachSection />
 
-      <HomeReviewSection>
-        <div className="mb-[23vw]">
-          <HomeReviewSwiper reviews={reviews} />
-        </div>
-        <CompanyList token={token} />
-      </HomeReviewSection>
+        <HomeReviewSection>
+          <div className="mb-[23vw]">
+            <HomeReviewSwiper reviews={reviews} />
+          </div>
+          <CompanyList token={token} />
+        </HomeReviewSection>
 
-      <FormSection />
-    </main>
+        <FormSection />
+      </main>
+    </>
   );
 };

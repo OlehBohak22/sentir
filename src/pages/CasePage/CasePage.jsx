@@ -7,6 +7,7 @@ import { CaseDetails } from "../../components/CaseDetails/CaseDetails";
 import { SeparateReviewBlock } from "../../components/SeparateReviewBlock/SeparateReviewBlock";
 import { FormSection } from "../../components/FormSection/FormSection";
 import { CaseHorizontalSection } from "../../components/CaseHorizontalSection/CaseHorizontalSection";
+import { Helmet } from "react-helmet";
 
 export const CasePage = ({ token }) => {
   const { id } = useParams();
@@ -51,29 +52,38 @@ export const CasePage = ({ token }) => {
   }
 
   return (
-    <main>
-      <CaseHero title={cases.title.rendered} bg={cases.case_title_pictures} />
-      <CaseDetails details={cases} />
+    <>
+      <Helmet>
+        <title>{cases.title.rendered}</title>
+        <meta name="description" content="Це опис моєї сторінки." />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Helmet>
+      <main>
+        <CaseHero title={cases.title.rendered} bg={cases.case_title_pictures} />
+        <CaseDetails details={cases} />
 
-      <section
-        className={s.attachmentSection}
-        style={{
-          backgroundImage: `url(${cases.case_second_pictures})`,
-        }}
-      ></section>
+        <section
+          className={s.attachmentSection}
+          style={{
+            backgroundImage: `url(${cases.case_second_pictures})`,
+          }}
+        ></section>
 
-      <div className="bg-black">
-        {review ? (
-          <SeparateReviewBlock review={review} />
-        ) : (
-          <p>No reviews available for this case.</p>
-        )}
-      </div>
+        <div className="bg-black">
+          {review ? (
+            <SeparateReviewBlock review={review} />
+          ) : (
+            <p>No reviews available for this case.</p>
+          )}
+        </div>
 
-      <CaseHorizontalSection cases={cases} />
-      <div className="mt-[5vw]">
-        <FormSection />
-      </div>
-    </main>
+        <CaseHorizontalSection cases={cases} />
+        <div className="mt-[5vw]">
+          <FormSection />
+        </div>
+      </main>
+    </>
   );
 };

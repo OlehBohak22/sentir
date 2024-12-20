@@ -83,7 +83,7 @@ export const CaseHorizontalSection = ({ cases }) => {
               </div>
 
               <div className={s.image}>
-                <img src={cases.case_pictures_1} alt={cases["title-2"]} />
+                <img src={cases.case_pictures_2} alt={cases["title-2"]} />
               </div>
             </div>
             <div className={s.block}>
@@ -123,7 +123,7 @@ export const CaseHorizontalSection = ({ cases }) => {
               </div>
 
               <div className={s.image}>
-                <img src={cases.case_pictures_1} alt="" />
+                <img src={cases.case_pictures_3} alt="" />
               </div>
             </div>
           </div>
