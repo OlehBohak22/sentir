@@ -36,7 +36,7 @@
 
 .logosSlide img {
   display: inline;
-  width: 100%; /* Відповідність розміру елемента */
+  width: 6vw; /* Відповідність розміру елемента */
   height: auto; /* Зберігаємо пропорції */
 }
 
@@ -82,7 +82,7 @@
   }
 
   .logosSlide img {
-    transform: scale(0.7);
+    transform: scale(2.5) !important;
   }
 }
 
