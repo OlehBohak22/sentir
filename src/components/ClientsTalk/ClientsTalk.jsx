@@ -7,34 +7,48 @@ export const ClientsTalk = ({ token }) => {
   const [logos, setLogos] = useState([]);
   const [isAnimationActive, setIsAnimationActive] = useState(false);
 
-  // Функція для імітації запиту і затримки
-  const simulateRequestAndAnimation = () => {
-    // Затримка перед запитом
-    setTimeout(async () => {
-      const data = await getData(token, "wp-json/wp/v2/feedback");
-      setLogos(data); // Встановлюємо отримані дані
-
-      // Запуск анімації з затримкою після отримання даних
-      setTimeout(() => {
-        setIsAnimationActive(true); // Активуємо анімацію
-
-        // Затримка для зупинки анімації та її повторного запуску
-        setTimeout(() => {
-          setIsAnimationActive(false); // Зупиняємо анімацію
-
-          setTimeout(() => {
-            setIsAnimationActive(true); // Знову активуємо анімацію
-          }, 2000); // Затримка перед повторним запуском анімації
-        }, 2000); // Затримка для зупинки анімації
-      }, 2000); // Затримка перед запуском анімації
-    }, 2000); // 2 секунди затримки для імітації запиту
-  };
-
   useEffect(() => {
-    if (!token) return;
+    const fetchServices = async () => {
+      if (!token) return;
+      try {
+        const data = await getData(token, "wp-json/wp/v2/feedback");
+        setLogos(data);
+      } catch (error) {
+        console.error("Error fetching Services:", error);
+      }
+    };
 
-    simulateRequestAndAnimation(); // Імітація запиту і запуск анімації
+    fetchServices();
   }, [token]);
+
+  // Використовуємо Intersection Observer для активації анімації
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsAnimationActive(true); // Запускаємо анімацію при видимості
+          } else {
+            setIsAnimationActive(false); // Зупиняємо анімацію при виході з екрану
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Запускається, коли 50% елемента видно
+      }
+    );
+
+    const element = document.querySelector(`.${s.logos}`);
+    if (element) {
+      observer.observe(element); // Починаємо спостереження
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element); // Прибираємо спостереження при демонтажі компонента
+      }
+    };
+  }, [logos]);
 
   return (
     <section className={s.section}>
