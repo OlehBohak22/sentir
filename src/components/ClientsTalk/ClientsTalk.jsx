@@ -7,23 +7,17 @@ export const ClientsTalk = ({ token }) => {
   const [logos, setLogos] = useState([]);
   const [isAnimationActive, setIsAnimationActive] = useState(false);
 
+  // Функція для активації анімації
+  const activateAnimation = () => {
+    setIsAnimationActive(true);
+  };
+
   useEffect(() => {
     const fetchServices = async () => {
       if (!token) return;
       try {
-        // Імітація затримки перед запитом
-        setTimeout(async () => {
-          const data = await getData(token, "wp-json/wp/v2/feedback");
-          setLogos(data); // Встановлюємо дані після затримки
-
-          // Імітація затримки перед активацією анімації
-          setTimeout(() => {
-            setIsAnimationActive(true);
-            // Імітація повторної деактивації та активації анімації
-            setTimeout(() => setIsAnimationActive(false), 2000); // деактивація після 2 секунд
-            setTimeout(() => setIsAnimationActive(true), 2000); // деактивація після 2 секунд
-          }, 2000); // активуємо анімацію після 2 секунд
-        }, 2000); // 2 секунди затримки для запиту
+        const data = await getData(token, "wp-json/wp/v2/feedback");
+        setLogos(data); // Отримуємо дані
       } catch (error) {
         console.error("Error fetching Services:", error);
       }
@@ -31,6 +25,22 @@ export const ClientsTalk = ({ token }) => {
 
     fetchServices();
   }, [token]);
+
+  // Використовуємо Visibility API для активації анімації при поверненні на сторінку
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible" && logos.length > 0) {
+        activateAnimation(); // Запускаємо анімацію, коли сторінка стає видимою
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Очищення події після компонента
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [logos]);
 
   return (
     <section className={s.section}>
