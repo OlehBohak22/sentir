@@ -34,10 +34,10 @@
 
 @keyframes slide {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0); /* Початкова позиція */
   }
   to {
-    transform: translateX(-100%);
+    transform: translate3d(-100%, 0, 0); /* Переміщення на 100% вліво */
   }
 }
 
@@ -73,8 +73,9 @@
 }
 
 .logosSlide {
-  display: inline-block;
+  display: inline-flex;
   animation: 10s slide infinite linear;
+  transform: translate3d(0, 0, 0); /* Активація GPU для кращої анімації */
   display: inline-flex;
   align-items: center;
   will-change: transform; /* Додано для оптимізації анімації */
