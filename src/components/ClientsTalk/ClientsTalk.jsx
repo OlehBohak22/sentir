@@ -7,17 +7,29 @@ export const ClientsTalk = ({ token }) => {
   const [logos, setLogos] = useState([]);
   const [isAnimationActive, setIsAnimationActive] = useState(false);
 
-  // Функція для активації анімації
-  const activateAnimation = () => {
-    setIsAnimationActive(true);
-  };
-
   useEffect(() => {
     const fetchServices = async () => {
       if (!token) return;
       try {
-        const data = await getData(token, "wp-json/wp/v2/feedback");
-        setLogos(data); // Отримуємо дані
+        // Імітація затримки перед запитом
+        setTimeout(async () => {
+          const data = await getData(token, "wp-json/wp/v2/feedback");
+          setLogos(data); // Отримуємо дані після затримки
+
+          // Імітація затримки перед активацією анімації
+          setTimeout(() => {
+            setIsAnimationActive(true); // Активуємо анімацію
+
+            // Імітація "виходу" і "повернення" сторінки
+            setTimeout(() => {
+              setIsAnimationActive(false); // Зупиняємо анімацію
+
+              setTimeout(() => {
+                setIsAnimationActive(true); // Знову активуємо анімацію
+              }, 2000); // Затримка для зупинки і повторного запуску
+            }, 2000);
+          }, 2000); // 2 секунди затримки перед активацією анімації
+        }, 2000); // 2 секунди затримки для запиту
       } catch (error) {
         console.error("Error fetching Services:", error);
       }
@@ -25,22 +37,6 @@ export const ClientsTalk = ({ token }) => {
 
     fetchServices();
   }, [token]);
-
-  // Використовуємо Visibility API для активації анімації при поверненні на сторінку
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === "visible" && logos.length > 0) {
-        activateAnimation(); // Запускаємо анімацію, коли сторінка стає видимою
-      }
-    };
-
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-
-    // Очищення події після компонента
-    return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-    };
-  }, [logos]);
 
   return (
     <section className={s.section}>
