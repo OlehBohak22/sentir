@@ -192,17 +192,12 @@ export const HomeHero = () => {
             </>
           )}
         </h1>
-        <motion.p
-          initial={{ opacity: 0, x: "-50%" }} // Початкова позиція: зліва
-          animate={{ opacity: 1, x: "0" }} // Кінцева позиція: звичайна
-          transition={{ duration: 1, ease: "easeOut" }}
-          className={s.heroDesc}
-        >
+        <p className={s.heroDesc}>
           From napkin sketches to full-scale digital solutions, we harness
           global expertise to turn your idea into a product that people love.
           Embrace our diverse, collaborative approach to making products that
           resonate with users and drive business success.
-        </motion.p>
+        </p>
 
         <Link>
           <motion.div
