@@ -11,8 +11,17 @@ export const ClientsTalk = ({ token }) => {
     const fetchServices = async () => {
       if (!token) return;
       try {
-        const data = await getData(token, "wp-json/wp/v2/feedback");
-        setLogos(data);
+        // Імітація затримки перед запитом
+        setTimeout(async () => {
+          const data = await getData(token, "wp-json/wp/v2/feedback");
+          setLogos(data); // Встановлюємо дані після затримки
+
+          // Імітація затримки перед активацією анімації
+          setTimeout(() => {
+            // Запускаємо анімацію через декілька секунд після завантаження
+            setIsAnimationActive(true);
+          }, 2000); // Затримка перед анімацією (2 секунди)
+        }, 2000); // 2 секунди затримки для запиту
       } catch (error) {
         console.error("Error fetching Services:", error);
       }
@@ -20,14 +29,6 @@ export const ClientsTalk = ({ token }) => {
 
     fetchServices();
   }, [token]);
-
-  // ініціалізація анімації вручну після отримання даних або ререндеру
-  useEffect(() => {
-    if (logos.length > 0) {
-      // Запускаємо анімацію вручну через state
-      setIsAnimationActive(true);
-    }
-  }, [logos]);
 
   return (
     <section className={s.section}>
