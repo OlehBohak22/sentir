@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Layout } from "../Layout/Layout";
 import s from "./MobileMenu.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Change here
 
 export const MobileMenu = ({ className, closeOverlay }) => {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+  const navigate = useNavigate(); // Change here
 
   const toggleOverlay = () => {
     setIsOverlayOpen((prev) => !prev);
@@ -13,6 +15,19 @@ export const MobileMenu = ({ className, closeOverlay }) => {
   const closeOverlayHandler = () => {
     closeOverlay(); // Викликаємо передану функцію для закриття меню
     setIsOverlayOpen(false); // Додатково можна закрити overlay
+  };
+
+  const handleServiceClick = (e) => {
+    e.preventDefault(); // Скасовуємо стандартну поведінку лінка
+
+    if (clickCount === 0) {
+      setClickCount(1); // Перший клік: відкриваємо оверлей
+      toggleOverlay(); // Відкриваємо оверлей
+    } else {
+      setClickCount(0); // Другий клік: переходимо на сторінку
+      closeOverlayHandler(); // Закриваємо оверлей
+      navigate("/services"); // Перехід на сторінку "/services" (заміна history.push на navigate)
+    }
   };
 
   return (
@@ -27,7 +42,10 @@ export const MobileMenu = ({ className, closeOverlay }) => {
           <li
             className={`${s.backdrop} ${isOverlayOpen ? s.backdropOpen : ""}`}
           >
-            <Link onClick={toggleOverlay}>
+            <Link
+              to="/services"
+              onClick={handleServiceClick} // Замість стандартного onClick викликаємо handleServiceClick
+            >
               <p
                 style={{
                   background: isOverlayOpen
