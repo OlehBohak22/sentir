@@ -96,6 +96,7 @@
 .backdrop svg {
   fill: inherit;
   transform: rotate(180deg);
+  transition: transform 0.5s ease; /* Додаємо плавний перехід для обертання */
 }
 
 .backdrop:hover svg {
@@ -103,20 +104,20 @@
 }
 
 .backdrop:hover .backdropContent {
-  max-height: 20vw;
-  padding: 0.6vw 1.5vw;
-
-  padding-top: 0;
+  max-height: 50vw; /* Задаємо висоту під час ховера */
+  opacity: 1;
 }
 
 .backdropContent {
+  padding: 0.6vw 1.5vw;
+  opacity: 0;
   position: absolute;
-  max-height: 0vw;
+  max-height: 0; /* Початкова висота 0 */
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(0.9vw);
   z-index: 9;
-  transition: 0.5;
+  transition: 0.5s ease, padding 0.5s ease; /* Плавно анімуємо висоту і паддинг */
   max-width: 14vw;
 
   a {

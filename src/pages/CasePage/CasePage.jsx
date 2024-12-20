@@ -122,15 +122,9 @@ export const CasePage = ({ token }) => {
         <CaseHorizontalSection cases={cases} />
 
         {/* Form Section */}
-        <motion.div
-          className="mt-[5vw]"
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeInUp}
-          viewport={{ once: true, amount: 0.3 }}
-        >
+        <div className="lg:mt-[5vw] mt-[10vw]">
           <FormSection />
-        </motion.div>
+        </div>
       </main>
     </>
   );
