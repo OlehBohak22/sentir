@@ -117,7 +117,7 @@ export const HeaderNavigation = ({ openMenu, isOpen }) => {
       </Link>
 
       {isMobile && (
-        <button
+        <div
           onClick={handleOpen}
           className={`${s.burger} ${isOpen ? s.opened : ""}`}
           type="button"
@@ -142,7 +142,7 @@ export const HeaderNavigation = ({ openMenu, isOpen }) => {
             }}
             className={s.navBurgerLine}
           ></div>
-        </button>
+        </div>
       )}
     </nav>
   );

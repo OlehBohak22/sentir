@@ -59,7 +59,7 @@ export const Footer = ({ token }) => {
               transition={{ duration: 1 }}
             >
               <ul>
-                <h4>MENU</h4>
+                <p>MENU</p>
                 <li>
                   <Link to="/about">About Us</Link>
                 </li>
@@ -80,7 +80,7 @@ export const Footer = ({ token }) => {
             transition={{ duration: 1 }}
           >
             <ul>
-              {isDesktop && <h4>Services</h4>}
+              {isDesktop && <p>Services</p>}
               <li>
                 <Link to="/services#project">Project Kick-Off</Link>
               </li>
@@ -113,7 +113,7 @@ export const Footer = ({ token }) => {
               whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
               transition={{ duration: 1 }}
             >
-              <h4>TALK TO US</h4>
+              <p>TALK TO US</p>
               <a href={`mailto:${contactInfo.talk_to_us_email}`}>
                 {contactInfo.talk_to_us_email}
               </a>
@@ -125,7 +125,7 @@ export const Footer = ({ token }) => {
               whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
               transition={{ duration: 1 }}
             >
-              <h4>COME SEE US</h4>
+              <p>COME SEE US</p>
               <Link>{contactInfo.come_see_us}</Link>
             </motion.div>
 
@@ -134,7 +134,7 @@ export const Footer = ({ token }) => {
               whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
               transition={{ duration: 1 }}
             >
-              <h4>WORK WITH US</h4>
+              <p>WORK WITH US</p>
               <a href={`mailto:${contactInfo.work_with_us_email}`}>
                 {contactInfo.work_with_us_email}
               </a>
@@ -166,7 +166,7 @@ export const Footer = ({ token }) => {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              {isDesktop && <h4>social media</h4>}
+              {isDesktop && <p>social media</p>}
               <ul className={s.socialLinks}>
                 {contactInfo.social_media_images &&
                   Object.values(contactInfo.social_media_images).map(

@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "DM sans";
+  src: url("../assets/fonts/DM_Sans/static/DMSans_18pt-Medium.ttf"),
+    url("../assets/fonts/DM_Sans/static/DMSans_24pt-Regular.ttf"),
+    url("../assets/fonts/DM_Sans/static/DMSans-SemiBold.ttf"),
+    url("../assets/fonts/DM_Sans/static/DMSans-Bold.ttf"),
+    url("../assets/fonts/DM_Sans/static/DMSans-Light.ttf"), format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Almarai";
+  src: url("../assets/fonts/Almarai/Almarai-Regular.ttf"),
+    url("../assets/fonts/Almarai/Almarai-Bold.ttf"), format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter/static/Inter_18pt-Bold.ttf"),
+    url("../assets/fonts/Inter/static/Inter_18pt-SemiBold.ttf"),
+    url("../assets/fonts/Inter/static/Inter_18pt-Regular.ttf"),
+    url("../assets/fonts/Inter/static/Inter_18pt-ExtraBold.ttf"),
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Amiko";
+  src: url("../assets/fonts/Amiko/Amiko-Bold.ttf"), format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
