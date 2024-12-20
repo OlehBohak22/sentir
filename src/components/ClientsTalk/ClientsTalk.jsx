@@ -7,35 +7,33 @@ export const ClientsTalk = ({ token }) => {
   const [logos, setLogos] = useState([]);
   const [isAnimationActive, setIsAnimationActive] = useState(false);
 
-  useEffect(() => {
-    const fetchServices = async () => {
-      if (!token) return;
-      try {
-        // Імітація затримки перед запитом
-        setTimeout(async () => {
-          const data = await getData(token, "wp-json/wp/v2/feedback");
-          setLogos(data); // Отримуємо дані після затримки
+  // Функція для імітації запиту і затримки
+  const simulateRequestAndAnimation = () => {
+    // Затримка перед запитом
+    setTimeout(async () => {
+      const data = await getData(token, "wp-json/wp/v2/feedback");
+      setLogos(data); // Встановлюємо отримані дані
 
-          // Імітація затримки перед активацією анімації
+      // Запуск анімації з затримкою після отримання даних
+      setTimeout(() => {
+        setIsAnimationActive(true); // Активуємо анімацію
+
+        // Затримка для зупинки анімації та її повторного запуску
+        setTimeout(() => {
+          setIsAnimationActive(false); // Зупиняємо анімацію
+
           setTimeout(() => {
-            setIsAnimationActive(true); // Активуємо анімацію
+            setIsAnimationActive(true); // Знову активуємо анімацію
+          }, 2000); // Затримка перед повторним запуском анімації
+        }, 2000); // Затримка для зупинки анімації
+      }, 2000); // Затримка перед запуском анімації
+    }, 2000); // 2 секунди затримки для імітації запиту
+  };
 
-            // Імітація "виходу" і "повернення" сторінки
-            setTimeout(() => {
-              setIsAnimationActive(false); // Зупиняємо анімацію
+  useEffect(() => {
+    if (!token) return;
 
-              setTimeout(() => {
-                setIsAnimationActive(true); // Знову активуємо анімацію
-              }, 2000); // Затримка для зупинки і повторного запуску
-            }, 2000);
-          }, 2000); // 2 секунди затримки перед активацією анімації
-        }, 2000); // 2 секунди затримки для запиту
-      } catch (error) {
-        console.error("Error fetching Services:", error);
-      }
-    };
-
-    fetchServices();
+    simulateRequestAndAnimation(); // Імітація запиту і запуск анімації
   }, [token]);
 
   return (
