@@ -22,6 +22,20 @@ export const ClientsTalk = ({ token }) => {
 
   useEffect(() => {
     const logos = document.querySelectorAll(".logosSlide");
+
+    // Затримка через requestAnimationFrame
+    requestAnimationFrame(() => {
+      logos.forEach((logo) => {
+        logo.style.animation = "none"; // Скидаємо анімацію
+        logo.offsetHeight; // Примусово змушуємо перерахувати елемент
+        logo.style.animation = "10s slide infinite linear"; // Відновлюємо анімацію
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    const logos = document.querySelectorAll(".logosSlide");
+
     logos.forEach((logo) => {
       logo.style.animation = "none"; // Скидаємо анімацію
       logo.offsetHeight; // Примусово змушуємо перерахувати елемент

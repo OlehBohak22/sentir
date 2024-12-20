@@ -165,3 +165,10 @@
     background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
   }
 }
+
+@media (max-width: 1024px) {
+  .logosSlide {
+    animation: 10s slide infinite linear;
+    animation-play-state: running;
+  }
+}
