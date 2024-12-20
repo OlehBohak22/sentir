@@ -18,9 +18,11 @@ export const ClientsTalk = ({ token }) => {
 
           // Імітація затримки перед активацією анімації
           setTimeout(() => {
-            // Запускаємо анімацію через декілька секунд після завантаження
             setIsAnimationActive(true);
-          }, 2000); // Затримка перед анімацією (2 секунди)
+            // Імітація повторної деактивації та активації анімації
+            setTimeout(() => setIsAnimationActive(false), 2000); // деактивація після 2 секунд
+            setTimeout(() => setIsAnimationActive(true), 2000); // деактивація після 2 секунд
+          }, 2000); // активуємо анімацію після 2 секунд
         }, 2000); // 2 секунди затримки для запиту
       } catch (error) {
         console.error("Error fetching Services:", error);
