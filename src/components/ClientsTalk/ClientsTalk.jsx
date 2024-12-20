@@ -20,6 +20,15 @@ export const ClientsTalk = ({ token }) => {
     fetchServices();
   }, [token]);
 
+  useEffect(() => {
+    const logos = document.querySelectorAll(".logosSlide");
+    logos.forEach((logo) => {
+      logo.style.animation = "none"; // Скидаємо анімацію
+      logo.offsetHeight; // Примусово змушуємо перерахувати елемент
+      logo.style.animation = "10s slide infinite linear"; // Відновлюємо анімацію
+    });
+  }, []);
+
   return (
     <section className={s.section}>
       <Layout className={s.container}>
