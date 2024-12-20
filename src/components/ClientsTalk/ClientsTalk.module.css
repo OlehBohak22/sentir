@@ -1,12 +1,92 @@
-.section {
-  padding: 8.3vw 0;
+/* Основний контейнер для бігучого рядка */
+.logos {
   overflow: hidden;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+  visibility: visible;
 }
 
-.container {
-  width: 79.5vw;
+/* Анімація для безкінечного руху */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
+.logosSlide {
+  display: inline-flex;
+  animation: marquee 15s linear infinite; /* 15s - тривалість анімації */
+  will-change: transform; /* Оптимізація */
+}
+
+.logosSlide div {
+  width: 11.1vw;
+  height: 11.1vw;
+  margin: 0 1.3vw;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(245, 247, 249, 1);
+  border-radius: 50%;
+}
+
+.logosSlide img {
+  display: inline;
+  width: 100%; /* Відповідність розміру елемента */
+  height: auto; /* Зберігаємо пропорції */
+}
+
+.logosSlide span {
+  position: absolute;
+  font-family: DM Sans;
+  font-size: 1.1vw;
+  font-weight: 500;
+  line-height: 1.6vw;
+  color: #ffffff;
+  background: rgba(64, 64, 64, 0.5);
+  padding: 0.2vw 1vw;
+  border-radius: 2.3vw;
+}
+
+/* Градієнтні маски з боків */
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 12vw;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+/* Адаптивність */
+@media (max-width: 1024px) {
+  .logosSlide div {
+    width: 21.3vw;
+    height: 21.3vw;
+    margin: 0 2.1vw;
+  }
+
+  .logosSlide img {
+    transform: scale(0.7);
+  }
+}
+
+/* Стиль для контейнера та титулу */
 .titleContainer {
   margin-bottom: 3.6vw;
 
@@ -32,46 +112,18 @@
   }
 }
 
-@keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@-webkit-keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-.logos {
+/* Секція */
+.section {
+  padding: 8.3vw 0;
   overflow: hidden;
-  background: white;
-  white-space: nowrap;
-  position: relative;
-  visibility: hidden;
 }
 
-.logos.animate {
-  visibility: visible;
+/* Контейнер */
+.container {
+  width: 79.5vw;
 }
 
-.logosSlide {
-  display: inline-flex;
-  animation: 10s slide infinite linear;
-  -webkit-animation: 10s slide infinite linear;
-  transform: translateX(0);
-  -webkit-transform: translateX(0);
-  will-change: transform;
-  align-items: center;
-}
-
+/* Стилі для псевдоелементів: градієнти */
 .logos:before,
 .logos:after {
   position: absolute;
@@ -85,43 +137,14 @@
 .logos:before {
   left: -0.7vw;
   background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-  -webkit-background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
 }
 
 .logos:after {
   right: -0.7vw;
   background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-  -webkit-background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
 }
 
-.logosSlide div {
-  position: relative;
-  width: 11.1vw;
-  height: 11.1vw;
-  margin: 0 1.3vw;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(245, 247, 249, 1);
-  border-radius: 50%;
-}
-
-.logosSlide span {
-  position: absolute;
-  font-family: DM Sans;
-  font-size: 1.1vw;
-  font-weight: 500;
-  line-height: 1.6vw;
-  color: #ffffff;
-  background: rgba(64, 64, 64, 0.5);
-  padding: 0.2vw 1vw;
-  border-radius: 2.3vw;
-}
-
-.logosSlide img {
-  display: inline;
-}
-
+/* Адаптивні стилі для мобільних пристроїв */
 @media (max-width: 1024px) {
   .section {
     padding: 21.3vw 0;
@@ -151,7 +174,6 @@
 
       img {
         transform: scale(0.7);
-        -webkit-transform: scale(0.7);
       }
     }
   }
@@ -169,16 +191,10 @@
   .logos:before {
     left: -0.7vw;
     background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-    -webkit-background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
   }
 
   .logos:after {
     right: -0.7vw;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-    -webkit-background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0),
-      white
-    );
   }
 }

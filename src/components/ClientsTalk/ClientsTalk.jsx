@@ -21,33 +21,12 @@ export const ClientsTalk = ({ token }) => {
     fetchServices();
   }, [token]);
 
-  // Використовуємо Intersection Observer для активації анімації
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsAnimationActive(true); // Запускаємо анімацію при видимості
-          } else {
-            setIsAnimationActive(false); // Зупиняємо анімацію при виході з екрану
-          }
-        });
-      },
-      {
-        threshold: 0.5, // Запускається, коли 50% елемента видно
-      }
-    );
+    const timeout = setTimeout(() => {
+      setIsAnimationActive(true); // Запускаємо анімацію після деякої затримки
+    }, 2000); // Затримка перед активацією анімації
 
-    const element = document.querySelector(`.${s.logos}`);
-    if (element) {
-      observer.observe(element); // Починаємо спостереження
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element); // Прибираємо спостереження при демонтажі компонента
-      }
-    };
+    return () => clearTimeout(timeout); // Очищаємо таймаут при демонтажі компонента
   }, [logos]);
 
   return (
