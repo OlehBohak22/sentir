@@ -5,7 +5,7 @@ import { getData } from "../../services/api";
 
 export const ClientsTalk = ({ token }) => {
   const [logos, setLogos] = useState([]);
-  const [animationState, setAnimationState] = useState(false);
+  const [isAnimationActive, setIsAnimationActive] = useState(false);
 
   useEffect(() => {
     const fetchServices = async () => {
@@ -21,18 +21,13 @@ export const ClientsTalk = ({ token }) => {
     fetchServices();
   }, [token]);
 
+  // ініціалізація анімації вручну після отримання даних або ререндеру
   useEffect(() => {
-    const handleScroll = () => {
-      setAnimationState(true);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+    if (logos.length > 0) {
+      // Запускаємо анімацію вручну через state
+      setIsAnimationActive(true);
+    }
+  }, [logos]);
 
   return (
     <section className={s.section}>
@@ -46,7 +41,7 @@ export const ClientsTalk = ({ token }) => {
           </p>
         </div>
 
-        <div className={`${s.logos} ${animationState ? s.animate : ""}`}>
+        <div className={`${s.logos} ${isAnimationActive ? s.animate : ""}`}>
           <div className={s.logosSlide}>
             {logos.map((logo) => (
               <div key={logo.id}>
@@ -55,7 +50,7 @@ export const ClientsTalk = ({ token }) => {
               </div>
             ))}
           </div>
-          ;
+
           <div className={s.logosSlide}>
             {logos.map((logo) => (
               <div key={logo.id}>
@@ -64,7 +59,6 @@ export const ClientsTalk = ({ token }) => {
               </div>
             ))}
           </div>
-          ;
         </div>
       </Layout>
     </section>

@@ -34,19 +34,19 @@
 
 @keyframes slide {
   from {
-    transform: translateX(0); /* Початкова позиція */
+    transform: translateX(0);
   }
   to {
-    transform: translateX(-100%); /* Переміщення на 100% вліво */
+    transform: translateX(-100%);
   }
 }
 
 @-webkit-keyframes slide {
   from {
-    transform: translateX(0); /* Початкова позиція */
+    transform: translateX(0);
   }
   to {
-    transform: translateX(-100%); /* Переміщення на 100% вліво */
+    transform: translateX(-100%);
   }
 }
 
@@ -55,20 +55,20 @@
   background: white;
   white-space: nowrap;
   position: relative;
-  visibility: hidden; /* Спочатку приховане */
+  visibility: hidden;
 }
 
 .logos.animate {
-  visibility: visible; /* Відображається після активації */
+  visibility: visible;
 }
 
 .logosSlide {
   display: inline-flex;
   animation: 10s slide infinite linear;
-  -webkit-animation: 10s slide infinite linear; /* Додано WebKit підтримку */
-  transform: translateX(0); /* Активація GPU */
-  -webkit-transform: translateX(0); /* Додано WebKit підтримку */
-  will-change: transform; /* Тимчасово прибрано WebKit підтримку */
+  -webkit-animation: 10s slide infinite linear;
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  will-change: transform;
   align-items: center;
 }
 
@@ -85,21 +85,13 @@
 .logos:before {
   left: -0.7vw;
   background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-  -webkit-background: linear-gradient(
-    to left,
-    rgba(255, 255, 255, 0),
-    white
-  ); /* Додано WebKit підтримку */
+  -webkit-background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
 }
 
 .logos:after {
   right: -0.7vw;
   background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-  -webkit-background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0),
-    white
-  ); /* Додано WebKit підтримку */
+  -webkit-background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
 }
 
 .logosSlide div {
@@ -159,7 +151,7 @@
 
       img {
         transform: scale(0.7);
-        -webkit-transform: scale(0.7); /* Додано WebKit підтримку */
+        -webkit-transform: scale(0.7);
       }
     }
   }
@@ -177,11 +169,7 @@
   .logos:before {
     left: -0.7vw;
     background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-    -webkit-background: linear-gradient(
-      to left,
-      rgba(255, 255, 255, 0),
-      white
-    ); /* Додано WebKit підтримку */
+    -webkit-background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
   }
 
   .logos:after {
@@ -191,6 +179,6 @@
       to right,
       rgba(255, 255, 255, 0),
       white
-    ); /* Додано WebKit підтримку */
+    );
   }
 }
