@@ -90,7 +90,7 @@ export const ServicesTabs = ({ token }) => {
               onClick={() => setActiveTab(tab.id)}
               className={`${s.tab} ${tab.id === activeTab ? s.activeTab : ""}`}
             >
-              {tab.title.rendered}
+              {tab.service_title}
             </div>
           ))}
         </motion.div>
@@ -113,7 +113,7 @@ export const ServicesTabs = ({ token }) => {
                   tab.id === activeTab ? s.activeTab : ""
                 }`}
               >
-                {tab.title.rendered}
+                {tab.service_title}
               </div>
             ))}
           </motion.div>
@@ -130,7 +130,7 @@ export const ServicesTabs = ({ token }) => {
           {activeService ? (
             <>
               <div className={s.contentTitleContainer}>
-                <h3>{activeService.title.rendered}</h3>
+                <h3>{activeService.service_title}</h3>
 
                 <div className={s.serviceOptionContainer}>
                   <div>
@@ -153,9 +153,12 @@ export const ServicesTabs = ({ token }) => {
                   {activeService.service_description ||
                     "No description available"}
                 </p>
-                <DiscussBtn className={clsx(isMobile && "m-0")}>
-                  {activeService.service_trigerbtn}
-                </DiscussBtn>
+
+                <a href="#form">
+                  <DiscussBtn className={clsx(isMobile && "m-0")}>
+                    {activeService.service_trigerbtn}
+                  </DiscussBtn>
+                </a>
               </div>
             </>
           ) : (

@@ -28,7 +28,7 @@ export const FormSection = () => {
   }
 
   return (
-    <section className={s.section}>
+    <section id="form" className={s.section}>
       {/* SVG-анімація */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}

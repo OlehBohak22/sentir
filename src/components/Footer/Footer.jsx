@@ -4,7 +4,7 @@ import s from "./Footer.module.css";
 import { getData } from "../../services/api";
 import { useMediaQuery } from "react-responsive";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion"; // додано для анімацій
+import { motion } from "framer-motion";
 
 export const Footer = ({ token }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -32,8 +32,8 @@ export const Footer = ({ token }) => {
         <div className={s.footerContainer}>
           <motion.div
             className={s.logoContainer}
-            initial={{ x: -200, opacity: 0 }} // Початкова позиція ліворуч
-            whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+            initial={{ y: 200, opacity: 0 }} // Початкова позиція знизу
+            whileInView={{ y: 0, opacity: 1 }} // Фінішна позиція
             transition={{ duration: 0.8 }}
           >
             <img src="/icons/colored-logo.svg" alt="Logo" />
@@ -43,8 +43,8 @@ export const Footer = ({ token }) => {
           {isMobile && (
             <motion.p
               className={s.mobAddText}
-              initial={{ x: 200, opacity: 0 }} // Початкова позиція праворуч
-              whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+              initial={{ y: 200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
               To feel through touch
@@ -54,8 +54,8 @@ export const Footer = ({ token }) => {
           {isDesktop && (
             <motion.div
               className={s.menuNav}
-              initial={{ x: -200, opacity: 0 }} // Початкова позиція ліворуч
-              whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+              initial={{ y: 200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 1 }}
             >
               <ul>
@@ -75,8 +75,8 @@ export const Footer = ({ token }) => {
 
           <motion.div
             className={s.serviceNav}
-            initial={{ x: 200, opacity: 0 }} // Початкова позиція праворуч
-            whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+            initial={{ y: 200, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 1 }}
           >
             <ul>
@@ -104,13 +104,13 @@ export const Footer = ({ token }) => {
 
           <motion.div
             className={s.socialContainer}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ y: 200, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 1 }}
           >
             <motion.div
-              initial={{ x: 200, opacity: 0 }} // Початкова позиція ліворуч
-              whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+              initial={{ y: 200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 1 }}
             >
               <p>TALK TO US</p>
@@ -121,8 +121,8 @@ export const Footer = ({ token }) => {
 
             <motion.div
               className="w-[auto] lg:w-[20vw]"
-              initial={{ x: 200, opacity: 0 }} // Початкова позиція праворуч
-              whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+              initial={{ y: 200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 1 }}
             >
               <p>COME SEE US</p>
@@ -130,8 +130,8 @@ export const Footer = ({ token }) => {
             </motion.div>
 
             <motion.div
-              initial={{ x: 200, opacity: 0 }} // Початкова позиція ліворуч
-              whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+              initial={{ y: 200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 1 }}
             >
               <p>WORK WITH US</p>
@@ -143,8 +143,8 @@ export const Footer = ({ token }) => {
             {isMobile && (
               <motion.div
                 className={s.menuNav}
-                initial={{ x: -200, opacity: 0 }} // Початкова позиція ліворуч
-                whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+                initial={{ y: 200, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1 }}
               >
                 <ul>
@@ -162,8 +162,8 @@ export const Footer = ({ token }) => {
             )}
 
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ y: 200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 1 }}
             >
               {isDesktop && <p>social media</p>}
@@ -173,8 +173,8 @@ export const Footer = ({ token }) => {
                     (item, index) => (
                       <motion.li
                         key={index}
-                        initial={{ x: 200, opacity: 0 }} // Початкова позиція праворуч
-                        whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
+                        initial={{ x: -200, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: index * 0.2 }}
                       >
                         <a
@@ -192,15 +192,10 @@ export const Footer = ({ token }) => {
           </motion.div>
         </div>
 
-        <motion.div
-          className={s.footerBottomContainer}
-          initial={{ x: 200, opacity: 0 }} // Початкова позиція праворуч
-          whileInView={{ x: 0, opacity: 1 }} // Фінішна позиція
-          transition={{ duration: 1 }}
-        >
+        <div className={s.footerBottomContainer}>
           {isDesktop && <p>All rights reserved 2024 © Sentir</p>}
           <a href="">Privacy Policy</a>
-        </motion.div>
+        </div>
       </Layout>
     </footer>
   );

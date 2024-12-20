@@ -58,7 +58,9 @@ export const ApproachSection = () => {
             <br />
             your idea
           </p>
-          <DiscussBtn>Discuss a project</DiscussBtn>
+          <a href="#form">
+            <DiscussBtn>Discuss a project</DiscussBtn>
+          </a>
         </motion.div>
 
         {/* Головний контент */}

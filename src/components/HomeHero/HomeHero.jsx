@@ -199,7 +199,7 @@ export const HomeHero = () => {
           resonate with users and drive business success.
         </p>
 
-        <Link>
+        <a href="#form">
           <motion.div
             initial={{ opacity: 0, y: "5vw" }} // Початкова позиція: зліва
             animate={{ opacity: 1, y: "0" }} // Кінцева позиція: звичайна
@@ -208,7 +208,7 @@ export const HomeHero = () => {
           >
             GET NO-COST DISCOVERY
           </motion.div>
-        </Link>
+        </a>
 
         <div>
           {isDesktop && (

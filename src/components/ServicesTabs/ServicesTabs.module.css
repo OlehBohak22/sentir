@@ -54,6 +54,7 @@
 .sidebar {
   position: relative;
   padding-left: 5vw;
+  max-width: 24vw;
 }
 
 .sidebar .tab {
@@ -131,6 +132,7 @@
     overflow-x: auto;
     margin-bottom: 13vw;
     padding-left: 3vw;
+    max-width: none;
 
     .tab {
       white-space: nowrap;

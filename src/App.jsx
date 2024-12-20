@@ -1,4 +1,6 @@
-import { Route, Routes, useLocation } from "react-router-dom"; // Додаємо useLocation для моніторингу зміни маршруту
+import { PageWrapper } from "./components/PageWrapper";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import { HomePage } from "./pages/HomaPage/HomePage";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
@@ -15,9 +17,9 @@ import "./App.css";
 
 export default function App() {
   const [token, setToken] = useState();
-  const location = useLocation(); // Хук для отримання поточного шляху
+  const location = useLocation();
 
-  // Обробка руху миші та позиціювання кастомного курсора
+  // Додавання кастомного курсору
   useEffect(() => {
     const cursor = document.querySelector(".cursor");
 
@@ -35,24 +37,6 @@ export default function App() {
     };
   }, []);
 
-  // Додавання токену
-  useEffect(() => {
-    const fetchToken = async () => {
-      try {
-        const fetchedToken = await getToken(
-          "admin_projection",
-          "mkGp6Rpv5$On7BR&VU"
-        );
-        setToken(fetchedToken);
-      } catch (error) {
-        console.error("Error fetching token:", error);
-      }
-    };
-
-    fetchToken();
-  }, []);
-
-  // Делегування подій для лінків і елементів з класом "case"
   useEffect(() => {
     const handleMouseEnter = (e) => {
       // Перевірка, чи існує target і чи має він клас "case"
@@ -106,6 +90,23 @@ export default function App() {
     document.body.classList.remove("cursor-case");
   }, [location]);
 
+  // Отримання токена
+  useEffect(() => {
+    const fetchToken = async () => {
+      try {
+        const fetchedToken = await getToken(
+          "admin_projection",
+          "mkGp6Rpv5$On7BR&VU"
+        );
+        setToken(fetchedToken);
+      } catch (error) {
+        console.error("Error fetching token:", error);
+      }
+    };
+
+    fetchToken();
+  }, []);
+
   return (
     <>
       <div className="cursor"></div>
@@ -114,15 +115,66 @@ export default function App() {
 
       <ScrollTop />
 
-      <Routes>
-        <Route path="/" element={<HomePage token={token} />} />
-        <Route path="/about" element={<AboutPage token={token} />} />
-        <Route path="/portfolio" element={<PortfilioPage token={token} />} />
-        <Route path="/workflow" element={<WorkflowPage token={token} />} />
-        <Route path="/services" element={<ServicesPage token={token} />} />
-        <Route path="/cases/:id" element={<CasePage token={token} />} />
-        <Route path="/contact" element={<ContactPage token={token} />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <PageWrapper>
+                <HomePage token={token} />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <PageWrapper>
+                <AboutPage token={token} />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/portfolio"
+            element={
+              <PageWrapper>
+                <PortfilioPage token={token} />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/workflow"
+            element={
+              <PageWrapper>
+                <WorkflowPage token={token} />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <PageWrapper>
+                <ServicesPage token={token} />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/cases/:id"
+            element={
+              <PageWrapper>
+                <CasePage token={token} />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <PageWrapper>
+                <ContactPage token={token} />
+              </PageWrapper>
+            }
+          />
+        </Routes>
+      </AnimatePresence>
 
       <Footer token={token} />
     </>

@@ -7,17 +7,17 @@ import "./PortfolioCursor.css";
 
 export const PortfolioTitularSection = ({ titulInfo }) => {
   const { ref, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
+    threshold: 0.1, // Поява при 10% у полі зору
+    triggerOnce: true, // Запуск лише один раз
   });
 
   // Анімація для контейнера
   const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 100 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 1, ease: "easeOut" },
     },
   };
 
@@ -27,7 +27,7 @@ export const PortfolioTitularSection = ({ titulInfo }) => {
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.2, duration: 1, ease: "easeOut" },
+      transition: { delay: i * 0.2, duration: 0.8, ease: "easeOut" },
     }),
   };
 
@@ -37,23 +37,17 @@ export const PortfolioTitularSection = ({ titulInfo }) => {
 
   return (
     <Layout>
-      <div className="case">
+      <motion.div className="case" ref={ref}>
         <Link to={`/cases/${titulInfo.id}`}>
           <motion.div
-            ref={ref}
             className={s.titularContainer}
             style={{ backgroundImage: `url(${titulInfo.case_title_pictures})` }}
-            animate={{
-              WebkitMaskPosition: "200px",
-            }}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"} // Анімація при появі
+            variants={containerVariants}
           >
             {/* Контент секції */}
-            <motion.div
-              className={s.titularContent}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              variants={containerVariants}
-            >
+            <motion.div className={s.titularContent}>
               {/* Анімація опису */}
               <motion.p variants={childVariants} custom={1}>
                 {titulInfo.case_description}
@@ -63,7 +57,7 @@ export const PortfolioTitularSection = ({ titulInfo }) => {
               <motion.ul>
                 {mors.map((item, index) => (
                   <motion.li
-                    className={item == "NDA" ? s.nda : ""}
+                    className={item === "NDA" ? s.nda : ""}
                     key={index}
                     variants={childVariants}
                     custom={index + 2}
@@ -80,7 +74,7 @@ export const PortfolioTitularSection = ({ titulInfo }) => {
             </motion.div>
           </motion.div>
         </Link>
-      </div>
+      </motion.div>
     </Layout>
   );
 };
