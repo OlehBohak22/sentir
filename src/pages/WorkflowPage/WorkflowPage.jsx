@@ -28,10 +28,10 @@ export const WorkflowPage = ({ token }) => {
 
   // Варіанти анімації
   const fadeInVariants = {
-    hidden: { opacity: 0, x: -50 },
+    hidden: { opacity: 0, y: -100 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: { duration: 1, ease: "easeOut" },
     },
   };

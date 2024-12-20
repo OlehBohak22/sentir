@@ -10,10 +10,10 @@ import { Helmet } from "react-helmet";
 export const ServicesPage = ({ token }) => {
   // Варіанти анімації
   const fadeInVariants = {
-    hidden: { opacity: 0, x: -100 },
+    hidden: { opacity: 0, y: -100 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: { duration: 1, ease: "easeOut" },
     },
   };

@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css"; // Стилі для Swiper
 import "swiper/css/pagination";
-import { Link } from "react-router-dom";
 
 export const HomeHero = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });

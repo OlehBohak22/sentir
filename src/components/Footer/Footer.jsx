@@ -81,24 +81,48 @@ export const Footer = ({ token }) => {
           >
             <ul>
               {isDesktop && <p>Services</p>}
-              <li>
+              <motion.li
+                initial={{ y: 200, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 0.1 }}
+              >
                 <Link to="/services#project">Project Kick-Off</Link>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li
+                initial={{ y: 200, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 0.2 }}
+              >
                 <Link to="/services#discovery">Discovery</Link>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li
+                initial={{ y: 200, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 0.3 }}
+              >
                 <Link to="/services#UXUI">UX/UI Design</Link>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li
+                initial={{ y: 200, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 0.4 }}
+              >
                 <Link to="/services#web">Web & Mobile Development</Link>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li
+                initial={{ y: 200, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              >
                 <Link to="/services#due">Due Diligence</Link>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li
+                initial={{ y: 200, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 0.6 }}
+              >
                 <Link to="/services#staff">Staff Augmentation</Link>
-              </li>
+              </motion.li>
             </ul>
           </motion.div>
 
@@ -161,11 +185,7 @@ export const Footer = ({ token }) => {
               </motion.div>
             )}
 
-            <motion.div
-              initial={{ y: 200, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
-            >
+            <div>
               {isDesktop && <p>social media</p>}
               <ul className={s.socialLinks}>
                 {contactInfo.social_media_images &&
@@ -173,9 +193,9 @@ export const Footer = ({ token }) => {
                     (item, index) => (
                       <motion.li
                         key={index}
-                        initial={{ x: -200, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, delay: index * 0.2 }}
+                        initial={{ y: 100, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, delay: index * 0.2 }}
                       >
                         <a
                           href={item.link}
@@ -188,7 +208,7 @@ export const Footer = ({ token }) => {
                     )
                   )}
               </ul>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
 

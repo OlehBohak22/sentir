@@ -8,6 +8,7 @@ import { SeparateReviewBlock } from "../../components/SeparateReviewBlock/Separa
 import { FormSection } from "../../components/FormSection/FormSection";
 import { CaseHorizontalSection } from "../../components/CaseHorizontalSection/CaseHorizontalSection";
 import { Helmet } from "react-helmet";
+import { motion } from "framer-motion";
 
 export const CasePage = ({ token }) => {
   const { id } = useParams();
@@ -51,6 +52,16 @@ export const CasePage = ({ token }) => {
     return <div>Loading...</div>;
   }
 
+  // Анімаційні параметри
+  const fadeInUp = {
+    hidden: { opacity: 0, y: -500 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, ease: "easeOut" },
+    },
+  };
+
   return (
     <>
       <Helmet>
@@ -61,28 +72,65 @@ export const CasePage = ({ token }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
       <main>
-        <CaseHero title={cases.title.rendered} bg={cases.case_title_pictures} />
-        <CaseDetails details={cases} />
+        {/* Hero Section */}
+        <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
+          <CaseHero
+            title={cases.title.rendered}
+            bg={cases.case_title_pictures}
+          />
+        </motion.div>
 
-        <section
+        {/* Details Section */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <CaseDetails details={cases} />
+        </motion.div>
+
+        {/* Background Section */}
+        <motion.section
           className={s.attachmentSection}
           style={{
             backgroundImage: `url(${cases.case_second_pictures})`,
           }}
-        ></section>
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, amount: 0.3 }}
+        ></motion.section>
 
-        <div className="bg-black">
+        {/* Review Section */}
+        <motion.div
+          className="bg-black"
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {review ? (
             <SeparateReviewBlock review={review} />
           ) : (
-            <p>No reviews available for this case.</p>
+            <motion.p>No reviews available for this case.</motion.p>
           )}
-        </div>
+        </motion.div>
+
+        {/* Horizontal Section */}
 
         <CaseHorizontalSection cases={cases} />
-        <div className="mt-[5vw]">
+
+        {/* Form Section */}
+        <motion.div
+          className="mt-[5vw]"
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <FormSection />
-        </div>
+        </motion.div>
       </main>
     </>
   );

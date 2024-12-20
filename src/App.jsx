@@ -85,9 +85,12 @@ export default function App() {
     };
   }, []);
 
-  // Очищення класу cursor-case при зміні маршруту
   useEffect(() => {
-    document.body.classList.remove("cursor-case");
+    const timeout = setTimeout(() => {
+      document.body.classList.remove("cursor-case");
+    }, 1000); // Затримка у 300 мс (можна змінити за потреби)
+
+    return () => clearTimeout(timeout); // Очищення таймера при розмонтуванні або зміні маршруту
   }, [location]);
 
   // Отримання токена
