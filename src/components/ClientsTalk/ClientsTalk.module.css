@@ -1,6 +1,6 @@
 .section {
   padding: 8.3vw 0;
-  overflow: hidden; /* Це запобігає прокручуванню елементів за межі контейнера */
+  overflow: hidden;
 }
 
 .container {
@@ -68,50 +68,45 @@
   background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
 }
 
-.logos:hover .logos-slide {
+.logos:hover .logosSlide {
   animation-play-state: paused;
 }
 
 .logosSlide {
   display: inline-flex;
   animation: 10s slide infinite linear;
-  transform: translate3d(0, 0, 0); /* Активація GPU для кращої анімації */
-  display: inline-flex;
+  transform: translate3d(0, 0, 0); /* Активація GPU */
+  will-change: transform; /* Оптимізація анімації */
   align-items: center;
-  will-change: transform; /* Додано для оптимізації анімації */
+}
 
-  div {
-    position: relative;
-    width: 11.1vw;
-    height: 11.1vw;
-    margin: 0 1.3vw;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(245, 247, 249, 1);
-    border-radius: 50%;
-  }
+.logosSlide div {
+  position: relative;
+  width: 11.1vw;
+  height: 11.1vw;
+  margin: 0 1.3vw;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(245, 247, 249, 1);
+  border-radius: 50%;
+}
 
-  span {
-    position: absolute;
-    font-family: DM Sans;
-    font-size: 1.1vw;
-    font-weight: 500;
-    line-height: 1.6vw;
-    color: #ffffff;
-    background: rgba(64, 64, 64, 0.5);
-    padding: 0.2vw 1vw;
-    border-radius: 2.3vw;
-  }
+.logosSlide span {
+  position: absolute;
+  font-family: DM Sans;
+  font-size: 1.1vw;
+  font-weight: 500;
+  line-height: 1.6vw;
+  color: #ffffff;
+  background: rgba(64, 64, 64, 0.5);
+  padding: 0.2vw 1vw;
+  border-radius: 2.3vw;
 }
 
 .logosSlide img {
   display: inline;
 }
-
-/* .logosSlide img:last-child {
-  margin-right: 0;
-} */
 
 @media (max-width: 1024px) {
   .section {
@@ -170,6 +165,6 @@
 @media (max-width: 1024px) {
   .logosSlide {
     animation: 10s slide infinite linear;
-    animation-play-state: running;
+    animation-play-state: running; /* Увімкнена анімація на мобільних пристроях */
   }
 }

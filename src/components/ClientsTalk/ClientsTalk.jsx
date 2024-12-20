@@ -23,35 +23,17 @@ export const ClientsTalk = ({ token }) => {
   useEffect(() => {
     const logos = document.querySelectorAll(".logosSlide");
 
-    // Затримка через requestAnimationFrame
+    const setAnimation = () => {
+      logos.forEach((logo) => {
+        logo.style.animation = "none"; // Скидаємо анімацію
+        logo.offsetHeight; // Примусово змушуємо перерахувати елемент
+        logo.style.animation = "10s slide infinite linear"; // Відновлюємо анімацію
+      });
+    };
+
+    // Затримка через requestAnimationFrame для мобільних пристроїв
     requestAnimationFrame(() => {
-      logos.forEach((logo) => {
-        logo.style.animation = "none"; // Скидаємо анімацію
-        logo.offsetHeight; // Примусово змушуємо перерахувати елемент
-        logo.style.animation = "10s slide infinite linear"; // Відновлюємо анімацію
-      });
-    });
-  }, []);
-
-  useEffect(() => {
-    const logos = document.querySelectorAll(".logosSlide");
-
-    setTimeout(() => {
-      logos.forEach((logo) => {
-        logo.style.animation = "none"; // Скидаємо анімацію
-        logo.offsetHeight; // Примусово змушуємо перерахувати елемент
-        logo.style.animation = "10s slide infinite linear"; // Відновлюємо анімацію
-      });
-    }, 5000); // Затримка перед активацією анімації
-  }, []);
-
-  useEffect(() => {
-    const logos = document.querySelectorAll(".logosSlide");
-
-    logos.forEach((logo) => {
-      logo.style.animation = "none"; // Скидаємо анімацію
-      logo.offsetHeight; // Примусово змушуємо перерахувати елемент
-      logo.style.animation = "10s slide infinite linear"; // Відновлюємо анімацію
+      setTimeout(setAnimation, 500); // Затримка для активування анімації
     });
   }, []);
 
@@ -76,7 +58,7 @@ export const ClientsTalk = ({ token }) => {
               </div>
             ))}
           </div>
-
+          ;
           <div className={s.logosSlide}>
             {logos.map((logo) => (
               <div key={logo.id}>
@@ -85,6 +67,7 @@ export const ClientsTalk = ({ token }) => {
               </div>
             ))}
           </div>
+          ;
         </div>
       </Layout>
     </section>
