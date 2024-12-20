@@ -5,6 +5,7 @@ import { getData } from "../../services/api";
 
 export const ClientsTalk = ({ token }) => {
   const [logos, setLogos] = useState([]);
+  const [animationState, setAnimationState] = useState(false);
 
   useEffect(() => {
     const fetchServices = async () => {
@@ -21,20 +22,16 @@ export const ClientsTalk = ({ token }) => {
   }, [token]);
 
   useEffect(() => {
-    const logos = document.querySelectorAll(".logosSlide");
-
-    const setAnimation = () => {
-      logos.forEach((logo) => {
-        logo.style.animation = "none"; // Скидаємо анімацію
-        logo.offsetHeight; // Примусово змушуємо перерахувати елемент
-        logo.style.animation = "10s slide infinite linear"; // Відновлюємо анімацію
-      });
+    const handleScroll = () => {
+      setAnimationState(true);
     };
 
-    // Затримка через requestAnimationFrame для мобільних пристроїв
-    requestAnimationFrame(() => {
-      setTimeout(setAnimation, 500); // Затримка для активування анімації
-    });
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -49,7 +46,7 @@ export const ClientsTalk = ({ token }) => {
           </p>
         </div>
 
-        <div className={s.logos}>
+        <div className={`${s.logos} ${animationState ? s.animate : ""}`}>
           <div className={s.logosSlide}>
             {logos.map((logo) => (
               <div key={logo.id}>

@@ -46,38 +46,39 @@
   background: white;
   white-space: nowrap;
   position: relative;
+  visibility: hidden; /* Спочатку приховане */
 }
 
-.logos:before,
-.logos:after {
-  position: absolute;
-  top: 0;
-  width: 6vw;
-  height: 100%;
-  content: "";
-  z-index: 2;
-}
-
-.logos:before {
-  left: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-}
-
-.logos:after {
-  right: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-}
-
-.logos:hover .logosSlide {
-  animation-play-state: paused;
+.logos.animate {
+  visibility: visible; /* Відображається після активації */
 }
 
 .logosSlide {
   display: inline-flex;
   animation: 10s slide infinite linear;
   transform: translate3d(0, 0, 0); /* Активація GPU */
-  will-change: transform; /* Оптимізація анімації */
+  will-change: transform;
   align-items: center;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 12vw;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: -0.7vw;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+  right: -0.7vw;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
 }
 
 .logosSlide div {
@@ -159,12 +160,5 @@
   .logos:after {
     right: -0.7vw;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-  }
-}
-
-@media (max-width: 1024px) {
-  .logosSlide {
-    animation: 10s slide infinite linear;
-    animation-play-state: running; /* Увімкнена анімація на мобільних пристроях */
   }
 }
