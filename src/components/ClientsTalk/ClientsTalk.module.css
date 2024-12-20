@@ -34,19 +34,19 @@
 
 @keyframes slide {
   from {
-    transform: translate3d(0, 0, 0); /* Початкова позиція */
+    transform: translateX(0); /* Початкова позиція */
   }
   to {
-    transform: translate3d(-100%, 0, 0); /* Переміщення на 100% вліво */
+    transform: translateX(-100%); /* Переміщення на 100% вліво */
   }
 }
 
 @-webkit-keyframes slide {
   from {
-    transform: translate3d(0, 0, 0);
+    transform: translateX(0); /* Початкова позиція */
   }
   to {
-    transform: translate3d(-100%, 0, 0);
+    transform: translateX(-100%); /* Переміщення на 100% вліво */
   }
 }
 
@@ -66,10 +66,9 @@
   display: inline-flex;
   animation: 10s slide infinite linear;
   -webkit-animation: 10s slide infinite linear; /* Додано WebKit підтримку */
-  transform: translate3d(0, 0, 0); /* Активація GPU */
-  -webkit-transform: translate3d(0, 0, 0); /* Додано WebKit підтримку */
-  will-change: transform;
-  -webkit-will-change: transform; /* Додано WebKit підтримку */
+  transform: translateX(0); /* Активація GPU */
+  -webkit-transform: translateX(0); /* Додано WebKit підтримку */
+  will-change: transform; /* Тимчасово прибрано WebKit підтримку */
   align-items: center;
 }
 
