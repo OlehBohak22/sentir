@@ -41,6 +41,15 @@
   }
 }
 
+@-webkit-keyframes slide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
 .logos {
   overflow: hidden;
   background: white;
@@ -56,8 +65,11 @@
 .logosSlide {
   display: inline-flex;
   animation: 10s slide infinite linear;
+  -webkit-animation: 10s slide infinite linear; /* Додано WebKit підтримку */
   transform: translate3d(0, 0, 0); /* Активація GPU */
+  -webkit-transform: translate3d(0, 0, 0); /* Додано WebKit підтримку */
   will-change: transform;
+  -webkit-will-change: transform; /* Додано WebKit підтримку */
   align-items: center;
 }
 
@@ -74,11 +86,21 @@
 .logos:before {
   left: -0.7vw;
   background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+  -webkit-background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0),
+    white
+  ); /* Додано WebKit підтримку */
 }
 
 .logos:after {
   right: -0.7vw;
   background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  -webkit-background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    white
+  ); /* Додано WebKit підтримку */
 }
 
 .logosSlide div {
@@ -138,6 +160,7 @@
 
       img {
         transform: scale(0.7);
+        -webkit-transform: scale(0.7); /* Додано WebKit підтримку */
       }
     }
   }
@@ -155,10 +178,20 @@
   .logos:before {
     left: -0.7vw;
     background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+    -webkit-background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      white
+    ); /* Додано WebKit підтримку */
   }
 
   .logos:after {
     right: -0.7vw;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+    -webkit-background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      white
+    ); /* Додано WebKit підтримку */
   }
 }
