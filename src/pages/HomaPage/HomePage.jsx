@@ -44,6 +44,12 @@ export const HomePage = ({ token }) => {
     fetchReviews();
   }, [token]);
 
+  const titularCase = Array.isArray(cases)
+    ? cases.find((item) => item.main_case === "on")
+    : [];
+
+  console.log(titularCase);
+
   return (
     <>
       <Helmet>
@@ -59,7 +65,9 @@ export const HomePage = ({ token }) => {
         <ServicesSection />
 
         <section className={s.portfolioSection}>
-          {cases.length > 0 && <PortfolioTitularSection titulInfo={cases[0]} />}
+          {cases.length > 0 && (
+            <PortfolioTitularSection titulInfo={titularCase} />
+          )}
 
           <PortfolioSection restInfo={cases} />
         </section>
