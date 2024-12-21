@@ -107,21 +107,24 @@ export const slides = [
   },
   {
     id: 4,
-    image: "/icons/about-swiper-icons/11.svg",
+    image: "/icons/about-swiper-icons/9.svg",
+
     title: "Cherish the Feedback",
     description:
       "We recognize the essential role of constructive feedback. We encourage open dialogue, where every voice is heard, and every perspective is valued. Yet, we approach feedback with empathy and patience, ensuring our words stem from a place of genuine care, not fleeting emotions.",
   },
   {
     id: 5,
-    image: "/icons/about-swiper-icons/11-1.svg",
+    image: "/icons/about-swiper-icons/11.svg",
+
     title: "Cultivate Independence",
     description:
       "We empower team members to immerse themselves fully in their tasks, savoring the liberty of decision-making and delving into the nuances. We uphold a space where delegation is not just allowed, but celebrated, ensuring that trust and autonomy stand as our guiding lights.",
   },
   {
     id: 6,
-    image: "/icons/about-swiper-icons/9.svg",
+    image: "/icons/about-swiper-icons/11-1.svg",
+
     title: "Target Satisfying Achievements",
     description:
       "We embark on a collective quest, ensuring each individual finds purpose and significance in their contributions. By placing emphasis on projects that resonate and positively impact others, we cultivate a deep sense of accomplishment that extends beyond mere financial gain.",
@@ -129,6 +132,7 @@ export const slides = [
   {
     id: 7,
     image: "/icons/about-swiper-icons/10.svg",
+
     title: "Flexibility Over Constraints",
     description:
       "We cultivate a space where individuals prioritize adaptability in their schedules, fostering a harmonious work-life equilibrium. By championing this freedom, we recognize the importance of balance and well-being in our professional journey.",

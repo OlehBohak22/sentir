@@ -19,8 +19,9 @@
     gap: 2.5vw;
 
     li {
+      position: relative;
       flex: 1;
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.2);
       height: 13vw;
       display: flex;
       align-items: center;
@@ -30,6 +31,28 @@
       img {
         transform: scale(0.6);
         transition: transform 1s;
+      }
+
+      a {
+        position: relative;
+        z-index: 2; /* Встановлюємо з-index, щоб посилання було над затемненням */
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Додаємо псевдоелемент для затемнення */
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Колір затемнення */
+        opacity: 1; /* Початково затемнення приховане */
+        transition: opacity 0.5s; /* Анімація затемнення */
+        z-index: 1; /* Псевдоелемент позаду тексту */
+      }
+
+      &:hover::before {
+        opacity: 0; /* Показуємо затемнення при ховері */
       }
     }
 
