@@ -5,7 +5,6 @@ import s from "./MainForm.module.css";
 import { postData, getToken } from "../../services/api"; // Імпортуємо функції
 import { toast, ToastContainer } from "react-toastify"; // Імпортуємо бібліотеку для повідомлень
 import "react-toastify/dist/ReactToastify.css";
-import { motion } from "framer-motion"; // Імпортуємо framer-motion
 import { useInView } from "react-intersection-observer"; // Імпортуємо для виявлення видимості елементів
 
 import "./MainForm.css";
@@ -79,7 +78,7 @@ export const MainForm = () => {
 
   // Використовуємо хук для виявлення, коли елемент входить в область видимості
   const { ref, inView } = useInView({
-    triggerOnce: true, // Тільки один раз
+    triggerOnce: false, // Тільки один раз
     threshold: 0.1, // Відслідковуємо, коли 10% елемента з'являється на екрані
   });
 
@@ -94,17 +93,9 @@ export const MainForm = () => {
           <Form>
             <div className={s.formTitle}>
               Leave your contacts to get
-              <div className="relative w-[fit-content]">
+              <div className="relative w-[fit-content]" ref={ref}>
                 <p>a free-of-charge project kick-off</p>
-                <motion.div
-                  className={`${s.overlay}`}
-                  ref={ref} // Додаємо посилання на елемент для перевірки видимості
-                  initial={{ x: "-100%" }} // Початкове положення праворуч
-                  animate={{
-                    x: inView ? "0%" : "100%", // Анімація при виявленні
-                  }}
-                  transition={{ duration: 3 }} // Тривалість анімації
-                ></motion.div>
+                <div className={`${s.overlay} ${inView ? s.active : ""}`}></div>
               </div>
             </div>
 
