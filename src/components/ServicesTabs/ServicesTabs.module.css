@@ -16,8 +16,9 @@
 }
 
 .contentTitleContainer {
-  display: flex;
+  display: grid;
   gap: 4.8vw;
+  grid-template-columns: 1.1fr 1fr;
 
   h3 {
     font-family: DM Sans;

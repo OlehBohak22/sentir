@@ -169,7 +169,12 @@ export const MainForm = () => {
 
               <button className={s.btn} type="submit" disabled={isSubmitting}>
                 <span>{isSubmitting ? "Sending..." : "SEND"}</span>
-                <img src="/icons/swiper-arrow-next.svg" alt="Arrow" />
+                <div className={s.arrowsLine}>
+                  <div className={s.arrows}>
+                    <img src="/icons/swiper-arrow-next.svg" alt="Arrow" />
+                    <img src="/icons/swiper-arrow-next.svg" alt="Arrow" />
+                  </div>
+                </div>
               </button>
             </div>
           </Form>

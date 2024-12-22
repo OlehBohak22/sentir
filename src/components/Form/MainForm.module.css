@@ -270,6 +270,21 @@
   width: 100%;
 }
 
+.arrowsLine {
+  width: 2vw;
+  overflow: hidden;
+
+  .arrows {
+    display: flex;
+    transition: 0.5s;
+    transform: translateX(-100%);
+  }
+}
+
+.btn:hover .arrows {
+  transform: translateX(10%);
+}
+
 @media (max-width: 1024px) {
   .formTitle {
     font-size: 6.2vw;

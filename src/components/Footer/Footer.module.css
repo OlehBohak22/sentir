@@ -25,7 +25,7 @@ footer {
   a {
     display: block;
     background: var(--primary-gradient);
-    background-size: 200% 200%;
+    background-size: 100% 100%;
     animation: rainbow 2s ease-in-out infinite;
     background-clip: text;
     -webkit-background-clip: text;
