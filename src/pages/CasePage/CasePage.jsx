@@ -49,7 +49,7 @@ export const CasePage = ({ token }) => {
   }, [token, cases]);
 
   if (!cases) {
-    return <div>Loading...</div>;
+    return <div className="main-content"></div>;
   }
 
   // Анімаційні параметри
@@ -71,6 +71,7 @@ export const CasePage = ({ token }) => {
         <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
+
       <main>
         {/* Hero Section */}
         <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
