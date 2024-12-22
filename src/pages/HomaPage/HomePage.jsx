@@ -48,8 +48,6 @@ export const HomePage = ({ token }) => {
     ? cases.find((item) => item.main_case === "on")
     : [];
 
-  console.log(titularCase);
-
   return (
     <>
       <Helmet>
