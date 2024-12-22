@@ -65,11 +65,18 @@ const PortfolioItem = ({ item }) => {
             <div>
               {/* Анімація списку */}
               <motion.ul>
-                {mors.map((item, index) => (
-                  <li className={item == "NDA" ? s.nda : ""} key={index}>
-                    {item}
-                  </li>
-                ))}
+                {mors
+                  .sort((a, b) => (a === "NDA" ? -1 : b === "NDA" ? 1 : 0)) // Сортуємо, щоб "NDA" завжди було першим
+                  .map((item, index) => (
+                    <motion.li
+                      className={item === "NDA" ? s.nda : ""}
+                      key={index}
+                      variants={childVariants}
+                      custom={index + 2}
+                    >
+                      {item}
+                    </motion.li>
+                  ))}
               </motion.ul>
 
               {/* Анімація опису */}

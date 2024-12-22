@@ -11,6 +11,10 @@ ol {
   list-style: none;
 }
 
+.main-content {
+  min-height: 100vh;
+}
+
 /* Видалення стандартного підкреслення посилань */
 a {
   text-decoration: none;

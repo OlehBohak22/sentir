@@ -40,13 +40,13 @@ export const AboutPage = ({ token }) => {
         <AboutHeroSection />
         <AboutMissionSection />
         <AboutSwiperSection />
-        <div className="lg:mt-[5vw] ">
-          <HomeReviewSection>
-            <ProfessionalsBlock />
-            <SeparateReviewBlock review={review} className="mb=[2vw}" />
-            <CompanyList token={token} />
-          </HomeReviewSection>
-        </div>
+        <HomeReviewSection>
+          <ProfessionalsBlock />
+          <div className="mb-[15vw]">
+            <SeparateReviewBlock review={review} />
+          </div>
+          <CompanyList token={token} />
+        </HomeReviewSection>
         <FormSection />
       </main>
     </>

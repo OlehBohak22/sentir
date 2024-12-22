@@ -92,7 +92,7 @@
   font-weight: 500;
   line-height: 2.3vw;
   background: var(--primary-gradient);
-  width: 41vw;
+  width: 46vw;
   margin-left: auto;
   -webkit-background-clip: text;
   color: transparent; /* Оскільки текст не має кольору, ми використовуємо градієнт на фоні */

@@ -52,6 +52,7 @@
   padding: 0 0 5.8vw 7.6vw;
 
   h2 {
+    position: relative;
     font-family: Almarai;
     font-size: 4.1vw;
     font-weight: 400;
@@ -59,6 +60,7 @@
     text-transform: uppercase;
     color: #ffffff;
     margin-bottom: 5.6vw;
+    z-index: 2;
 
     span {
       display: block;
@@ -126,7 +128,7 @@
         letter-spacing: -0.03em;
         color: rgba(255, 255, 255, 0.3);
         width: 7vw;
-        transition: transform 0.3s;
+        transition: 0.3s;
       }
     }
 

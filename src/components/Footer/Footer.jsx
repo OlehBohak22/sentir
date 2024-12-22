@@ -32,7 +32,7 @@ export const Footer = ({ token }) => {
         <div className={s.footerContainer}>
           <motion.div
             className={s.logoContainer}
-            initial={{ y: 200, opacity: 0 }} // Початкова позиція знизу
+            initial={{ y: 100, opacity: 0 }} // Початкова позиція знизу
             whileInView={{ y: 0, opacity: 1 }} // Фінішна позиція
             transition={{ duration: 0.8 }}
           >
@@ -43,7 +43,7 @@ export const Footer = ({ token }) => {
           {isMobile && (
             <motion.p
               className={s.mobAddText}
-              initial={{ y: 200, opacity: 0 }}
+              initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
@@ -54,7 +54,7 @@ export const Footer = ({ token }) => {
           {isDesktop && (
             <motion.div
               className={s.menuNav}
-              initial={{ y: 200, opacity: 0 }}
+              initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 1 }}
             >
@@ -75,49 +75,49 @@ export const Footer = ({ token }) => {
 
           <motion.div
             className={s.serviceNav}
-            initial={{ y: 200, opacity: 0 }}
+            initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 1 }}
           >
             <ul>
               {isDesktop && <p>Services</p>}
               <motion.li
-                initial={{ y: 200, opacity: 0 }}
+                initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, delay: 0.1 }}
               >
                 <Link to="/services#project">Project Kick-Off</Link>
               </motion.li>
               <motion.li
-                initial={{ y: 200, opacity: 0 }}
+                initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, delay: 0.2 }}
               >
                 <Link to="/services#discovery">Discovery</Link>
               </motion.li>
               <motion.li
-                initial={{ y: 200, opacity: 0 }}
+                initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, delay: 0.3 }}
               >
                 <Link to="/services#UXUI">UX/UI Design</Link>
               </motion.li>
               <motion.li
-                initial={{ y: 200, opacity: 0 }}
+                initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, delay: 0.4 }}
               >
                 <Link to="/services#web">Web & Mobile Development</Link>
               </motion.li>
               <motion.li
-                initial={{ y: 200, opacity: 0 }}
+                initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
               >
                 <Link to="/services#due">Due Diligence</Link>
               </motion.li>
               <motion.li
-                initial={{ y: 200, opacity: 0 }}
+                initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, delay: 0.6 }}
               >
@@ -128,12 +128,12 @@ export const Footer = ({ token }) => {
 
           <motion.div
             className={s.socialContainer}
-            initial={{ y: 200, opacity: 0 }}
+            initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 1 }}
           >
             <motion.div
-              initial={{ y: 200, opacity: 0 }}
+              initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 1 }}
             >
@@ -145,7 +145,7 @@ export const Footer = ({ token }) => {
 
             <motion.div
               className="w-[auto] lg:w-[20vw]"
-              initial={{ y: 200, opacity: 0 }}
+              initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 1 }}
             >
@@ -154,7 +154,7 @@ export const Footer = ({ token }) => {
             </motion.div>
 
             <motion.div
-              initial={{ y: 200, opacity: 0 }}
+              initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 1 }}
             >
@@ -167,7 +167,7 @@ export const Footer = ({ token }) => {
             {isMobile && (
               <motion.div
                 className={s.menuNav}
-                initial={{ y: 200, opacity: 0 }}
+                initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1 }}
               >

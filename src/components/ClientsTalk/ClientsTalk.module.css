@@ -197,4 +197,11 @@
     right: -0.7vw;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
   }
+
+  .logosSlide span {
+    font-size: 4vw;
+    line-height: 6vw;
+    padding: 1vw 3vw;
+    border-radius: 9vw;
+  }
 }

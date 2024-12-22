@@ -20,3 +20,14 @@
   transform: translateY(-10vw) translateX(2vw);
   pointer-events: none;
 }
+
+.proline {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .proline {
+    display: none;
+  }
+}
