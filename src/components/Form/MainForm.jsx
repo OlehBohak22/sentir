@@ -163,6 +163,7 @@ export const MainForm = () => {
                 />
                 <span className={s.uploadIcon}>
                   <img src="/icons/file-icon.svg" alt="" />
+                  <img src="/icons/add-file-icon.svg" alt="" />
                 </span>
               </label>
             </div>

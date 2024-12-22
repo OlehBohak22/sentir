@@ -278,6 +278,30 @@
   transform: translateX(10%);
 }
 
+.uploadIcon {
+  position: relative;
+  display: inline-block;
+}
+
+.uploadIcon img:nth-child(1) {
+  display: block;
+}
+
+.uploadIcon img:nth-child(2) {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.uploadLabel:hover img:nth-child(1) {
+  display: none;
+}
+
+.uploadLabel:hover img:nth-child(2) {
+  display: block;
+}
+
 @media (max-width: 1024px) {
   .formTitle {
     font-size: 6.2vw;

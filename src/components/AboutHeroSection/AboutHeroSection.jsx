@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 export const AboutHeroSection = () => {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Варіанти анімації для заголовка, тексту та кнопки
   const textVariants = {
     hidden: { opacity: 0, y: "5vw" },
     visible: { opacity: 1, y: "0" },
@@ -16,7 +15,6 @@ export const AboutHeroSection = () => {
     <section className={`${s.section} ${isHovered ? s.hovered : ""}`}>
       <Layout className="relative z-10">
         <div className={s.content}>
-          {/* Обертання кіл */}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -35,7 +33,6 @@ export const AboutHeroSection = () => {
             />
           </motion.div>
 
-          {/* Заголовок із затримкою */}
           <motion.h2
             initial="hidden"
             animate="visible"
@@ -46,7 +43,6 @@ export const AboutHeroSection = () => {
             SENTIR
           </motion.h2>
 
-          {/* Текст із трохи довшою затримкою */}
           <motion.p
             initial="hidden"
             animate="visible"
@@ -56,18 +52,19 @@ export const AboutHeroSection = () => {
             making digital experiences feel human
           </motion.p>
 
-          {/* Кнопка */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={textVariants}
-            transition={{ duration: 1, delay: 0.9, ease: "easeOut" }}
-            className={s.heroHoverLink}
-            onMouseEnter={() => setIsHovered(true)} // Знімаємо затемнення
-            onMouseLeave={() => setIsHovered(false)} // Повертаємо затемнення
-          >
-            BECOME PARTNERS
-          </motion.div>
+          <a href="#form">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={textVariants}
+              transition={{ duration: 1, delay: 0.9, ease: "easeOut" }}
+              className={s.heroHoverLink}
+              onMouseEnter={() => setIsHovered(true)} // Знімаємо затемнення
+              onMouseLeave={() => setIsHovered(false)} // Повертаємо затемнення
+            >
+              BECOME PARTNERS
+            </motion.div>
+          </a>
         </div>
       </Layout>
     </section>

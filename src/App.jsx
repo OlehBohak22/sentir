@@ -14,6 +14,7 @@ import { CasePage } from "./pages/CasePage/CasePage";
 import { ContactPage } from "./pages/ContactPage/ContactPage";
 import { ScrollTop } from "./components/ScrollTop";
 import "./App.css";
+import { SmoothScroll } from "./components/SmoothScroll";
 
 export default function App() {
   const [token, setToken] = useState();
@@ -111,7 +112,7 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <SmoothScroll>
       <div className="cursor"></div>
 
       <Header />
@@ -180,6 +181,6 @@ export default function App() {
       </AnimatePresence>
 
       <Footer token={token} />
-    </>
+    </SmoothScroll>
   );
 }

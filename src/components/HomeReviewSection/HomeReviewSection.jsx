@@ -9,7 +9,7 @@ export const HomeReviewSection = ({ children }) => {
   return (
     <section className={`${s.section} relative `}>
       {location.pathname == "/about" && (
-        <div className="absolute top-[3vw] w-[100%] h-[auto] z-[-0] pointer-events-none">
+        <div className="absolute top-[3vw] w-[100%] h-[auto] z-[-0] pointer-events-none ">
           <AnimateProLine />
         </div>
       )}
