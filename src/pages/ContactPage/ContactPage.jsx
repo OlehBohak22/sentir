@@ -4,45 +4,26 @@ import s from "./ContactPage.module.css";
 import { Layout } from "../../components/Layout/Layout";
 import { getData } from "../../services/api";
 import { MainForm } from "../../components/Form/MainForm";
-import { main } from "framer-motion/client";
 import { Helmet } from "react-helmet";
 
 export const ContactPage = ({ token }) => {
   const [contactInfo, setContactInfo] = useState({});
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!token) return;
-
-    const cachedData = localStorage.getItem("contactInfo");
-    if (cachedData) {
-      setContactInfo(JSON.parse(cachedData));
-      return;
-    }
-
     const fetchCompanies = async () => {
+      if (!token) return;
       try {
         const data = await getData(token, "wp-json/wp/v2/contact-info");
         setContactInfo(data);
-        localStorage.setItem("contactInfo", JSON.stringify(data));
-      } catch (err) {
-        setError("Failed to fetch contact information.");
-        console.error("Error fetching info:", err);
+      } catch (error) {
+        console.error("Error fetching info:", error);
       }
     };
 
     fetchCompanies();
   }, [token]);
 
-  if (error) {
-    return (
-      <section className={s.section}>
-        <Layout className={s.container}>
-          <p className={s.errorMessage}>{error}</p>
-        </Layout>
-      </section>
-    );
-  }
+  console.log(contactInfo.social_media_images);
 
   return (
     <>
@@ -71,22 +52,25 @@ export const ContactPage = ({ token }) => {
                   <h4 className="mb-[1.2vw]">SOCIAL MEDIA</h4>
                   <ul className={s.socialLinks} role="list">
                     {contactInfo?.social_media_images ? (
-                      Object.values(contactInfo.social_media_images).map(
-                        (item, index) => (
-                          <li key={index}>
-                            <a
-                              href={item.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <img
-                                src={item.image}
-                                alt={item.name || "Social media icon"}
-                              />
-                            </a>
-                          </li>
-                        )
-                      )
+                      contactInfo.social_media_images.map((item, index) => (
+                        <li key={index}>
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <span
+                              dangerouslySetInnerHTML={{ __html: item.image }}
+                              style={{
+                                display: "inline-block",
+                                width: "24px",
+                                height: "24px",
+                                fill: "black",
+                              }}
+                            />
+                          </a>
+                        </li>
+                      ))
                     ) : (
                       <li>No social media links available</li>
                     )}

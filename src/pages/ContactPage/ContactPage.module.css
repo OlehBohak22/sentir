@@ -52,9 +52,13 @@
     display: flex;
     gap: 1.6vw;
 
-    img {
+    svg {
       width: 1.9vw;
       height: 1.9vw;
+
+      path {
+        fill: #ffffff;
+      }
     }
   }
 }

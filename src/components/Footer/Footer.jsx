@@ -189,24 +189,30 @@ export const Footer = ({ token }) => {
               {isDesktop && <p>social media</p>}
               <ul className={s.socialLinks}>
                 {contactInfo.social_media_images &&
-                  Object.values(contactInfo.social_media_images).map(
-                    (item, index) => (
-                      <motion.li
-                        key={index}
-                        initial={{ y: 100, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: index * 0.2 }}
+                  contactInfo.social_media_images.map((item, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ y: 100, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 1, delay: index * 0.2 }}
+                    >
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        <a
-                          href={item.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <img src={item.image} alt={item.name} />
-                        </a>
-                      </motion.li>
-                    )
-                  )}
+                        <span
+                          dangerouslySetInnerHTML={{ __html: item.image }}
+                          style={{
+                            display: "inline-block",
+                            width: "24px",
+                            height: "24px",
+                            fill: "black",
+                          }}
+                        />
+                      </a>
+                    </motion.li>
+                  ))}
               </ul>
             </div>
           </motion.div>

@@ -109,14 +109,15 @@ footer {
     font-weight: 500;
     line-height: 2.5vw;
 
-    img {
+    svg {
       width: 2vw;
+      height: 2vw;
     }
   }
   ul {
     margin-top: 1.3vw;
     display: flex;
-    gap: 1.6vw;
+    gap: 2vw;
   }
 
   div:not(:last-child) {
@@ -206,8 +207,9 @@ footer {
       line-height: 8vw;
       text-align: center;
 
-      img {
+      svg {
         width: 7vw;
+        height: 7vw;
       }
     }
   }
