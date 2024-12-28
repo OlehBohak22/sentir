@@ -28,7 +28,7 @@ export const AboutSwiperSection = () => {
         pin: true,
         scrub: 0.5, // Плавна прокрутка
         start: "top top",
-        end: `top -2000`, // Збалансувати ширину
+        end: `top -5000`, // Збалансувати ширину
         onUpdate: (self) => {
           const progressBar = document.getElementById("progress-bar");
           if (progressBar) {
