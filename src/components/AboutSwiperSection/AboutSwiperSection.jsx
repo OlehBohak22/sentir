@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useLayoutEffect } from "react";
 import { slides } from "../../services/fake-api";
 import { useMediaQuery } from "react-responsive";
+import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,7 +48,9 @@ export const AboutSwiperSection = () => {
     <div ref={containerRef}>
       <section className={s.scroller} ref={scrollerRef}>
         <Layout>
-          <h2>Our Values</h2>
+          <h2>
+            <AnimatedHeading text="Our Values" />
+          </h2>
 
           <div className={s.progressBarWrapper}>
             <div className={s.progressBar} id="progress-bar"></div>
