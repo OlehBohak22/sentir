@@ -38,7 +38,7 @@ export const PortfolioTitularSection = ({ titulInfo }) => {
   return (
     <Layout>
       <motion.div className="case" ref={ref}>
-        <Link to={`/cases/${titulInfo.id}`}>
+        <Link to={`/cases/${titulInfo.slug}`}>
           <motion.div
             className={s.titularContainer}
             style={{ backgroundImage: `url(${titulInfo.case_title_pictures})` }}

@@ -11,7 +11,8 @@ import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 
 export const CasePage = ({ token }) => {
-  const { id } = useParams();
+  const { slug } = useParams();
+  console.log(slug);
   const [cases, setCase] = useState(null);
   const [review, setReview] = useState(null);
 
@@ -19,15 +20,19 @@ export const CasePage = ({ token }) => {
     const fetchCase = async () => {
       if (!token) return;
       try {
-        const data = await getData(token, `wp-json/wp/v2/cases/${id}`);
-        setCase(data);
+        const data = await getData(token, `wp-json/wp/v2/cases?slug=${slug}`);
+        if (data && data.length > 0) {
+          setCase(data[0]); // Беремо перший елемент масиву
+        } else {
+          console.error("No case found for the provided slug.");
+        }
       } catch (error) {
         console.error("Error fetching case:", error);
       }
     };
 
     fetchCase();
-  }, [token, id]);
+  }, [token, slug]);
 
   useEffect(() => {
     if (!cases || !cases.case_title) return;

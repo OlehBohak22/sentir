@@ -4,6 +4,7 @@
   background-size: cover, cover;
   background-repeat: no-repeat;
   padding-bottom: 11.5vw;
+  overflow: hidden;
 }
 
 .reviewContent {

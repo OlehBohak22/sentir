@@ -27,37 +27,24 @@ export const Footer = ({ token }) => {
   }, [token]);
 
   return (
-    <footer className={s.footer}>
+    <motion.footer
+      className={s.footer}
+      initial={{ y: 100, opacity: 0 }} // Початкова позиція футера
+      whileInView={{ y: 0, opacity: 1 }} // Кінцева позиція при скролі
+      viewport={{ once: true }} // Анімація виконується лише один раз
+      transition={{ duration: 1 }} // Тривалість анімації
+    >
       <Layout>
         <div className={s.footerContainer}>
-          <motion.div
-            className={s.logoContainer}
-            initial={{ y: 100, opacity: 0 }} // Початкова позиція знизу
-            whileInView={{ y: 0, opacity: 1 }} // Фінішна позиція
-            transition={{ duration: 0.8 }}
-          >
+          <div className={s.logoContainer}>
             <img src="/icons/colored-logo.svg" alt="Logo" />
             <span>Sentir</span>
-          </motion.div>
+          </div>
 
-          {isMobile && (
-            <motion.p
-              className={s.mobAddText}
-              initial={{ y: 100, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-            >
-              To feel through touch
-            </motion.p>
-          )}
+          {isMobile && <p className={s.mobAddText}>To feel through touch</p>}
 
           {isDesktop && (
-            <motion.div
-              className={s.menuNav}
-              initial={{ y: 100, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
-            >
+            <div className={s.menuNav}>
               <ul>
                 <p>MENU</p>
                 <li>
@@ -70,107 +57,55 @@ export const Footer = ({ token }) => {
                   <Link to="/workflow">Workflow</Link>
                 </li>
               </ul>
-            </motion.div>
+            </div>
           )}
 
-          <motion.div
-            className={s.serviceNav}
-            initial={{ y: 100, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
+          <div className={s.serviceNav}>
             <ul>
               {isDesktop && <p>Services</p>}
-              <motion.li
-                initial={{ y: 100, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.1 }}
-              >
+              <li>
                 <Link to="/services#project">Project Kick-Off</Link>
-              </motion.li>
-              <motion.li
-                initial={{ y: 100, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.2 }}
-              >
+              </li>
+              <li>
                 <Link to="/services#discovery">Discovery</Link>
-              </motion.li>
-              <motion.li
-                initial={{ y: 100, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.3 }}
-              >
+              </li>
+              <li>
                 <Link to="/services#UXUI">UX/UI Design</Link>
-              </motion.li>
-              <motion.li
-                initial={{ y: 100, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.4 }}
-              >
+              </li>
+              <li>
                 <Link to="/services#web">Web & Mobile Development</Link>
-              </motion.li>
-              <motion.li
-                initial={{ y: 100, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.5 }}
-              >
+              </li>
+              <li>
                 <Link to="/services#due">Due Diligence</Link>
-              </motion.li>
-              <motion.li
-                initial={{ y: 100, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.6 }}
-              >
+              </li>
+              <li>
                 <Link to="/services#staff">Staff Augmentation</Link>
-              </motion.li>
+              </li>
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className={s.socialContainer}
-            initial={{ y: 100, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <motion.div
-              initial={{ y: 100, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
-            >
+          <div className={s.socialContainer}>
+            <div>
               <p>TALK TO US</p>
               <a href={`mailto:${contactInfo.talk_to_us_email}`}>
                 {contactInfo.talk_to_us_email}
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="w-[auto] lg:w-[20vw]"
-              initial={{ y: 100, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
-            >
+            <div className="w-[auto] lg:w-[20vw]">
               <p>COME SEE US</p>
               <Link>{contactInfo.come_see_us}</Link>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ y: 100, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
-            >
+            <div>
               <p>WORK WITH US</p>
               <a href={`mailto:${contactInfo.work_with_us_email}`}>
                 {contactInfo.work_with_us_email}
               </a>
-            </motion.div>
+            </div>
 
             {isMobile && (
-              <motion.div
-                className={s.menuNav}
-                initial={{ y: 100, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1 }}
-              >
+              <div className={s.menuNav}>
                 <ul>
                   <li>
                     <Link to="/about">About Us</Link>
@@ -182,7 +117,7 @@ export const Footer = ({ token }) => {
                     <Link to="/workflow">Workflow</Link>
                   </li>
                 </ul>
-              </motion.div>
+              </div>
             )}
 
             <div>
@@ -190,12 +125,7 @@ export const Footer = ({ token }) => {
               <ul className={s.socialLinks}>
                 {contactInfo.social_media_images &&
                   contactInfo.social_media_images.map((item, index) => (
-                    <motion.li
-                      key={index}
-                      initial={{ y: 100, opacity: 0 }}
-                      whileInView={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 1, delay: index * 0.2 }}
-                    >
+                    <li key={index}>
                       <a
                         href={item.link}
                         target="_blank"
@@ -211,11 +141,11 @@ export const Footer = ({ token }) => {
                           }}
                         />
                       </a>
-                    </motion.li>
+                    </li>
                   ))}
               </ul>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         <div className={s.footerBottomContainer}>
@@ -223,6 +153,6 @@ export const Footer = ({ token }) => {
           <a href="">Privacy Policy</a>
         </div>
       </Layout>
-    </footer>
+    </motion.footer>
   );
 };

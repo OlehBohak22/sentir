@@ -4,6 +4,7 @@ import { getData } from "../../services/api";
 import { PortfolioTitularSection } from "../../components/PortfolioTitularSection/PortfolioTitularSection";
 import s from "./PortfilioPage.module.css";
 import { Helmet } from "react-helmet";
+import { AnimatedHeading } from "../../components/AnimatedHeading/AnimatedHeading";
 
 export const PortfilioPage = ({ token }) => {
   const [cases, setCases] = useState([]);
@@ -34,7 +35,9 @@ export const PortfilioPage = ({ token }) => {
       <main className="main-content">
         <section className={s.section}>
           <Layout>
-            <h1>Portfolio</h1>
+            <h1>
+              <AnimatedHeading text="Portfolio" />
+            </h1>
           </Layout>
 
           {cases.map((portfolioCase) => (

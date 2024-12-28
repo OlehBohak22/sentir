@@ -2,7 +2,8 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding: 7vw 0;
+  padding-top: 7vw !important;
+  margin-bottom: 7vw !important;
 
   h2 {
     font-family: Almarai, sans-serif;
@@ -117,5 +118,12 @@
     position: fixed;
     top: 50vw;
     height: 4px;
+  }
+
+  .gradient {
+    h3 {
+      font-size: 13vw;
+      line-height: 17vw;
+    }
   }
 }

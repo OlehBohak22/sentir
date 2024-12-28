@@ -10,6 +10,8 @@
     margin: 0 auto;
     text-transform: uppercase;
     margin-bottom: 5.5vw;
+    align-items: center;
+    justify-content: center;
   }
 
   ul {

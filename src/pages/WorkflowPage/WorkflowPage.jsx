@@ -8,6 +8,7 @@ import { SectionNavigation } from "../../components/SectionNavigation/SectionNav
 import { FormSection } from "../../components/FormSection/FormSection";
 import { motion } from "framer-motion"; // Імпортуємо motion
 import { Helmet } from "react-helmet";
+import { AnimatedHeading } from "../../components/AnimatedHeading/AnimatedHeading";
 
 export const WorkflowPage = ({ token }) => {
   const [review, setReview] = useState([]);
@@ -55,7 +56,9 @@ export const WorkflowPage = ({ token }) => {
               variants={fadeInVariants}
               viewport={{ once: false, amount: 0.3 }} // Анімація при скролі
             >
-              <h1>WorkFlow</h1>
+              <h1>
+                <AnimatedHeading text="WorkFlow" />
+              </h1>
               <p>Without process, there’s only chaos</p>
             </motion.div>
           </Layout>

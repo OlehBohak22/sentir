@@ -6,6 +6,7 @@ import { FormSection } from "../../components/FormSection/FormSection";
 import { ClientsTalk } from "../../components/ClientsTalk/ClientsTalk";
 import { motion } from "framer-motion"; // Імпортуємо motion
 import { Helmet } from "react-helmet";
+import { AnimatedHeading } from "../../components/AnimatedHeading/AnimatedHeading";
 
 export const ServicesPage = ({ token }) => {
   // Варіанти анімації
@@ -37,7 +38,9 @@ export const ServicesPage = ({ token }) => {
               variants={fadeInVariants}
               viewport={{ once: false, amount: 0.3 }} // Анімація при скролі
             >
-              <motion.h1>OUR SERVICES</motion.h1>
+              <motion.h1>
+                <AnimatedHeading text="OUR SERVICES" />
+              </motion.h1>
               <p>Harmonizing innovation and empathy</p>
             </motion.div>
 

@@ -162,7 +162,7 @@ export default function App() {
             }
           />
           <Route
-            path="/cases/:id"
+            path="/cases/:slug"
             element={
               <PageWrapper>
                 <CasePage token={token} />

@@ -4,6 +4,7 @@ import s from "./ServicesSection.module.css";
 import { Layout } from "../Layout/Layout";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
 export const ServicesSection = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -26,7 +27,10 @@ export const ServicesSection = () => {
   return (
     <section className={s.section}>
       <Layout>
-        <h2>SERVICES</h2>
+        <h2>
+          <AnimatedHeading text="SERVICES" />
+        </h2>
+        {/* <h2>SERVICES</h2> */}
 
         {/* Градієнт */}
         <svg style={{ width: 0, height: 0 }}>

@@ -44,7 +44,7 @@ const PortfolioItem = ({ item }) => {
 
   return (
     <div className="case">
-      <Link to={`/cases/${item.id}`}>
+      <Link to={`/cases/${item.slug}`}>
         <motion.div
           ref={ref}
           className={s.container}

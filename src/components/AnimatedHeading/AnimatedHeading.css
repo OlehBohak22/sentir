@@ -1,0 +1,15 @@
+.animated-heading {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  font-size: inherit;
+  font-weight: bold;
+  align-items: inherit;
+  justify-content: inherit;
+}
+
+.letter {
+  display: inline-block;
+  transform-origin: bottom;
+  color: inherit;
+}

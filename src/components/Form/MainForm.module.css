@@ -383,6 +383,10 @@
     transform: scale(1);
     border-radius: 11.7vw;
   }
+
+  .arrowsLine {
+    width: 8vw;
+  }
 }
 
 @keyframes fadeIn {

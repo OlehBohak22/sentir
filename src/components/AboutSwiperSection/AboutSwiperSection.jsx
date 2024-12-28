@@ -4,12 +4,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useLayoutEffect } from "react";
 import { slides } from "../../services/fake-api";
+import { useMediaQuery } from "react-responsive";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const AboutSwiperSection = () => {
   const containerRef = useRef();
   const scrollerRef = useRef();
+  const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
 
   useLayoutEffect(() => {
     const panels = gsap.utils.toArray(`.${s.slide}`);
@@ -17,7 +19,9 @@ export const AboutSwiperSection = () => {
 
     // Налаштування горизонтального скролу
     gsap.to(panels, {
-      x: -panelWidth * (panels.length - 1), // Горизонтальне переміщення
+      x:
+        -panelWidth *
+        ((isDesktop && panels.length - 2.59) || panels.length - 1), // Горизонтальне переміщення
       ease: "none",
       scrollTrigger: {
         trigger: scrollerRef.current,

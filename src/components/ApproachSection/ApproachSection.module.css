@@ -71,6 +71,15 @@
   text-transform: uppercase;
   margin-bottom: 5vw;
 
+  span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .secondLine {
+    text-indent: 4vw;
+  }
+
   .secondSpan {
     display: block;
     text-indent: 4vw;

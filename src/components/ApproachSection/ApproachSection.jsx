@@ -13,6 +13,16 @@ const fadeIn = {
   visible: { opacity: 1, y: 0 },
 };
 
+const leftToRight = {
+  hidden: { x: "-100%", opacity: 0 },
+  visible: { x: "0%", opacity: 1, transition: { duration: 0.5 } },
+};
+
+const rightToLeft = {
+  hidden: { x: "100%", opacity: 0 },
+  visible: { x: "0%", opacity: 1, transition: { duration: 0.5 } },
+};
+
 export const ApproachSection = () => {
   return (
     <section>
@@ -24,9 +34,8 @@ export const ApproachSection = () => {
           animate="visible"
           variants={fadeIn}
           transition={{ duration: 0.8 }}
-          whileInView="visible" // Анімація при видимості
-          viewport={{ once: false }} // Повторне відтворення при скролі
-          key="rotatingText" // Ключ для повторного відтворення анімації
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1 для раннього запуску анімації
         >
           <img
             className={s.shadow}
@@ -48,8 +57,7 @@ export const ApproachSection = () => {
           variants={fadeIn}
           transition={{ duration: 0.6, delay: 0.3 }}
           whileInView="visible"
-          viewport={{ once: false }}
-          key="leftSideContent"
+          viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1
         >
           <p>
             Take the first
@@ -71,23 +79,42 @@ export const ApproachSection = () => {
           variants={fadeIn}
           transition={{ duration: 1, delay: 0.5 }}
           whileInView="visible"
-          viewport={{ once: false }}
-          key="mainContent"
+          viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1
         >
-          {/* Заголовок, що анімується при прокручуванні */}
-          <motion.h2
-            className={s.title}
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            transition={{ duration: 0.8 }}
-            whileInView="visible" // Анімація при видимості
-            viewport={{ once: false }} // Повторне відтворення при скролі
-            key="title"
-          >
-            <span>sentir </span>
-            <br />
-            <span className={s.secondSpan}>tailored approach for success</span>
+          <motion.h2 className={s.title}>
+            <motion.span
+              className={s.firstLine}
+              variants={leftToRight}
+              initial="hidden"
+              animate="visible"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }} // 20% від видимості
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              sentir
+            </motion.span>
+            <motion.span
+              className={s.secondLine}
+              variants={rightToLeft}
+              initial="hidden"
+              animate="visible"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }} // 20% від видимості
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              tailored approach
+            </motion.span>
+            <motion.span
+              className={s.thirdLine}
+              variants={leftToRight}
+              initial="hidden"
+              animate="visible"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }} // 20% від видимості
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              for success
+            </motion.span>
           </motion.h2>
 
           <div className={s.mainItems}>
@@ -97,12 +124,11 @@ export const ApproachSection = () => {
               initial="hidden"
               whileInView="visible"
               variants={fadeIn}
-              viewport={{ once: false }} // Повторно активувати анімацію при вході
+              viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1
               transition={{ duration: 0.8 }}
-              key="topBlock1"
             >
               <AnimateSvgFlexibility />
-              <h3>Flexibility in Engagement Models </h3>
+              <h3>Flexibility in Engagement Models</h3>
               <p>
                 Sentir offers flexible engagement models to suit different
                 project needs and budgets. Whether it is a Time & Materials
@@ -118,9 +144,8 @@ export const ApproachSection = () => {
               initial="hidden"
               whileInView="visible"
               variants={fadeIn}
-              viewport={{ once: false }}
+              viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1
               transition={{ duration: 0.8, delay: 0.3 }}
-              key="topBlock2"
             >
               <h3>Strong Communication and Transparency</h3>
               <p>
@@ -138,9 +163,8 @@ export const ApproachSection = () => {
               initial="hidden"
               whileInView="visible"
               variants={fadeIn}
-              viewport={{ once: false }}
+              viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1
               transition={{ duration: 0.8, delay: 0.6 }}
-              key="bottomBlock"
             >
               <AnimateSvgHands />
               <div className={s.rotatingCircles}>

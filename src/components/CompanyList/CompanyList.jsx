@@ -2,6 +2,7 @@ import s from "./CompanyList.module.css";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { getData } from "../../services/api";
+import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
 export const CompanyList = ({ token }) => {
   const [companies, setCompanies] = useState([]);
@@ -45,7 +46,7 @@ export const CompanyList = ({ token }) => {
         whileInView="visible" // Запуск анімації, коли список у полі зору
         viewport={{ once: false }} // Анімація спрацьовує лише раз
       >
-        Companies That Drive Us Forward
+        <AnimatedHeading text=" Companies That Drive Us Forward" />
       </motion.h2>
 
       {/* Анімований список */}
