@@ -97,31 +97,21 @@ export const CasePage = ({ token }) => {
         </motion.div>
 
         {/* Background Section */}
-        <motion.section
+        <section
           className={s.attachmentSection}
           style={{
             backgroundImage: `url(${cases.case_second_pictures})`,
           }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.3 }}
-        ></motion.section>
+        ></section>
 
         {/* Review Section */}
-        <motion.div
-          className="bg-black"
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeInUp}
-          viewport={{ once: true, amount: 0.3 }}
-        >
+        <div className="bg-black">
           {review ? (
             <SeparateReviewBlock review={review} />
           ) : (
             <motion.p>No reviews available for this case.</motion.p>
           )}
-        </motion.div>
+        </div>
 
         {/* Horizontal Section */}
 

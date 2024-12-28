@@ -100,6 +100,8 @@
       li {
         width: auto;
         height: auto;
+        border-radius: 0;
+
         flex-basis: calc((100% - 3.4vw) / 2);
         aspect-ratio: 1;
         background-color: rgba(79, 79, 79, 0.3);

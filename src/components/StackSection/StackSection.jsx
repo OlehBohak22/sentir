@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import s from "./StackSection.module.css";
 import { Layout } from "../../components/Layout/Layout";
 import { stackIcons } from "../../services/fake-api";
+import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
 export const StackSection = () => {
   const [playAnimation, setPlayAnimation] = useState(false);
@@ -50,14 +51,9 @@ export const StackSection = () => {
       <Layout className={s.container}>
         {/* Заголовок та опис */}
         <div className={s.titleContainer}>
-          <motion.h2
-            initial="hidden"
-            animate={playAnimation ? "visible" : "hidden"}
-            variants={titleVariants}
-            transition={{ duration: 0.6 }}
-          >
-            Technology Stack
-          </motion.h2>
+          <h2>
+            <AnimatedHeading text="Technology Stack" />
+          </h2>
           <motion.p
             initial="hidden"
             animate={playAnimation ? "visible" : "hidden"}

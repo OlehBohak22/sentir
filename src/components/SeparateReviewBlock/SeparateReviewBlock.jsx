@@ -7,7 +7,7 @@ export const SeparateReviewBlock = ({ review }) => {
   const controls = useAnimation();
 
   // Intersection Observer
-  const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.2 });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   if (inView) {
     controls.start({ opacity: 1, y: 0 });
@@ -34,8 +34,8 @@ export const SeparateReviewBlock = ({ review }) => {
       {/* Ім'я */}
       <motion.p
         className={s.reviewerFullname}
-        initial={{ opacity: 0, x: -20 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
       >
         {review.full_name}
@@ -44,8 +44,8 @@ export const SeparateReviewBlock = ({ review }) => {
       {/* Напрямок */}
       <motion.p
         className={s.reviewerDirect}
-        initial={{ opacity: 0, x: 20 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
       >
         {review.direction}

@@ -4,6 +4,7 @@ import { MainForm } from "../Form/MainForm";
 import s from "./FormSection.module.css";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
 export const FormSection = () => {
   // Контролери анімації
@@ -47,8 +48,7 @@ export const FormSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h2 className={s.title}>
-            Drop us
-            <br /> a line
+            <AnimatedHeading text="Drop us a line " />
           </h2>
         </motion.div>
 

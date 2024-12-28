@@ -76,7 +76,7 @@ export const WorkflowPage = ({ token }) => {
             initial="hidden"
             whileInView="visible"
             variants={fadeInVariants}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <SeparateReviewBlock review={review} />
           </motion.div>
@@ -84,14 +84,13 @@ export const WorkflowPage = ({ token }) => {
 
         <section className={s.innovationSection}>
           <Layout className={s.container}>
-            <motion.h2
-              initial="hidden"
-              whileInView="visible"
-              variants={fadeInVariants}
-              viewport={{ once: false, amount: 0.3 }}
-            >
+            <h2>
+              <AnimatedHeading
+                text="
               Innovation & Empathy
-            </motion.h2>
+              "
+              />
+            </h2>
             <motion.p
               initial="hidden"
               whileInView="visible"

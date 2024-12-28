@@ -21,6 +21,7 @@
   text-align: left;
   color: #ffffff;
   text-transform: uppercase;
+  width: 35vw;
 }
 
 @media (max-width: 1024px) {
@@ -37,5 +38,6 @@
     font-size: 12.8vw;
     line-height: 12.8vw;
     margin-bottom: 13.6vw;
+    width: 60vw;
   }
 }

@@ -2,6 +2,7 @@ import { Layout } from "../Layout/Layout";
 import s from "./ClientsTalk.module.css";
 import { useEffect, useState } from "react";
 import { getData } from "../../services/api";
+import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
 export const ClientsTalk = ({ token }) => {
   const [logos, setLogos] = useState([]);
@@ -33,7 +34,9 @@ export const ClientsTalk = ({ token }) => {
     <section className={s.section}>
       <Layout className={s.container}>
         <div className={s.titleContainer}>
-          <h2>CLIENTS TALK</h2>
+          <h2>
+            <AnimatedHeading text="CLIENTS TALK" />
+          </h2>
           <p>
             The majority of our engagements stem from referrals by previous
             clients, underscoring the consistent satisfaction they've
