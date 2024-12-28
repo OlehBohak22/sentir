@@ -23,8 +23,6 @@ export const ContactPage = ({ token }) => {
     fetchCompanies();
   }, [token]);
 
-  console.log(contactInfo.social_media_images);
-
   return (
     <>
       <Helmet>
