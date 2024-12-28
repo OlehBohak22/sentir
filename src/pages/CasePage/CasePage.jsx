@@ -12,7 +12,6 @@ import { motion } from "framer-motion";
 
 export const CasePage = ({ token }) => {
   const { slug } = useParams();
-  console.log(slug);
   const [cases, setCase] = useState(null);
   const [review, setReview] = useState(null);
 
@@ -79,43 +78,48 @@ export const CasePage = ({ token }) => {
 
       <main>
         {/* Hero Section */}
-        <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
-          <CaseHero
-            title={cases.title.rendered}
-            bg={cases.case_title_pictures}
-          />
-        </motion.div>
+        {cases.title.rendered && cases.case_title_pictures && (
+          <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
+            <CaseHero
+              title={cases.title.rendered}
+              bg={cases.case_title_pictures}
+            />
+          </motion.div>
+        )}
 
         {/* Details Section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeInUp}
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <CaseDetails details={cases} />
-        </motion.div>
+        {cases && (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInUp}
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <CaseDetails details={cases} />
+          </motion.div>
+        )}
 
         {/* Background Section */}
-        <section
-          className={s.attachmentSection}
-          style={{
-            backgroundImage: `url(${cases.case_second_pictures})`,
-          }}
-        ></section>
+        {cases.case_second_pictures && (
+          <section
+            className={s.attachmentSection}
+            style={{
+              backgroundImage: `url(${cases.case_second_pictures})`,
+            }}
+          ></section>
+        )}
 
         {/* Review Section */}
-        <div className="bg-black">
-          {review ? (
+        {review && (
+          <div className="bg-black">
             <SeparateReviewBlock review={review} />
-          ) : (
-            <motion.p>No reviews available for this case.</motion.p>
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Horizontal Section */}
-
-        <CaseHorizontalSection cases={cases} />
+        {cases && Object.keys(cases).length > 0 && (
+          <CaseHorizontalSection cases={cases} />
+        )}
 
         {/* Form Section */}
         <div className="lg:mt-[5vw] mt-[10vw]">

@@ -1,5 +1,6 @@
 import s from "./CaseHero.module.css";
 import { Layout } from "../../components/Layout/Layout";
+import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
 export const CaseHero = ({ bg, title }) => {
   // Перевірка на наявність правильного URL для фону
@@ -9,8 +10,12 @@ export const CaseHero = ({ bg, title }) => {
     <section style={backgroundStyle} className={s.section}>
       <Layout>
         <div className={s.titleContainer}>
-          <p>Case study</p>
-          <h1>{title}</h1>
+          <p>
+            <AnimatedHeading text="Case study" />
+          </p>
+          <h1>
+            <AnimatedHeading text={title} />
+          </h1>
         </div>
       </Layout>
     </section>

@@ -13,7 +13,7 @@ export const CaseHorizontalSection = ({ cases }) => {
   useLayoutEffect(() => {
     const panels = gsap.utils.toArray(`.${s.block}`);
     const panelWidth = scrollerRef.current.offsetWidth; // Ширина контейнера
-    const gap = 0.02 * window.innerWidth; // 10vw у пікселях
+    const gap = 0.02 * window.innerWidth; // 2vw у пікселях
     const totalScrollWidth =
       panels.length * panelWidth + (panels.length - 1) * gap; // Загальна довжина прокрутки
 
@@ -52,80 +52,95 @@ export const CaseHorizontalSection = ({ cases }) => {
   return (
     <div ref={containerRef}>
       <section className={s.scroller} ref={scrollerRef}>
-        <div className={s.progressBarWrapper}>
-          <div className={s.progressBar} id="progress-bar"></div>
-        </div>
+        {cases["title-1"] !== "" && (
+          <div className={s.progressBarWrapper}>
+            <div className={s.progressBar} id="progress-bar"></div>
+          </div>
+        )}
+
         <Layout>
           <div className={s.horizontalBlocks}>
-            <div className={s.block}>
-              <div className={s.blockDesc}>
-                <h3>{cases["title-1"]}</h3>
-                <ul>
-                  {Object.values(cases["data-table-1"]).map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </div>
+            {/* Блок 1 */}
+            {cases["title-1"] && cases.case_pictures_1 && (
+              <div className={s.block}>
+                <div className={s.blockDesc}>
+                  <h3>{cases["title-1"]}</h3>
+                  {cases["data-table-1"] && (
+                    <ul>
+                      {Object.values(cases["data-table-1"]).map(
+                        (item, index) => (
+                          <li key={index}>{item}</li>
+                        )
+                      )}
+                    </ul>
+                  )}
+                </div>
 
-              <div className={s.image}>
-                <img src={cases.case_pictures_1} alt={cases["title-1"]} />
-              </div>
-            </div>
-
-            <div className={s.block}>
-              <div className={s.blockDesc}>
-                <h3>{cases["title-2"]}</h3>
-                <ul>
-                  {Object.values(cases["data-table-2"]).map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className={s.image}>
-                <img src={cases.case_pictures_2} alt={cases["title-2"]} />
-              </div>
-            </div>
-            <div className={s.block}>
-              <div className={s.blockDesc}>
-                <h3>{cases["title-3"]}</h3>
-
-                <div>
-                  <div className={s.lastCaseList}>
-                    <div>
-                      <h4> {cases.input1}</h4>
-                      <p>{cases.input2}</p>
-                    </div>
-                    <div>
-                      <h4> {cases.input3}</h4>
-                      <p>{cases.input4}</p>
-                    </div>
-                    <div>
-                      <h4> {cases.input5}</h4>
-                      <p>{cases.input6}</p>
-                    </div>
-                    <div>
-                      <h4> {cases.input7}</h4>
-                      <p>{cases.input8}</p>
-                    </div>
-                  </div>
-
-                  <div className={s.techStack}>
-                    <p>Technology Stack</p>
-                    <div className={s.iconList}>
-                      {Array.isArray(cases["technology-stack-text"]) &&
-                        cases["technology-stack-text"].map((icon, index) => (
-                          <img key={index} src={icon} alt="icon" />
-                        ))}
-                    </div>
-                  </div>
+                <div className={s.image}>
+                  <img src={cases.case_pictures_1} alt={cases["title-1"]} />
                 </div>
               </div>
+            )}
 
-              <div className={s.image}>
-                <img src={cases.case_pictures_3} alt="" />
+            {/* Блок 2 */}
+            {cases["title-2"] && cases.case_pictures_2 && (
+              <div className={s.block}>
+                <div className={s.blockDesc}>
+                  <h3>{cases["title-2"]}</h3>
+                  {cases["data-table-2"] && (
+                    <ul>
+                      {Object.values(cases["data-table-2"]).map(
+                        (item, index) => (
+                          <li key={index}>{item}</li>
+                        )
+                      )}
+                    </ul>
+                  )}
+                </div>
+
+                <div className={s.image}>
+                  <img src={cases.case_pictures_2} alt={cases["title-2"]} />
+                </div>
               </div>
-            </div>
+            )}
+
+            {/* Блок 3 */}
+            {cases["title-3"] && cases.case_pictures_3 && (
+              <div className={s.block}>
+                <div className={s.blockDesc}>
+                  <h3>{cases["title-3"]}</h3>
+
+                  <div>
+                    <div className={s.lastCaseList}>
+                      {[1, 3, 5, 7].map((num) => (
+                        <div key={num}>
+                          <h4>{cases[`input${num}`]}</h4>
+                          <p>{cases[`input${num + 1}`]}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {cases["technology-stack-text"] && (
+                      <div className={s.techStack}>
+                        <p>Technology Stack</p>
+                        <div className={s.iconList}>
+                          {Array.isArray(cases["technology-stack-text"]) &&
+                            cases["technology-stack-text"].map(
+                              (icon, index) => (
+                                <img key={index} src={icon} alt="icon" />
+                              )
+                            )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div className={s.image}>
+                  <img src={cases.case_pictures_3} alt={cases["title-3"]} />
+                </div>
+              </div>
+            )}
           </div>
         </Layout>
       </section>

@@ -6,10 +6,14 @@
   font-weight: inherit;
   align-items: inherit;
   justify-content: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .letter {
   display: inline-block;
   transform-origin: bottom;
   color: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }

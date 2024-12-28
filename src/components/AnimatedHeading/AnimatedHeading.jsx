@@ -22,7 +22,7 @@ export const AnimatedHeading = ({ text }) => {
   };
 
   return (
-    <motion.h1
+    <motion.div
       className="animated-heading"
       variants={container} // Анімація контейнера
       initial="hidden"
@@ -38,6 +38,6 @@ export const AnimatedHeading = ({ text }) => {
           {letter === " " ? "\u00A0" : letter} {/* Пробіл для форматування */}
         </motion.span>
       ))}
-    </motion.h1>
+    </motion.div>
   );
 };
