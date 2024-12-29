@@ -11,7 +11,7 @@ export const AnimatedHeading = ({ text }) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.01, // Затримка між анімацією кожної літери
+        staggerChildren: 0.04, // Затримка між анімацією кожної літери
       },
     },
   };

@@ -109,6 +109,14 @@
         line-height: 12.8vw;
         text-align: center;
         margin-bottom: 8vw;
+        justify-content: center;
+
+        div {
+          span:nth-child(4) {
+            flex-basis: 100%; /* Змушує елементи починати новий рядок */
+            height: 0px;
+          }
+        }
       }
 
       p {

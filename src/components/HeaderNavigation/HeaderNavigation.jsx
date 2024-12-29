@@ -2,7 +2,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import s from "./HeaderNavigation.module.css";
 import { useMediaQuery } from "react-responsive";
 
-export const HeaderNavigation = ({ openMenu, isOpen }) => {
+export const HeaderNavigation = ({ openMenu, closeMenu, isOpen }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
 
@@ -112,7 +112,7 @@ export const HeaderNavigation = ({ openMenu, isOpen }) => {
         </ul>
       )}
 
-      <Link to="/contact" className={s.headerContactBtn}>
+      <Link to="/contact" onClick={closeMenu} className={s.headerContactBtn}>
         Contact
       </Link>
 

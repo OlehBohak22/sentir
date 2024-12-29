@@ -68,7 +68,11 @@ export const Header = () => {
               <span style={headerStyle}>Sentir</span>
             </Link>
 
-            <HeaderNavigation openMenu={openMenu} isOpen={menu} />
+            <HeaderNavigation
+              closeMenu={closeMenu}
+              openMenu={openMenu}
+              isOpen={menu}
+            />
           </div>
         </Layout>
       </header>
