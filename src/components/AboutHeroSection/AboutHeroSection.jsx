@@ -1,23 +1,85 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import s from "./AboutHeroSection.module.css";
 import { Layout } from "../../components/Layout/Layout";
 import { motion } from "framer-motion";
 
 export const AboutHeroSection = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isListVisible, setIsListVisible] = useState(false);
+  const sectionRef = useRef(null);
+  const listRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 } // Запуск при 20% видимості секції
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const listObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsListVisible(true);
+        }
+      },
+      { threshold: 0.2 } // Запуск при 20% видимості списку
+    );
+
+    if (listRef.current) {
+      listObserver.observe(listRef.current);
+    }
+
+    return () => {
+      if (listRef.current) {
+        listObserver.unobserve(listRef.current);
+      }
+    };
+  }, []);
 
   const textVariants = {
     hidden: { opacity: 0, y: "5vw" },
     visible: { opacity: 1, y: "0" },
   };
 
+  const listVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, // Поступова поява дочірніх елементів
+      },
+    },
+  };
+
+  const listItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <section className={`${s.section} ${isHovered ? s.hovered : ""}`}>
+    <section ref={sectionRef} className={`${s.section}`}>
       <Layout className="relative z-10">
         <div className={s.content}>
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={isVisible ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1, ease: "easeOut" }}
             className={s.rotatingCircles}
           >
@@ -35,7 +97,7 @@ export const AboutHeroSection = () => {
 
           <motion.h2
             initial="hidden"
-            animate="visible"
+            animate={isVisible ? "visible" : "hidden"}
             variants={textVariants}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
             className={s.title}
@@ -45,7 +107,7 @@ export const AboutHeroSection = () => {
 
           <motion.p
             initial="hidden"
-            animate="visible"
+            animate={isVisible ? "visible" : "hidden"}
             variants={textVariants}
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
           >
@@ -55,17 +117,40 @@ export const AboutHeroSection = () => {
           <a href="#form">
             <motion.div
               initial="hidden"
-              animate="visible"
+              animate={isVisible ? "visible" : "hidden"}
               variants={textVariants}
               transition={{ duration: 1, delay: 0.9, ease: "easeOut" }}
               className={s.heroHoverLink}
-              onMouseEnter={() => setIsHovered(true)} // Знімаємо затемнення
-              onMouseLeave={() => setIsHovered(false)} // Повертаємо затемнення
             >
               BECOME PARTNERS
             </motion.div>
           </a>
         </div>
+
+        <motion.ul
+          ref={listRef}
+          initial="hidden"
+          animate={isListVisible ? "visible" : "hidden"}
+          variants={listVariants}
+          className={s.heroList}
+        >
+          <motion.li variants={listItemVariants}>
+            <span>+11</span>
+            <p>Projects</p>
+          </motion.li>
+          <motion.li variants={listItemVariants}>
+            <span>+5</span>
+            <p>Partners</p>
+          </motion.li>
+          <motion.li variants={listItemVariants}>
+            <span>2021</span>
+            <p>Year founded</p>
+          </motion.li>
+          <motion.li variants={listItemVariants}>
+            <span>17</span>
+            <p>Members</p>
+          </motion.li>
+        </motion.ul>
       </Layout>
     </section>
   );
