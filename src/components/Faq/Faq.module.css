@@ -72,6 +72,8 @@
 @media (max-width: 1024px) {
   .accordion {
     padding: 14vw 4.2vw;
+    background-size: cover;
+    background-position: -50vw;
 
     h2 {
       font-size: 7.4vw;

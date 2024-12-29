@@ -24,6 +24,16 @@ const Faq = ({ token }) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  const getMaxHeight = (index) => {
+    if (activeIndex === index) {
+      const isMobile = window.innerWidth <= 768;
+      return `${
+        contentRefs.current[index]?.scrollHeight + (isMobile ? 50 : 0)
+      }px`; // Збільшуємо висоту на мобільних
+    }
+    return "0";
+  };
+
   return (
     <div className={s.accordion}>
       <h2>FAQ</h2>
@@ -49,11 +59,8 @@ const Faq = ({ token }) => {
               className={s.content}
               ref={(el) => (contentRefs.current[index] = el)}
               style={{
-                maxHeight:
-                  activeIndex === index
-                    ? `${contentRefs.current[index]?.scrollHeight}px`
-                    : "0", // Якщо не активна, висота 0
-                paddingTop: activeIndex === index ? "0.3vw" : "0", // Додаємо паддінг тільки коли розгорнуто
+                maxHeight: getMaxHeight(index), // Визначаємо висоту через функцію
+                paddingTop: activeIndex === index ? "0.3vw" : "0", // Паддінг по звичайному
                 paddingBottom: activeIndex === index ? "4vw" : "0",
                 transition: "max-height 0.3s ease, padding 0.3s ease",
                 overflow: "hidden",

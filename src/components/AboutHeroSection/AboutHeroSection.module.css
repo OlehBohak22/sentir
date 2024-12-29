@@ -231,10 +231,10 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 5vw;
+    gap: 10vw;
 
     li {
-      flex-basis: calc((100% - 5vw) / 2);
+      flex-basis: calc((100% - 10vw) / 2);
       display: flex;
       flex-direction: column;
       align-items: center;

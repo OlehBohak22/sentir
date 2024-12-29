@@ -86,8 +86,7 @@ export const WorkflowPage = ({ token }) => {
           <Layout className={s.container}>
             <h2>
               <AnimatedHeading
-                text="
-              Innovation & Empathy
+                text="Innovation & Empathy
               "
               />
             </h2>
