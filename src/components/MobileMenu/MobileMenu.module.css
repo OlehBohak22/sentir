@@ -27,7 +27,7 @@
 
 .menuList {
   overflow-x: auto;
-  height: 180vw;
+  height: 70vh;
   z-index: 111111111;
   li {
     a {

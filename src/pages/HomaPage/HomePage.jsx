@@ -73,7 +73,7 @@ export const HomePage = ({ token }) => {
         <ApproachSection />
 
         <HomeReviewSection>
-          <div className="mb-[23vw]">
+          <div className="mb-[23vw] ">
             <HomeReviewSwiper reviews={reviews} />
           </div>
           <CompanyList token={token} />

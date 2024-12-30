@@ -70,7 +70,7 @@ export const CasePage = ({ token }) => {
     <>
       <Helmet>
         <title>{cases.title.rendered}</title>
-        <meta name="description" content="Це опис моєї сторінки." />
+        <meta name="description" content={cases.case_description} />
         <meta name="robots" content="index, follow" />
         <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
