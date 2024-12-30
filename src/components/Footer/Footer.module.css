@@ -24,7 +24,7 @@ footer {
 
   a {
     display: block;
-    background: var(--primary-gradient);
+    background: var(--links-gradient);
     background-size: 100% 100%;
     animation: rainbow 2s ease-in-out infinite;
     background-clip: text;
@@ -35,6 +35,7 @@ footer {
     text-decoration-skip-ink: none;
     cursor: pointer;
     transition: color 0.2s ease-in-out;
+    width: fit-content;
   }
 
   a:hover {
