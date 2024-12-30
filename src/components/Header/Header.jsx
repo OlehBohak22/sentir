@@ -63,7 +63,7 @@ export const Header = () => {
       >
         <Layout>
           <div className={s.headerContainer}>
-            <Link to="/" className={s.logoContainer}>
+            <Link to="/" onClick={closeMenu} className={s.logoContainer}>
               <SentirLogo location={location.pathname} />
               <span style={headerStyle}>Sentir</span>
             </Link>
