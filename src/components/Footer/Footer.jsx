@@ -36,10 +36,10 @@ export const Footer = ({ token }) => {
     >
       <Layout>
         <div className={s.footerContainer}>
-          <div className={s.logoContainer}>
+          <Link to="/" className={s.logoContainer}>
             <img src="/icons/colored-logo.svg" alt="Logo" />
             <span>Sentir</span>
-          </div>
+          </Link>
 
           {isMobile && <p className={s.mobAddText}>To feel through touch</p>}
 
