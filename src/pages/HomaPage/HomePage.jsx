@@ -48,6 +48,10 @@ export const HomePage = ({ token }) => {
     ? cases.find((item) => item.main_case === "on")
     : [];
 
+  const restCases = Array.isArray(cases)
+    ? cases.filter((item) => item.main_case === "off")
+    : [];
+
   return (
     <>
       <Helmet>
@@ -67,7 +71,7 @@ export const HomePage = ({ token }) => {
             <PortfolioTitularSection titulInfo={titularCase} />
           )}
 
-          <PortfolioSection restInfo={cases} />
+          <PortfolioSection restInfo={restCases} />
         </section>
 
         <ApproachSection />

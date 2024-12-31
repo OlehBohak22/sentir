@@ -13,7 +13,7 @@ const Faq = ({ token }) => {
         const res = await getData(token, "wp-json/wp/v2/faqs");
         setQuestions(res || []);
       } catch (error) {
-        console.log("Помилка завантаження FAQ:", error.message);
+        console.log("Error", error.message);
       }
     };
 
@@ -71,7 +71,7 @@ const Faq = ({ token }) => {
           </div>
         ))
       ) : (
-        <p>Немає доступних запитань.</p>
+        <p>Not available</p>
       )}
     </div>
   );
