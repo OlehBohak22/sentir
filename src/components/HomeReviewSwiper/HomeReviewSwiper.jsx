@@ -91,10 +91,12 @@ export const HomeReviewSwiper = ({ reviews }) => {
       <div className={s.swiperOptions}>
         <div className={s.swiperNav}>
           <div className="swiper-prev">
-            <img src="/icons/swiper-arrow-prev.svg" alt="" />
+            <img src="/icons/swiper-arrow-prev.svg" alt="Arrow" />
+            <img src="/icons/swiper-colored-prev.svg" alt="Arrow" />
           </div>
           <div className="swiper-next">
-            <img src="/icons/swiper-arrow-next.svg" alt="" />
+            <img src="/icons/swiper-arrow-next.svg" alt="Arrow" />
+            <img src="/icons/swiper-colored-next.svg" alt="Arrow" />
           </div>
         </div>
 
