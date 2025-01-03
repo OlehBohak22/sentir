@@ -27,7 +27,10 @@ export const PortfilioPage = ({ token }) => {
     <>
       <Helmet>
         <title>Portfolio</title>
-        <meta name="description" content="Це опис моєї сторінки." />
+        <meta
+          name="description"
+          content="Explore the portfolio of an IT company: successful projects, innovative solutions, and cutting-edge technologies driving business success."
+        />
         <meta name="robots" content="index, follow" />
         <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

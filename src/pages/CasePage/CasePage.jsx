@@ -21,7 +21,7 @@ export const CasePage = ({ token }) => {
       try {
         const data = await getData(token, `wp-json/wp/v2/cases?slug=${slug}`);
         if (data && data.length > 0) {
-          setCase(data[0]); // Беремо перший елемент масиву
+          setCase(data[0]);
         } else {
           console.error("No case found for the provided slug.");
         }

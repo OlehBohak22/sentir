@@ -41,7 +41,10 @@ export const WorkflowPage = ({ token }) => {
     <>
       <Helmet>
         <title>Workflow</title>
-        <meta name="description" content="Це опис моєї сторінки." />
+        <meta
+          name="description"
+          content="Discover our workflow: a step-by-step approach combining efficiency, transparency, and innovation to deliver outstanding IT solutions."
+        />
         <meta name="robots" content="index, follow" />
         <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

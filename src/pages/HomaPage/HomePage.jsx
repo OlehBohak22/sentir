@@ -56,7 +56,10 @@ export const HomePage = ({ token }) => {
     <>
       <Helmet>
         <title>Sentir</title>
-        <meta name="description" content="Це опис моєї сторінки." />
+        <meta
+          name="description"
+          content="Leading IT solutions for your business: innovative technologies, expert team, and tailored services to drive your success."
+        />
         <meta name="robots" content="index, follow" />
         <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

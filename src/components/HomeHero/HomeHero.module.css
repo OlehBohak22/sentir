@@ -12,7 +12,7 @@
 
   .heroTitle {
     position: relative;
-    font-family: Almarai;
+    font-family: Almarai, sans-serif;
     font-size: 7vw;
     font-weight: 400;
     line-height: 7vw;
@@ -44,7 +44,7 @@
     text-align: center;
     width: 41vw;
     margin: 0 auto;
-    font-family: DM Sans;
+    font-family: DM Sans, sans-serif;
     font-size: 0.9vw;
     font-weight: 400;
     line-height: 1.2vw;
@@ -56,7 +56,7 @@
     position: relative;
     width: fit-content;
     margin: 0 auto;
-    font-family: Almarai;
+    font-family: Almarai, sans-serif;
     font-size: 1.6vw;
     font-weight: 700;
     line-height: 2.5vw;
@@ -98,7 +98,7 @@
       padding-left: 5.2vw;
 
       p {
-        font-family: DM Sans;
+        font-family: DM Sans, sans-serif;
         font-size: 2.2vw;
         font-weight: 500;
         line-height: 2.8vw;
@@ -239,7 +239,7 @@
       margin: 0 auto;
 
       p {
-        font-family: DM Sans;
+        font-family: DM Sans, sans-serif;
         font-size: 5.8vw;
         font-weight: 500;
         line-height: 7.4vw;

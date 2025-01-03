@@ -27,7 +27,10 @@ export const ContactPage = ({ token }) => {
     <>
       <Helmet>
         <title>Contact</title>
-        <meta name="description" content="Це опис моєї сторінки." />
+        <meta
+          name="description"
+          content="Get in touch with us: contact our team for inquiries, collaborations, or support. We're here to help!"
+        />
         <meta name="robots" content="index, follow" />
         <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

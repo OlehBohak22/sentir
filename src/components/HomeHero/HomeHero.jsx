@@ -154,16 +154,16 @@ export const HomeHero = () => {
             <>
               {" "}
               <motion.span
-                initial={{ opacity: 0, x: "--50%" }} // Початкова позиція: зліва
-                whileInView={{ opacity: 1, x: "0" }} // Кінцева позиція: звичайна
+                initial={{ opacity: 0, x: "--50%" }}
+                whileInView={{ opacity: 1, x: "0" }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.5 }} // Повторна анімація при поверненні у видиму зону
+                viewport={{ once: false, amount: 0.5 }}
               >
                 BUILDING
               </motion.span>
               <br />
               <motion.span
-                initial={{ opacity: 0, x: "-50%" }} // Початкова позиція: справа
+                initial={{ opacity: 0, x: "-50%" }}
                 whileInView={{ opacity: 1, x: "-18%" }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }}
@@ -172,7 +172,7 @@ export const HomeHero = () => {
                 PRODUCTS
               </motion.span>
               <motion.span
-                initial={{ opacity: 0, x: "50%" }} // Початкова позиція: зверху
+                initial={{ opacity: 0, x: "50%" }}
                 whileInView={{ opacity: 1, x: "20%" }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }}
@@ -181,7 +181,7 @@ export const HomeHero = () => {
               </motion.span>
               <br />
               <motion.span
-                initial={{ opacity: 0, x: "50%" }} // Початкова позиція: знизу
+                initial={{ opacity: 0, x: "50%" }}
                 whileInView={{ opacity: 1, x: "0" }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }}
@@ -200,8 +200,8 @@ export const HomeHero = () => {
 
         <a href="#form">
           <motion.div
-            initial={{ opacity: 0, y: "5vw" }} // Початкова позиція: зліва
-            animate={{ opacity: 1, y: "0" }} // Кінцева позиція: звичайна
+            initial={{ opacity: 0, y: "5vw" }}
+            animate={{ opacity: 1, y: "0" }}
             transition={{ duration: 1, ease: "easeOut" }}
             className={s.heroHoverLink}
           >
@@ -235,14 +235,14 @@ export const HomeHero = () => {
             <Swiper
               modules={[Pagination]}
               spaceBetween={0}
-              initialSlide={1} // Активує перший слайд
+              initialSlide={1}
               slidesPerView={1.2}
               centeredSlides={true}
               pagination={{
                 clickable: true,
-                type: "bullets", // тип пагінації
-                bulletClass: s.customBullet, // кастомний клас для bullet
-                bulletActiveClass: s.customBulletActive, // кастомний клас для активної bullet
+                type: "bullets",
+                bulletClass: s.customBullet,
+                bulletActiveClass: s.customBulletActive,
               }}
               className={s.swiper}
             >

@@ -31,7 +31,10 @@ export const AboutPage = ({ token }) => {
     <>
       <Helmet>
         <title>About</title>
-        <meta name="description" content="Це опис моєї сторінки." />
+        <meta
+          name="description"
+          content="Learn more about us: a dedicated IT company driven by innovation, expertise, and a passion for delivering exceptional solutions."
+        />
         <meta name="robots" content="index, follow" />
         <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

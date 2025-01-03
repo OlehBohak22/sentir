@@ -23,7 +23,11 @@ export const ServicesPage = ({ token }) => {
     <>
       <Helmet>
         <title>Our Services</title>
-        <meta name="description" content="Це опис моєї сторінки." />
+        <meta
+          name="description"
+          content=" We partner with everyone from innovative startups to established
+              enterprises, crafting products that people love."
+        />
         <meta name="robots" content="index, follow" />
         <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
