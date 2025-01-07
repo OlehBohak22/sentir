@@ -48,12 +48,10 @@ export const ServicesTabs = ({ token }) => {
               break;
           }
 
-          // Прокручуємо до секції, якщо є хеш
           if (sectionRef.current) {
             sectionRef.current.scrollIntoView({ behavior: "smooth" });
           }
         } else {
-          // Якщо немає хеша, встановлюємо перший таб активним
           setActiveTab(data[0]?.id);
         }
       } catch (error) {
@@ -64,7 +62,6 @@ export const ServicesTabs = ({ token }) => {
     fetchServices();
   }, [token, location.hash]);
 
-  // Варіанти анімації
   const fadeInVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -119,7 +116,6 @@ export const ServicesTabs = ({ token }) => {
           </motion.div>
         )}
 
-        {/* Контент активного табу */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -133,18 +129,26 @@ export const ServicesTabs = ({ token }) => {
                 <h3>{activeService.service_title}</h3>
 
                 <div className={s.serviceOptionContainer}>
-                  <div>
-                    <span>Timeframe:</span>
-                    <p>{activeService.service_timeframe || "N/A"}</p>
-                  </div>
-                  <div>
-                    <span>Team:</span>
-                    <p>{activeService.service_team || "N/A"}</p>
-                  </div>
-                  <div>
-                    <span>Outcomes:</span>
-                    <p>{activeService.service_outcomes || "N/A"}</p>
-                  </div>
+                  {activeService.service_timeframe && (
+                    <div>
+                      <span>Timeframe:</span>
+                      <p>{activeService.service_timeframe}</p>
+                    </div>
+                  )}
+
+                  {activeService.service_team && (
+                    <div>
+                      <span>Team:</span>
+                      <p>{activeService.service_team}</p>
+                    </div>
+                  )}
+
+                  {activeService.service_outcomes && (
+                    <div>
+                      <span>Outcomes:</span>
+                      <p>{activeService.service_outcomes}</p>
+                    </div>
+                  )}
                 </div>
               </div>
 
