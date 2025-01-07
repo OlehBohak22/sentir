@@ -40,11 +40,14 @@ export const Header = () => {
 
   // Перевірка на динамічний шлях
   const isPortfolio = location.pathname === "/portfolio";
+  const isPolicy = location.pathname === "/policy-page";
   const isCaseDetail = matchPath("/cases/:id", location.pathname);
 
   // Визначення стилю для хедера
   const headerStyle =
-    isPortfolio || isCaseDetail ? { color: "black" } : { color: "white" };
+    isPortfolio || isPolicy || isCaseDetail
+      ? { color: "black" }
+      : { color: "white" };
 
   return (
     <>
@@ -56,7 +59,7 @@ export const Header = () => {
 
       <header
         style={
-          isPortfolio || isCaseDetail
+          isPortfolio || isCaseDetail || isPolicy
             ? { backgroundColor: "white", position: "relative", left: "0" }
             : {}
         }

@@ -150,7 +150,7 @@ export const Footer = ({ token }) => {
 
         <div className={s.footerBottomContainer}>
           {isDesktop && <p>All rights reserved 2024 © Sentir</p>}
-          <a href="">Privacy Policy</a>
+          <Link to="/policy-page">Privacy Policy</Link>
         </div>
       </Layout>
     </motion.footer>

@@ -15,6 +15,7 @@ import { ContactPage } from "./pages/ContactPage/ContactPage";
 import { ScrollTop } from "./components/ScrollTop";
 import "./App.css";
 import { SmoothScroll } from "./components/SmoothScroll";
+import { PolicyPage } from "./pages/PolicyPage/PolicyPage";
 
 export default function App() {
   const [token, setToken] = useState();
@@ -174,6 +175,15 @@ export default function App() {
             element={
               <PageWrapper>
                 <ContactPage token={token} />
+              </PageWrapper>
+            }
+          />
+
+          <Route
+            path="/policy-page"
+            element={
+              <PageWrapper>
+                <PolicyPage token={token} />
               </PageWrapper>
             }
           />

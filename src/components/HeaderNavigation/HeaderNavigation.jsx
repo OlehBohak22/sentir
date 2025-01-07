@@ -14,7 +14,9 @@ export const HeaderNavigation = ({ openMenu, closeMenu, isOpen }) => {
 
   // Задаємо колір для активних елементів
   const headerStyle =
-    location.pathname === "/portfolio" || location.pathname.startsWith("/cases")
+    location.pathname === "/portfolio" ||
+    location.pathname === "/policy-page" ||
+    location.pathname.startsWith("/cases")
       ? { color: "black", fill: "black", backgroundColor: "transparent" }
       : { color: "white", fill: "white", backgroundColor: "transparent" };
 
@@ -126,6 +128,7 @@ export const HeaderNavigation = ({ openMenu, closeMenu, isOpen }) => {
             style={{
               backgroundColor:
                 location.pathname === "/portfolio" ||
+                location.pathname === "/policy-page" ||
                 location.pathname.startsWith("/cases")
                   ? "black"
                   : "white",
@@ -136,6 +139,7 @@ export const HeaderNavigation = ({ openMenu, closeMenu, isOpen }) => {
             style={{
               backgroundColor:
                 location.pathname === "/portfolio" ||
+                location.pathname === "/policy-page" ||
                 location.pathname.startsWith("/cases")
                   ? "black"
                   : "white",
