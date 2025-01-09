@@ -15,12 +15,12 @@ const fadeIn = {
 
 const leftToRight = {
   hidden: { x: "-100%", opacity: 0 },
-  visible: { x: "0%", opacity: 1, transition: { duration: 0.5 } },
+  visible: { x: "0%", opacity: 1, transition: { duration: 0.1 } },
 };
 
 const rightToLeft = {
   hidden: { x: "100%", opacity: 0 },
-  visible: { x: "0%", opacity: 1, transition: { duration: 0.5 } },
+  visible: { x: "0%", opacity: 1, transition: { duration: 0.1 } },
 };
 
 export const ApproachSection = () => {
@@ -110,7 +110,7 @@ export const ApproachSection = () => {
               initial="hidden"
               animate="visible"
               whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }} // 20% від видимості
+              viewport={{ once: false, amount: 0.1 }} // 20% від видимості
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               for success
@@ -164,7 +164,7 @@ export const ApproachSection = () => {
               whileInView="visible"
               variants={fadeIn}
               viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
             >
               <AnimateSvgHands />
               <div className={s.rotatingCircles}>

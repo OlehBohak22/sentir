@@ -174,6 +174,7 @@
   stroke-dasharray: 3000; /* Довжина шляху, можна підібрати */
   stroke-dashoffset: 3000; /* Початкове значення для прихованої лінії */
   animation: draw 5s linear forwards; /* Анімація */
+  animation-delay: 0.6s; /* Затримка перед початком анімації */
 }
 
 @keyframes draw {

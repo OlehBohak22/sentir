@@ -32,13 +32,13 @@
     height: 1px;
     bottom: 1.4vw;
     left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition-duration: 0.3s;
+    transform: translateX(-50%) scaleX(0); /* Початкове значення — приховано */
+    transform-origin: center; /* Початок трансформації */
+    transition: transform 0.3s ease; /* Анімація трансформації */
   }
 
   a:hover::after {
-    opacity: 1;
+    transform: translateX(-50%) scaleX(1); /* Малювання підкреслення */
   }
 }
 
@@ -129,8 +129,6 @@
 
   a::after {
     bottom: 0;
-    left: 0;
-    transform: translateX(0);
     width: 100%;
   }
 }

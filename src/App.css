@@ -8,12 +8,12 @@
   position: fixed;
   width: 20px;
   height: 20px;
-  background-color: rgb(41 41 41);
+  background-color: #3d3d3da3;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999999;
   transition: transform 0.3s;
-  mix-blend-mode: difference;
+  mix-blend-mode: luminosity;
 }
 
 .cursor::before {
@@ -24,7 +24,7 @@
   content: "";
   width: 30%;
   height: 30%;
-  border: 0.5px solid rgba(0, 0, 0, 1);
+  border: 0.5px solid rgb(255, 255, 255);
   border-radius: 50%;
   opacity: 0;
   transition: opacity 0.3s;

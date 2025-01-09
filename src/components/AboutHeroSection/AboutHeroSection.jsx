@@ -119,7 +119,7 @@ export const AboutHeroSection = () => {
               initial="hidden"
               animate={isVisible ? "visible" : "hidden"}
               variants={textVariants}
-              transition={{ duration: 1, delay: 0.9, ease: "easeOut" }}
+              transition={{ duration: 1.5 }}
               className={s.heroHoverLink}
             >
               BECOME PARTNERS

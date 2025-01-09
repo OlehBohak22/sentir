@@ -3,7 +3,7 @@ import s from "./AninmateSvgLine.module.css";
 
 export const AnimateSvgFlexibility = () => {
   const { ref, inView } = useInView({
-    triggerOnce: false,
+    triggerOnce: true,
     threshold: 0.1,
   });
 
@@ -27,7 +27,7 @@ export const AnimateSvgFlexibility = () => {
 
 export const AnimateSvgHands = () => {
   const { ref, inView } = useInView({
-    triggerOnce: false,
+    triggerOnce: true,
     threshold: 0.1,
   });
 
@@ -62,7 +62,7 @@ export const AnimateSvgHands = () => {
 
 export const AnimateSvgForm = () => {
   const { ref, inView } = useInView({
-    triggerOnce: false,
+    triggerOnce: true,
     threshold: 0.1,
   });
 

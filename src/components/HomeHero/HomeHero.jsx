@@ -202,7 +202,7 @@ export const HomeHero = () => {
           <motion.div
             initial={{ opacity: 0, y: "5vw" }}
             animate={{ opacity: 1, y: "0" }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 1 }}
             className={s.heroHoverLink}
           >
             GET NO-COST DISCOVERY
