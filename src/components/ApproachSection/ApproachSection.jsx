@@ -148,7 +148,7 @@ export const ApproachSection = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <h3>Strong Communication and Transparency</h3>
-              <p>
+              <p className="opacity-[0.5]">
                 Our commitment to clarity is demonstrated through consistent
                 updates, interactive demo sessions, and detailed delivery
                 reports, ensuring that clients are actively engaged and are

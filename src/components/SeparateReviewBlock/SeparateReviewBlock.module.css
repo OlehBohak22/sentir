@@ -45,6 +45,7 @@
     text-align: center;
     color: #ffffff;
     width: 64vw;
+    justify-content: center;
   }
 
   .rotated {

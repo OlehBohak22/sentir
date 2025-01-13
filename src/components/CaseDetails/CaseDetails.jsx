@@ -1,16 +1,28 @@
 import s from "./CaseDetails.module.css";
 import { Layout } from "../../components/Layout/Layout";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import { AnimatedHeadingFaster } from "../AnimatedHeading/AnimatedHeading";
 
 export const CaseDetails = ({ details }) => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <section className={s.section}>
       <Layout className={s.container}>
         <div className={s.caseDesc}>
-          <p>{details.case_description}</p>
+          <p>
+            <AnimatedHeadingFaster
+              text={details.case_description}
+            ></AnimatedHeadingFaster>
+          </p>
         </div>
         <div className={s.caseDetails}>
           {details.url_hyperlink ? (
-            <div className={s.detailsBlock}>
+            <div data-aos="fade-up" className={s.detailsBlock}>
               <span>Website:</span>
               <a href={details.url_hyperlink} target="_blank">
                 {details.text_hyperlink}
@@ -21,7 +33,7 @@ export const CaseDetails = ({ details }) => {
           )}
 
           {details.service ? (
-            <div className={s.detailsBlock}>
+            <div data-aos="fade-up" className={s.detailsBlock}>
               <span>Service:</span>
               <p>{details.service}</p>
             </div>
@@ -30,7 +42,7 @@ export const CaseDetails = ({ details }) => {
           )}
 
           {details.industries ? (
-            <div className={s.detailsBlock}>
+            <div data-aos="fade-up" className={s.detailsBlock}>
               <span>Industries:</span>
               <p>{details.industries}</p>
             </div>
@@ -39,7 +51,7 @@ export const CaseDetails = ({ details }) => {
           )}
 
           {details.location ? (
-            <div className={s.detailsBlock}>
+            <div data-aos="fade-up" className={s.detailsBlock}>
               <span>Location:</span>
               <p>{details.location}</p>
             </div>
@@ -48,7 +60,7 @@ export const CaseDetails = ({ details }) => {
           )}
 
           {details.platforms ? (
-            <div className={s.detailsBlock}>
+            <div data-aos="fade-up" className={s.detailsBlock}>
               <span>Platforms:</span>
               <p>{details.platforms}</p>
             </div>
@@ -57,7 +69,7 @@ export const CaseDetails = ({ details }) => {
           )}
 
           {details.timeline ? (
-            <div className={s.detailsBlock}>
+            <div data-aos="fade-up" className={s.detailsBlock}>
               <span>Timeline:</span>
               <p>{details.timeline}</p>
             </div>
@@ -66,7 +78,7 @@ export const CaseDetails = ({ details }) => {
           )}
 
           {details.mvp_in_numbers ? (
-            <div className={s.detailsBlock}>
+            <div data-aos="fade-up" className={s.detailsBlock}>
               <span>MVP in numbers:</span>
               <p>{details.mvp_in_numbers}</p>
             </div>

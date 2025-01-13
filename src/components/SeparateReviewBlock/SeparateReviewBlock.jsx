@@ -1,77 +1,56 @@
 import s from "./SeparateReviewBlock.module.css";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { AnimatedHeadingFaster } from "../AnimatedHeading/AnimatedHeading";
 
 export const SeparateReviewBlock = ({ review }) => {
-  // Контролер анімації
-  const controls = useAnimation();
-
   // Intersection Observer
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.2 });
 
-  if (inView) {
-    controls.start({ opacity: 1, y: 0 });
-  }
+  // Загальні варіанти анімацій
+  const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 40 },
+    animate: inView ? { opacity: 1, y: 0 } : {},
+    transition: { duration: 0.6, ease: "easeOut", delay },
+  });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: "50px" }}
-      animate={controls}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      initial="initial"
+      animate="animate"
       className={s.container}
     >
       {/* Аватар */}
-      <motion.img
-        className={s.reviewerAvatar}
-        src={review.avatar}
-        alt={review.full_name}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={inView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-      />
-
+      <motion.div {...fadeUp(0)}>
+        <img
+          className={s.reviewerAvatar}
+          src={review.avatar}
+          alt={review.full_name}
+        />
+      </motion.div>
       {/* Ім'я */}
-      <motion.p
-        className={s.reviewerFullname}
-        initial={{ opacity: 0, y: 40 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-      >
-        {review.full_name}
-      </motion.p>
-
+      <motion.div {...fadeUp(0.2)}>
+        <p className={s.reviewerFullname}>{review.full_name}</p>
+      </motion.div>
       {/* Напрямок */}
-      <motion.p
-        className={s.reviewerDirect}
-        initial={{ opacity: 0, y: 40 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
-      >
-        {review.direction}
-      </motion.p>
-
+      <motion.div {...fadeUp(0.4)}>
+        <p className={s.reviewerDirect}>{review.direction}</p>
+      </motion.div>
       {/* Контент відгуку */}
-      <motion.div
-        className={s.reviewContent}
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
-      >
+      <motion.div {...fadeUp(0.6)} className={s.reviewContent}>
         <img src="/icons/gradient-quotes.svg" alt="" />
-        <p>{review.review}</p>
+        <p>
+          <AnimatedHeadingFaster text={review.review} />
+        </p>
         <img className={s.rotated} src="/icons/gradient-quotes.svg" alt="" />
       </motion.div>
-
       {/* Компанія */}
-      <motion.div
-        className={s.reviewerCompany}
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
-      >
-        <img src={review.company_icon} alt={review.company_name} />
-        <p>{review.company_name}</p>
+      <motion.div {...fadeUp(0.8)}>
+        <div className={s.reviewerCompany}>
+          <img src={review.company_icon} alt={review.company_name} />
+          <p>{review.company_name}</p>
+        </div>
       </motion.div>
     </motion.div>
   );

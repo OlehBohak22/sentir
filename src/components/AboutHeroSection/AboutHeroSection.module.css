@@ -9,7 +9,7 @@
 .section::before {
   content: "";
   position: absolute;
-  top: 20%;
+  top: 20vw;
   left: 50%;
   transform: translate(-50%, -50%) rotate(0deg);
   width: 100vw;
@@ -18,14 +18,30 @@
   background-size: contain;
   background-repeat: no-repeat;
   animation: rotateElipse 20s linear infinite;
-
-  transition: background-image 1s ease-in-out, opacity 1s ease-in-out;
-  opacity: 1; /* Початкова прозорість */
 }
 
-.section.hovered::before {
-  background-image: url(/images/about-page/about-hero-brightness-elipse.png);
-  opacity: 1;
+@keyframes rotateElipse {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.section::before {
+  animation: pulseBackground 10s ease-in-out infinite,
+    rotateElipse 20s linear infinite;
+}
+
+@keyframes pulseBackground {
+  0%,
+  100% {
+    background-image: url(/images/about-page/about-hero-elipse.png);
+  }
+  50% {
+    background-image: url(/images/about-page/about-hero-brightness-elipse.png);
+  }
 }
 
 @media (max-width: 1024px) {
