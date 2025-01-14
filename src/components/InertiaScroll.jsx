@@ -6,10 +6,12 @@ export const InertiaScroll = ({ children }) => {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 0.8, // Зменшено тривалість для швидшої реакції
-      easing: (t) => t, // Лінійне прискорення для миттєвої реакції
+      duration: 0,
+      easing: (t) => t,
       smooth: true,
     });
+
+    lenis.start(); // Ініціалізує скрол одразу
 
     const raf = (time) => {
       lenis.raf(time);
@@ -21,9 +23,5 @@ export const InertiaScroll = ({ children }) => {
     return () => lenis.destroy();
   }, []);
 
-  return (
-    <div ref={containerRef} style={{ overflow: "hidden" }}>
-      {children}
-    </div>
-  );
+  return <div ref={containerRef}>{children}</div>;
 };

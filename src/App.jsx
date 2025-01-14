@@ -15,7 +15,8 @@ import { ContactPage } from "./pages/ContactPage/ContactPage";
 import { ScrollTop } from "./components/ScrollTop";
 import "./App.css";
 import { PolicyPage } from "./pages/PolicyPage/PolicyPage";
-import { InertiaScroll } from "./components/InertiaScroll";
+// import { InertiaScroll } from "./components/InertiaScroll";
+import Lenis from "@studio-freight/lenis";
 
 export default function App() {
   const [token, setToken] = useState();
@@ -112,86 +113,99 @@ export default function App() {
     fetchToken();
   }, []);
 
+  useEffect(() => {
+    // Initialize Lenis
+    const lenis = new Lenis();
+
+    // Use requestAnimationFrame to continuously update the scroll
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
   return (
     <div>
       <div className="cursor"></div>
-      <InertiaScroll>
-        <Header />
+      {/* <InertiaScroll> */}
+      <Header />
 
-        <ScrollTop />
+      <ScrollTop />
 
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route
-              path="/"
-              element={
-                <PageWrapper>
-                  <HomePage token={token} />
-                </PageWrapper>
-              }
-            />
-            <Route
-              path="/about"
-              element={
-                <PageWrapper>
-                  <AboutPage token={token} />
-                </PageWrapper>
-              }
-            />
-            <Route
-              path="/portfolio"
-              element={
-                <PageWrapper>
-                  <PortfilioPage token={token} />
-                </PageWrapper>
-              }
-            />
-            <Route
-              path="/workflow"
-              element={
-                <PageWrapper>
-                  <WorkflowPage token={token} />
-                </PageWrapper>
-              }
-            />
-            <Route
-              path="/services"
-              element={
-                <PageWrapper>
-                  <ServicesPage token={token} />
-                </PageWrapper>
-              }
-            />
-            <Route
-              path="/cases/:slug"
-              element={
-                <PageWrapper>
-                  <CasePage token={token} />
-                </PageWrapper>
-              }
-            />
-            <Route
-              path="/contact"
-              element={
-                <PageWrapper>
-                  <ContactPage token={token} />
-                </PageWrapper>
-              }
-            />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <PageWrapper>
+                <HomePage token={token} />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <PageWrapper>
+                <AboutPage token={token} />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/portfolio"
+            element={
+              <PageWrapper>
+                <PortfilioPage token={token} />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/workflow"
+            element={
+              <PageWrapper>
+                <WorkflowPage token={token} />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <PageWrapper>
+                <ServicesPage token={token} />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/cases/:slug"
+            element={
+              <PageWrapper>
+                <CasePage token={token} />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <PageWrapper>
+                <ContactPage token={token} />
+              </PageWrapper>
+            }
+          />
 
-            <Route
-              path="/policy-page"
-              element={
-                <PageWrapper>
-                  <PolicyPage token={token} />
-                </PageWrapper>
-              }
-            />
-          </Routes>
-        </AnimatePresence>
+          <Route
+            path="/policy-page"
+            element={
+              <PageWrapper>
+                <PolicyPage token={token} />
+              </PageWrapper>
+            }
+          />
+        </Routes>
+      </AnimatePresence>
 
-        <Footer token={token} />
-      </InertiaScroll>
+      <Footer token={token} />
+      {/* </InertiaScroll> */}
     </div>
   );
 }

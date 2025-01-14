@@ -63,10 +63,6 @@ button {
   background: none;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 @media (min-width: 1024px) {
   .faq-link {
     border-top: 0.06vw solid rgba(0, 0, 0, 0.1);
