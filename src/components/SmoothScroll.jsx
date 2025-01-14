@@ -1,17 +1,17 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+// import { useEffect } from "react";
+// import { useLocation } from "react-router-dom";
 
-export const SmoothScroll = ({ children }) => {
-  const location = useLocation();
+// export const SmoothScroll = ({ children }) => {
+//   const location = useLocation();
 
-  useEffect(() => {
-    if (location.hash) {
-      const element = document.querySelector(location.hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-  }, [location]);
+//   useEffect(() => {
+//     if (location.hash) {
+//       const element = document.querySelector(location.hash);
+//       if (element) {
+//         element.scrollIntoView({ behavior: "smooth", block: "start" });
+//       }
+//     }
+//   }, [location]);
 
-  return <>{children}</>;
-};
+//   return <>{children}</>;
+// };

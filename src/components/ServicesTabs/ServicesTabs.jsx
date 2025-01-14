@@ -6,7 +6,7 @@ import { DiscussBtn } from "../DiscussBtn/DiscussBtn";
 import { useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import clsx from "clsx";
-import { motion } from "framer-motion"; // Імпортуємо motion
+import { motion, AnimatePresence } from "framer-motion";
 
 export const ServicesTabs = ({ token }) => {
   const [activeTab, setActiveTab] = useState(null);
@@ -16,7 +16,7 @@ export const ServicesTabs = ({ token }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
 
   const location = useLocation();
-  const sectionRef = useRef(null); // Ссилка на секцію
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const fetchServices = async () => {
@@ -25,7 +25,6 @@ export const ServicesTabs = ({ token }) => {
         const data = await getData(token, "wp-json/wp/v2/services");
         setServices(data);
 
-        // Встановлюємо активний таб на основі хеша
         if (location.hash) {
           switch (location.hash) {
             case "#project":
@@ -62,13 +61,14 @@ export const ServicesTabs = ({ token }) => {
     fetchServices();
   }, [token, location.hash]);
 
-  const fadeInVariants = {
-    hidden: { opacity: 0, y: 20 },
+  const tabContentVariants = {
+    hidden: { opacity: 0, x: -50 },
     visible: {
       opacity: 1,
-      y: 0,
-      transition: { duration: 1, ease: "easeOut" },
+      x: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
     },
+    exit: { opacity: 0, x: 50, transition: { duration: 0.5, ease: "easeIn" } },
   };
 
   return (
@@ -78,8 +78,7 @@ export const ServicesTabs = ({ token }) => {
           className={s.sidebar}
           initial="hidden"
           whileInView="visible"
-          variants={fadeInVariants}
-          viewport={{ once: false, amount: 0.3 }} // Анімація при скролі
+          viewport={{ once: false, amount: 0.3 }}
         >
           {services.map((tab) => (
             <div
@@ -99,8 +98,7 @@ export const ServicesTabs = ({ token }) => {
             className={s.sidebar}
             initial="hidden"
             whileInView="visible"
-            variants={fadeInVariants}
-            viewport={{ once: false, amount: 0.3 }} // Анімація при скролі
+            viewport={{ once: false, amount: 0.3 }}
           >
             {services.map((tab) => (
               <div
@@ -116,15 +114,16 @@ export const ServicesTabs = ({ token }) => {
           </motion.div>
         )}
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeInVariants}
-          viewport={{ once: false, amount: 0.3 }} // Анімація при скролі
-          className={s.content}
-        >
-          {activeService ? (
-            <>
+        <AnimatePresence mode="wait">
+          {activeService && (
+            <motion.div
+              key={activeTab} // Ключ для анімації при зміні табу
+              variants={tabContentVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className={s.content}
+            >
               <div className={s.contentTitleContainer}>
                 <h3>{activeService.service_title}</h3>
 
@@ -164,11 +163,9 @@ export const ServicesTabs = ({ token }) => {
                   </DiscussBtn>
                 </a>
               </div>
-            </>
-          ) : (
-            <p>Loading content...</p>
+            </motion.div>
           )}
-        </motion.div>
+        </AnimatePresence>
       </Layout>
     </section>
   );

@@ -14,10 +14,6 @@ export const SectionNavigation = ({ token }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
 
-  useEffect(() => {
-    Aos.init();
-  }, []);
-
   const sections = [
     { id: "intro", label: "Introductory Meeting" },
     { id: "time-and-materials", label: "Research and Proposal" },
@@ -29,6 +25,7 @@ export const SectionNavigation = ({ token }) => {
   ];
 
   useEffect(() => {
+    Aos.init();
     const handleScroll = () => {
       sections.forEach((section) => {
         const element = document.getElementById(section.id);

@@ -21,9 +21,9 @@ a {
   color: inherit;
 }
 
-html {
+/* html {
   scroll-behavior: smooth;
-}
+} */
 
 /* Нормалізація шрифтів */
 body {
