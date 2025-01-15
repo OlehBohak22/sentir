@@ -5,8 +5,11 @@ import {
   AnimateSvgFlexibility,
   AnimateSvgHands,
 } from "../AninmateSvgLine/AninmateSvgLine";
-
+import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 import { motion } from "framer-motion";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 50 },
@@ -24,6 +27,10 @@ const rightToLeft = {
 };
 
 export const ApproachSection = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <section>
       <Layout className={s.approachContainer}>
@@ -59,14 +66,14 @@ export const ApproachSection = () => {
           whileInView="visible"
           viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1
         >
-          <p>
+          <p data-aos="fade-up">
             Take the first
             <br />
             step towards realizing
             <br />
             your idea
           </p>
-          <a href="#form">
+          <a data-aos="fade-up" href="#form">
             <DiscussBtn>Discuss a project</DiscussBtn>
           </a>
         </motion.div>
@@ -82,51 +89,19 @@ export const ApproachSection = () => {
           viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1
         >
           <motion.h2 className={s.title}>
-            <motion.span
-              className={s.firstLine}
-              variants={leftToRight}
-              initial="hidden"
-              animate="visible"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }} // 20% від видимості
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            <span data-aos="fade-right" className={s.firstLine}>
               sentir
-            </motion.span>
-            <motion.span
-              className={s.secondLine}
-              variants={rightToLeft}
-              initial="hidden"
-              animate="visible"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }} // 20% від видимості
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
+            </span>
+            <span data-aos="fade-left" className={s.secondLine}>
               tailored approach
-            </motion.span>
-            <motion.span
-              className={s.thirdLine}
-              variants={leftToRight}
-              initial="hidden"
-              animate="visible"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.1 }} // 20% від видимості
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
+            </span>
+            <span data-aos="fade-right" className={s.thirdLine}>
               for success
-            </motion.span>
+            </span>
           </motion.h2>
 
           <div className={s.mainItems}>
-            {/* Елемент 1 */}
-            <motion.div
-              className={`${s.topBlocks} ${s.gradient}`}
-              initial="hidden"
-              whileInView="visible"
-              variants={fadeIn}
-              viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1
-              transition={{ duration: 0.8 }}
-            >
+            <div data-aos="fade-up" className={`${s.topBlocks} ${s.gradient}`}>
               <AnimateSvgFlexibility />
               <h3>Flexibility in Engagement Models</h3>
               <p>
@@ -136,17 +111,10 @@ export const ApproachSection = () => {
                 well-defined scopes, we provide options that ensure financial
                 flexibility and predictability.
               </p>
-            </motion.div>
+            </div>
 
             {/* Елемент 2 */}
-            <motion.div
-              className={`${s.topBlocks} ${s.grey}`}
-              initial="hidden"
-              whileInView="visible"
-              variants={fadeIn}
-              viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
+            <div data-aos="fade-up" className={`${s.topBlocks} ${s.grey}`}>
               <h3>Strong Communication and Transparency</h3>
               <p className="opacity-[0.5]">
                 Our commitment to clarity is demonstrated through consistent
@@ -155,17 +123,10 @@ export const ApproachSection = () => {
                 integral to every phase of development, enhancing the
                 collaborative partnership.
               </p>
-            </motion.div>
+            </div>
 
             {/* Елемент 3 */}
-            <motion.div
-              className={s.bottomBlock}
-              initial="hidden"
-              whileInView="visible"
-              variants={fadeIn}
-              viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1
-              transition={{ duration: 0.8, delay: 0.1 }}
-            >
+            <div data-aos="fade-up" className={s.bottomBlock}>
               <AnimateSvgHands />
               <div className={s.rotatingCircles}>
                 <img
@@ -179,15 +140,17 @@ export const ApproachSection = () => {
                   alt="Circle 2"
                 />
               </div>
-              <h3>Long-Term Support and Maintenance</h3>
-              <p>
+              <h3>
+                <AnimatedHeading text="Long-Term Support and Maintenance"></AnimatedHeading>
+              </h3>
+              <p data-aos="fade-up">
                 Our commitment to clients extends beyond the initial project
                 delivery. We offer ongoing support and maintenance to ensure
                 that the solutions we develop continue to perform optimally and
                 evolve with changing business needs and technological
                 advancements.
               </p>
-            </motion.div>
+            </div>
           </div>
         </motion.div>
       </Layout>

@@ -1,9 +1,11 @@
 import { Layout } from "../Layout/Layout";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { motion, useInView } from "framer-motion";
 import s from "./PortfolioSection.module.css";
 import { Link } from "react-router-dom";
-import { div } from "framer-motion/client";
+import { useRef } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export const PortfolioSection = ({ restInfo }) => {
   return (
@@ -18,39 +20,33 @@ export const PortfolioSection = ({ restInfo }) => {
 const PortfolioItem = ({ item }) => {
   const mors = item.case_mors.split("|||").filter((item) => item.trim() !== "");
 
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  });
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
-  // Налаштування анімації
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 }, // Початковий стан контейнера
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
+  const ref = useRef(null);
+  const isInView = useInView(ref, { triggerOnce: false }); // triggerOnce: false означає, що анімація повторюється
 
   const childVariants = {
-    hidden: { opacity: 0, y: 20 }, // Початковий стан дочірніх елементів
+    hidden: { opacity: 0, y: 20 },
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.2, duration: 1, ease: "easeOut" }, // Послідовність
+      transition: { delay: i * 0.2, duration: 1, ease: "easeOut" },
     }),
   };
 
   return (
-    <div className="case">
+    <div data-aos="fade-up" ref={ref} className="case">
       <Link to={`/cases/${item.slug}`}>
         <motion.div
-          ref={ref}
           className={s.container}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={containerVariants}
+          animate={isInView ? "visible" : "hidden"} // Анімація змінюється залежно від видимості
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+          }}
         >
           <div className={s.imageContainer}>
             <img src={item.case_title_pictures} alt={item.case_title} />
@@ -58,15 +54,13 @@ const PortfolioItem = ({ item }) => {
 
           <motion.div className={s.containerContent}>
             {/* Анімація заголовка */}
-            <motion.h3 variants={childVariants} custom={0}>
-              {item.case_title}
-            </motion.h3>
+            <h3 data-aos="fade-up">{item.case_title}</h3>
 
             <div>
               {/* Анімація списку */}
               <motion.ul>
                 {mors
-                  .sort((a, b) => (a === "NDA" ? -1 : b === "NDA" ? 1 : 0)) // Сортуємо, щоб "NDA" завжди було першим
+                  .sort((a, b) => (a === "NDA" ? -1 : b === "NDA" ? 1 : 0))
                   .map((item, index) => (
                     <motion.li
                       className={item === "NDA" ? s.nda : ""}
@@ -80,9 +74,7 @@ const PortfolioItem = ({ item }) => {
               </motion.ul>
 
               {/* Анімація опису */}
-              <motion.p variants={childVariants}>
-                {item.case_description}
-              </motion.p>
+              <p data-aos="fade-up">{item.case_description}</p>
             </div>
           </motion.div>
         </motion.div>

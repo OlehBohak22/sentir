@@ -1,82 +1,53 @@
-import { useInView } from "react-intersection-observer";
 import { Layout } from "../Layout/Layout";
 import s from "./PortfolioTitularSection.module.css";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import "./PortfolioCursor.css";
+import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export const PortfolioTitularSection = ({ titulInfo }) => {
-  const { ref, inView } = useInView({
-    threshold: 0.1, // Поява при 10% у полі зору
-    triggerOnce: true, // Запуск лише один раз
-  });
-
-  // Анімація для контейнера
-  const containerVariants = {
-    hidden: { opacity: 0, y: 100 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 1, ease: "easeOut" },
-    },
-  };
-
-  // Анімація для внутрішніх елементів
-  const childVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.2, duration: 0.8, ease: "easeOut" },
-    }),
-  };
-
   const mors = titulInfo.case_mors
     .split("|||")
     .filter((item) => item.trim() !== "");
 
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <Layout>
-      <motion.div className="case" ref={ref}>
+      <div data-aos="fade-up" className="case">
         <Link to={`/cases/${titulInfo.slug}`}>
-          <motion.div
+          <div
             className={s.titularContainer}
             style={{ backgroundImage: `url(${titulInfo.case_title_pictures})` }}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"} // Анімація при появі
-            variants={containerVariants}
           >
             {/* Контент секції */}
-            <motion.div className={s.titularContent}>
+            <div className={s.titularContent}>
               {/* Анімація опису */}
-              <motion.p variants={childVariants} custom={1}>
-                {titulInfo.case_description}
-              </motion.p>
+              <p data-aos="fade-up">{titulInfo.case_description}</p>
 
               {/* Анімація списку */}
-              <motion.ul>
+              <ul data-aos="fade-up">
                 {mors
                   .sort((a, b) => (a === "NDA" ? -1 : b === "NDA" ? 1 : 0)) // Сортуємо, щоб "NDA" завжди було першим
                   .map((item, index) => (
-                    <motion.li
-                      className={item === "NDA" ? s.nda : ""}
-                      key={index}
-                      variants={childVariants}
-                      custom={index + 2}
-                    >
+                    <li key={index} className={item === "NDA" ? s.nda : ""}>
                       {item}
-                    </motion.li>
+                    </li>
                   ))}
-              </motion.ul>
+              </ul>
 
               {/* Анімація заголовку */}
-              <motion.h3 variants={childVariants} custom={mors.length + 2}>
-                {titulInfo.case_title}
-              </motion.h3>
-            </motion.div>
-          </motion.div>
+              <h3>
+                <AnimatedHeading text={titulInfo.case_title}></AnimatedHeading>
+              </h3>
+            </div>
+          </div>
         </Link>
-      </motion.div>
+      </div>
     </Layout>
   );
 };

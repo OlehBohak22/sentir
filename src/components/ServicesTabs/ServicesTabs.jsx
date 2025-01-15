@@ -7,6 +7,9 @@ import { useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
 export const ServicesTabs = ({ token }) => {
   const [activeTab, setActiveTab] = useState(null);
@@ -19,6 +22,8 @@ export const ServicesTabs = ({ token }) => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    Aos.init();
+
     const fetchServices = async () => {
       if (!token) return;
       try {
@@ -125,25 +130,29 @@ export const ServicesTabs = ({ token }) => {
               className={s.content}
             >
               <div className={s.contentTitleContainer}>
-                <h3>{activeService.service_title}</h3>
+                <h3>
+                  <AnimatedHeading
+                    text={activeService.service_title}
+                  ></AnimatedHeading>
+                </h3>
 
                 <div className={s.serviceOptionContainer}>
                   {activeService.service_timeframe && (
-                    <div>
+                    <div data-aos="fade-up" data-aos-duration="1000">
                       <span>Timeframe:</span>
                       <p>{activeService.service_timeframe}</p>
                     </div>
                   )}
 
                   {activeService.service_team && (
-                    <div>
+                    <div data-aos="fade-up" data-aos-duration="1000">
                       <span>Team:</span>
                       <p>{activeService.service_team}</p>
                     </div>
                   )}
 
                   {activeService.service_outcomes && (
-                    <div>
+                    <div data-aos="fade-up" data-aos-duration="1000">
                       <span>Outcomes:</span>
                       <p>{activeService.service_outcomes}</p>
                     </div>
@@ -152,12 +161,16 @@ export const ServicesTabs = ({ token }) => {
               </div>
 
               <div>
-                <p className={s.desc}>
+                <p
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                  className={s.desc}
+                >
                   {activeService.service_description ||
                     "No description available"}
                 </p>
 
-                <a href="#form">
+                <a data-aos="fade-up" data-aos-duration="1000" href="#form">
                   <DiscussBtn className={clsx(isMobile && "m-0")}>
                     {activeService.service_trigerbtn}
                   </DiscussBtn>

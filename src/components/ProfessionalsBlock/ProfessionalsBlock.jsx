@@ -2,21 +2,17 @@ import s from "./ProfessionalsBlock.module.css";
 import { professionals } from "../../services/fake-api";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { div } from "framer-motion/client";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export const ProfessionalsBlock = () => {
   // Контролери анімацій
-  const titleControls = useAnimation();
   const listControls = useAnimation();
 
-  // Intersection Observer для заголовка
-  const [titleRef, titleInView] = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-  });
-  if (titleInView) {
-    titleControls.start({ opacity: 1, y: 0 });
-  }
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   // Intersection Observer для списку
   const [listRef, listInView] = useInView({
@@ -53,16 +49,11 @@ export const ProfessionalsBlock = () => {
 
         <div>
           {/* Заголовок із анімацією */}
-          <motion.h2
-            ref={titleRef}
-            initial={{ opacity: 0, y: "50px" }}
-            animate={titleControls}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            Professionals
-            <span>behind</span>
-            your project
-          </motion.h2>
+          <h2>
+            <span data-aos="fade-right">Professionals</span>
+            <span data-aos="fade-left">behind</span>
+            <span data-aos="fade-right">your project</span>
+          </h2>
 
           {/* Список із анімацією */}
           <motion.ul

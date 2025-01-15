@@ -5,6 +5,8 @@ import { getData } from "../../services/api";
 import { useMediaQuery } from "react-responsive";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export const Footer = ({ token }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -13,6 +15,8 @@ export const Footer = ({ token }) => {
   const [contactInfo, setContactInfo] = useState([]);
 
   useEffect(() => {
+    Aos.init();
+
     const fetchCompanies = async () => {
       if (!token) return;
       try {
@@ -31,29 +35,33 @@ export const Footer = ({ token }) => {
       className={s.footer}
       initial={{ y: 100, opacity: 0 }} // Початкова позиція футера
       whileInView={{ y: 0, opacity: 1 }} // Кінцева позиція при скролі
-      viewport={{ once: true }} // Анімація виконується лише один раз
+      viewport={{ once: false }} // Анімація виконується лише один раз
       transition={{ duration: 1 }} // Тривалість анімації
     >
       <Layout>
         <div className={s.footerContainer}>
-          <Link to="/" className={s.logoContainer}>
+          <Link data-aos="fade-up" to="/" className={s.logoContainer}>
             <img src="/icons/colored-logo.svg" alt="Logo" />
             <span>Sentir</span>
           </Link>
 
-          {isMobile && <p className={s.mobAddText}>To feel through touch</p>}
+          {isMobile && (
+            <p data-aos="fade-up" className={s.mobAddText}>
+              To feel through touch
+            </p>
+          )}
 
           {isDesktop && (
             <div className={s.menuNav}>
-              <ul>
-                <p>MENU</p>
-                <li>
+              <ul data-aos="fade-up">
+                <p data-aos="fade-up">MENU</p>
+                <li data-aos="fade-up">
                   <Link to="/about">About Us</Link>
                 </li>
-                <li>
+                <li data-aos="fade-up">
                   <Link to="/portfolio">Portfolio</Link>
                 </li>
-                <li>
+                <li data-aos="fade-up">
                   <Link to="/workflow">Workflow</Link>
                 </li>
               </ul>
@@ -61,43 +69,43 @@ export const Footer = ({ token }) => {
           )}
 
           <div className={s.serviceNav}>
-            <ul>
-              {isDesktop && <p>Services</p>}
-              <li>
+            <ul data-aos="fade-up">
+              {isDesktop && <p data-aos="fade-up">Services</p>}
+              <li data-aos="fade-up">
                 <Link to="/services#project">Project Kick-Off</Link>
               </li>
-              <li>
+              <li data-aos="fade-up">
                 <Link to="/services#discovery">Discovery</Link>
               </li>
-              <li>
+              <li data-aos="fade-up">
                 <Link to="/services#UXUI">UX/UI Design</Link>
               </li>
-              <li>
+              <li data-aos="fade-up">
                 <Link to="/services#web">Web & Mobile Development</Link>
               </li>
-              <li>
+              <li data-aos="fade-up">
                 <Link to="/services#due">Due Diligence</Link>
               </li>
-              <li>
+              <li data-aos="fade-up">
                 <Link to="/services#staff">Staff Augmentation</Link>
               </li>
             </ul>
           </div>
 
           <div className={s.socialContainer}>
-            <div>
+            <div data-aos="fade-up">
               <p>TALK TO US</p>
               <a href={`mailto:${contactInfo.talk_to_us_email}`}>
                 {contactInfo.talk_to_us_email}
               </a>
             </div>
 
-            <div className="w-[auto] lg:w-[20vw]">
+            <div data-aos="fade-up" className="w-[auto] lg:w-[20vw]">
               <p>COME SEE US</p>
               <Link>{contactInfo.come_see_us}</Link>
             </div>
 
-            <div>
+            <div data-aos="fade-up">
               <p>WORK WITH US</p>
               <a href={`mailto:${contactInfo.work_with_us_email}`}>
                 {contactInfo.work_with_us_email}
@@ -105,7 +113,7 @@ export const Footer = ({ token }) => {
             </div>
 
             {isMobile && (
-              <div className={s.menuNav}>
+              <div data-aos="fade-up" className={s.menuNav}>
                 <ul>
                   <li>
                     <Link to="/about">About Us</Link>
@@ -120,7 +128,7 @@ export const Footer = ({ token }) => {
               </div>
             )}
 
-            <div>
+            <div data-aos="fade-up">
               {isDesktop && <p>social media</p>}
               <ul className={s.socialLinks}>
                 {contactInfo.social_media_images &&

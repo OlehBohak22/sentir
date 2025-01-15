@@ -223,7 +223,7 @@ export const HomeHero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false }}
-                  transition={{ duration: 0.5, delay: 0.2 + index * 0.2 }}
+                  transition={{ duration: 0.9, delay: 0.2 + index * 0.3 }}
                 >
                   <p dangerouslySetInnerHTML={{ __html: text }} />
                 </motion.li>

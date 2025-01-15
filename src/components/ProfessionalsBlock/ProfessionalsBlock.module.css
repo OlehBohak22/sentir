@@ -64,6 +64,9 @@
 
     span {
       display: block;
+    }
+
+    span:nth-child(2) {
       text-indent: 2vw;
     }
   }
