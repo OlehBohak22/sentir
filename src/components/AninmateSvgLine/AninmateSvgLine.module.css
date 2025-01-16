@@ -3,13 +3,27 @@
   stroke-dashoffset: 1500; /* Початкове значення */
   animation: drawLine 10s ease forwards; /* Змінений час анімації */
 }
-
 @keyframes drawLine {
   0% {
     stroke-dashoffset: 1500;
   }
   100% {
     stroke-dashoffset: 0;
+  }
+}
+
+.animatedLineForm {
+  stroke-dasharray: 2800; /* Це повинно бути більшим за довжину лінії */
+  stroke-dashoffset: 2000; /* Лінія повністю прихована спочатку */
+  animation: drawLineForm 10s ease forwards; /* Анімація за 3 секунди */
+}
+
+@keyframes drawLineForm {
+  0% {
+    stroke-dashoffset: 2000; /* Початкове значення, лінія не видима */
+  }
+  100% {
+    stroke-dashoffset: 0; /* Лінія малюється повністю */
   }
 }
 

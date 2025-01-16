@@ -5,34 +5,27 @@ export const ScrollTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Перша прокрутка
-    document.documentElement.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "auto",
-    });
-
-    document.body.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "auto",
-    });
-
-    // Друга прокрутка з невеликою затримкою
-    setTimeout(() => {
+    // Прокручуємо вгору при зміні маршруту
+    const scrollToTop = () => {
       document.documentElement.scrollTo({
         top: 0,
         left: 0,
-        behavior: "auto",
+        behavior: "auto", // Можна змінити на "smooth" для анімації
       });
 
       document.body.scrollTo({
         top: 0,
         left: 0,
-        behavior: "auto",
+        behavior: "auto", // Можна змінити на "smooth" для анімації
       });
-    }, 50); // Затримка 50 мс, можна налаштувати
+    };
+
+    // Викликаємо прокрутку на зміну маршруту
+    scrollToTop();
+
+    // Можна також додати затримку, якщо прокручування не працює гладко:
+    // setTimeout(scrollToTop, 50); // Затримка 50 мс, за потребою можна налаштувати
   }, [pathname]);
 
-  return null;
+  return null; // Цей компонент не рендерить нічого
 };

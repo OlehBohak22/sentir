@@ -145,14 +145,14 @@ export const ServicesTabs = ({ token }) => {
                   )}
 
                   {activeService.service_team && (
-                    <div data-aos="fade-up" data-aos-duration="1000">
+                    <div data-aos="fade-up" data-aos-duration="1400">
                       <span>Team:</span>
                       <p>{activeService.service_team}</p>
                     </div>
                   )}
 
                   {activeService.service_outcomes && (
-                    <div data-aos="fade-up" data-aos-duration="1000">
+                    <div data-aos="fade-up" data-aos-duration="1600">
                       <span>Outcomes:</span>
                       <p>{activeService.service_outcomes}</p>
                     </div>
@@ -163,18 +163,20 @@ export const ServicesTabs = ({ token }) => {
               <div>
                 <p
                   data-aos="fade-up"
-                  data-aos-duration="1000"
+                  data-aos-duration="1800"
                   className={s.desc}
                 >
                   {activeService.service_description ||
                     "No description available"}
                 </p>
 
-                <a data-aos="fade-up" data-aos-duration="1000" href="#form">
-                  <DiscussBtn className={clsx(isMobile && "m-0")}>
-                    {activeService.service_trigerbtn}
-                  </DiscussBtn>
-                </a>
+                <div data-aos="fade-up" data-aos-duration="2000">
+                  <a href="#form">
+                    <DiscussBtn className={clsx(isMobile && "m-0")}>
+                      {activeService.service_trigerbtn}
+                    </DiscussBtn>
+                  </a>
+                </div>
               </div>
             </motion.div>
           )}

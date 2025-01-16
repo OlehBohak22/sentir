@@ -9,11 +9,15 @@ import { FormSection } from "../../components/FormSection/FormSection";
 import { motion } from "framer-motion"; // Імпортуємо motion
 import { Helmet } from "react-helmet";
 import { AnimatedHeading } from "../../components/AnimatedHeading/AnimatedHeading";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export const WorkflowPage = ({ token }) => {
   const [review, setReview] = useState([]);
 
   useEffect(() => {
+    Aos.init();
+
     const fetchReviews = async () => {
       if (!token) return;
       try {
@@ -66,14 +70,9 @@ export const WorkflowPage = ({ token }) => {
             </motion.div>
           </Layout>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInVariants}
-            viewport={{ once: false, amount: 0.3 }}
-          >
+          <div data-aos="fade-up">
             <Roadmap />
-          </motion.div>
+          </div>
 
           <motion.div
             initial="hidden"

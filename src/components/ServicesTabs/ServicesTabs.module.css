@@ -12,7 +12,6 @@
   grid-template-columns: 1fr 2fr;
   align-items: center;
   min-height: 80vh;
-  overflow: hidden;
 }
 
 .contentTitleContainer {

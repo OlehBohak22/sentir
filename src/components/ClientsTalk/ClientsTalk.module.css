@@ -23,6 +23,11 @@
   will-change: transform; /* Оптимізація */
 }
 
+/* При наведенні миші на елемент - зупинка анімації */
+.logos:hover .logosSlide {
+  animation-play-state: paused; /* Зупиняємо анімацію при наведенні */
+}
+
 .logosSlide div {
   width: 11.1vw;
   height: 11.1vw;

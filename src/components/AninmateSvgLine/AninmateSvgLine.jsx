@@ -62,7 +62,7 @@ export const AnimateSvgHands = () => {
 
 export const AnimateSvgForm = () => {
   const { ref, inView } = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.1,
   });
 
@@ -77,7 +77,7 @@ export const AnimateSvgForm = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        className={inView ? s.animatedLine : ""}
+        className={inView ? s.animatedLineForm : ""}
         d="M2 1C24.5524 72.1894 91.7345 252.572 216.275 241M216.275 241C244.517 238.375 275.71 225.88 310 200C399.5 132.453 298 47.5 242 147C226.086 175.275 217.587 207.346 216.275 241ZM216.275 241C210.676 384.556 335.834 556.932 574 586.5C830.799 618.382 910.331 517.076 1046.86 500.971M1046.86 500.971C1066.64 498.638 1087.62 498.093 1110.5 500C1284.5 514.5 1095.5 621.5 996.5 569C953.505 546.2 993.815 514.663 1046.86 500.971ZM1046.86 500.971C1063.38 496.707 1081.14 494.174 1098 494.174C1221.64 494.174 1334.83 606.833 1343.5 618.5"
         stroke="rgba(255, 255, 255, 0.2)"
       />

@@ -7,6 +7,9 @@ import { ClientsTalk } from "../../components/ClientsTalk/ClientsTalk";
 import { motion } from "framer-motion"; // Імпортуємо motion
 import { Helmet } from "react-helmet";
 import { AnimatedHeading } from "../../components/AnimatedHeading/AnimatedHeading";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export const ServicesPage = ({ token }) => {
   // Варіанти анімації
@@ -18,6 +21,10 @@ export const ServicesPage = ({ token }) => {
       transition: { duration: 1, ease: "easeOut" },
     },
   };
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   return (
     <>
@@ -65,14 +72,9 @@ export const ServicesPage = ({ token }) => {
 
         <StackSection />
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeInVariants}
-          viewport={{ once: false, amount: 0.3 }}
-        >
+        <div data-aos="fade-up">
           <ClientsTalk token={token} />
-        </motion.div>
+        </div>
 
         <FormSection />
       </main>

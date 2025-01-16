@@ -16,4 +16,5 @@
   color: inherit;
   font-size: inherit;
   line-height: inherit;
+  will-change: transform, opacity;
 }
