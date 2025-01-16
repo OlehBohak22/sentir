@@ -2,6 +2,7 @@ import s from "./AboutMissionSection.module.css";
 import { Layout } from "../Layout/Layout";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { AnimatedHeadingFaster } from "../AnimatedHeading/AnimatedHeading";
 
 export const AboutMissionSection = () => {
   const { ref, inView } = useInView({
@@ -33,12 +34,14 @@ export const AboutMissionSection = () => {
         >
           <img className={s.quotes} src="/icons/quotes.svg" alt="Quotes" />
           <p className={s.contentText}>
-            Our mission is to create a company that values personal achievement,
+            <AnimatedHeadingFaster
+              text="Our mission is to create a company that values personal achievement,
             meaningful actions, and making a positive impact on the lives of our
             customers, their clients, our team, and our families. We strive to
             blend profitability with fun, freedom, and flexibility, while
             actively supporting the growth and success of all businesses we are
-            involved with.
+            involved with."
+            ></AnimatedHeadingFaster>
           </p>
 
           <motion.div

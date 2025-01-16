@@ -6,6 +6,9 @@ import { useRef, useLayoutEffect } from "react";
 import { slides } from "../../services/fake-api";
 import { useMediaQuery } from "react-responsive";
 import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +16,10 @@ export const AboutSwiperSection = () => {
   const containerRef = useRef();
   const scrollerRef = useRef();
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   useLayoutEffect(() => {
     const panels = gsap.utils.toArray(`.${s.slide}`);
@@ -22,7 +29,7 @@ export const AboutSwiperSection = () => {
     gsap.to(panels, {
       x:
         -panelWidth *
-        ((isDesktop && panels.length - 2.59) || panels.length - 1), // Горизонтальне переміщення
+        ((isDesktop && panels.length - 0.55) || panels.length - 1), // Горизонтальне переміщення
       ease: "none",
       scrollTrigger: {
         trigger: scrollerRef.current,

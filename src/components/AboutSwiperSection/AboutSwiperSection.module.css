@@ -74,8 +74,11 @@
 .gradient {
   background: var(--primary-gradient);
   display: flex;
-  justify-content: center;
   align-items: center;
+  width: 91vw !important;
+  max-width: none;
+  flex: none;
+  padding-left: 10vw;
 
   h3 {
     color: #ffffff;
