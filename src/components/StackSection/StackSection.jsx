@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 import s from "./StackSection.module.css";
 import { Layout } from "../../components/Layout/Layout";
 import { stackIcons } from "../../services/fake-api";
-import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
+import {
+  AnimatedHeading,
+  AnimatedHeadingFaster,
+} from "../AnimatedHeading/AnimatedHeading";
 
 export const StackSection = () => {
   const [playAnimation, setPlayAnimation] = useState(false);
@@ -30,10 +33,6 @@ export const StackSection = () => {
   }, []);
 
   // Анімації для заголовка та опису
-  const titleVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
 
   const descriptionVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -54,17 +53,14 @@ export const StackSection = () => {
           <h2>
             <AnimatedHeading text="Technology Stack" />
           </h2>
-          <motion.p
-            initial="hidden"
-            animate={playAnimation ? "visible" : "hidden"}
-            variants={descriptionVariants}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            We are committed to working with a diverse range of projects and
+          <p>
+            <AnimatedHeadingFaster
+              text=" We are committed to working with a diverse range of projects and
             technology stacks that reflect current demands and industry
             standards. Our expertise includes .NET, Java, Python, JavaScript,
-            C++, PHP, and much more.
-          </motion.p>
+            C++, PHP, and much more."
+            />
+          </p>
         </div>
 
         {/* Іконки технологій */}

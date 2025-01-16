@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { getData } from "../../services/api";
 import { SectionNavigation } from "../../components/SectionNavigation/SectionNavigation";
 import { FormSection } from "../../components/FormSection/FormSection";
-import { motion } from "framer-motion"; // Імпортуємо motion
+import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { AnimatedHeading } from "../../components/AnimatedHeading/AnimatedHeading";
 import Aos from "aos";
@@ -14,6 +14,7 @@ import "aos/dist/aos.css";
 
 export const WorkflowPage = ({ token }) => {
   const [review, setReview] = useState([]);
+  const [showRoadmap, setShowRoadmap] = useState(false); // Стан для Roadmap
 
   useEffect(() => {
     Aos.init();
@@ -31,7 +32,19 @@ export const WorkflowPage = ({ token }) => {
     fetchReviews();
   }, [token]);
 
-  // Варіанти анімації
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 250) {
+        setShowRoadmap(true); // Встановлюємо стан, якщо прокрутили 500px
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll); // Прибираємо слухача при розмонтуванні
+    };
+  }, []);
+
   const fadeInVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -61,7 +74,7 @@ export const WorkflowPage = ({ token }) => {
               initial="hidden"
               whileInView="visible"
               variants={fadeInVariants}
-              viewport={{ once: false, amount: 0.3 }} // Анімація при скролі
+              viewport={{ once: false, amount: 0.3 }}
             >
               <h1>
                 <AnimatedHeading text="WorkFlow" />
@@ -70,8 +83,18 @@ export const WorkflowPage = ({ token }) => {
             </motion.div>
           </Layout>
 
-          <div data-aos="fade-up">
-            <Roadmap />
+          {/* Зарезервоване місце для Roadmap */}
+          <div
+            style={{
+              minHeight: "700px", // Висота зарезервованого простору
+              position: "relative", // Для збереження простору
+            }}
+          >
+            {showRoadmap && (
+              <div data-aos="fade-up">
+                <Roadmap />
+              </div>
+            )}
           </div>
 
           <motion.div
