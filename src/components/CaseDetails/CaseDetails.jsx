@@ -31,7 +31,7 @@ export const CaseDetails = ({ details }) => {
         </div>
 
         <div className={s.caseDetails}>
-          {details.url_hyperlink ? (
+          {details.text_hyperlink ? (
             <div data-aos="fade-up" className={s.detailsBlock}>
               <span>Website:</span>
               <a href={details.url_hyperlink} target="_blank">

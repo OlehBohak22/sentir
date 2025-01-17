@@ -3,7 +3,7 @@ import s from "./AboutHeroSection.module.css";
 import { Layout } from "../../components/Layout/Layout";
 import { motion } from "framer-motion";
 
-export const AboutHeroSection = () => {
+export const AboutHeroSection = ({ openPopup }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isListVisible, setIsListVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -114,7 +114,7 @@ export const AboutHeroSection = () => {
             making digital experiences feel human
           </motion.p>
 
-          <a href="#form">
+          <div onClick={() => openPopup()}>
             <motion.div
               initial="hidden"
               animate={isVisible ? "visible" : "hidden"}
@@ -124,7 +124,7 @@ export const AboutHeroSection = () => {
             >
               BECOME PARTNERS
             </motion.div>
-          </a>
+          </div>
         </div>
 
         <motion.ul

@@ -112,10 +112,10 @@ export const CaseHorizontalSection = ({ cases }) => {
 
                   <div>
                     <div className={s.lastCaseList}>
-                      {[1, 3, 5, 7].map((num) => (
-                        <div key={num}>
-                          <h4>{cases[`input${num}`]}</h4>
-                          <p>{cases[`input${num + 1}`]}</p>
+                      {cases.table_data.map((item) => (
+                        <div key={item}>
+                          <h4>{item.title}</h4>
+                          <p>{item.description}</p>
                         </div>
                       ))}
                     </div>

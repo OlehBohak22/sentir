@@ -9,27 +9,30 @@ import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 import { motion } from "framer-motion";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0 },
 };
 
-const leftToRight = {
-  hidden: { x: "-100%", opacity: 0 },
-  visible: { x: "0%", opacity: 1, transition: { duration: 0.1 } },
-};
+export const ApproachSection = ({ openPopup, isPopupOpen }) => {
+  const [isStickyFixed, setIsStickyFixed] = useState(false);
 
-const rightToLeft = {
-  hidden: { x: "100%", opacity: 0 },
-  visible: { x: "0%", opacity: 1, transition: { duration: 0.1 } },
-};
-
-export const ApproachSection = () => {
   useEffect(() => {
     Aos.init();
   }, []);
+
+  useEffect(() => {
+    // Змінюємо позицію на fixed, якщо попап відкритий
+    if (isPopupOpen) {
+      setIsStickyFixed(true);
+    } else {
+      setTimeout(() => {
+        setIsStickyFixed(false);
+      }, 300); // Таймер для плавного переходу
+    }
+  }, [isPopupOpen]);
 
   return (
     <section>
@@ -42,7 +45,7 @@ export const ApproachSection = () => {
           variants={fadeIn}
           transition={{ duration: 0.8 }}
           whileInView="visible"
-          viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1 для раннього запуску анімації
+          viewport={{ once: false, amount: 0.1 }}
         >
           <img
             className={s.shadow}
@@ -57,14 +60,10 @@ export const ApproachSection = () => {
         </motion.div>
 
         {/* Ліва частина */}
-        <motion.div
-          className={s.leftSideContent}
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1
+        <div
+          className={`${s.leftSideContent} ${
+            isStickyFixed ? s.fixedPosition : ""
+          }`}
         >
           <p data-aos="fade-up">
             Take the first
@@ -73,10 +72,10 @@ export const ApproachSection = () => {
             <br />
             your idea
           </p>
-          <a data-aos="fade-up" href="#form">
+          <div onClick={() => openPopup()} data-aos="fade-up">
             <DiscussBtn>Discuss a project</DiscussBtn>
-          </a>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Головний контент */}
         <motion.div
@@ -86,7 +85,7 @@ export const ApproachSection = () => {
           variants={fadeIn}
           transition={{ duration: 1, delay: 0.5 }}
           whileInView="visible"
-          viewport={{ once: false, amount: 0.1 }} // Зменшив amount до 0.1
+          viewport={{ once: false, amount: 0.1 }}
         >
           <motion.h2 className={s.title}>
             <span data-aos="fade-right" className={s.firstLine}>

@@ -12,7 +12,7 @@ import { AnimatedHeading } from "../../components/AnimatedHeading/AnimatedHeadin
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-export const WorkflowPage = ({ token }) => {
+export const WorkflowPage = ({ token, openPopup }) => {
   const [review, setReview] = useState([]);
   const [showRoadmap, setShowRoadmap] = useState(false); // Стан для Roadmap
 
@@ -129,7 +129,7 @@ export const WorkflowPage = ({ token }) => {
           </Layout>
         </section>
 
-        <SectionNavigation token={token} />
+        <SectionNavigation token={token} openPopup={openPopup} />
 
         <FormSection />
       </main>

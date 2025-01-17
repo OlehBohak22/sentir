@@ -8,25 +8,94 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000000000000000000;
+  z-index: 999999;
+  opacity: 0; /* Початковий стан */
+  animation: fadeInOverlay 0.5s forwards; /* Анімація появи */
+}
+
+@keyframes fadeInOverlay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .popupContent {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
+  background-image: url("/images/sections-bg/form-section-bg.jpg");
+  background-size: cover;
+  padding: 5vw;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   position: relative;
-  max-width: 500px;
-  width: 90%;
+  width: 91.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: scale(0.9); /* Початковий стан зменшений */
+  opacity: 0; /* Початковий стан прозорості */
+  animation: fadeInContent 0.5s 0.3s forwards; /* Анімація появи контенту */
+}
+
+@keyframes fadeInContent {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Анімація для закриття попапу */
+.popupOverlay.hide {
+  animation: fadeOutOverlay 0.5s forwards; /* Затухання overlay */
+}
+
+@keyframes fadeOutOverlay {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.popupContent.hide {
+  animation: fadeOutContent 0.5s forwards; /* Затухання контенту */
+}
+
+@keyframes fadeOutContent {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
 }
 
 .popupClose {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1vw;
+  right: 1vw;
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 2vw;
+  line-height: 2vw;
   cursor: pointer;
+  color: #ffffff;
+}
+
+.title {
+  font-family: Almarai;
+  font-size: 7vw;
+  font-weight: 400;
+  line-height: 7vw;
+  text-align: left;
+  color: #ffffff;
+  text-transform: uppercase;
+  width: 35vw;
 }

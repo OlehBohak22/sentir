@@ -11,7 +11,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
-export const ServicesPage = ({ token }) => {
+export const ServicesPage = ({ token, openPopup }) => {
   // Варіанти анімації
   const fadeInVariants = {
     hidden: { opacity: 0, y: -100 },
@@ -68,7 +68,7 @@ export const ServicesPage = ({ token }) => {
           </Layout>
         </section>
 
-        <ServicesTabs token={token} />
+        <ServicesTabs token={token} openPopup={openPopup} />
 
         <StackSection />
 

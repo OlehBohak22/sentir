@@ -7,11 +7,9 @@ import { useInView } from "react-intersection-observer";
 import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
 export const FormSection = () => {
-  // Контролери анімації
   const titleControls = useAnimation();
   const formControls = useAnimation();
 
-  // Intersection Observer для заголовка та форми
   const [titleRef, titleInView] = useInView({
     triggerOnce: false,
     threshold: 0.2,

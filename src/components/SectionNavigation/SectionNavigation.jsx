@@ -9,7 +9,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
-export const SectionNavigation = ({ token }) => {
+export const SectionNavigation = ({ token, openPopup }) => {
   const [activeSection, setActiveSection] = useState("");
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
@@ -132,7 +132,7 @@ export const SectionNavigation = ({ token }) => {
               </p>
 
               <div data-aos="fade-up">
-                <a href="#form">
+                <div onClick={() => openPopup()}>
                   <DiscussBtn
                     className={`${s.discuss} lg:mt-[3vw] mt-[6vw] flex lg:gap-[0.5vw] gap-[3vw] items-center`}
                   >
@@ -167,7 +167,7 @@ export const SectionNavigation = ({ token }) => {
                       />
                     </svg>
                   </DiscussBtn>
-                </a>
+                </div>
               </div>
             </div>
           </Element>

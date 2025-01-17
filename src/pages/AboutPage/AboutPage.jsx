@@ -10,7 +10,7 @@ import { SeparateReviewBlock } from "../../components/SeparateReviewBlock/Separa
 import { FormSection } from "../../components/FormSection/FormSection";
 import { Helmet } from "react-helmet";
 
-export const AboutPage = ({ token }) => {
+export const AboutPage = ({ token, openPopup }) => {
   const [review, setReview] = useState([]);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export const AboutPage = ({ token }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
       <main>
-        <AboutHeroSection />
+        <AboutHeroSection openPopup={openPopup} />
         <AboutMissionSection />
         <AboutSwiperSection />
         <HomeReviewSection>

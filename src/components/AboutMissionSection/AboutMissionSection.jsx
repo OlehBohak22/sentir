@@ -16,8 +16,8 @@ export const AboutMissionSection = () => {
         <motion.p
           ref={ref}
           className={s.rightText}
-          initial={{ opacity: 0, x: -50 }} // Початкові значення
-          animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -50 }} // Анімація тексту
+          initial={{ opacity: 0, y: 50 }} // Початкові значення
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }} // Анімація тексту
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           Founded in 2021 as an independent entity from a larger conglomerate.
@@ -25,10 +25,10 @@ export const AboutMissionSection = () => {
 
         <motion.div
           className={s.reviewContent}
-          initial={{ opacity: 0, x: 50 }} // Початкові значення
+          initial={{ opacity: 0, y: 50 }} // Початкові значення
           animate={{
             opacity: inView ? 1 : 0, // Плавне з'явлення
-            x: inView ? 0 : 50, // Переміщення контенту
+            y: inView ? 0 : 50, // Переміщення контенту
           }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
@@ -46,10 +46,10 @@ export const AboutMissionSection = () => {
 
           <motion.div
             className={s.sentirContaienr}
-            initial={{ opacity: 0, scale: 0.8 }} // Початкові значення
+            initial={{ opacity: 0, y: 0.8 }} // Початкові значення
             animate={{
               opacity: inView ? 1 : 0, // Плавне з'явлення
-              scale: inView ? 1 : 0.8, // Збільшення розміру
+              y: inView ? 1 : 0.8, // Збільшення розміру
             }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >

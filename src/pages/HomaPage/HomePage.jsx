@@ -18,7 +18,7 @@ const MemoizedPortfolioSection = memo(PortfolioSection);
 const MemoizedHomeReviewSwiper = memo(HomeReviewSwiper);
 const MemoizedCompanyList = memo(CompanyList);
 
-export const HomePage = ({ token }) => {
+export const HomePage = ({ token, openPopup }) => {
   const [cases, setCases] = useState([]);
   const [reviews, setReviews] = useState([]);
 
@@ -71,7 +71,7 @@ export const HomePage = ({ token }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
       <main>
-        <HomeHero className={s.homeHero} />
+        <HomeHero openPopup={openPopup} className={s.homeHero} />
 
         <ServicesSection />
 
@@ -83,7 +83,7 @@ export const HomePage = ({ token }) => {
           <MemoizedPortfolioSection restInfo={restCases} />
         </section>
 
-        <ApproachSection />
+        <ApproachSection openPopup={openPopup} />
 
         <HomeReviewSection>
           <div className="mb-[23vw] ">

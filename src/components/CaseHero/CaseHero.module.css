@@ -44,6 +44,7 @@
 @media (max-width: 1024px) {
   .section {
     padding: 61vw 0 13vw 0;
+    background-position: center;
   }
 
   .section::before {

@@ -4,7 +4,7 @@
   background-size: cover;
   /* background-position: -40vw; */
   background-repeat: no-repeat;
-  padding-top: 11vw;
+  padding-top: 8vw;
   padding-bottom: 12vw;
 }
 
@@ -18,6 +18,10 @@
   padding: 4vw 2.2vw;
   background-color: rgba(255, 255, 255, 0.1);
   width: 30vw;
+
+  li {
+    color: #ffffff;
+  }
 
   div:not(:last-child) {
     margin-bottom: 2.7vw;

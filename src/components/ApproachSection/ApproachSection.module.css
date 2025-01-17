@@ -8,6 +8,12 @@
   gap: 12vw;
 }
 
+.fixedPosition {
+  position: fixed;
+  top: 50px; /* Та сама позиція */
+  z-index: 1000; /* Впередній план */
+}
+
 .leftSideContent {
   padding-top: 17.3vw;
   position: sticky;

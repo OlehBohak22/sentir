@@ -11,7 +11,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
-export const ServicesTabs = ({ token }) => {
+export const ServicesTabs = ({ token, openPopup }) => {
   const [activeTab, setActiveTab] = useState(null);
   const [services, setServices] = useState([]);
   const activeService = services.find((tab) => tab.id === activeTab);
@@ -171,11 +171,11 @@ export const ServicesTabs = ({ token }) => {
                 </p>
 
                 <div data-aos="fade-up" data-aos-duration="2000">
-                  <a href="#form">
+                  <div onClick={() => openPopup()}>
                     <DiscussBtn className={clsx(isMobile && "m-0")}>
                       {activeService.service_trigerbtn}
                     </DiscussBtn>
-                  </a>
+                  </div>
                 </div>
               </div>
             </motion.div>

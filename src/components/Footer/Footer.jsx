@@ -145,7 +145,6 @@ export const Footer = ({ token }) => {
                             display: "inline-block",
                             width: "24px",
                             height: "24px",
-                            fill: "black",
                           }}
                         />
                       </a>

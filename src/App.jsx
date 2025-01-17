@@ -21,7 +21,7 @@ import { Popup } from "./components/Popup/Popup";
 
 export default function App() {
   const [token, setToken] = useState();
-  const [isPopupOpen, setPopupOpen] = useState(true);
+  const [isPopupOpen, setPopupOpen] = useState(false);
 
   const openPopup = () => setPopupOpen(true);
   const closePopup = () => setPopupOpen(false);
@@ -119,24 +119,40 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    // Initialize Lenis
+    // Ініціалізація Lenis
     const lenis = new Lenis();
 
-    // Use requestAnimationFrame to continuously update the scroll
+    // Функція raf для постійного оновлення скролу
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
 
+    // Початкова анімація
     requestAnimationFrame(raf);
-  }, []);
+
+    // Перевіряємо, чи відкрито попап, і виконуємо необхідні дії
+    if (isPopupOpen) {
+      lenis.stop(); // Зупиняємо скрол при відкритому попапі
+      document.body.style.overflow = "hidden"; // Блокуємо стандартний скрол
+    } else {
+      lenis.start(); // Відновлюємо скрол після закриття попапу
+      document.body.style.overflow = ""; // Відновлюємо стандартний скрол
+    }
+
+    // Очистка після розмонтування або зміни isPopupOpen
+    return () => {
+      document.body.style.overflow = ""; // Скидаємо overflow на default при розмонтуванні
+      lenis.destroy(); // Очищаємо ресурси Lenis
+    };
+  }, [isPopupOpen]); // useEffect буде викликатись при зміні isPopupOpen
 
   return (
     <div>
       <div className="cursor"></div>
       <Header />
 
-      {isPopupOpen && <Popup />}
+      {isPopupOpen && <Popup onClose={closePopup} />}
 
       <ScrollTop />
 
@@ -146,7 +162,7 @@ export default function App() {
             path="/"
             element={
               <PageWrapper>
-                <HomePage token={token} />
+                <HomePage token={token} openPopup={openPopup} />
               </PageWrapper>
             }
           />
@@ -154,7 +170,7 @@ export default function App() {
             path="/about"
             element={
               <PageWrapper>
-                <AboutPage token={token} />
+                <AboutPage token={token} openPopup={openPopup} />
               </PageWrapper>
             }
           />
@@ -170,7 +186,7 @@ export default function App() {
             path="/workflow"
             element={
               <PageWrapper>
-                <WorkflowPage token={token} />
+                <WorkflowPage token={token} openPopup={openPopup} />
               </PageWrapper>
             }
           />
@@ -178,7 +194,7 @@ export default function App() {
             path="/services"
             element={
               <PageWrapper>
-                <ServicesPage token={token} />
+                <ServicesPage token={token} openPopup={openPopup} />
               </PageWrapper>
             }
           />

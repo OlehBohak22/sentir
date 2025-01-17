@@ -10,7 +10,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
-export const HomeHero = () => {
+export const HomeHero = ({ openPopup }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
 
@@ -19,6 +19,10 @@ export const HomeHero = () => {
     "personalized,<br />boutique<br />experience",
     "Accelerated<br />MVP Launch for<br />Startups",
   ];
+
+  const handleOpen = () => {
+    openPopup();
+  };
 
   useEffect(() => {
     Aos.init();
@@ -128,6 +132,7 @@ export const HomeHero = () => {
               >
                 BUILDING
               </motion.span>
+
               <br />
               <motion.span
                 initial={{ opacity: 0, x: "0" }} // Початкова позиція: справа
@@ -159,7 +164,6 @@ export const HomeHero = () => {
 
           {isMobile && (
             <>
-              {" "}
               <motion.span
                 initial={{ opacity: 0, x: "--50%" }}
                 whileInView={{ opacity: 1, x: "0" }}
@@ -205,7 +209,7 @@ export const HomeHero = () => {
           resonate with users and drive business success.
         </p>
 
-        <div data-aos="fade-up">
+        <div onClick={handleOpen} data-aos="fade-up">
           <div className={s.heroHoverLink}>GET NO-COST DISCOVERY</div>
         </div>
 
