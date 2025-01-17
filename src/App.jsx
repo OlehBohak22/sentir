@@ -17,9 +17,14 @@ import "./App.css";
 import { PolicyPage } from "./pages/PolicyPage/PolicyPage";
 // import { InertiaScroll } from "./components/InertiaScroll";
 import Lenis from "@studio-freight/lenis";
+import { Popup } from "./components/Popup/Popup";
 
 export default function App() {
   const [token, setToken] = useState();
+  const [isPopupOpen, setPopupOpen] = useState(true);
+
+  const openPopup = () => setPopupOpen(true);
+  const closePopup = () => setPopupOpen(false);
   const location = useLocation();
 
   // Додавання кастомного курсору
@@ -129,8 +134,9 @@ export default function App() {
   return (
     <div>
       <div className="cursor"></div>
-      {/* <InertiaScroll> */}
       <Header />
+
+      {isPopupOpen && <Popup />}
 
       <ScrollTop />
 

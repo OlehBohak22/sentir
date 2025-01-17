@@ -14,6 +14,17 @@ export const CasePage = ({ token }) => {
   const { slug } = useParams();
   const [cases, setCase] = useState(null);
   const [review, setReview] = useState(null);
+  const [rendered, setRendered] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setRendered(true);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchCase = async () => {
@@ -56,7 +67,6 @@ export const CasePage = ({ token }) => {
     return <div className="main-content"></div>;
   }
 
-  // Анімаційні параметри
   const fadeInUp = {
     hidden: { opacity: 0, y: -500 },
     visible: {
@@ -77,7 +87,6 @@ export const CasePage = ({ token }) => {
       </Helmet>
 
       <main>
-        {/* Hero Section */}
         {cases.title.rendered && cases.case_title_pictures && (
           <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
             <CaseHero
@@ -87,7 +96,6 @@ export const CasePage = ({ token }) => {
           </motion.div>
         )}
 
-        {/* Details Section */}
         {cases && (
           <motion.div
             initial="hidden"
@@ -99,7 +107,6 @@ export const CasePage = ({ token }) => {
           </motion.div>
         )}
 
-        {/* Background Section */}
         {cases.case_second_pictures && (
           <section
             className={s.attachmentSection}
@@ -109,19 +116,22 @@ export const CasePage = ({ token }) => {
           ></section>
         )}
 
-        {/* Review Section */}
         {review && (
           <div className="bg-black">
             <SeparateReviewBlock review={review} />
           </div>
         )}
 
-        {/* Horizontal Section */}
-        {cases && Object.keys(cases).length > 0 && (
-          <CaseHorizontalSection cases={cases} />
+        {rendered ? (
+          cases && Object.keys(cases).length > 0 ? (
+            <CaseHorizontalSection cases={cases} />
+          ) : (
+            <p>Loading case details...</p> // Додатковий стан для діагностики
+          )
+        ) : (
+          <p>Waiting for rendering to be enabled...</p>
         )}
 
-        {/* Form Section */}
         <div className="lg:mt-[5vw] mt-[10vw]">
           <FormSection />
         </div>

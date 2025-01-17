@@ -27,7 +27,18 @@ export const PortfolioTitularSection = ({ titulInfo }) => {
             {/* Контент секції */}
             <div className={s.titularContent}>
               {/* Анімація опису */}
-              <p data-aos="fade-up">{titulInfo.case_description}</p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html:
+                    titulInfo.case_description
+                      .replace(/<br\s*\/?>/g, "<br />")
+                      .slice(0, 200) +
+                    (titulInfo.case_description.length > 200 ? "..." : ""),
+                }}
+                data-aos="fade-up"
+              >
+                {/* {titulInfo.case_description} */}
+              </p>
 
               {/* Анімація списку */}
               <ul data-aos="fade-up">

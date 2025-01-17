@@ -1,8 +1,9 @@
 .section {
+  height: 93vh;
   position: relative;
-  padding: 20vw 0 7vw 0;
   background-size: cover;
   background-repeat: no-repeat;
+  padding-top: 31vw;
 }
 
 .section::before {
@@ -15,7 +16,7 @@
   background-image: url(/images/about-page/about-review-elipse.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0 -10vw;
+  background-position: 0 0vw;
 }
 
 .titleContainer {

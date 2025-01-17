@@ -6,6 +6,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css"; // Стилі для Swiper
 import "swiper/css/pagination";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export const HomeHero = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -16,6 +19,10 @@ export const HomeHero = () => {
     "personalized,<br />boutique<br />experience",
     "Accelerated<br />MVP Launch for<br />Startups",
   ];
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   const HomeHeroLine = () => {
     let svgContent;
@@ -191,23 +198,16 @@ export const HomeHero = () => {
             </>
           )}
         </h1>
-        <p className={s.heroDesc}>
+        <p data-aos="fade-up" className={s.heroDesc}>
           From napkin sketches to full-scale digital solutions, we harness
           global expertise to turn your idea into a product that people love.
           Embrace our diverse, collaborative approach to making products that
           resonate with users and drive business success.
         </p>
 
-        <a href="#form">
-          <motion.div
-            initial={{ opacity: 0, y: "5vw" }}
-            animate={{ opacity: 1, y: "0" }}
-            transition={{ duration: 1 }}
-            className={s.heroHoverLink}
-          >
-            GET NO-COST DISCOVERY
-          </motion.div>
-        </a>
+        <div data-aos="fade-up">
+          <div className={s.heroHoverLink}>GET NO-COST DISCOVERY</div>
+        </div>
 
         <div>
           {isDesktop && (

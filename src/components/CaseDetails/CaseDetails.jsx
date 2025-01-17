@@ -16,10 +16,20 @@ export const CaseDetails = ({ details }) => {
         <div className={s.caseDesc}>
           <p>
             <AnimatedHeadingFaster
-              text={details.case_description}
-            ></AnimatedHeadingFaster>
+              text={
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: details.case_description.replace(
+                      /<br\s*\/?>/g,
+                      "<br />"
+                    ),
+                  }}
+                />
+              }
+            />
           </p>
         </div>
+
         <div className={s.caseDetails}>
           {details.url_hyperlink ? (
             <div data-aos="fade-up" className={s.detailsBlock}>
@@ -27,24 +37,6 @@ export const CaseDetails = ({ details }) => {
               <a href={details.url_hyperlink} target="_blank">
                 {details.text_hyperlink}
               </a>
-            </div>
-          ) : (
-            ""
-          )}
-
-          {details.service ? (
-            <div data-aos="fade-up" className={s.detailsBlock}>
-              <span>Service:</span>
-              <p>{details.service}</p>
-            </div>
-          ) : (
-            ""
-          )}
-
-          {details.industries ? (
-            <div data-aos="fade-up" className={s.detailsBlock}>
-              <span>Industries:</span>
-              <p>{details.industries}</p>
             </div>
           ) : (
             ""
@@ -59,10 +51,17 @@ export const CaseDetails = ({ details }) => {
             ""
           )}
 
-          {details.platforms ? (
+          {details.case_mors ? (
             <div data-aos="fade-up" className={s.detailsBlock}>
-              <span>Platforms:</span>
-              <p>{details.platforms}</p>
+              <span>Service:</span>
+              <p>
+                {details.case_mors
+                  .split("|||") // Розбиваємо рядок
+                  .filter(Boolean) // Видаляємо порожні елементи, якщо вони є
+                  .map(
+                    (item, index) => (index === 0 ? item : `, ${item}`) // Додаємо кому лише після першого елемента
+                  )}
+              </p>
             </div>
           ) : (
             ""
@@ -72,6 +71,24 @@ export const CaseDetails = ({ details }) => {
             <div data-aos="fade-up" className={s.detailsBlock}>
               <span>Timeline:</span>
               <p>{details.timeline}</p>
+            </div>
+          ) : (
+            ""
+          )}
+
+          {details.industries ? (
+            <div data-aos="fade-up" className={s.detailsBlock}>
+              <span>Industries:</span>
+              <p>{details.industries}</p>
+            </div>
+          ) : (
+            ""
+          )}
+
+          {details.platforms ? (
+            <div data-aos="fade-up" className={s.detailsBlock}>
+              <span>Platforms:</span>
+              <p>{details.platforms}</p>
             </div>
           ) : (
             ""

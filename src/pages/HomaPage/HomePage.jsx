@@ -1,16 +1,22 @@
+import { useEffect, useState, memo } from "react";
 import { ApproachSection } from "../../components/ApproachSection/ApproachSection";
 import { HomeHero } from "../../components/HomeHero/HomeHero";
 import { PortfolioSection } from "../../components/PortfolioSection/PortfolioSection";
 import { PortfolioTitularSection } from "../../components/PortfolioTitularSection/PortfolioTitularSection";
 import { ServicesSection } from "../../components/ServicesSection/ServicesSection";
 import s from "./HomePage.module.css";
-import { useEffect, useState } from "react";
 import { getData } from "../../services/api";
 import { HomeReviewSection } from "../../components/HomeReviewSection/HomeReviewSection";
 import { HomeReviewSwiper } from "../../components/HomeReviewSwiper/HomeReviewSwiper";
 import { CompanyList } from "../../components/CompanyList/CompanyList";
 import { FormSection } from "../../components/FormSection/FormSection";
 import { Helmet } from "react-helmet";
+
+// Меморизація компонентів
+const MemoizedPortfolioTitularSection = memo(PortfolioTitularSection);
+const MemoizedPortfolioSection = memo(PortfolioSection);
+const MemoizedHomeReviewSwiper = memo(HomeReviewSwiper);
+const MemoizedCompanyList = memo(CompanyList);
 
 export const HomePage = ({ token }) => {
   const [cases, setCases] = useState([]);
@@ -71,19 +77,19 @@ export const HomePage = ({ token }) => {
 
         <section className={s.portfolioSection}>
           {cases.length > 0 && (
-            <PortfolioTitularSection titulInfo={titularCase} />
+            <MemoizedPortfolioTitularSection titulInfo={titularCase} />
           )}
 
-          <PortfolioSection restInfo={restCases} />
+          <MemoizedPortfolioSection restInfo={restCases} />
         </section>
 
         <ApproachSection />
 
         <HomeReviewSection>
           <div className="mb-[23vw] ">
-            <HomeReviewSwiper reviews={reviews} />
+            <MemoizedHomeReviewSwiper reviews={reviews} />
           </div>
-          <CompanyList token={token} />
+          <MemoizedCompanyList token={token} />
         </HomeReviewSection>
 
         <FormSection />

@@ -5,27 +5,45 @@ export const ScrollTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Прокручуємо вгору при зміні маршруту
     const scrollToTop = () => {
+      // Спочатку встановимо скрол для document.documentElement
       document.documentElement.scrollTo({
         top: 0,
         left: 0,
-        behavior: "auto", // Можна змінити на "smooth" для анімації
+        behavior: "auto",
       });
 
+      // Для перестраховки — також встановимо для document.body
       document.body.scrollTo({
         top: 0,
         left: 0,
-        behavior: "auto", // Можна змінити на "smooth" для анімації
+        behavior: "auto",
       });
+
+      // Перевіримо, чи відбувся скрол (на випадок, якщо горизонтальний контейнер має власний скрол)
+      setTimeout(() => {
+        if (window.scrollY !== 0 || window.scrollX !== 0) {
+          console.warn(
+            "Fallback triggered: Adjusting scroll position to top again."
+          );
+
+          document.documentElement.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "auto",
+          });
+
+          document.body.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "auto",
+          });
+        }
+      }, 300);
     };
 
-    // Викликаємо прокрутку на зміну маршруту
     scrollToTop();
-
-    // Можна також додати затримку, якщо прокручування не працює гладко:
-    // setTimeout(scrollToTop, 50); // Затримка 50 мс, за потребою можна налаштувати
   }, [pathname]);
 
-  return null; // Цей компонент не рендерить нічого
+  return null;
 };
