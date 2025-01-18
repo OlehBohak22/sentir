@@ -33,22 +33,22 @@ export const ServicesTabs = ({ token, openPopup }) => {
         if (location.hash) {
           switch (location.hash) {
             case "#project":
-              setActiveTab(data[2]?.id);
+              setActiveTab(data[0]?.id);
               break;
             case "#discovery":
-              setActiveTab(data[5]?.id);
+              setActiveTab(data[1]?.id);
               break;
             case "#UXUI":
-              setActiveTab(data[4]?.id);
+              setActiveTab(data[2]?.id);
               break;
             case "#web":
               setActiveTab(data[3]?.id);
               break;
             case "#due":
-              setActiveTab(data[1]?.id);
+              setActiveTab(data[4]?.id);
               break;
             default:
-              setActiveTab(data[0]?.id);
+              setActiveTab(data[5]?.id);
               break;
           }
 

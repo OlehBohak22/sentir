@@ -52,7 +52,7 @@ export const Popup = ({ onClose }) => {
         <h2 className={s.title}>
           <AnimatedHeading text="Drop us a line " />
         </h2>
-        <MainForm />
+        <MainForm closePopup={handleClose} />
       </div>
     </div>
   );

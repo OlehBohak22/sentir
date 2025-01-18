@@ -1,32 +1,11 @@
-import { motion } from "framer-motion";
-import { Layout } from "../Layout/Layout";
-import s from "./HomeHero.module.css";
+import { Layout } from "../../components/Layout/Layout";
+import s from "./ThanksPage.module.css";
 import { useMediaQuery } from "react-responsive";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-import "swiper/css"; // Стилі для Swiper
-import "swiper/css/pagination";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
 
-export const HomeHero = ({ openPopup }) => {
+export const ThanksPage = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
-
-  const items = [
-    "a free-of<br />charge<br />project kick-off",
-    "personalized,<br />boutique<br />experience",
-    "Accelerated<br />MVP Launch for<br />Startups",
-  ];
-
-  const handleOpen = () => {
-    openPopup();
-  };
-
-  useEffect(() => {
-    Aos.init();
-  }, []);
 
   const HomeHeroLine = () => {
     let svgContent;
@@ -105,15 +84,16 @@ export const HomeHero = ({ openPopup }) => {
   };
 
   return (
-    <section className={s.heroSection}>
+    <section className={s.section}>
       <HomeHeroLine />
-      <Layout>
-        <h1 className={s.heroTitle}>
+
+      <Layout className={s.container}>
+        <h1>
           <motion.div
-            initial={{ opacity: 0 }} // Початкова позиція: зліва
-            whileInView={{ opacity: 1 }} // Кінцева позиція: звичайна
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 3, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.5 }} // Повторна анімація при поверненні у видиму зону
+            viewport={{ once: false, amount: 0.5 }}
             className={s.rotatingCircles}
           >
             <img
@@ -129,143 +109,51 @@ export const HomeHero = ({ openPopup }) => {
           </motion.div>
 
           {isDesktop && (
-            <>
+            <div>
               <motion.span
                 initial={{ opacity: 0, x: "0" }}
-                whileInView={{ opacity: 1, x: "-60%" }}
+                whileInView={{ opacity: 1, x: "-17%" }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }}
               >
-                BUILDING
-              </motion.span>
-
-              <br />
-              <motion.span
-                initial={{ opacity: 0, x: "0" }}
-                whileInView={{ opacity: 1, x: "-25%" }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.5 }}
-              >
-                PRODUCTS
+                THANK
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, x: "0" }}
-                whileInView={{ opacity: 1, x: "20%" }}
+                whileInView={{ opacity: 1, x: "15%" }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }}
               >
-                THROUGH
+                YOU!
               </motion.span>
-              <br />
-              <motion.span
-                initial={{ opacity: 0, x: "0" }}
-                whileInView={{ opacity: 1, x: "65%" }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.5 }}
-              >
-                EMPATHY
-              </motion.span>
-            </>
+            </div>
           )}
 
           {isMobile && (
-            <>
+            <div>
               <motion.span
-                initial={{ opacity: 0, x: "--50%" }}
-                whileInView={{ opacity: 1, x: "0" }}
+                initial={{ opacity: 0, x: "0" }}
+                whileInView={{ opacity: 1, x: "-27%" }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }}
               >
-                BUILDING
-              </motion.span>
-              <br />
-              <motion.span
-                initial={{ opacity: 0, x: "-50%" }}
-                whileInView={{ opacity: 1, x: "-18%" }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.5 }}
-                className="mb-[10vw]"
-              >
-                PRODUCTS
+                THANK
               </motion.span>
               <motion.span
-                initial={{ opacity: 0, x: "50%" }}
-                whileInView={{ opacity: 1, x: "20%" }}
+                initial={{ opacity: 0, x: "0" }}
+                whileInView={{ opacity: 1, x: "25%" }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }}
               >
-                THROUGH
+                YOU!
               </motion.span>
-              <br />
-              <motion.span
-                initial={{ opacity: 0, x: "50%" }}
-                whileInView={{ opacity: 1, x: "0" }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.5 }}
-              >
-                EMPATHY
-              </motion.span>
-            </>
+            </div>
           )}
         </h1>
-        <p data-aos="fade-up" className={s.heroDesc}>
-          From napkin sketches to full-scale digital solutions, we harness
-          global expertise to turn your idea into a product that people love.
-          Embrace our diverse, collaborative approach to making products that
-          resonate with users and drive business success.
+
+        <p>
+          Your customer success manager will contact you in the next 24 hours.
         </p>
-
-        <div onClick={handleOpen} data-aos="fade-up">
-          <div className={s.heroHoverLink}>GET NO-COST DISCOVERY</div>
-        </div>
-
-        <div>
-          {isDesktop && (
-            <motion.ul
-              className={s.homeHeroItemList}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-            >
-              {items.map((text, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
-                  transition={{ duration: 0.9, delay: 0.2 + index * 0.3 }}
-                >
-                  <p dangerouslySetInnerHTML={{ __html: text }} />
-                </motion.li>
-              ))}
-            </motion.ul>
-          )}
-
-          {isMobile && (
-            <Swiper
-              modules={[Pagination]}
-              spaceBetween={0}
-              initialSlide={1}
-              slidesPerView={1.2}
-              centeredSlides={true}
-              pagination={{
-                clickable: true,
-                type: "bullets",
-                bulletClass: s.customBullet,
-                bulletActiveClass: s.customBulletActive,
-              }}
-              className={s.swiper}
-            >
-              {items.map((text, index) => (
-                <SwiperSlide key={index}>
-                  <div className={s.swiperSlideContent}>
-                    <p dangerouslySetInnerHTML={{ __html: text }} />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          )}
-        </div>
       </Layout>
     </section>
   );

@@ -1,0 +1,146 @@
+.section {
+  background: var(--primary-gradient);
+  height: 120vh;
+  padding-top: 15vw;
+
+  h1 {
+    position: relative;
+    text-align: center;
+    margin-bottom: 7.7vw;
+
+    span {
+      display: block;
+      color: #ffffff;
+      font-family: Almarai, sans-serif;
+      font-size: 6.9vw;
+      line-height: 7vw;
+    }
+  }
+
+  p {
+    width: 40vw;
+    margin: 0 auto;
+    text-align: center;
+    font-family: DM Sans, sans-serif;
+    font-size: 2.2vw;
+    line-height: 2.6vw;
+    color: #ffffff;
+  }
+}
+
+.svg {
+  position: absolute;
+  top: 4vw;
+  width: 100%;
+  height: auto;
+  stroke: rgba(255, 255, 255, 0.2);
+}
+
+.path {
+  fill: none;
+  stroke-width: 3;
+  stroke-dasharray: 3000; /* Довжина шляху, можна підібрати */
+  stroke-dashoffset: 3000; /* Початкове значення для прихованої лінії */
+  animation: draw 5s linear forwards;
+  animation-delay: 0.6s; /* Затримка перед початком анімації */
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0; /* Лінія повністю малюється */
+  }
+}
+
+.circle1,
+.circle2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation-duration: 10s; /* Тривалість обертання */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.circle1 {
+  animation-name: rotateClockwise;
+}
+
+.circle2 {
+  animation-name: rotateCounterClockwise;
+}
+
+/* Анімація за годинниковою стрілкою */
+@keyframes rotateClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Анімація проти годинникової стрілки */
+@keyframes rotateCounterClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.rotatingCircles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 22vw;
+  height: 22vw;
+
+  img {
+    position: absolute;
+
+    transform: translateY(-50%) translateX(-50%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding-top: 55vw;
+    height: 100vh;
+
+    h1 {
+      margin-bottom: 20vw;
+      span {
+        font-size: 12.8vw;
+        line-height: 12.8vw;
+      }
+    }
+
+    p {
+      width: 80vw;
+      font-size: 6vw;
+      line-height: 8vw;
+    }
+  }
+
+  .rotatingCircles {
+    width: 40vw;
+    height: 40vw;
+
+    img {
+      position: absolute;
+
+      transform: translateY(-50%) translateX(-50%);
+    }
+  }
+
+  .svg {
+    left: 0;
+    top: 23.7vw;
+    height: auto;
+    stroke: rgba(255, 255, 255, 0.2);
+    box-shadow: none !important;
+    transform: scale(1.5);
+  }
+}

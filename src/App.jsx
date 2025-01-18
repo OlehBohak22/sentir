@@ -15,9 +15,9 @@ import { ContactPage } from "./pages/ContactPage/ContactPage";
 import { ScrollTop } from "./components/ScrollTop";
 import "./App.css";
 import { PolicyPage } from "./pages/PolicyPage/PolicyPage";
-// import { InertiaScroll } from "./components/InertiaScroll";
 import Lenis from "@studio-freight/lenis";
 import { Popup } from "./components/Popup/Popup";
+import { ThanksPage } from "./pages/ThanksPage/ThanksPage";
 
 export default function App() {
   const [token, setToken] = useState();
@@ -223,11 +223,19 @@ export default function App() {
               </PageWrapper>
             }
           />
+
+          <Route
+            path="/thanks-page"
+            element={
+              <PageWrapper>
+                <ThanksPage />
+              </PageWrapper>
+            }
+          />
         </Routes>
       </AnimatePresence>
 
       <Footer token={token} />
-      {/* </InertiaScroll> */}
     </>
   );
 }

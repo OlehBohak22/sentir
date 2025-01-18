@@ -6,11 +6,12 @@ import { postData, getToken } from "../../services/api"; // Імпортуємо
 import { toast, ToastContainer } from "react-toastify"; // Імпортуємо бібліотеку для повідомлень
 import "react-toastify/dist/ReactToastify.css";
 import { useInView } from "react-intersection-observer"; // Імпортуємо для виявлення видимості елементів
-
+import { useNavigate } from "react-router-dom";
 import "./MainForm.css";
 
-export const MainForm = () => {
+export const MainForm = ({ closePopup }) => {
   const [fileName, setFileName] = useState("Upload File"); // Стан для відображення назви файлу
+  const navigate = useNavigate();
 
   const initialValues = {
     name: "",
@@ -37,18 +38,15 @@ export const MainForm = () => {
       const token = await getToken("admin_projection", "mkGp6Rpv5$On7BR&VU");
 
       const formData = new FormData();
-      formData.append("name", values.name || ""); // Перевірка та додавання
+      formData.append("name", values.name || "");
       formData.append("email", values.email || "");
       formData.append("text", values.text || "");
       formData.append("nda", values.nda);
 
-      // Отримання файлу
       const fileInput = document.querySelector("#file-upload");
       if (fileInput && fileInput.files.length > 0) {
         formData.append("file", fileInput.files[0]);
       }
-
-      console.log("Form Data:", Array.from(formData.entries()));
 
       const response = await postData(
         token,
@@ -56,14 +54,18 @@ export const MainForm = () => {
         formData
       );
 
-      console.log("Response from server:", response);
       toast.success("Form submitted successfully!", {
         position: "top-right",
         autoClose: 5000,
         progressClassName: "Toastify__progress-bar--success",
       });
+
       resetForm();
-      setFileName("Upload File"); // Скидання назви файлу після відправки форми
+      setFileName("Upload File");
+
+      // Перенаправлення на сторінку подяки
+      closePopup();
+      navigate("/thanks-page");
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error("Failed to submit the form. Please try again.", {

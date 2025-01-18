@@ -161,11 +161,11 @@
     h2 {
       position: absolute;
       top: 10vw;
-      left: 15vw;
+      left: 10vw;
       font-size: 9.6vw;
       line-height: 9.6vw;
 
-      span {
+      span:nth-child(2) {
         text-indent: 7vw;
       }
     }

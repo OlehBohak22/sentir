@@ -59,10 +59,15 @@
     svg {
       width: 1.9vw;
       height: 1.9vw;
+      transition: transform 0.3s;
 
       path {
         fill: #ffffff;
       }
+    }
+
+    svg:hover {
+      transform: scale(1.2);
     }
   }
 }

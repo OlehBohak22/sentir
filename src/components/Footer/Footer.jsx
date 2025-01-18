@@ -7,10 +7,13 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { useLocation } from "react-router-dom";
 
 export const Footer = ({ token }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
+
+  const location = useLocation();
 
   const [contactInfo, setContactInfo] = useState([]);
 
@@ -32,7 +35,7 @@ export const Footer = ({ token }) => {
 
   return (
     <motion.footer
-      className={s.footer}
+      className={location.pathname == "/portfolio" ? s.border : ""}
       initial={{ y: 100, opacity: 0 }} // Початкова позиція футера
       whileInView={{ y: 0, opacity: 1 }} // Кінцева позиція при скролі
       viewport={{ once: false }} // Анімація виконується лише один раз
