@@ -4,23 +4,22 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import s from "./HomeReviewSwiper.module.css"; // Ваш файл стилів
+import s from "./HomeReviewSwiper.module.css";
 import { useState } from "react";
 import "./swiperPagination.css";
 import { useMediaQuery } from "react-responsive";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { AnimatedHeadingFaster } from "../AnimatedHeading/AnimatedHeading";
-
-const slideVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0 },
-};
 
 export const HomeReviewSwiper = ({ reviews }) => {
-  const [progress, setProgress] = useState(0); // Початковий прогрес
+  const [progress, setProgress] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0); // Активний індекс слайда
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
+
+  // Анімаційні варіанти
+  const slideVariants = {
+    hidden: { opacity: 0, y: 50 }, // Початковий стан
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }, // Вхідний стан
+  };
 
   return (
     <div className={s.swiperContainer}>
@@ -33,38 +32,41 @@ export const HomeReviewSwiper = ({ reviews }) => {
           nextEl: ".swiper-next",
         }}
         pagination={{
-          el: ".custom-pagination", // Ваш кастомний елемент пагінації
+          el: ".custom-pagination",
           clickable: true,
-          type: "progressbar", // Використовуємо progressbar для автоматичного оновлення
+          type: "progressbar",
         }}
         onSlideChange={(swiper) => {
           const currentProgress =
             ((swiper.activeIndex + 1) / swiper.slides.length) * 100;
-          setProgress(currentProgress); // Оновлюємо прогрес
+          setProgress(currentProgress);
+          setActiveIndex(swiper.activeIndex); // Оновлюємо індекс активного слайда
         }}
       >
         {reviews
           .filter((review) => review.add_to_reviews == 1)
-          .map((review) => (
+          .map((review, index) => (
             <SwiperSlide key={review.id}>
-              <div className={s.swiperSlide}>
+              {/* Використовуємо motion.div з унікальним key для кожного слайда */}
+              <motion.div
+                key={activeIndex} // Залежність від активного слайда
+                className={s.swiperSlide}
+                initial="hidden"
+                animate="visible"
+                variants={slideVariants}
+              >
                 <div className={s.reviewerInfo}>
                   <img
                     className={s.reviewerAvatar}
-                    data-aos="fade-up"
                     src={review.avatar}
                     alt={review.full_name}
                   />
                   <div>
-                    <p data-aos="fade-up" className={s.reviewerFullname}>
-                      {review.full_name}
-                    </p>
-                    <p data-aos="fade-up" className={s.reviewerDirect}>
-                      {review.direction}
-                    </p>
+                    <p className={s.reviewerFullname}>{review.full_name}</p>
+                    <p className={s.reviewerDirect}>{review.direction}</p>
 
                     {isDesktop && (
-                      <div data-aos="fade-up" className={s.reviewerCompany}>
+                      <div className={s.reviewerCompany}>
                         <img
                           src={review.company_icon}
                           alt={review.company_name}
@@ -79,12 +81,12 @@ export const HomeReviewSwiper = ({ reviews }) => {
                 </div>
 
                 {isMobile && (
-                  <div data-aos="fade-up" className={s.reviewerCompany}>
+                  <div className={s.reviewerCompany}>
                     <img src={review.company_icon} alt={review.company_name} />
                     <p>{review.company_name}</p>
                   </div>
                 )}
-              </div>
+              </motion.div>
             </SwiperSlide>
           ))}
       </Swiper>
@@ -107,8 +109,8 @@ export const HomeReviewSwiper = ({ reviews }) => {
               style={{
                 width: `${progress}%`,
                 background: "linear-gradient(to right, #ff0080, #7928ca)",
-                height: "4px", // Висота прогрес-бару
-                transition: "width 0.3s ease", // Плавна анімація
+                height: "4px",
+                transition: "width 0.3s ease",
               }}
             />
           </div>

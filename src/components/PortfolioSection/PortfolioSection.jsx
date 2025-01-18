@@ -58,20 +58,15 @@ const PortfolioItem = ({ item }) => {
 
             <div>
               {/* Анімація списку */}
-              <motion.ul>
+              <ul data-aos="fade-up">
                 {mors
                   .sort((a, b) => (a === "NDA" ? -1 : b === "NDA" ? 1 : 0))
                   .map((item, index) => (
-                    <motion.li
-                      className={item === "NDA" ? s.nda : ""}
-                      key={index}
-                      variants={childVariants}
-                      custom={index + 2}
-                    >
+                    <li className={item === "NDA" ? s.nda : ""} key={index}>
                       {item}
-                    </motion.li>
+                    </li>
                   ))}
-              </motion.ul>
+              </ul>
 
               {/* Анімація опису */}
               <p

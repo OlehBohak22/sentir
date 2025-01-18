@@ -36,7 +36,7 @@ export const AboutSwiperSection = () => {
         pin: true,
         scrub: 0.5, // Плавна прокрутка
         start: "top top",
-        end: `top -5000`, // Збалансувати ширину
+        end: `top -3000`, // Збалансувати ширину
         onUpdate: (self) => {
           const progressBar = document.getElementById("progress-bar");
           if (progressBar) {
@@ -71,7 +71,9 @@ export const AboutSwiperSection = () => {
               </div>
             ))}
             <div className={`${s.slide} ${s.gradient}`}>
-              <h3>And yes, we live by them.</h3>
+              <h3>
+                <AnimatedHeading text="And yes, we live by them. " />
+              </h3>
             </div>
           </div>
         </Layout>

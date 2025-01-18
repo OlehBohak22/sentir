@@ -34,15 +34,10 @@ export const StackSection = () => {
 
   // Анімації для заголовка та опису
 
-  const descriptionVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   // Анімації для іконок
   const iconVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1 },
+    hidden: { scale: 0.7 },
+    visible: { scale: 1 },
   };
 
   return (

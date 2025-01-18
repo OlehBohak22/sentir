@@ -132,24 +132,49 @@ export const Footer = ({ token }) => {
               {isDesktop && <p>social media</p>}
               <ul className={s.socialLinks}>
                 {contactInfo.social_media_images &&
-                  contactInfo.social_media_images.map((item, index) => (
-                    <li key={index}>
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <span
-                          dangerouslySetInnerHTML={{ __html: item.image }}
-                          style={{
-                            display: "inline-block",
-                            width: "24px",
-                            height: "24px",
-                          }}
-                        />
-                      </a>
-                    </li>
-                  ))}
+                  contactInfo.social_media_images.map((item, index) => {
+                    // Додаємо <defs> із градієнтом до кожного SVG
+                    const svgWithDefaultColor = item.image
+                      .replace(
+                        "<svg",
+                        `<svg>
+      <defs>
+        <linearGradient id="hover-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="30%" stop-color="#8a4de9" /> <!-- Фіолетовий -->
+          <stop offset="60%" stop-color="#d839c5" /> <!-- Рожевий -->
+          <stop offset="100%" stop-color="#ff6174" /> <!-- Червоний -->
+        </linearGradient>
+      </defs>`
+                      )
+                      .replace(
+                        'fill="#0B0B0B"', // Заміна кольору бекенду
+                        `fill="black"` // Чорний за замовчуванням
+                      )
+                      .replace(
+                        /<path/g, // Додаємо масштабування до всіх <path>
+                        `<path transform="scale(1)"`
+                      );
+
+                    return (
+                      <li key={index}>
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <span
+                            className={s.icon}
+                            dangerouslySetInnerHTML={{
+                              __html: svgWithDefaultColor,
+                            }}
+                            style={{
+                              display: "inline-block",
+                            }}
+                          />
+                        </a>
+                      </li>
+                    );
+                  })}
               </ul>
             </div>
           </div>

@@ -3,12 +3,16 @@ import s from "./ClientsTalk.module.css";
 import { useEffect, useState } from "react";
 import { getData } from "../../services/api";
 import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export const ClientsTalk = ({ token }) => {
   const [logos, setLogos] = useState([]);
   const [isAnimationActive, setIsAnimationActive] = useState(false);
 
   useEffect(() => {
+    Aos.init();
+
     const fetchServices = async () => {
       if (!token) return;
       try {
@@ -34,17 +38,20 @@ export const ClientsTalk = ({ token }) => {
     <section className={s.section}>
       <Layout className={s.container}>
         <div className={s.titleContainer}>
-          <h2>
+          <h2 data-aos="fade-up">
             <AnimatedHeading text="CLIENTS TALK" />
           </h2>
-          <p>
+          <p data-aos="fade-up">
             The majority of our engagements stem from referrals by previous
             clients, underscoring the consistent satisfaction they've
             experienced with our services.
           </p>
         </div>
 
-        <div className={`${s.logos} ${isAnimationActive ? s.animate : ""}`}>
+        <div
+          data-aos="fade-up"
+          className={`${s.logos} ${isAnimationActive ? s.animate : ""}`}
+        >
           <div className={s.logosSlide}>
             {logos.map((logo) => (
               <div key={logo.id}>

@@ -109,7 +109,13 @@ export const HomeHero = ({ openPopup }) => {
       <HomeHeroLine />
       <Layout>
         <h1 className={s.heroTitle}>
-          <div className={s.rotatingCircles}>
+          <motion.div
+            initial={{ opacity: 0 }} // Початкова позиція: зліва
+            whileInView={{ opacity: 1 }} // Кінцева позиція: звичайна
+            transition={{ duration: 3, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.5 }} // Повторна анімація при поверненні у видиму зону
+            className={s.rotatingCircles}
+          >
             <img
               className={s.circle1}
               src="/icons/animated_circles/circle1.svg"
@@ -120,7 +126,7 @@ export const HomeHero = ({ openPopup }) => {
               src="/icons/animated_circles/circle2.svg"
               alt="Circle 2"
             />
-          </div>
+          </motion.div>
 
           {isDesktop && (
             <>

@@ -113,12 +113,20 @@ footer {
     svg {
       width: 2vw;
       height: 2vw;
+      transform: scale(1.5);
     }
   }
   ul {
-    margin-top: 1.3vw;
+    margin-left: 0.5vw;
+    margin-top: 1.8vw;
     display: flex;
-    gap: 2vw;
+    gap: 1vw;
+
+    li:nth-child(4) {
+      svg {
+        transform: scale(1.7) translateX(0.3vw);
+      }
+    }
   }
 
   div:not(:last-child) {
@@ -138,6 +146,17 @@ footer {
     line-height: 1.4vw;
     color: rgba(11, 11, 11, 0.6);
   }
+}
+
+.socialLinks li .icon svg path {
+  fill: black; /* Чорний колір за замовчуванням */
+  transition: fill 0.3s ease; /* Анімація плавної зміни кольору */
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.socialLinks li .icon:hover svg path {
+  fill: url(#hover-gradient); /* Підставляється ID градієнта для ховера */
 }
 
 @media (max-width: 1024px) {

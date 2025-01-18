@@ -11,6 +11,8 @@ import { HomeReviewSwiper } from "../../components/HomeReviewSwiper/HomeReviewSw
 import { CompanyList } from "../../components/CompanyList/CompanyList";
 import { FormSection } from "../../components/FormSection/FormSection";
 import { Helmet } from "react-helmet";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 // Меморизація компонентів
 const MemoizedPortfolioTitularSection = memo(PortfolioTitularSection);
@@ -23,6 +25,8 @@ export const HomePage = ({ token, openPopup }) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
+    Aos.init();
+
     const fetchPosts = async () => {
       if (!token) return;
       try {
@@ -86,7 +90,7 @@ export const HomePage = ({ token, openPopup }) => {
         <ApproachSection openPopup={openPopup} />
 
         <HomeReviewSection>
-          <div className="mb-[23vw] ">
+          <div data-aos="fade-up" className="mb-[23vw] ">
             <MemoizedHomeReviewSwiper reviews={reviews} />
           </div>
           <MemoizedCompanyList token={token} />

@@ -72,7 +72,7 @@ export const ServicesPage = ({ token, openPopup }) => {
 
         <StackSection />
 
-        <div data-aos="fade-up">
+        <div>
           <ClientsTalk token={token} />
         </div>
 

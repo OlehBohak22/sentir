@@ -3,8 +3,10 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom right;
-  padding: 9vw 0;
   overflow: hidden;
+  padding-bottom: 9vw;
+  margin-top: 4vw;
+  padding-top: 5vw;
 }
 
 .container {

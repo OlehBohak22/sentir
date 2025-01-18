@@ -148,7 +148,7 @@ export default function App() {
   }, [isPopupOpen]); // useEffect буде викликатись при зміні isPopupOpen
 
   return (
-    <div>
+    <>
       <div className="cursor"></div>
       <Header />
 
@@ -228,6 +228,6 @@ export default function App() {
 
       <Footer token={token} />
       {/* </InertiaScroll> */}
-    </div>
+    </>
   );
 }
