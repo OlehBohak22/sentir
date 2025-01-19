@@ -215,9 +215,13 @@ export const HomeHero = ({ openPopup }) => {
           resonate with users and drive business success.
         </p>
 
-        <div onClick={handleOpen} data-aos="fade-up">
-          <div className={s.heroHoverLink}>GET NO-COST DISCOVERY</div>
-        </div>
+        <button
+          onClick={handleOpen}
+          data-aos="fade-up"
+          className={s.heroHoverLink}
+        >
+          GET NO-COST DISCOVERY
+        </button>
 
         <div>
           {isDesktop && (

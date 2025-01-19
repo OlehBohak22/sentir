@@ -6,8 +6,8 @@
 /* Стиль кастомного курсора */
 .cursor {
   position: fixed;
-  width: 1vw;
-  height: 1vw;
+  width: 1.42vw;
+  height: 1.42vw;
   background-color: #3d3d3da3;
   border-radius: 50%;
   pointer-events: none;
@@ -32,9 +32,7 @@
 
 /* Стиль при ховері на лінках */
 .cursor-hover .cursor {
-  transform: scale(10);
-  /* width: 1.3vw;
-  height: 1.3vw; */
+  transform: scale(1.7);
 }
 
 .cursor-hover .cursor::before {

@@ -6,21 +6,18 @@ export const ScrollTop = () => {
 
   useEffect(() => {
     const scrollToTop = () => {
-      // Спочатку встановимо скрол для document.documentElement
       document.documentElement.scrollTo({
         top: 0,
         left: 0,
         behavior: "auto",
       });
 
-      // Для перестраховки — також встановимо для document.body
       document.body.scrollTo({
         top: 0,
         left: 0,
         behavior: "auto",
       });
 
-      // Перевіримо, чи відбувся скрол (на випадок, якщо горизонтальний контейнер має власний скрол)
       setTimeout(() => {
         if (window.scrollY !== 0 || window.scrollX !== 0) {
           console.warn(
@@ -39,7 +36,7 @@ export const ScrollTop = () => {
             behavior: "auto",
           });
         }
-      }, 300);
+      }, 700);
     };
 
     scrollToTop();

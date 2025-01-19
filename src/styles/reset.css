@@ -3,6 +3,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none; /* Заборона виділення тексту */
+  -webkit-user-select: none; /* Для Safari */
+  -moz-user-select: none; /* Для Firefox */
+  -ms-user-select: none; /* Для IE/Edge */
 }
 
 /* Видалення стандартного стилю списків */
@@ -74,4 +78,11 @@ button {
   .faq-link a {
     color: black !important;
   }
+}
+
+input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: transparent !important;
+  color: fieldtext !important;
 }

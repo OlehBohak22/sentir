@@ -53,6 +53,7 @@
   }
 
   .heroHoverLink {
+    display: block;
     position: relative;
     width: fit-content;
     margin: 0 auto;
@@ -62,6 +63,7 @@
     line-height: 2.5vw;
     color: #ffffff;
     transition: 0.3s;
+    margin: 0 auto;
     margin-bottom: 8.3vw;
   }
 

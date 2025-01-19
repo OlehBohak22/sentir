@@ -16,9 +16,25 @@ export const HomeReviewSwiper = ({ reviews }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
 
   // Анімаційні варіанти
-  const slideVariants = {
+  const slideVariantsName = {
     hidden: { opacity: 0, y: 50 }, // Початковий стан
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }, // Вхідний стан
+  };
+  const slideVariantsDirect = {
+    hidden: { opacity: 0, y: 50 }, // Початковий стан
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.1 } }, // Вхідний стан
+  };
+  const slideVariantsCompany = {
+    hidden: { opacity: 0, y: 50 }, // Початковий стан
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } }, // Вхідний стан
+  };
+  const slideVariantsImage = {
+    hidden: { opacity: 0, y: 50 }, // Початковий стан
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }, // Вхідний стан
+  };
+  const slideVariantsReview = {
+    hidden: { opacity: 0, y: 50 }, // Початковий стан
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } }, // Вхідний стан
   };
 
   return (
@@ -51,34 +67,57 @@ export const HomeReviewSwiper = ({ reviews }) => {
               <motion.div
                 key={activeIndex} // Залежність від активного слайда
                 className={s.swiperSlide}
-                initial="hidden"
-                animate="visible"
-                variants={slideVariants}
               >
                 <div className={s.reviewerInfo}>
-                  <img
+                  <motion.img
+                    initial="hidden"
+                    animate="visible"
+                    variants={slideVariantsImage}
                     className={s.reviewerAvatar}
                     src={review.avatar}
                     alt={review.full_name}
                   />
                   <div>
-                    <p className={s.reviewerFullname}>{review.full_name}</p>
-                    <p className={s.reviewerDirect}>{review.direction}</p>
+                    <motion.p
+                      initial="hidden"
+                      animate="visible"
+                      variants={slideVariantsName}
+                      className={s.reviewerFullname}
+                    >
+                      {review.full_name}
+                    </motion.p>
+                    <motion.p
+                      initial="hidden"
+                      animate="visible"
+                      variants={slideVariantsDirect}
+                      className={s.reviewerDirect}
+                    >
+                      {review.direction}
+                    </motion.p>
 
                     {isDesktop && (
-                      <div className={s.reviewerCompany}>
+                      <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={slideVariantsCompany}
+                        className={s.reviewerCompany}
+                      >
                         <img
                           src={review.company_icon}
                           alt={review.company_name}
                         />
                         <p>{review.company_name}</p>
-                      </div>
+                      </motion.div>
                     )}
                   </div>
                 </div>
-                <div>
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={slideVariantsReview}
+                >
                   <p className={s.reviewContent}>{review.review}</p>
-                </div>
+                </motion.div>
 
                 {isMobile && (
                   <div className={s.reviewerCompany}>

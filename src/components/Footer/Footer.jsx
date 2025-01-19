@@ -33,14 +33,10 @@ export const Footer = ({ token }) => {
     fetchCompanies();
   }, [token]);
 
+  useEffect(() => {}, [location.pathname]);
+
   return (
-    <motion.footer
-      className={location.pathname == "/portfolio" ? s.border : ""}
-      initial={{ y: 100, opacity: 0 }} // Початкова позиція футера
-      whileInView={{ y: 0, opacity: 1 }} // Кінцева позиція при скролі
-      viewport={{ once: false }} // Анімація виконується лише один раз
-      transition={{ duration: 1 }} // Тривалість анімації
-    >
+    <footer className={location.pathname == "/portfolio" ? s.border : ""}>
       <Layout>
         <div className={s.footerContainer}>
           <Link data-aos="fade-up" to="/" className={s.logoContainer}>
@@ -182,6 +178,6 @@ export const Footer = ({ token }) => {
           <Link to="/policy-page">Privacy Policy</Link>
         </div>
       </Layout>
-    </motion.footer>
+    </footer>
   );
 };

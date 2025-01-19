@@ -14,12 +14,17 @@ export const CasePage = ({ token }) => {
   const { slug } = useParams();
   const [cases, setCase] = useState(null);
   const [review, setReview] = useState(null);
-  const [rendered, setRendered] = useState(false);
+  const [isInitialRendered, setIsInitialRendered] = useState(false);
+  const [isRestRendered, setIsRestRendered] = useState(false);
 
   useEffect(() => {
+    // Відображення основних компонентів
+    setIsInitialRendered(true);
+
+    // Затримка для рендерингу решти контенту
     const timer = setTimeout(() => {
-      setRendered(true);
-    }, 3000);
+      setIsRestRendered(true);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);
@@ -86,56 +91,55 @@ export const CasePage = ({ token }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
 
-      <main>
-        {cases.title.rendered && cases.case_title_pictures && (
-          <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
-            <CaseHero
-              title={cases.title.rendered}
-              bg={cases.case_title_pictures}
-            />
-          </motion.div>
+      <motion.main initial="hidden" animate="visible" variants={fadeInUp}>
+        {/* Основний контент */}
+        {isInitialRendered && (
+          <>
+            {cases.title.rendered && cases.case_title_pictures && (
+              <div>
+                <CaseHero
+                  title={cases.title.rendered}
+                  bg={cases.case_title_pictures}
+                />
+              </div>
+            )}
+
+            {cases && (
+              <div>
+                <CaseDetails details={cases} />
+              </div>
+            )}
+          </>
         )}
 
-        {cases && (
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            <CaseDetails details={cases} />
-          </motion.div>
-        )}
+        {/* Контент з затримкою */}
+        {isRestRendered && (
+          <>
+            {cases.case_second_pictures && (
+              <section
+                className={s.attachmentSection}
+                style={{
+                  backgroundImage: `url(${cases.case_second_pictures})`,
+                }}
+              ></section>
+            )}
 
-        {cases.case_second_pictures && (
-          <section
-            className={s.attachmentSection}
-            style={{
-              backgroundImage: `url(${cases.case_second_pictures})`,
-            }}
-          ></section>
-        )}
+            {review && (
+              <div className="bg-black">
+                <SeparateReviewBlock review={review} />
+              </div>
+            )}
 
-        {review && (
-          <div className="bg-black">
-            <SeparateReviewBlock review={review} />
-          </div>
-        )}
+            {cases && Object.keys(cases).length > 0 && (
+              <CaseHorizontalSection cases={cases} />
+            )}
 
-        {rendered ? (
-          cases && Object.keys(cases).length > 0 ? (
-            <CaseHorizontalSection cases={cases} />
-          ) : (
-            <p>Loading case details...</p> // Додатковий стан для діагностики
-          )
-        ) : (
-          <p>Waiting for rendering to be enabled...</p>
+            <div className="lg:mt-[5vw] mt-[10vw]">
+              <FormSection />
+            </div>
+          </>
         )}
-
-        <div className="lg:mt-[5vw] mt-[10vw]">
-          <FormSection />
-        </div>
-      </main>
+      </motion.main>
     </>
   );
 };
