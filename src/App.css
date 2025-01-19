@@ -32,9 +32,9 @@
 
 /* Стиль при ховері на лінках */
 .cursor-hover .cursor {
-  /* transform: scale(1.7); */
-  width: 1.3vw;
-  height: 1.3vw;
+  transform: scale(10);
+  /* width: 1.3vw;
+  height: 1.3vw; */
 }
 
 .cursor-hover .cursor::before {

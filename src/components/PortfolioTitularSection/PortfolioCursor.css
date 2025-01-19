@@ -1,6 +1,5 @@
 .cursor-case .cursor {
-  transform: scale(10);
-  background-image: url(/icons/custom-arrow-svg.svg);
+  background-image: url(/icons/custom-arrow.png);
   background-size: cover;
   mix-blend-mode: normal;
 }
