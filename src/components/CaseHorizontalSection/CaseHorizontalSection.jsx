@@ -3,7 +3,7 @@ import { Layout } from "../../components/Layout/Layout";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useLayoutEffect } from "react";
-
+import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 gsap.registerPlugin(ScrollTrigger);
 
 export const CaseHorizontalSection = ({ cases }) => {
@@ -64,7 +64,9 @@ export const CaseHorizontalSection = ({ cases }) => {
             {cases["title-1"] && cases.case_pictures_1 && (
               <div className={s.block}>
                 <div className={s.blockDesc}>
-                  <h3>{cases["title-1"]}</h3>
+                  <h3>
+                    <AnimatedHeading text={cases["title-1"]} />
+                  </h3>
                   {cases["data-table-1"] && (
                     <ul>
                       {Object.values(cases["data-table-1"]).map(
@@ -86,7 +88,9 @@ export const CaseHorizontalSection = ({ cases }) => {
             {cases["title-2"] && cases.case_pictures_2 && (
               <div className={s.block}>
                 <div className={s.blockDesc}>
-                  <h3>{cases["title-2"]}</h3>
+                  <h3>
+                    <AnimatedHeading text={cases["title-2"]} />
+                  </h3>
                   {cases["data-table-2"] && (
                     <ul>
                       {Object.values(cases["data-table-2"]).map(
@@ -108,13 +112,17 @@ export const CaseHorizontalSection = ({ cases }) => {
             {cases["title-3"] && cases.case_pictures_3 && (
               <div className={s.block}>
                 <div className={s.blockDesc}>
-                  <h3>{cases["title-3"]}</h3>
+                  <h3>
+                    <AnimatedHeading text={cases["title-3"]} />
+                  </h3>
 
                   <div>
                     <div className={s.lastCaseList}>
                       {cases.table_data.map((item) => (
                         <div key={item}>
-                          <h4>{item.title}</h4>
+                          <h4>
+                            <AnimatedHeading text={item.title} />
+                          </h4>
                           <p>{item.description}</p>
                         </div>
                       ))}
@@ -122,7 +130,13 @@ export const CaseHorizontalSection = ({ cases }) => {
 
                     {cases["technology-stack-text"] && (
                       <div className={s.techStack}>
-                        <p>Technology Stack</p>
+                        <p>
+                          <AnimatedHeading
+                            text="
+                          Technology Stack
+                          "
+                          />
+                        </p>
                         <div className={s.iconList}>
                           {Array.isArray(cases["technology-stack-text"]) &&
                             cases["technology-stack-text"].map(

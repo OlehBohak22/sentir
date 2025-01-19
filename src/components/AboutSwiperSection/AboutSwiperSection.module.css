@@ -19,7 +19,7 @@
   position: fixed;
   top: 15vw;
   left: 50%;
-  width: 92%;
+  width: 92.5%;
   transform: translateX(-50%);
   height: 4px;
   background-color: #e0e0e0;
@@ -75,7 +75,7 @@
   background: var(--primary-gradient);
   display: flex;
   align-items: center;
-  width: 91vw !important;
+  width: 91.6vw !important;
   max-width: none;
   flex: none;
   padding-left: 10vw;

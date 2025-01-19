@@ -1,7 +1,7 @@
 .section {
   padding-top: 8.3vw;
-  padding-bottom: 9vw;
-
+  padding-bottom: 5vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   h1 {
     font-family: Almarai;
     font-size: 7vw;

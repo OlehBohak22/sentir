@@ -29,14 +29,14 @@ export const AboutSwiperSection = () => {
     gsap.to(panels, {
       x:
         -panelWidth *
-        ((isDesktop && panels.length - 0.55) || panels.length - 1), // Горизонтальне переміщення
+        ((isDesktop && panels.length - 0.54) || panels.length - 1), // Горизонтальне переміщення
       ease: "none",
       scrollTrigger: {
         trigger: scrollerRef.current,
         pin: true,
         scrub: 0.5, // Плавна прокрутка
         start: "top top",
-        end: `top -3000`, // Збалансувати ширину
+        end: `top -2500`, // Збалансувати ширину
         onUpdate: (self) => {
           const progressBar = document.getElementById("progress-bar");
           if (progressBar) {
