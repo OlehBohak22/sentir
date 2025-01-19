@@ -35,9 +35,7 @@
   transform: scale(0.9); /* Початковий стан зменшений */
   opacity: 0; /* Початковий стан прозорості */
   animation: fadeInContent 0.5s 0.3s forwards; /* Анімація появи контенту */
-  overflow: auto; /* Увімкнення прокрутки */
-  max-height: 85vh; /* Обмеження висоти, щоб попап не виходив за екран */
-  border-radius: 8px; /* Додаємо для кращого вигляду */
+  border-radius: 0; /* Додаємо для кращого вигляду */
 }
 
 @keyframes fadeInContent {
@@ -120,7 +118,8 @@
 
   .popupContent {
     padding: 4.7vw;
-    padding-top: 18vw;
+    padding-top: 21.3vw;
+    padding-bottom: 21.3vw;
     display: block;
     width: 100%;
     max-height: 85%; /* Обмеження висоти */

@@ -30,6 +30,7 @@ export const Popup = ({ onClose }) => {
       onClick={handleClose}
     >
       <div
+        data-lenis-prevent
         className={`${s.popupContent} ${isClosing ? s.hide : ""}`}
         onClick={(e) => e.stopPropagation()}
       >
