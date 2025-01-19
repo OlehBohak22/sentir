@@ -28,8 +28,8 @@ export const ClientsTalk = ({ token }) => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setIsAnimationActive(true); // Запускаємо анімацію після деякої затримки
-    }, 2000); // Затримка перед активацією анімації
+      setIsAnimationActive(true); // Запускаємо анімацію через 2 секунди
+    }, 5000);
 
     return () => clearTimeout(timeout); // Очищаємо таймаут при демонтажі компонента
   }, [logos]);
@@ -52,19 +52,23 @@ export const ClientsTalk = ({ token }) => {
           data-aos="fade-up"
           className={`${s.logos} ${isAnimationActive ? s.animate : ""}`}
         >
-          <div className={s.logosSlide}>
+          <div
+            className={`${s.logosSlide} ${isAnimationActive ? s.animate : ""}`}
+          >
             {logos.map((logo) => (
               <div key={logo.id}>
-                <img src={logo["load-btn-image"]} />
+                <img src={logo["load-btn-image"]} alt="Client Logo" />
                 {logo["nda-checkbox"] == 1 ? <span>NDA</span> : ""}
               </div>
             ))}
           </div>
 
-          <div className={s.logosSlide}>
+          <div
+            className={`${s.logosSlide} ${isAnimationActive ? s.animate : ""}`}
+          >
             {logos.map((logo) => (
               <div key={logo.id}>
-                <img src={logo["load-btn-image"]} />
+                <img src={logo["load-btn-image"]} alt="Client Logo" />
                 {logo["nda-checkbox"] == 1 ? <span>NDA</span> : ""}
               </div>
             ))}

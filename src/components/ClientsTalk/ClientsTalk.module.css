@@ -7,25 +7,23 @@
   visibility: visible;
 }
 
-/* Анімація для безкінечного руху */
-@keyframes marquee {
+.logosSlide {
+  animation: slideAnimation 10s linear infinite;
+  animation-play-state: paused; /* Початково призупинена анімація */
+  display: inline-flex;
+}
+
+.logosSlide.animate {
+  animation-play-state: running; /* Запускаємо анімацію */
+}
+
+@keyframes slideAnimation {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(-100%);
   }
-}
-
-.logosSlide {
-  display: inline-flex;
-  animation: marquee 15s linear infinite; /* 15s - тривалість анімації */
-  will-change: transform; /* Оптимізація */
-}
-
-/* При наведенні миші на елемент - зупинка анімації */
-.logos:hover .logosSlide {
-  animation-play-state: paused; /* Зупиняємо анімацію при наведенні */
 }
 
 .logosSlide div {

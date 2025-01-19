@@ -4,7 +4,6 @@
   padding-bottom: 10.4vw;
   display: grid;
   grid-template-columns: 1fr 3fr;
-  overflow: hidden;
   gap: 12vw;
 }
 
@@ -260,6 +259,7 @@
     padding-top: 42.5vw;
     padding-bottom: 24vw;
     gap: 17vw;
+    overflow: hidden;
   }
 
   .leftSideContent {

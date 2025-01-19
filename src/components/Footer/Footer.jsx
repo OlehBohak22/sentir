@@ -143,20 +143,14 @@ export const Footer = ({ token }) => {
                         `<svg>
       <defs>
         <linearGradient id="hover-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="30%" stop-color="#8a4de9" /> <!-- Фіолетовий -->
-          <stop offset="60%" stop-color="#d839c5" /> <!-- Рожевий -->
-          <stop offset="100%" stop-color="#ff6174" /> <!-- Червоний -->
+          <stop offset="30%" stop-color="#8a4de9" /> 
+          <stop offset="60%" stop-color="#d839c5" />
+          <stop offset="100%" stop-color="#ff6174" />
         </linearGradient>
       </defs>`
                       )
-                      .replace(
-                        'fill="#0B0B0B"', // Заміна кольору бекенду
-                        `fill="black"` // Чорний за замовчуванням
-                      )
-                      .replace(
-                        /<path/g, // Додаємо масштабування до всіх <path>
-                        `<path transform="scale(1)"`
-                      );
+                      .replace('fill="#0B0B0B"', `fill="black"`)
+                      .replace(/<path/g, `<path transform="scale(1)"`);
 
                     return (
                       <li key={index}>
