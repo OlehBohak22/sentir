@@ -18,6 +18,7 @@ import { PolicyPage } from "./pages/PolicyPage/PolicyPage";
 import Lenis from "@studio-freight/lenis";
 import { Popup } from "./components/Popup/Popup";
 import { ThanksPage } from "./pages/ThanksPage/ThanksPage";
+import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 
 export default function App() {
   const [token, setToken] = useState();
@@ -227,6 +228,15 @@ export default function App() {
             element={
               <PageWrapper>
                 <ThanksPage />
+              </PageWrapper>
+            }
+          />
+
+          <Route
+            path="*"
+            element={
+              <PageWrapper>
+                <ErrorPage />
               </PageWrapper>
             }
           />

@@ -4,7 +4,7 @@ import { ServicesTabs } from "../../components/ServicesTabs/ServicesTabs";
 import { StackSection } from "../../components/StackSection/StackSection";
 import { FormSection } from "../../components/FormSection/FormSection";
 import { ClientsTalk } from "../../components/ClientsTalk/ClientsTalk";
-import { motion } from "framer-motion"; // Імпортуємо motion
+import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { AnimatedHeading } from "../../components/AnimatedHeading/AnimatedHeading";
 import Aos from "aos";

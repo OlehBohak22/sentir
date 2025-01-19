@@ -163,13 +163,8 @@
     transition: 0.3s ease; /* Анімація для розширення */
   }
 
-  .heroHoverLink:hover {
-    transform: translateY(-0.5vw) !important;
-  }
-
   .heroHoverLink:hover::after {
     width: 0; /* Лінія підкреслення з'являється по всій ширині елементу */
-    transform: translateY(0.5vw);
   }
 }
 
