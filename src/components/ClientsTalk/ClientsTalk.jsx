@@ -29,7 +29,7 @@ export const ClientsTalk = ({ token }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsAnimationActive(true); // Запускаємо анімацію через 2 секунди
-    }, 5000);
+    }, 2000);
 
     return () => clearTimeout(timeout); // Очищаємо таймаут при демонтажі компонента
   }, [logos]);
