@@ -23,7 +23,7 @@
 }
 .discussBtn:hover {
   color: rgba(0, 0, 0, 0);
-  transform: translateY(-0.5vw);
+  /* transform: translateY(-0.5vw); */
 }
 @keyframes rainbow {
   0% {
@@ -43,14 +43,14 @@
   bottom: 0;
   right: 0;
   width: 100%;
-  height: 2px; /* Висота лінії підкреслення */
-  background: var(--links-gradient); /* Колір підкреслення */
-  transition: 0.3s ease; /* Анімація для розширення */
+  height: 2px;
+  background: var(--links-gradient);
+  transition: 0.3s ease;
 }
 
 .discussBtn:hover::after {
-  width: 0; /* Лінія підкреслення з'являється по всій ширині елементу */
-  transform: translateY(0.5vw);
+  width: 0;
+  /* transform: translateY(0.5vw); */
 }
 
 @media (max-width: 1024px) {

@@ -15,22 +15,20 @@ export const Header = () => {
   };
 
   const closeMenu = () => {
-    setMenu(false); // Закриття меню
+    setMenu(false);
   };
 
-  // Додавання/видалення стилів для body
   useEffect(() => {
     if (menu) {
       document.body.style.overflow = "hidden";
       document.body.style.position = "fixed";
-      document.body.style.width = "100%"; // Фіксація ширини для запобігання зміщенню сторінки
+      document.body.style.width = "100%";
     } else {
       document.body.style.overflow = "";
       document.body.style.position = "";
       document.body.style.width = "";
     }
 
-    // Очищення стилів при демонтованні компонента
     return () => {
       document.body.style.overflow = "";
       document.body.style.position = "";
@@ -38,12 +36,10 @@ export const Header = () => {
     };
   }, [menu]);
 
-  // Перевірка на динамічний шлях
   const isPortfolio = location.pathname === "/portfolio";
   const isPolicy = location.pathname === "/policy-page";
   const isCaseDetail = matchPath("/cases/:id", location.pathname);
 
-  // Визначення стилю для хедера
   const headerStyle =
     isPortfolio || isPolicy || isCaseDetail
       ? { color: "black" }

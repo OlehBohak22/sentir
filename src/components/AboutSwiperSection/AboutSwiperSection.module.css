@@ -102,13 +102,13 @@
 
   .slide {
     flex: 0 0 74vw;
-    max-width: 74vw; /* Ширина одного слайда */
+    max-width: 74vw;
   }
 
   .slide h3 {
     font-size: 8.5vw;
     line-height: 8.5vw;
-    width: 50vw;
+    width: 48vw;
     margin-bottom: 5.8vw;
   }
 

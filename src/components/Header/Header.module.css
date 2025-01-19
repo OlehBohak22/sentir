@@ -18,7 +18,7 @@
 
 header {
   position: absolute; /* Фіксуємо елемент */
-  left: 4vw;
+  left: 3.8vw;
   z-index: 999999;
 }
 

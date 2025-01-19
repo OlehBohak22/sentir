@@ -57,7 +57,7 @@ export const FormSection = () => {
           animate={formControls}
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
         >
-          <MainForm />
+          <MainForm closePopup={false} />
         </motion.div>
       </Layout>
     </section>

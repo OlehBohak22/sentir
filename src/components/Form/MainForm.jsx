@@ -1,16 +1,14 @@
 import { Field, Form, Formik } from "formik";
 import { useState } from "react";
-import * as Yup from "yup"; // Імпортуємо для валідації
+import * as Yup from "yup";
 import s from "./MainForm.module.css";
-import { postData, getToken } from "../../services/api"; // Імпортуємо функції
-import { toast, ToastContainer } from "react-toastify"; // Імпортуємо бібліотеку для повідомлень
-import "react-toastify/dist/ReactToastify.css";
-import { useInView } from "react-intersection-observer"; // Імпортуємо для виявлення видимості елементів
+import { postData, getToken } from "../../services/api";
+import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
 import "./MainForm.css";
 
 export const MainForm = ({ closePopup }) => {
-  const [fileName, setFileName] = useState("Upload File"); // Стан для відображення назви файлу
+  const [fileName, setFileName] = useState("Upload File");
   const navigate = useNavigate();
 
   const initialValues = {
@@ -54,34 +52,25 @@ export const MainForm = ({ closePopup }) => {
         formData
       );
 
-      toast.success("Form submitted successfully!", {
-        position: "top-right",
-        autoClose: 5000,
-        progressClassName: "Toastify__progress-bar--success",
-      });
-
       resetForm();
       setFileName("Upload File");
 
-      // Перенаправлення на сторінку подяки
-      closePopup();
-      navigate("/thanks-page");
+      if (closePopup) {
+        closePopup();
+        navigate("/thanks-page");
+      } else {
+        navigate("/thanks-page");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error("Failed to submit the form. Please try again.", {
-        position: "top-right",
-        autoClose: 5000,
-        progressClassName: "Toastify__progress-bar--error",
-      });
     } finally {
       setSubmitting(false);
     }
   };
 
-  // Використовуємо хук для виявлення, коли елемент входить в область видимості
   const { ref, inView } = useInView({
-    triggerOnce: false, // Тільки один раз
-    threshold: 0.1, // Відслідковуємо, коли 10% елемента з'являється на екрані
+    triggerOnce: false,
+    threshold: 0.1,
   });
 
   return (
@@ -161,7 +150,7 @@ export const MainForm = ({ closePopup }) => {
                   name="file-upload"
                   type="file"
                   className={s.uploadInput}
-                  onChange={handleFileChange} // Додаємо обробник події
+                  onChange={handleFileChange}
                 />
                 <span className={s.uploadIcon}>
                   <img src="/icons/file-icon.svg" alt="" />
@@ -180,7 +169,7 @@ export const MainForm = ({ closePopup }) => {
               </div>
 
               <button className={s.btn} type="submit" disabled={isSubmitting}>
-                <span>{isSubmitting ? "Sending..." : "SEND"}</span>
+                <span>{isSubmitting ? "Sending" : "SEND"}</span>
                 <div className={s.arrowsLine}>
                   <div className={s.arrows}>
                     <img src="/icons/swiper-arrow-next.svg" alt="Arrow" />
@@ -192,7 +181,6 @@ export const MainForm = ({ closePopup }) => {
           </Form>
         )}
       </Formik>
-      <ToastContainer />
     </>
   );
 };

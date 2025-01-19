@@ -44,7 +44,9 @@ export const AboutPage = ({ token, openPopup }) => {
         <AboutMissionSection />
         <AboutSwiperSection />
         <HomeReviewSection>
-          <ProfessionalsBlock />
+          <div className="overflow-hidden">
+            <ProfessionalsBlock />
+          </div>
           <div className="mb-[15vw]">
             <SeparateReviewBlock review={review} />
           </div>

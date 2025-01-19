@@ -131,11 +131,7 @@ export const CaseHorizontalSection = ({ cases }) => {
                     {cases["technology-stack-text"] && (
                       <div className={s.techStack}>
                         <p>
-                          <AnimatedHeading
-                            text="
-                          Technology Stack
-                          "
-                          />
+                          <AnimatedHeading text="Technology Stack" />
                         </p>
                         <div className={s.iconList}>
                           {Array.isArray(cases["technology-stack-text"]) &&
