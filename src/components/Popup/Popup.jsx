@@ -2,20 +2,18 @@ import { useState, useEffect } from "react";
 import s from "./Popup.module.css";
 import { MainForm } from "../Form/MainForm";
 import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
-import Lenis from "@studio-freight/lenis"; // Імпортуємо Lenis, якщо не імпортовано
 
 export const Popup = ({ onClose }) => {
   const [isClosing, setIsClosing] = useState(false);
 
-  // Логіка для вимкнення скролу з Lenis
   useEffect(() => {
-    const lenis = new Lenis();
-    lenis.stop(); // Вимикаємо скрол під час відкриття попапу
+    // Блокуємо скрол для всієї сторінки
+    const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
-    // Включаємо скрол після закриття попапу
+    // Відновлюємо скрол для сторінки при закритті
     return () => {
-      lenis.start(); // Повертаємо скрол, коли попап закривається
+      document.body.style.overflow = originalOverflow;
     };
   }, []);
 
@@ -23,7 +21,7 @@ export const Popup = ({ onClose }) => {
     setIsClosing(true);
     setTimeout(() => {
       onClose(); // Викликаємо onClose після завершення анімації
-    }, 500); // Затримка відповідає тривалості анімації закриття (500ms)
+    }, 500); // Тривалість анімації закриття
   };
 
   return (

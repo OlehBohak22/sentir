@@ -134,10 +134,8 @@ export default function App() {
     // Перевіряємо, чи відкрито попап, і виконуємо необхідні дії
     if (isPopupOpen) {
       lenis.stop(); // Зупиняємо скрол при відкритому попапі
-      document.body.style.overflow = "hidden"; // Блокуємо стандартний скрол
     } else {
       lenis.start(); // Відновлюємо скрол після закриття попапу
-      document.body.style.overflow = ""; // Відновлюємо стандартний скрол
     }
 
     // Очистка після розмонтування або зміни isPopupOpen
