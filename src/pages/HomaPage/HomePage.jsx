@@ -81,7 +81,10 @@ export const HomePage = ({ token, openPopup }) => {
 
         <section className={s.portfolioSection}>
           {cases.length > 0 && (
-            <MemoizedPortfolioTitularSection titulInfo={titularCase} />
+            <MemoizedPortfolioTitularSection
+              className={s.noneBefore}
+              titulInfo={titularCase}
+            />
           )}
 
           <MemoizedPortfolioSection restInfo={restCases} />

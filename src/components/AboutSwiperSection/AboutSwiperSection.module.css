@@ -100,9 +100,12 @@
     }
   }
 
+  .slides {
+  }
+
   .slide {
-    flex: 0 0 74vw;
-    max-width: 74vw;
+    flex: 0 0 75vw;
+    max-width: 75vw;
   }
 
   .slide h3 {
@@ -125,9 +128,12 @@
   }
 
   .gradient {
+    flex: 0 0 78vw;
+    max-width: 78vw;
     h3 {
       font-size: 13vw;
       line-height: 17vw;
+      width: 57vw;
     }
   }
 }

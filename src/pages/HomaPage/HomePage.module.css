@@ -2,6 +2,10 @@
   padding-top: 8.3vw;
 }
 
+.noneBefore ::before {
+  display: none !important;
+}
+
 @media (max-width: 1024px) {
   .portfolioSection {
     padding-top: 21vw;

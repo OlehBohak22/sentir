@@ -59,6 +59,10 @@
       transform: rotate(180deg);
     }
 
+    li:not(:last-child) {
+      margin-bottom: 8vw;
+    }
+
     .overlay {
       /* Плавне розгортання */
       max-height: 0; /* Початковий стан */

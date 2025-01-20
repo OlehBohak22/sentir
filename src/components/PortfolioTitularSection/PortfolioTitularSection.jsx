@@ -6,8 +6,11 @@ import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 
-export const PortfolioTitularSection = ({ titulInfo }) => {
+export const PortfolioTitularSection = ({ titulInfo, className }) => {
+  const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
+
   const mors = titulInfo.case_mors
     .split("|||")
     .filter((item) => item.trim() !== "");
@@ -17,7 +20,7 @@ export const PortfolioTitularSection = ({ titulInfo }) => {
   }, []);
 
   return (
-    <Layout>
+    <Layout className={className}>
       <div data-aos="fade-up" className="case">
         <Link to={`/cases/${titulInfo.slug}`}>
           <div
@@ -27,6 +30,13 @@ export const PortfolioTitularSection = ({ titulInfo }) => {
             {/* Контент секції */}
             <div className={s.titularContent}>
               {/* Анімація опису */}
+
+              {isMobile && (
+                <div className={s.mobileArrow}>
+                  <img src="/icons/custom-arrow.png" alt="Click" />
+                </div>
+              )}
+
               <p
                 dangerouslySetInnerHTML={{
                   __html:

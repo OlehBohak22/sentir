@@ -35,7 +35,7 @@ export const PortfilioPage = ({ token }) => {
         <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
-      <main className="main-content">
+      <main>
         <section className={s.section}>
           <Layout>
             <h1>
@@ -43,10 +43,11 @@ export const PortfilioPage = ({ token }) => {
             </h1>
           </Layout>
 
-          {cases.map((portfolioCase) => (
+          {cases.map((portfolioCase, index) => (
             <PortfolioTitularSection
               key={portfolioCase.id}
               titulInfo={portfolioCase}
+              className={index === cases.length - 1 ? `${s.noneBefore}` : ""}
             />
           ))}
         </section>

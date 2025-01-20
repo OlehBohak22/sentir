@@ -9,16 +9,16 @@
   display: flex;
   flex-direction: column;
   justify-content: end;
-  margin-bottom: 3vw;
-  overflow: hidden;
+  margin-bottom: 5vw;
 }
 
 .titularContainer::before {
   content: "";
   position: absolute;
   left: 0;
+  height: 2px;
   bottom: -2.5vw;
-  border-bottom: 2px solid rgba(11, 11, 11, 0.1);
+  background-color: rgba(11, 11, 11, 0.1);
   width: 100%;
   pointer-events: none;
 }
@@ -82,13 +82,20 @@
 }
 
 @media (max-width: 1024px) {
+  .mobileArrow {
+    width: 15vw;
+    margin-bottom: 2.6vw;
+  }
+
   .titularContainer {
     padding-top: 38.6vw;
+    margin-bottom: 17vw;
   }
 
   .titularContainer::before {
-    bottom: -6.5vw;
+    bottom: -8.5vw;
     border-bottom: 1px solid rgba(11, 11, 11, 0.1);
+    height: 1px;
   }
 
   .titularContent {
