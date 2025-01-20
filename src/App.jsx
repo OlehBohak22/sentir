@@ -23,12 +23,22 @@ import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 export default function App() {
   const [token, setToken] = useState();
   const [isPopupOpen, setPopupOpen] = useState(false);
+  const [showFooter, setShowFooter] = useState(false);
 
   const openPopup = () => setPopupOpen(true);
   const closePopup = () => setPopupOpen(false);
   const location = useLocation();
 
-  // Додавання кастомного курсору
+  useEffect(() => {
+    setShowFooter(false);
+
+    const timer = setTimeout(() => {
+      setShowFooter(true);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
   useEffect(() => {
     const cursor = document.querySelector(".cursor");
 
@@ -243,7 +253,7 @@ export default function App() {
         </Routes>
       </AnimatePresence>
 
-      <Footer token={token} />
+      {showFooter && <Footer token={token} />}
     </>
   );
 }

@@ -4,7 +4,6 @@ import s from "./Footer.module.css";
 import { getData } from "../../services/api";
 import { useMediaQuery } from "react-responsive";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useLocation } from "react-router-dom";
@@ -32,8 +31,6 @@ export const Footer = ({ token }) => {
 
     fetchCompanies();
   }, [token]);
-
-  useEffect(() => {}, [location.pathname]);
 
   return (
     <footer className={location.pathname == "/portfolio" ? s.border : ""}>
@@ -132,7 +129,6 @@ export const Footer = ({ token }) => {
               <ul className={s.socialLinks}>
                 {contactInfo.social_media_images &&
                   contactInfo.social_media_images.map((item, index) => {
-                    // Додаємо <defs> із градієнтом до кожного SVG
                     const svgWithDefaultColor = item.image
                       .replace(
                         "<svg",
