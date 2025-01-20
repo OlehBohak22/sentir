@@ -15,7 +15,7 @@
 
 .block {
   flex-shrink: 0; /* Блоки не зменшуються */
-  width: 100%; /* Кожен блок займає всю ширину вікна */
+  width: 100.6%; /* Кожен блок займає всю ширину вікна */
   align-items: stretch;
   justify-content: space-between;
   display: flex;
