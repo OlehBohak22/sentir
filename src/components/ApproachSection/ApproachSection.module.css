@@ -164,8 +164,7 @@
   width: 100%;
   padding: 4.1vw;
   padding-top: 36vw;
-  h3,
-  p {
+  h3 {
     color: #ffffff;
   }
   svg {
@@ -194,6 +193,7 @@
     font-size: 1.2vw;
     font-weight: 400;
     line-height: 1.8vw;
+    color: rgb(255 255 255 / 69%);
   }
 }
 
@@ -297,7 +297,7 @@
       h3 {
         font-size: 6.4vw;
         line-height: 6.4vw;
-        width: 50vw;
+        width: 61vw;
         margin-bottom: 10.6vw;
       }
 
@@ -312,9 +312,9 @@
       padding-top: 85.3vw;
 
       h3 {
-        font-size: 8.5vw;
+        font-size: 7.5vw;
         line-height: 9.3vw;
-        width: auto;
+        width: 73vw;
         margin-bottom: 10.6vw;
       }
 
