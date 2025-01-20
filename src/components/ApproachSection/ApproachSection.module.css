@@ -253,13 +253,16 @@
 }
 
 @media (max-width: 1024px) {
+  .section {
+    overflow: hidden;
+  }
+
   .approachContainer {
     display: flex;
     flex-direction: column-reverse;
     padding-top: 42.5vw;
     padding-bottom: 24vw;
     gap: 17vw;
-    overflow: hidden;
   }
 
   .leftSideContent {

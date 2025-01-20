@@ -133,6 +133,7 @@
         line-height: 12.8vw;
         text-align: center;
         margin-bottom: 8vw;
+        justify-content: center;
       }
 
       p {

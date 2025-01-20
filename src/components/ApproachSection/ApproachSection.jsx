@@ -35,7 +35,7 @@ export const ApproachSection = ({ openPopup, isPopupOpen }) => {
   }, [isPopupOpen]);
 
   return (
-    <section>
+    <section className={s.section}>
       <Layout className={s.approachContainer}>
         {/* Ротуючий текст */}
         <motion.div
