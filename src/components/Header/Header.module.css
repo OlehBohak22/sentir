@@ -17,9 +17,10 @@
 }
 
 header {
-  position: absolute; /* Фіксуємо елемент */
-  left: 3.8vw;
-  z-index: 999999;
+  position: fixed; /* Фіксуємо елемент */
+  left: 3.5vw;
+  z-index: 9;
+  width: 93vw;
 }
 
 .headerContainer {
@@ -28,7 +29,23 @@ header {
   justify-content: space-between;
 }
 
+.headerContainer {
+  transition: top 0.3s;
+}
+
+.headerContainer.hide {
+  top: -4.5vw; /* Ховаємо хедер */
+}
+
+.headerContainer.show {
+  top: 0;
+}
+
 @media (max-width: 1024px) {
+  .headerContainer.hide {
+    top: -18vw; /* Ховаємо хедер */
+  }
+
   .logoContainer {
     gap: 0.5vw;
 

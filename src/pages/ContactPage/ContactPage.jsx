@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion"; // Підключення Framer Motion
 import s from "./ContactPage.module.css";
 import { Layout } from "../../components/Layout/Layout";
 import { getData } from "../../services/api";
-import { MainForm } from "../../components/Form/MainForm";
+import { MainForm, TestToast } from "../../components/Form/MainForm";
 import { Helmet } from "react-helmet";
 
 export const ContactPage = ({ token }) => {
   const [contactInfo, setContactInfo] = useState({});
+  const [isVisible, setIsVisible] = useState(false); // Для керування видимістю
 
   useEffect(() => {
     const fetchCompanies = async () => {
@@ -15,6 +17,7 @@ export const ContactPage = ({ token }) => {
       try {
         const data = await getData(token, "wp-json/wp/v2/contact-info");
         setContactInfo(data);
+        setIsVisible(true); // Показати після завантаження
       } catch (error) {
         console.error("Error fetching info:", error);
       }
@@ -22,6 +25,12 @@ export const ContactPage = ({ token }) => {
 
     fetchCompanies();
   }, [token]);
+
+  // Анімаційні параметри
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
   return (
     <>
@@ -38,7 +47,12 @@ export const ContactPage = ({ token }) => {
       <main>
         <section className={s.section}>
           <Layout className={s.container}>
-            <div className="shrink-0">
+            <motion.div
+              className="shrink-0"
+              initial="hidden"
+              animate={isVisible ? "visible" : "hidden"}
+              variants={fadeIn}
+            >
               <div className={s.contactInfo}>
                 <h1>CONTACT</h1>
 
@@ -90,13 +104,20 @@ export const ContactPage = ({ token }) => {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="shrink-0">
+            <motion.div
+              className="shrink-0"
+              initial="hidden"
+              animate={isVisible ? "visible" : "hidden"}
+              variants={fadeIn}
+            >
               <MainForm />
-            </div>
+            </motion.div>
           </Layout>
         </section>
+
+        <TestToast />
       </main>
     </>
   );

@@ -59,10 +59,12 @@
 
 .reviewContent {
   font-family: DM Sans;
-  font-size: 2vw;
+  font-size: 1.9vw;
   font-weight: 400;
-  line-height: 3vw;
-  color: rgba(255, 255, 255, 1);
+  line-height: 2.9vw;
+  letter-spacing: -0.03em;
+
+  color: rgba(255, 255, 255, 0.7);
   padding-bottom: 2vw;
   border-bottom: 0.06vw solid rgba(255, 255, 255, 0.1);
 }

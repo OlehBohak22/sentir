@@ -9,6 +9,8 @@ import { MobileMenu } from "../MobileMenu/MobileMenu";
 export const Header = () => {
   const location = useLocation();
   const [menu, setMenu] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
+  let lastScrollTop = 0;
 
   const openMenu = () => {
     setMenu(!menu);
@@ -36,6 +38,24 @@ export const Header = () => {
     };
   }, [menu]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        setShowHeader(false); // Скрол вниз
+      } else {
+        setShowHeader(true); // Скрол вверх
+      }
+      lastScrollTop = scrollTop;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const isPortfolio = location.pathname === "/portfolio";
   const isPolicy = location.pathname === "/policy-page";
   const isCaseDetail = matchPath("/cases/:id", location.pathname);
@@ -54,9 +74,10 @@ export const Header = () => {
       )}
 
       <header
+        className={`${s.headerContainer} ${showHeader ? s.show : s.hide}`}
         style={
           isPortfolio || isCaseDetail || isPolicy
-            ? { backgroundColor: "white", position: "relative", left: "0" }
+            ? { backgroundColor: "white", width: "100vw", left: "0" }
             : {}
         }
       >

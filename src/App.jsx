@@ -19,6 +19,7 @@ import Lenis from "@studio-freight/lenis";
 import { Popup } from "./components/Popup/Popup";
 import { ThanksPage } from "./pages/ThanksPage/ThanksPage";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
+import { ToastContainer } from "react-toastify";
 
 export default function App() {
   const [token, setToken] = useState();
@@ -130,7 +131,11 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    // Ініціалізація Lenis
+    // Перевірка на десктоп
+    const isDesktop = window.innerWidth > 1024;
+
+    if (!isDesktop) return; // Якщо не десктоп, пропускаємо інерційний скрол
+
     const lenis = new Lenis();
 
     // Функція raf для постійного оновлення скролу
@@ -158,6 +163,8 @@ export default function App() {
 
   return (
     <>
+      <ToastContainer />
+
       <div className="cursor"></div>
       <Header />
 

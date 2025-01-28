@@ -1,11 +1,12 @@
 import { Field, Form, Formik } from "formik";
 import { useState } from "react";
-import * as Yup from "yup";
+// import * as Yup from "yup";
+import { toast } from "react-toastify"; // Імпортуємо react-toastify
+import "react-toastify/dist/ReactToastify.css"; // Стилі toast
 import s from "./MainForm.module.css";
 import { postData, getToken } from "../../services/api";
 import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
-import "./MainForm.css";
 
 export const MainForm = ({ closePopup }) => {
   const [fileName, setFileName] = useState("Upload File");
@@ -18,13 +19,13 @@ export const MainForm = ({ closePopup }) => {
     nda: false,
   };
 
-  const validationSchema = Yup.object({
-    name: Yup.string().required("Name is required"),
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required"),
-    text: Yup.string().required("This field is required"),
-  });
+  // const validationSchema = Yup.object({
+  //   name: Yup.string().required("Name is required"),
+  //   email: Yup.string()
+  //     .email("Invalid email address")
+  //     .required("Email is required"),
+  //   text: Yup.string().required("This field is required"),
+  // });
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -32,6 +33,16 @@ export const MainForm = ({ closePopup }) => {
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    const { name, email, text } = values;
+
+    if (!name || !email || !text) {
+      toast.error(
+        "The 'Name', 'Email', and 'How can we help you?' fields are required!"
+      );
+      setSubmitting(false);
+      return;
+    }
+
     try {
       const token = await getToken("admin_projection", "mkGp6Rpv5$On7BR&VU");
 
@@ -52,6 +63,8 @@ export const MainForm = ({ closePopup }) => {
         formData
       );
 
+      console.log(response);
+
       resetForm();
       setFileName("Upload File");
 
@@ -63,6 +76,7 @@ export const MainForm = ({ closePopup }) => {
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+      toast.error("Something went wrong. Please try again!");
     } finally {
       setSubmitting(false);
     }
@@ -77,7 +91,7 @@ export const MainForm = ({ closePopup }) => {
     <>
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
+        // validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
         {({ isSubmitting, errors, touched }) => (
@@ -183,4 +197,12 @@ export const MainForm = ({ closePopup }) => {
       </Formik>
     </>
   );
+};
+
+export const TestToast = () => {
+  const handleClick = () => {
+    toast.error("Test error message!");
+  };
+
+  return <button onClick={handleClick}>Show Toast</button>;
 };

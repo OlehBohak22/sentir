@@ -28,15 +28,6 @@ export const FormSection = () => {
 
   return (
     <section id="form" className={s.section}>
-      {/* SVG-анімація */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      >
-        <AnimateSvgForm />
-      </motion.div>
-
       <Layout className={s.container}>
         {/* Заголовок із анімацією */}
         <motion.div

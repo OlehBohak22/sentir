@@ -4,11 +4,11 @@
   padding-bottom: 6vw;
   overflow: hidden;
 
-  /* background-image: url(/images/sections-bg/home-hero-bg.jpg);
+  background-image: url(/images/sections-bg/home-hero-bg.jpg);
   background-size: cover;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat;
 
-  background: var(--primary-gradient);
+  /* background: var(--primary-gradient); */
 
   .heroTitle {
     position: relative;

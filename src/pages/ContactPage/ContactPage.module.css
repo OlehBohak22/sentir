@@ -45,11 +45,13 @@
   }
 
   a {
+    display: block;
     font-family: DM Sans, sans-serif;
     font-size: 1.6vw;
     font-weight: 500;
     line-height: 2.5vw;
     color: #ffffff;
+    max-width: 17vw;
   }
 
   ul {
