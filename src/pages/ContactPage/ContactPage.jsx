@@ -4,7 +4,7 @@ import { motion } from "framer-motion"; // Підключення Framer Motion
 import s from "./ContactPage.module.css";
 import { Layout } from "../../components/Layout/Layout";
 import { getData } from "../../services/api";
-import { MainForm, TestToast } from "../../components/Form/MainForm";
+import { MainForm } from "../../components/Form/MainForm";
 import { Helmet } from "react-helmet";
 
 export const ContactPage = ({ token }) => {
@@ -116,8 +116,6 @@ export const ContactPage = ({ token }) => {
             </motion.div>
           </Layout>
         </section>
-
-        <TestToast />
       </main>
     </>
   );

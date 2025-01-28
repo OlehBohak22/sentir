@@ -198,11 +198,3 @@ export const MainForm = ({ closePopup }) => {
     </>
   );
 };
-
-export const TestToast = () => {
-  const handleClick = () => {
-    toast.error("Test error message!");
-  };
-
-  return <button onClick={handleClick}>Show Toast</button>;
-};

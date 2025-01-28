@@ -1,5 +1,5 @@
 .cursor-case .cursor {
-  transform: scale(10) !important;
+  transform: scale(7) !important;
   background-image: url(/icons/custom-arrow.png);
   background-size: cover;
   mix-blend-mode: normal;
