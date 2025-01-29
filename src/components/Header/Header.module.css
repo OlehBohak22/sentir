@@ -17,10 +17,15 @@
 }
 
 header {
-  position: fixed; /* Фіксуємо елемент */
+  position: fixed;
   left: 3.5vw;
   z-index: 9998;
   width: 93vw;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.container {
+  width: 90vw;
 }
 
 .headerContainer {
