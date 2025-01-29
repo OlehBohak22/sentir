@@ -22,6 +22,10 @@ header {
   top: 0;
 }
 
+header.scrolled a svg {
+  fill: black;
+}
+
 header.scrolled {
   background: rgba(255, 255, 255, 1); /* Непрозорий фон */
   opacity: 1; /* Повна прозорість при скролі */
