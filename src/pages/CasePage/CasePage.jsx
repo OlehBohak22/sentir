@@ -73,7 +73,7 @@ export const CasePage = ({ token }) => {
   }
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: -500 },
+    hidden: { opacity: 0, y: -200 },
     visible: {
       opacity: 1,
       y: 0,

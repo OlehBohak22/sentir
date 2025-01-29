@@ -3,22 +3,18 @@ import { Layout } from "../../components/Layout/Layout";
 import { SentirLogo } from "../../components/SentirLogo/SentirLogo";
 import s from "./Header.module.css";
 import { HeaderNavigation } from "../HeaderNavigation/HeaderNavigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MobileMenu } from "../MobileMenu/MobileMenu";
 
 export const Header = () => {
   const location = useLocation();
   const [menu, setMenu] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
-  let lastScrollTop = 0;
+  const [isScrolled, setIsScrolled] = useState(false);
+  const lastScrollTop = useRef(0); // Використовуємо useRef для збереження попереднього значення scroll
 
-  const openMenu = () => {
-    setMenu(!menu);
-  };
-
-  const closeMenu = () => {
-    setMenu(false);
-  };
+  const openMenu = () => setMenu(!menu);
+  const closeMenu = () => setMenu(false);
 
   useEffect(() => {
     if (menu) {
@@ -38,24 +34,6 @@ export const Header = () => {
     };
   }, [menu]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop) {
-        setShowHeader(false); // Скрол вниз
-      } else {
-        setShowHeader(true); // Скрол вверх
-      }
-      lastScrollTop = scrollTop;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   const isPortfolio = location.pathname === "/portfolio";
   const isPolicy = location.pathname === "/policy-page";
   const isCaseDetail = matchPath("/cases/:id", location.pathname);
@@ -64,6 +42,23 @@ export const Header = () => {
     isPortfolio || isPolicy || isCaseDetail
       ? { color: "black" }
       : { color: "white" };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 300); // Після 100px додаємо бекграунд
+
+      if (scrollTop > lastScrollTop.current) {
+        setShowHeader(false); // Скрол вниз - ховаємо хедер
+      } else {
+        setShowHeader(true); // Скрол вгору - показуємо хедер
+      }
+      lastScrollTop.current = scrollTop; // Оновлюємо значення scroll
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -74,17 +69,22 @@ export const Header = () => {
       )}
 
       <header
-        className={`${s.headerContainer} ${showHeader ? s.show : s.hide}`}
+        className={`${s.headerContainer} ${showHeader ? s.show : s.hide} ${
+          isScrolled ? s.scrolled : ""
+        }`}
         style={
-          isPortfolio || isCaseDetail || isPolicy
-            ? { backgroundColor: "white", width: "100vw", left: "0" }
+          isPortfolio || isPolicy || isCaseDetail
+            ? { backgroundColor: "white", width: "100%", left: "0" }
             : {}
         }
       >
         <Layout className={s.container}>
           <div className={s.headerContainer}>
             <Link to="/" onClick={closeMenu} className={s.logoContainer}>
-              <SentirLogo location={location.pathname} />
+              <SentirLogo
+                isScrolled={isScrolled}
+                location={location.pathname}
+              />
               <span style={headerStyle}>Sentir</span>
             </Link>
 

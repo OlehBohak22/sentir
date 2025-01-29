@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import { useState } from "react";
 // import * as Yup from "yup";
-import { toast } from "react-toastify"; // Імпортуємо react-toastify
+import { toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Стилі toast
 import s from "./MainForm.module.css";
 import { postData, getToken } from "../../services/api";
@@ -37,7 +37,10 @@ export const MainForm = ({ closePopup }) => {
 
     if (!name || !email || !text) {
       toast.error(
-        "The 'Name', 'Email', and 'How can we help you?' fields are required!"
+        "The 'Name', 'Email', and 'How can we help you?' fields are required!",
+        {
+          transition: Slide, // Можна вказати окремо тут
+        }
       );
       setSubmitting(false);
       return;

@@ -121,7 +121,7 @@ export const HeaderNavigation = ({ openMenu, closeMenu, isOpen }) => {
       {isMobile && (
         <div
           onClick={handleOpen}
-          className={`${s.burger} ${isOpen ? s.opened : ""}`}
+          className={`${s.burger} ${isOpen ? s.opened : ""}close`}
           type="button"
         >
           <div

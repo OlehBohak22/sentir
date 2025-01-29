@@ -1,41 +1,17 @@
-.logoContainer {
-  display: flex;
-  align-items: center;
-  gap: 0.2vw;
-
-  svg {
-    width: 2.2vw;
-    height: 2.2vw;
-  }
-
-  span {
-    font-family: DM Sans;
-    font-size: 1.3vw;
-    font-weight: 500;
-    line-height: 1.3vw;
-  }
-}
-
 header {
   position: fixed;
   left: 3.5vw;
   z-index: 9998;
   width: 93vw;
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.container {
-  width: 90vw;
+  background: rgba(0, 0, 0, 0); /* Початковий прозорий фон */
+  transition: opacity 0.3s ease; /* Додаємо плавну анімацію для фону та прозорості */
 }
 
 .headerContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.headerContainer {
-  transition: top 0.3s;
+  transition: top 0.3s ease-in-out;
 }
 
 .headerContainer.hide {
@@ -46,6 +22,54 @@ header {
   top: 0;
 }
 
+header.scrolled {
+  background: rgba(255, 255, 255, 1); /* Непрозорий фон */
+  opacity: 1; /* Повна прозорість при скролі */
+}
+
+header.scrolled .logoContainer svg {
+  fill: black; /* Зміна кольору іконки при скролі */
+}
+
+header.scrolled .logoContainer span {
+  color: black !important; /* Зміна кольору тексту при скролі */
+}
+
+header.scrolled * {
+  color: black !important;
+  border-color: black !important; /* Зміна кольору для всіх елементів в хедері */
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.2vw;
+}
+
+.logoContainer svg {
+  width: 2.2vw;
+  height: 2.2vw;
+}
+
+.logoContainer span {
+  font-family: DM Sans;
+  font-size: 1.3vw;
+  font-weight: 500;
+  line-height: 1.3vw;
+  transition: color 0.3s ease-in-out;
+}
+
+.scrolled {
+  width: 100%;
+  left: 0vw;
+  /* Закрита кнопка меню */
+  .close {
+    div {
+      background-color: black;
+    }
+  }
+}
+
 @media (max-width: 1024px) {
   .headerContainer.hide {
     top: -20vw; /* Ховаємо хедер */
@@ -53,16 +77,16 @@ header {
 
   .logoContainer {
     gap: 0.5vw;
+  }
 
-    svg {
-      width: 8.5vw;
-      height: 8.5vw;
-    }
+  .logoContainer svg {
+    width: 8.5vw;
+    height: 8.5vw;
+  }
 
-    span {
-      font-size: 5.3vw;
-      line-height: 5.3vw;
-    }
+  .logoContainer span {
+    font-size: 5.3vw;
+    line-height: 5.3vw;
   }
 
   header {
