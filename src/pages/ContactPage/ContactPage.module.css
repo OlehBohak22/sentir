@@ -102,17 +102,18 @@
     h4 {
       font-size: 5vw;
       line-height: 5vw;
-      margin-bottom: 2vw;
+      margin-bottom: 3vw;
     }
 
     a {
       display: block;
       font-size: 5vw;
       line-height: 6vw;
+      max-width: 50vw;
     }
 
     ul {
-      gap: 8vw;
+      gap: 5vw;
       svg {
         width: 7vw;
         height: 7vw;

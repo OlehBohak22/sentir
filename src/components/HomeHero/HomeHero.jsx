@@ -9,8 +9,9 @@ import "swiper/css/pagination";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
-export const HomeHero = ({ openPopup }) => {
+export const HomeHero = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
 
@@ -20,9 +21,9 @@ export const HomeHero = ({ openPopup }) => {
     "Accelerated<br />MVP Launch for<br />Startups",
   ];
 
-  const handleOpen = () => {
-    openPopup();
-  };
+  // const handleOpen = () => {
+  //   openPopup();
+  // };
 
   useEffect(() => {
     Aos.init();
@@ -215,13 +216,9 @@ export const HomeHero = ({ openPopup }) => {
           resonate with users and drive business success.
         </p>
 
-        <button
-          onClick={handleOpen}
-          data-aos="fade-up"
-          className={s.heroHoverLink}
-        >
+        <Link to="/contact" data-aos="fade-up" className={s.heroHoverLink}>
           GET NO-COST DISCOVERY
-        </button>
+        </Link>
 
         <div>
           {isDesktop && (

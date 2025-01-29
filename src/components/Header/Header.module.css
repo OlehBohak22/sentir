@@ -19,7 +19,7 @@
 header {
   position: fixed; /* Фіксуємо елемент */
   left: 3.5vw;
-  z-index: 9;
+  z-index: 99999;
   width: 93vw;
 }
 
@@ -43,7 +43,7 @@ header {
 
 @media (max-width: 1024px) {
   .headerContainer.hide {
-    top: -18vw; /* Ховаємо хедер */
+    top: -20vw; /* Ховаємо хедер */
   }
 
   .logoContainer {

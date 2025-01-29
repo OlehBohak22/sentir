@@ -81,8 +81,28 @@ button {
 }
 
 input:-internal-autofill-selected {
-  appearance: menulist-button;
+  appearance: menulist-button !important;
   background-image: none !important;
   background-color: transparent !important;
   color: fieldtext !important;
+}
+
+input:-webkit-autofill {
+  background-color: transparent !important;
+}
+
+input:-webkit-autofill {
+  caret-color: rgb(248, 0, 0);
+}
+
+input {
+  transition: background-color 10000s ease-in-out 0s;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: rgb(255, 255, 255) !important;
+}
+
+input:-webkit-autofill {
+  filter: brightness(100%);
 }

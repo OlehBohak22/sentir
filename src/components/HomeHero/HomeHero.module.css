@@ -45,8 +45,8 @@
     width: 41vw;
     margin: 0 auto;
     font-family: DM Sans, sans-serif;
-    font-size: 0.9vw;
-    font-weight: 400;
+    font-size: 0.8vw;
+    font-weight: 100;
     line-height: 1.2vw;
     color: #ffffff;
     margin-bottom: 2.5vw;
@@ -184,6 +184,7 @@
   .heroSection {
     padding-top: 36.8vw;
     padding-bottom: 20vw;
+    background-position: top;
 
     .heroTitle {
       font-size: 12.8vw;

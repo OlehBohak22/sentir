@@ -4,8 +4,8 @@
     url("../assets/fonts/DM_Sans/static/DMSans_24pt-Regular.ttf"),
     url("../assets/fonts/DM_Sans/static/DMSans-SemiBold.ttf"),
     url("../assets/fonts/DM_Sans/static/DMSans-Bold.ttf"),
+    url("../assets/fonts/DM_Sans/static/DMSans-ExtraLight.ttf"),
     url("../assets/fonts/DM_Sans/static/DMSans-Light.ttf"), format("truetype");
-  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
