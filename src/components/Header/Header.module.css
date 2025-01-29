@@ -1,17 +1,17 @@
 header {
   position: fixed;
-  left: 3.5vw;
+  left: 0;
   z-index: 9998;
-  width: 93vw;
+  width: 100%;
   background: rgba(0, 0, 0, 0); /* Початковий прозорий фон */
-  transition: opacity 0.3s ease; /* Додаємо плавну анімацію для фону та прозорості */
+  transition: 0.2s;
 }
 
 .headerContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: top 0.3s ease-in-out;
+  /* transition: top 10s; */
 }
 
 .headerContainer.hide {

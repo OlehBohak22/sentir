@@ -46,7 +46,7 @@ export const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 300); // Після 100px додаємо бекграунд
+      setIsScrolled(scrollTop > 100); // Після 100px додаємо бекграунд
 
       if (scrollTop > lastScrollTop.current) {
         setShowHeader(false); // Скрол вниз - ховаємо хедер
