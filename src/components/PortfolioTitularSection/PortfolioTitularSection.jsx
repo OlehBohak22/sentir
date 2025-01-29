@@ -42,8 +42,8 @@ export const PortfolioTitularSection = ({ titulInfo, className }) => {
                   __html:
                     titulInfo.case_description
                       .replace(/<br\s*\/?>/g, "<br />")
-                      .slice(0, 200) +
-                    (titulInfo.case_description.length > 200 ? "..." : ""),
+                      .slice(0, 150) +
+                    (titulInfo.case_description.length > 150 ? "..." : ""),
                 }}
                 data-aos="fade-up"
               >

@@ -19,7 +19,7 @@
 header {
   position: fixed; /* Фіксуємо елемент */
   left: 3.5vw;
-  z-index: 99999;
+  z-index: 9998;
   width: 93vw;
 }
 
