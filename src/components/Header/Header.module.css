@@ -36,12 +36,12 @@ header.scrolled .logoContainer svg {
 }
 
 header.scrolled .logoContainer span {
-  color: black !important; /* Зміна кольору тексту при скролі */
+  color: black; /* Зміна кольору тексту при скролі */
 }
 
 header.scrolled * {
-  color: black !important;
-  border-color: black !important; /* Зміна кольору для всіх елементів в хедері */
+  color: black;
+  border-color: black; /* Зміна кольору для всіх елементів в хедері */
 }
 
 .logoContainer {
