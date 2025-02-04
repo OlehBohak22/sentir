@@ -61,7 +61,7 @@ export const HomeReviewSwiper = ({ reviews }) => {
       >
         {reviews
           .filter((review) => review.add_to_reviews == 1)
-          .map((review, index) => (
+          .map((review) => (
             <SwiperSlide key={review.id}>
               {/* Використовуємо motion.div з унікальним key для кожного слайда */}
               <motion.div

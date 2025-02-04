@@ -2,7 +2,12 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import s from "./HeaderNavigation.module.css";
 import { useMediaQuery } from "react-responsive";
 
-export const HeaderNavigation = ({ openMenu, closeMenu, isOpen }) => {
+export const HeaderNavigation = ({
+  openMenu,
+  closeMenu,
+  isOpen,
+  isScrolled,
+}) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
 
@@ -121,13 +126,14 @@ export const HeaderNavigation = ({ openMenu, closeMenu, isOpen }) => {
       {isMobile && (
         <div
           onClick={handleOpen}
-          className={`${s.burger} ${isOpen ? s.opened : ""}close`}
+          className={`${s.burger} ${isOpen ? s.opened : ""}`}
           type="button"
         >
           <div
             style={{
               backgroundColor:
                 location.pathname === "/portfolio" ||
+                isScrolled ||
                 location.pathname === "/policy-page" ||
                 location.pathname.startsWith("/cases")
                   ? "black"
@@ -139,6 +145,7 @@ export const HeaderNavigation = ({ openMenu, closeMenu, isOpen }) => {
             style={{
               backgroundColor:
                 location.pathname === "/portfolio" ||
+                isScrolled ||
                 location.pathname === "/policy-page" ||
                 location.pathname.startsWith("/cases")
                   ? "black"

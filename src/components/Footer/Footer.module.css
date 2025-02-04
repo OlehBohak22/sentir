@@ -108,6 +108,7 @@ footer {
     font-size: 1.6vw;
     font-weight: 500;
     line-height: 2.5vw;
+    max-width: 19vw;
 
     svg {
       width: 2vw;
@@ -228,6 +229,7 @@ footer {
       line-height: 8vw;
       text-align: center;
       margin: 0 auto;
+      max-width: none;
 
       svg {
         width: 7vw;

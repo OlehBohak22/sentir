@@ -7,7 +7,6 @@ export const SeparateReviewBlock = ({ review }) => {
   // Intersection Observer
   const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.2 });
 
-  // Загальні варіанти анімацій
   const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: 40 },
     animate: inView ? { opacity: 1, y: 0 } : {},
@@ -21,7 +20,6 @@ export const SeparateReviewBlock = ({ review }) => {
       animate="animate"
       className={s.container}
     >
-      {/* Аватар */}
       <motion.div {...fadeUp(0)}>
         <img
           className={s.reviewerAvatar}
@@ -29,23 +27,33 @@ export const SeparateReviewBlock = ({ review }) => {
           alt={review.full_name}
         />
       </motion.div>
-      {/* Ім'я */}
       <motion.div {...fadeUp(0.2)}>
         <p className={s.reviewerFullname}>{review.full_name}</p>
       </motion.div>
-      {/* Напрямок */}
       <motion.div {...fadeUp(0.4)}>
         <p className={s.reviewerDirect}>{review.direction}</p>
       </motion.div>
-      {/* Контент відгуку */}
       <motion.div {...fadeUp(0.6)} className={s.reviewContent}>
         <img src="/icons/gradient-quotes.svg" alt="" />
         <p>
-          <AnimatedHeadingFaster text={review.review} />
+          <AnimatedHeadingFaster
+            text={
+              review?.review?.includes("<br") ? (
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: review?.review?.includes("<br")
+                      ? review.review.replace(/<br\s*\/?>/g, "<br /><br />")
+                      : review?.review,
+                  }}
+                />
+              ) : (
+                review.review
+              )
+            }
+          />
         </p>
         <img className={s.rotated} src="/icons/gradient-quotes.svg" alt="" />
       </motion.div>
-      {/* Компанія */}
       <motion.div {...fadeUp(0.8)}>
         <div className={s.reviewerCompany}>
           <img src={review.company_icon} alt={review.company_name} />

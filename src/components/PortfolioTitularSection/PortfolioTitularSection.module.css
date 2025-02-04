@@ -40,7 +40,7 @@
   p {
     font-family: DM Sans;
     font-size: 0.9vw;
-    font-weight: 400;
+    font-weight: 200;
     line-height: 1.4vw;
     text-align: left;
     color: rgba(255, 255, 255, 1);
@@ -57,13 +57,13 @@
     li {
       font-family: DM Sans;
       font-size: 1.1vw;
-      font-weight: 500;
+      font-weight: 300;
       line-height: 1.6vw;
       text-align: left;
       color: rgba(255, 255, 255, 1);
       padding: 0.13vw 0.7vw;
       border-radius: 2.3vw;
-      background: rgba(11, 11, 11, 0.1);
+      background: rgba(11, 11, 11, 0.3);
     }
 
     .nda {

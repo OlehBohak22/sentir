@@ -4,13 +4,14 @@
   padding-bottom: 6vw;
   overflow: hidden;
 
-  background-image: url(/images/sections-bg/home-hero-bg.jpg);
+  background-image: url(/images/sections-bg/home-hero-bg.avif);
   background-size: cover;
   background-repeat: no-repeat;
 
   /* background: var(--primary-gradient); */
 
   .heroTitle {
+    padding-top: 2vw;
     position: relative;
     font-family: Almarai, sans-serif;
     font-size: 7vw;
@@ -32,9 +33,18 @@
       width: 22vw;
       height: 22vw;
 
-      img {
+      img:nth-child(1) {
         position: absolute;
 
+        transform: translateY(-50%) translateX(-50%);
+      }
+
+      img:nth-child(2) {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
         transform: translateY(-50%) translateX(-50%);
       }
     }
@@ -42,12 +52,14 @@
 
   .heroDesc {
     text-align: center;
-    width: 41vw;
+    width: 43vw;
     margin: 0 auto;
-    font-family: DM Sans, sans-serif;
-    font-size: 0.8vw;
-    font-weight: 100;
+    font-family: DM Sans;
+
+    font-size: 0.9vw;
+    font-weight: 200;
     line-height: 1.2vw;
+    letter-spacing: 1px;
     color: #ffffff;
     margin-bottom: 2.5vw;
   }

@@ -2,3 +2,13 @@
   width: 91.6vw;
   margin: 0 auto;
 }
+
+.container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 17px; /* Ширина для скролбару */
+  height: 100%;
+  background-color: transparent; /* Можна встановити будь-який колір */
+}

@@ -24,7 +24,7 @@
 
     a {
       position: relative; /* Потрібно для позиціонування псевдоелемента */
-      padding: 2.7vw 2.2vw 2.5vw 0;
+      padding: 2.7vw 0 2.5vw 0;
       aspect-ratio: 1;
       display: flex;
       flex-direction: column;
@@ -83,12 +83,13 @@
   }
 
   p {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.6);
     font-family: DM Sans;
     font-size: 0.9vw;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.4vw;
     text-align: left;
+    max-width: 25vw;
   }
 
   .arrowIcon {
@@ -165,6 +166,7 @@ svg {
     p {
       font-size: 3.7vw;
       line-height: 5.6vw;
+      max-width: none;
     }
 
     .arrowIcon {

@@ -81,7 +81,7 @@ export const AnimatedHeadingFaster = ({ text }) => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: block,
-            start: "top center",
+            start: "-170vw center",
             end: "bottom center",
             scrub: 1,
           },

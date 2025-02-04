@@ -5,6 +5,13 @@ export const ScrollTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    // Прокрутка при перезавантаженні сторінки
+    window.onload = () => {
+      window.scrollTo(0, 0);
+    };
+  }, []);
+
+  useEffect(() => {
     const scrollToTop = () => {
       document.documentElement.scrollTo({
         top: 0,
@@ -36,7 +43,7 @@ export const ScrollTop = () => {
             behavior: "auto",
           });
         }
-      }, 700);
+      }, 400);
     };
 
     scrollToTop();

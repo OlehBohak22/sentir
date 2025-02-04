@@ -8,12 +8,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999999;
+  z-index: 9999;
   opacity: 0; /* Початковий стан */
   animation: fadeInOverlay 0.5s forwards; /* Анімація появи */
-  overflow: hidden; /* Вимикаємо глобальний скрол */
+  overflow: hidden;
 }
-
 @keyframes fadeInOverlay {
   0% {
     opacity: 0;

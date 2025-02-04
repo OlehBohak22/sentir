@@ -18,7 +18,7 @@ export const CaseHero = ({ bg, title }) => {
       <Layout>
         <div className={s.titleContainer}>
           <p data-aos="fade-right">
-            <AnimatedHeading text="Case study" />
+            <AnimatedHeading text="Case Study" />
           </p>
           <h1 className="black">
             <AnimatedHeading text={title} />

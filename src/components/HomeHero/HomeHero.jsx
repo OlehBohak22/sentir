@@ -233,7 +233,7 @@ export const HomeHero = () => {
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.9, delay: 0.2 + index * 0.3 }}
                 >
                   <p dangerouslySetInnerHTML={{ __html: text }} />

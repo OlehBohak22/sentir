@@ -36,7 +36,7 @@ header.scrolled .logoContainer svg {
 }
 
 header.scrolled .logoContainer span {
-  color: black; /* Зміна кольору тексту при скролі */
+  color: black !important; /* Зміна кольору тексту при скролі */
 }
 
 header.scrolled * {

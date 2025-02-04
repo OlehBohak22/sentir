@@ -7,8 +7,10 @@
     position: relative;
     font-family: DM Sans;
     font-size: 0.9vw;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.4vw;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
     text-align: left;
     color: inherit; /* Використовуємо колір, який буде задано в React */
     padding: 1.6vw 1.5vw 1.2vw 1.5vw;
@@ -114,7 +116,7 @@
   position: absolute;
   max-height: 0; /* Початкова висота 0 */
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(0.9vw);
   z-index: 9;
   transition: 0.5s ease, padding 0.5s ease; /* Плавно анімуємо висоту і паддинг */
@@ -175,9 +177,9 @@
 }
 
 .burger.opened .navBurgerLine:first-child {
-  transform: rotate(45deg) translate(0.5vw, 0.4vw); /* Зміщення і обертання */
+  transform: rotate(45deg) translate(0.5vw, 0.4vw) !important; /* Зміщення і обертання */
 }
 
 .burger.opened .navBurgerLine:last-child {
-  transform: rotate(-45deg) translate(0.5vw, -0.4vw); /* Протилежне обертання */
+  transform: rotate(-45deg) translate(0.5vw, -0.4vw) !important; /* Протилежне обертання */
 }

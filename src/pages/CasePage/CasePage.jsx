@@ -73,7 +73,7 @@ export const CasePage = ({ token }) => {
   }
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: -200 },
+    hidden: { opacity: 0, y: -100 },
     visible: {
       opacity: 1,
       y: 0,
@@ -91,7 +91,12 @@ export const CasePage = ({ token }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
 
-      <motion.main initial="hidden" animate="visible" variants={fadeInUp}>
+      <motion.main
+        className={s.page}
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+      >
         {/* Основний контент */}
         {isInitialRendered && (
           <>

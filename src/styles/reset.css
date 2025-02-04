@@ -3,10 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  user-select: none; /* Заборона виділення тексту */
-  -webkit-user-select: none; /* Для Safari */
-  -moz-user-select: none; /* Для Firefox */
-  -ms-user-select: none; /* Для IE/Edge */
 }
 
 /* Видалення стандартного стилю списків */
@@ -37,6 +33,7 @@ body {
   color: #000;
   overflow-x: hidden;
   width: 100vw;
+  min-height: 150vh;
 }
 
 /* Видалення рамок для елементів форм */
