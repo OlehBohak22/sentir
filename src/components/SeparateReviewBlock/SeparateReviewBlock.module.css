@@ -17,7 +17,7 @@
   font-weight: 500;
   line-height: 2.2vw;
   margin-bottom: 0.8vw;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .reviewerDirect {
@@ -40,7 +40,7 @@
   p {
     font-family: DM Sans, sans-serif;
     font-size: 1.9vw;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 2.9vw;
     text-align: center;
     color: #ffffff;

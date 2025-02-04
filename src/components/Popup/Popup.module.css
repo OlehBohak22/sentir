@@ -23,7 +23,7 @@
 }
 
 .popupContent {
-  background-image: url("/images/sections-bg/form-section-bg.jpg");
+  background-image: url("/images/sections-bg/form-section-bg.avif");
   background-size: cover;
   padding: 5vw;
   position: relative;
@@ -110,6 +110,66 @@
   width: 35vw;
 }
 
+.contactInfo {
+  padding: 3.5vw 2vw;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 30vw;
+
+  li {
+    color: #ffffff;
+  }
+
+  div:not(:last-child) {
+    margin-bottom: 1.2vw;
+  }
+
+  h1 {
+    font-family: Almarai, sans-serif;
+    font-size: 4.1vw;
+    font-weight: 400;
+    line-height: 4.1vw;
+    color: #ffffff;
+    margin-bottom: 2vw;
+  }
+
+  h4 {
+    font-family: DM Sans, sans-serif;
+    font-size: 1vw;
+    font-weight: 400;
+    line-height: 1.4vw;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  a {
+    display: block;
+    font-family: DM Sans, sans-serif;
+    font-size: 1.6vw;
+    font-weight: 500;
+    line-height: 2.5vw;
+    color: #ffffff;
+    max-width: 17vw;
+  }
+
+  ul {
+    display: flex;
+    gap: 1.6vw;
+
+    svg {
+      width: 1.9vw;
+      height: 1.9vw;
+      transition: transform 0.3s;
+
+      path {
+        fill: #ffffff;
+      }
+    }
+
+    svg:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
 @media (max-width: 1024px) {
   .popupOverlay {
     align-items: flex-end;
@@ -121,7 +181,7 @@
     padding-bottom: 21.3vw;
     display: block;
     width: 100%;
-    max-height: 85%; /* Обмеження висоти */
+    max-height: 100%; /* Обмеження висоти */
     overflow: auto; /* Увімкнення скролу */
     background-size: 100% 100%;
     border-radius: 0; /* Без закруглень на мобільних */
@@ -141,6 +201,43 @@
     svg {
       width: 5vw;
       height: 5vw;
+    }
+  }
+
+  .contactInfo {
+    width: auto;
+    margin-bottom: 15vw;
+    padding: 8vw;
+
+    div:not(:last-child) {
+      margin-bottom: 8vw;
+    }
+
+    h1 {
+      font-size: 10vw;
+      line-height: 10vw;
+      margin-bottom: 15vw;
+    }
+
+    h4 {
+      font-size: 5vw;
+      line-height: 5vw;
+      margin-bottom: 3vw;
+    }
+
+    a {
+      display: block;
+      font-size: 5vw;
+      line-height: 6vw;
+      max-width: 50vw;
+    }
+
+    ul {
+      gap: 5vw;
+      svg {
+        width: 7vw;
+        height: 7vw;
+      }
     }
   }
 }

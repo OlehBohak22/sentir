@@ -168,7 +168,7 @@ export default function App() {
       <div className="cursor"></div>
       <Header />
 
-      {isPopupOpen && <Popup onClose={closePopup} />}
+      {isPopupOpen && <Popup onClose={closePopup} token={token} />}
 
       <ScrollTop />
 
