@@ -43,7 +43,7 @@ export const ScrollTop = () => {
             behavior: "auto",
           });
         }
-      }, 400);
+      }, 600);
     };
 
     scrollToTop();
