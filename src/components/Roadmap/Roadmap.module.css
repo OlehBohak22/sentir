@@ -77,7 +77,7 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    transition: width 0.5s;
+    transition: width 1s;
     overflow: hidden;
     cursor: pointer;
 
@@ -99,7 +99,7 @@
       text-align: left;
       color: #ffffff82;
       opacity: 0;
-      transition: 0.2s;
+      transition: 0.7s;
       white-space: nowrap;
       z-index: 2;
     }

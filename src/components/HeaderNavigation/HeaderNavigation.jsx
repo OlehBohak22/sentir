@@ -7,6 +7,7 @@ export const HeaderNavigation = ({
   closeMenu,
   isOpen,
   isScrolled,
+  scrollTop,
 }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
@@ -29,7 +30,7 @@ export const HeaderNavigation = ({
     <nav style={headerStyle} className={s.navContainer}>
       {isDesktop && (
         <ul className={s.navList}>
-          <li>
+          <li onClick={scrollTop}>
             <NavLink to="/">Home</NavLink>
           </li>
 

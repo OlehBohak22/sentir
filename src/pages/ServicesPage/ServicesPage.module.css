@@ -91,7 +91,22 @@
   font-size: 2.2vw;
   font-weight: 500;
   line-height: 2.3vw;
-  background: var(--primary-gradient);
+  /* background: var(--primary-gradient); */
+  background: radial-gradient(
+        115.99% 115.99% at 0% 100%,
+        #66d2fd 0%,
+        #91ddff 25%,
+        #b402d8 50%,
+        #f8086e 75%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(
+        85.04% 80.65% at 6.74% 34.9%,
+        #6843e7 1.49%,
+        rgba(104, 67, 231, 0) 86.1%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+
   width: 46vw;
   margin-left: auto;
   -webkit-background-clip: text;

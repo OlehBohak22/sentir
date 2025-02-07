@@ -35,8 +35,18 @@ export const Header = () => {
   }, [menu]);
 
   const isPortfolio = location.pathname === "/portfolio";
+  const isHome = location.pathname === "/";
   const isPolicy = location.pathname === "/policy-page";
   const isCaseDetail = matchPath("/cases/:id", location.pathname);
+
+  const handleScrollTop = () => {
+    isHome &&
+      document.documentElement.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "auto",
+      });
+  };
 
   const headerStyle =
     isPortfolio || isPolicy || isCaseDetail
@@ -80,7 +90,11 @@ export const Header = () => {
       >
         <Layout className={s.container}>
           <div className={s.headerContainer}>
-            <Link to="/" onClick={closeMenu} className={s.logoContainer}>
+            <Link
+              to="/"
+              onClick={closeMenu && handleScrollTop}
+              className={s.logoContainer}
+            >
               <SentirLogo
                 isScrolled={isScrolled}
                 location={location.pathname}
@@ -91,6 +105,7 @@ export const Header = () => {
             <HeaderNavigation
               closeMenu={closeMenu}
               openMenu={openMenu}
+              scrollTop={handleScrollTop}
               isOpen={menu}
               isScrolled={isScrolled}
             />
