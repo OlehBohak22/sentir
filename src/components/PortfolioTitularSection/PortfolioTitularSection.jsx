@@ -37,18 +37,7 @@ export const PortfolioTitularSection = ({ titulInfo, className }) => {
                 </div>
               )}
 
-              <p
-                dangerouslySetInnerHTML={{
-                  __html:
-                    titulInfo.case_description
-                      .replace(/<br\s*\/?>/g, "<br />")
-                      .slice(0, 150) +
-                    (titulInfo.case_description.length > 150 ? "..." : ""),
-                }}
-                data-aos="fade-up"
-              >
-                {/* {titulInfo.case_description} */}
-              </p>
+              <p data-aos="fade-up">{titulInfo.case_short_description}</p>
 
               {/* Анімація списку */}
               <ul data-aos="fade-up">

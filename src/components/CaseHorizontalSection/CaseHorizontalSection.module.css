@@ -125,7 +125,8 @@
 .progressBar {
   height: 100%;
   width: 0;
-  background: var(--primary-gradient); /* Градієнтний ефект */
+  background: linear-gradient(to right, #ff0080, #7928ca);
+
   transition: width 0.1s ease-out;
 }
 

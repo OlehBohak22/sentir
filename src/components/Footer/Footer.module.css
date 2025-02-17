@@ -248,3 +248,17 @@ footer {
     }
   }
 }
+
+.footer {
+  position: fixed;
+  bottom: -100px; /* Початково схований */
+  left: 0;
+  width: 100%;
+  background: #333;
+  color: white;
+  transition: bottom 0.6s ease-in-out;
+}
+
+.footer.show {
+  bottom: 0;
+}

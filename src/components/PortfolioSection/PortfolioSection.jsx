@@ -69,16 +69,7 @@ const PortfolioItem = ({ item }) => {
               </ul>
 
               {/* Анімація опису */}
-              <p
-                data-aos="fade-up"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    item.case_description
-                      .replace(/<br\s*\/?>/g, "<br />")
-                      .slice(0, 200) +
-                    (item.case_description.length > 200 ? "..." : ""),
-                }}
-              ></p>
+              <p data-aos="fade-up">{item.case_short_description}</p>
             </div>
           </motion.div>
         </motion.div>

@@ -62,7 +62,7 @@
   font-size: 2.2vw;
   font-weight: 500;
   line-height: 2.2vw;
-  width: 20vw;
+  width: 24vw;
   margin-bottom: 1.5vw;
 }
 
@@ -72,7 +72,8 @@
 }
 
 .gradient {
-  background: var(--primary-gradient);
+  background-image: url("/images/sections-bg/form-section-bg.avif");
+  background-size: cover;
   display: flex;
   align-items: center;
   width: 91.6vw !important;

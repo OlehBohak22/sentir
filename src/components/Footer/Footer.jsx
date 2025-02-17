@@ -3,7 +3,7 @@ import { Layout } from "../Layout/Layout";
 import s from "./Footer.module.css";
 import { getData } from "../../services/api";
 import { useMediaQuery } from "react-responsive";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useLocation } from "react-router-dom";
@@ -32,32 +32,52 @@ export const Footer = ({ token }) => {
     fetchCompanies();
   }, [token]);
 
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    Aos.init();
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (footerRef.current) {
+          if (entry.isIntersecting) {
+            footerRef.current.classList.add(s.show);
+          } else {
+            footerRef.current.classList.remove(s.show);
+          }
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (footerRef.current) observer.observe(footerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <footer className={location.pathname == "/portfolio" ? s.border : ""}>
+    <footer
+      ref={footerRef}
+      className={location.pathname == "/portfolio" ? s.border : ""}
+    >
       <Layout>
         <div className={s.footerContainer}>
-          <Link data-aos="fade-up" to="/" className={s.logoContainer}>
+          <Link to="/" className={s.logoContainer}>
             <img src="/icons/colored-logo.svg" alt="Logo" />
             <span>Sentir</span>
           </Link>
 
-          {isMobile && (
-            <p data-aos="fade-up" className={s.mobAddText}>
-              To feel through touch
-            </p>
-          )}
+          {isMobile && <p className={s.mobAddText}>To feel through touch</p>}
 
           {isDesktop && (
             <div className={s.menuNav}>
-              <ul data-aos="fade-up">
-                <p data-aos="fade-up">MENU</p>
-                <li data-aos="fade-up">
+              <ul>
+                <p>MENU</p>
+                <li>
                   <Link to="/about">About Us</Link>
                 </li>
-                <li data-aos="fade-up">
+                <li>
                   <Link to="/portfolio">Portfolio</Link>
                 </li>
-                <li data-aos="fade-up">
+                <li>
                   <Link to="/workflow">Workflow</Link>
                 </li>
               </ul>
@@ -65,43 +85,43 @@ export const Footer = ({ token }) => {
           )}
 
           <div className={s.serviceNav}>
-            <ul data-aos="fade-up">
-              {isDesktop && <p data-aos="fade-up">Services</p>}
-              <li data-aos="fade-up">
+            <ul>
+              {isDesktop && <p>Services</p>}
+              <li>
                 <Link to="/services#project">Project Kick-Off</Link>
               </li>
-              <li data-aos="fade-up">
+              <li>
                 <Link to="/services#discovery">Discovery</Link>
               </li>
-              <li data-aos="fade-up">
+              <li>
                 <Link to="/services#UXUI">UX/UI Design</Link>
               </li>
-              <li data-aos="fade-up">
+              <li>
                 <Link to="/services#web">Web & Mobile Development</Link>
               </li>
-              <li data-aos="fade-up">
+              <li>
                 <Link to="/services#due">Due Diligence</Link>
               </li>
-              <li data-aos="fade-up">
+              <li>
                 <Link to="/services#staff">Staff Augmentation</Link>
               </li>
             </ul>
           </div>
 
           <div className={s.socialContainer}>
-            <div data-aos="fade-up">
+            <div>
               <p>TALK TO US</p>
               <a href={`mailto:${contactInfo.talk_to_us_email}`}>
                 {contactInfo.talk_to_us_email}
               </a>
             </div>
 
-            <div data-aos="fade-up" className="w-[auto] lg:w-[20vw]">
+            <div className="w-[auto] lg:w-[20vw]">
               <p>COME SEE US</p>
               <Link>{contactInfo.come_see_us}</Link>
             </div>
 
-            <div data-aos="fade-up">
+            <div>
               <p>WORK WITH US</p>
               <a href={`mailto:${contactInfo.work_with_us_email}`}>
                 {contactInfo.work_with_us_email}
@@ -109,7 +129,7 @@ export const Footer = ({ token }) => {
             </div>
 
             {isMobile && (
-              <div data-aos="fade-up" className={s.menuNav}>
+              <div className={s.menuNav}>
                 <ul>
                   <li>
                     <Link to="/about">About Us</Link>
@@ -124,7 +144,7 @@ export const Footer = ({ token }) => {
               </div>
             )}
 
-            <div data-aos="fade-up">
+            <div>
               {isDesktop && <p>social media</p>}
               <ul className={s.socialLinks}>
                 {contactInfo.social_media_images &&
