@@ -16,6 +16,17 @@ export const CaseHorizontalSection = ({ cases }) => {
     const gap = 0.02 * window.innerWidth; // 2vw у пікселях
     const totalScrollWidth =
       panels.length * panelWidth + (panels.length - 1) * gap; // Загальна довжина прокрутки
+    const header = document.querySelector("header"); // Замінити селектор на правильний
+
+    if (header) {
+      ScrollTrigger.create({
+        trigger: scrollerRef.current,
+        start: "top top", // Коли верх скролера доходить до верху екрану
+        end: "bottom top", // Коли скролер закінчується
+        onEnter: () => gsap.to(header, { y: "-100%", duration: 0.3 }), // Ховаємо хедер
+        onLeaveBack: () => gsap.to(header, { y: "0%", duration: 0.3 }), // Повертаємо хедер
+      });
+    }
 
     // Додаємо горизонтальний скрол
     gsap.to(panels, {
@@ -52,13 +63,12 @@ export const CaseHorizontalSection = ({ cases }) => {
   return (
     <div ref={containerRef}>
       <section className={s.scroller} ref={scrollerRef}>
-        {cases["title-1"] !== "" && (
-          <div className={s.progressBarWrapper}>
-            <div className={s.progressBar} id="progress-bar"></div>
-          </div>
-        )}
-
         <Layout>
+          {cases["title-1"] !== "" && (
+            <div className={s.progressBarWrapper}>
+              <div className={s.progressBar} id="progress-bar"></div>
+            </div>
+          )}
           <div className={s.horizontalBlocks}>
             {/* Блок 1 */}
             {cases["title-1"] && cases.case_pictures_1 && (

@@ -116,7 +116,7 @@
   position: absolute;
   max-height: 0; /* Початкова висота 0 */
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(0.9vw);
   z-index: 9;
   transition: 0.5s ease, padding 0.5s ease; /* Плавно анімуємо висоту і паддинг */
@@ -127,6 +127,7 @@
     margin: 0.5vw 0;
     padding: 0;
     width: max-content;
+    /* color: white; */
   }
 
   a::after {

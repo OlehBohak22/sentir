@@ -15,7 +15,7 @@
 
 .block {
   flex-shrink: 0; /* Блоки не зменшуються */
-  width: 100.6%; /* Кожен блок займає всю ширину вікна */
+  width: 100%; /* Кожен блок займає всю ширину вікна */
   align-items: stretch;
   justify-content: space-between;
   display: flex;
@@ -40,20 +40,24 @@
   ul {
     li {
       list-style: disc;
-      padding-left: 1vw;
+      margin-left: 2vw;
       font-family: DM Sans;
       font-size: 1.2vw;
       font-weight: 400;
       line-height: 1.8vw;
-      color: rgba(11, 11, 11, 0.6);
+      color: rgba(11, 11, 11, 0.5);
+    }
+
+    li:not(:last-child) {
+      margin-bottom: 0.5vw;
     }
   }
 }
 
 .image {
   aspect-ratio: 1;
-  width: 40vw;
-
+  width: 50%;
+  max-height: 85vh;
   img {
     width: 100%;
     height: 100%;
@@ -65,7 +69,7 @@
   flex-wrap: wrap;
   column-gap: 8.6vw;
   row-gap: 2vw;
-  margin-bottom: 2vw;
+  margin-bottom: 3vw;
 
   div {
     flex-basis: calc((100% - 8.6vw) / 2);
@@ -73,17 +77,17 @@
     h4 {
       font-family: DM Sans;
       font-size: 1.6vw;
-      font-weight: 400;
+      font-weight: 300;
       line-height: 1.8vw;
-      margin-bottom: 0.2vw;
+      margin-bottom: 0.3vw;
     }
 
     p {
       font-family: DM Sans;
       font-size: 1.1vw;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 1.6vw;
-      color: rgba(11, 11, 11, 0.4);
+      color: rgba(11, 11, 11, 0.3);
     }
   }
 }
@@ -114,9 +118,11 @@
 .progressBarWrapper {
   position: absolute;
   top: 5vw;
+
   left: 50%;
-  transform: translateX(-50%);
-  width: 93%;
+  transform: translateX(-50.5%);
+  width: 91.6vw;
+
   height: 0.2vw;
   background-color: #d3d3d3; /* Сірий фон */
   z-index: 1000;
@@ -166,8 +172,12 @@
       max-height: 80vw;
 
       li {
-        font-size: 4.2vw;
+        font-size: 4.9vw;
         line-height: 6.4vw;
+      }
+
+      li:not(:last-child) {
+        margin-bottom: 2vw;
       }
     }
   }

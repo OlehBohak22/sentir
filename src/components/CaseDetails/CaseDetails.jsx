@@ -96,7 +96,7 @@ export const CaseDetails = ({ details }) => {
 
           {details.mvp_in_numbers ? (
             <div data-aos="fade-up" className={s.detailsBlock}>
-              <span>MVP in numbers:</span>
+              <span>MVP in Numbers:</span>
               <p>{details.mvp_in_numbers}</p>
             </div>
           ) : (

@@ -116,7 +116,10 @@ export const HomeReviewSwiper = ({ reviews }) => {
                   animate="visible"
                   variants={slideVariantsReview}
                 >
-                  <p className={s.reviewContent}>{review.review}</p>
+                  <p
+                    className={s.reviewContent}
+                    dangerouslySetInnerHTML={{ __html: review.review }}
+                  />
                 </motion.div>
 
                 {isMobile && (

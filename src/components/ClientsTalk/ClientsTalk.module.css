@@ -26,6 +26,11 @@
   }
 }
 
+.logos:hover {
+  .logosSlide {
+    animation-play-state: paused;
+  }
+}
 .logosSlide div {
   width: 11.1vw;
   height: 11.1vw;

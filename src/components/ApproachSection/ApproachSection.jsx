@@ -105,10 +105,11 @@ export const ApproachSection = ({ openPopup, isPopupOpen }) => {
               <h3>Flexibility in Engagement Models</h3>
               <p>
                 Sentir offers flexible engagement models to suit different
-                project needs and budgets. Whether it is a Time & Materials
-                approach for evolving projects or a Fixed Price model for
-                well-defined scopes, we provide options that ensure financial
-                flexibility and predictability.
+                project needs and budgets.
+                <br /> Whether it is a Time & Materials approach for evolving
+                projects or a Fixed Price model for well-defined scopes, we
+                provide options that ensure financial flexibility and
+                predictability.
               </p>
             </div>
 

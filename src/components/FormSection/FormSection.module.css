@@ -5,6 +5,9 @@
   background-size: cover;
   padding: 7.2vw 0 8.3vw 0;
   overflow: hidden;
+  z-index: 1;
+  /* margin: 0 auto; */
+  transition: transform 1s;
 }
 .container {
   display: grid;

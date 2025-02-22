@@ -1,5 +1,4 @@
 import { Layout } from "../../components/Layout/Layout";
-import { AnimateSvgForm } from "../AninmateSvgLine/AninmateSvgLine";
 import { MainForm } from "../Form/MainForm";
 import s from "./FormSection.module.css";
 import { motion, useAnimation } from "framer-motion";

@@ -16,7 +16,8 @@ export const SectionNavigation = ({ token, openPopup }) => {
 
   const sections = [
     { id: "intro", label: "Introductory Meeting" },
-    { id: "time-and-materials", label: "Research and Proposal" },
+    { id: "research", label: "Research" },
+    { id: "proposal", label: "Proposal" },
     { id: "design", label: "Design" },
     { id: "delivery", label: "Delivery and Feedback" },
     { id: "soft", label: "Soft Launch" },
@@ -59,7 +60,7 @@ export const SectionNavigation = ({ token, openPopup }) => {
                 className={activeSection === section.id ? "active-link" : ""}
                 style={{
                   cursor: "pointer",
-                  color: activeSection === section.id ? "black" : "grey",
+                  color: activeSection === section.id ? "black" : "#80808080",
                 }}
               >
                 {section.label}
@@ -93,7 +94,8 @@ export const SectionNavigation = ({ token, openPopup }) => {
                     }
                     style={{
                       cursor: "pointer",
-                      color: activeSection === section.id ? "black" : "grey",
+                      color:
+                        activeSection === section.id ? "black" : "#80808080",
                     }}
                   >
                     {section.label}
@@ -172,7 +174,7 @@ export const SectionNavigation = ({ token, openPopup }) => {
             </div>
           </Element>
 
-          <Element name="time-and-materials" id="time-and-materials">
+          <Element name="research" id="research">
             <div className={s.navBlock}>
               <div className={s.imageContainer}>
                 <img

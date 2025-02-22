@@ -27,14 +27,14 @@ const PortfolioItem = ({ item }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { triggerOnce: false }); // triggerOnce: false означає, що анімація повторюється
 
-  const childVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.2, duration: 1, ease: "easeOut" },
-    }),
-  };
+  // const childVariants = {
+  //   hidden: { opacity: 0, y: 20 },
+  //   visible: (i) => ({
+  //     opacity: 1,
+  //     y: 0,
+  //     transition: { delay: i * 0.2, duration: 1, ease: "easeOut" },
+  //   }),
+  // };
 
   return (
     <div data-aos="fade-up" ref={ref} className="case">

@@ -2,7 +2,7 @@ header {
   position: fixed;
   left: 0;
   z-index: 9998;
-  width: 100%;
+  width: 100vw;
   background: rgba(0, 0, 0, 0); /* Початковий прозорий фон */
   transition: 0.25s;
 }
@@ -27,6 +27,7 @@ header.scrolled a svg {
 }
 
 header.scrolled {
+  width: 100vw;
   background: rgba(255, 255, 255, 1); /* Непрозорий фон */
   opacity: 1; /* Повна прозорість при скролі */
 }
@@ -42,6 +43,10 @@ header.scrolled .logoContainer span {
 header.scrolled * {
   color: black;
   border-color: black; /* Зміна кольору для всіх елементів в хедері */
+}
+
+header.scrolled nav li div {
+  background-color: rgb(255, 255, 255);
 }
 
 .logoContainer {

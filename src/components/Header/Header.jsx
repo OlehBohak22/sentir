@@ -78,40 +78,42 @@ export const Header = () => {
         <MobileMenu className="translate-y-[-100%]" closeOverlay={closeMenu} />
       )}
 
-      <header
-        className={`${s.headerContainer} ${showHeader ? s.show : s.hide} ${
-          isScrolled ? s.scrolled : ""
-        }`}
-        style={
-          isPortfolio || isPolicy || isCaseDetail
-            ? { backgroundColor: "white", width: "100%", left: "0" }
-            : {}
-        }
-      >
-        <Layout className={s.container}>
-          <div className={s.headerContainer}>
-            <Link
-              to="/"
-              onClick={closeMenu && handleScrollTop}
-              className={s.logoContainer}
-            >
-              <SentirLogo
-                isScrolled={isScrolled}
-                location={location.pathname}
-              />
-              <span style={headerStyle}>Sentir</span>
-            </Link>
+      <div className="header">
+        <header
+          className={`${s.headerContainer} ${showHeader ? s.show : s.hide} ${
+            isScrolled ? s.scrolled : ""
+          }`}
+          style={
+            isPortfolio || isPolicy || isCaseDetail
+              ? { backgroundColor: "white", width: "100vw", left: "0" }
+              : {}
+          }
+        >
+          <Layout className={s.container}>
+            <div className={s.headerContainer}>
+              <Link
+                to="/"
+                onClick={closeMenu && handleScrollTop}
+                className={s.logoContainer}
+              >
+                <SentirLogo
+                  isScrolled={isScrolled}
+                  location={location.pathname}
+                />
+                <span style={headerStyle}>Sentir</span>
+              </Link>
 
-            <HeaderNavigation
-              closeMenu={closeMenu}
-              openMenu={openMenu}
-              scrollTop={handleScrollTop}
-              isOpen={menu}
-              isScrolled={isScrolled}
-            />
-          </div>
-        </Layout>
-      </header>
+              <HeaderNavigation
+                closeMenu={closeMenu}
+                openMenu={openMenu}
+                scrollTop={handleScrollTop}
+                isOpen={menu}
+                isScrolled={isScrolled}
+              />
+            </div>
+          </Layout>
+        </header>
+      </div>
     </>
   );
 };

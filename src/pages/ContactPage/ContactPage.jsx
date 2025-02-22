@@ -78,9 +78,6 @@ export const ContactPage = ({ token }) => {
                               dangerouslySetInnerHTML={{ __html: item.image }}
                               style={{
                                 display: "inline-block",
-                                width: "24px",
-                                height: "24px",
-                                fill: "black",
                               }}
                             />
                           </a>

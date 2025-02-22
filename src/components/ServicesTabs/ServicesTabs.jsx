@@ -9,7 +9,6 @@ import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
 export const ServicesTabs = ({ token, openPopup }) => {
   const [activeTab, setActiveTab] = useState(null);
@@ -130,10 +129,15 @@ export const ServicesTabs = ({ token, openPopup }) => {
               className={s.content}
             >
               <div className={s.contentTitleContainer}>
-                <h3>
-                  <AnimatedHeading
-                    text={activeService.service_title}
-                  ></AnimatedHeading>
+                <h3 data-aos="fade-up" data-aos-duration="1000">
+                  {activeService.service_title === "Project Kick-Off" ? (
+                    <p>
+                      Project
+                      <br /> Kick-Off
+                    </p>
+                  ) : (
+                    activeService.service_title
+                  )}
                 </h3>
 
                 <div className={s.serviceOptionContainer}>
@@ -165,18 +169,22 @@ export const ServicesTabs = ({ token, openPopup }) => {
                   data-aos="fade-up"
                   data-aos-duration="1800"
                   className={s.desc}
-                >
-                  {activeService.service_description ||
-                    "No description available"}
-                </p>
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      activeService.service_description ||
+                      "No description available",
+                  }}
+                />
 
-                <div data-aos="fade-up" data-aos-duration="2000">
-                  <div onClick={() => openPopup()}>
-                    <DiscussBtn className={clsx(isMobile && "m-0")}>
-                      {activeService.service_trigerbtn}
-                    </DiscussBtn>
+                {activeService.service_trigerbtn && (
+                  <div data-aos="fade-up" data-aos-duration="2000">
+                    <div className="mt-[2.2vw]" onClick={() => openPopup()}>
+                      <DiscussBtn className={clsx(isMobile && "m-0 ")}>
+                        {activeService.service_trigerbtn}
+                      </DiscussBtn>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </motion.div>
           )}

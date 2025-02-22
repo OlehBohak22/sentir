@@ -42,7 +42,7 @@ export const SeparateReviewBlock = ({ review }) => {
                 <span
                   dangerouslySetInnerHTML={{
                     __html: review?.review?.includes("<br")
-                      ? review.review.replace(/<br\s*\/?>/g, "<br /><br />")
+                      ? review.review.replace(/<br\s*\/?>/g, "<br />")
                       : review?.review,
                   }}
                 />

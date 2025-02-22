@@ -102,6 +102,29 @@ footer {
   }
 }
 
+.socialLinks li svg {
+  transition: fill 0.3s ease;
+}
+
+.socialLinks li svg path {
+  fill: #0b0b0b; /* Початковий колір */
+}
+
+.socialLinks li:hover svg path {
+  fill: url(#gradient); /* Градієнт при ховері */
+}
+.socialLinks li:nth-child(2):hover svg path {
+  stroke: url(#gradient); /* Градієнт при ховері */
+}
+
+.socialLinks li:nth-child(2) svg path {
+  fill: transparent; /* Градієнт при ховері */
+}
+
+.socialLinks li svg:hover {
+  cursor: pointer;
+}
+
 .socialContainer {
   a {
     font-family: DM Sans;
@@ -116,21 +139,19 @@ footer {
       transform: scale(1.5);
     }
   }
-  ul {
-    margin-left: 0.5vw;
-    margin-top: 1.8vw;
-    display: flex;
-    gap: 1vw;
-
-    li:nth-child(4) {
-      svg {
-        transform: scale(1.7) translateX(0.3vw);
-      }
-    }
-  }
 
   div:not(:last-child) {
-    margin-bottom: 1.4vw;
+    margin-bottom: 1.3vw;
+  }
+  ul {
+    display: flex;
+    gap: 1.3vw;
+    margin-top: 1vw;
+
+    svg {
+      width: 1.9vw;
+      height: 1.9vw;
+    }
   }
 }
 
@@ -222,6 +243,11 @@ footer {
       justify-content: center;
       gap: 7.4vw;
       margin-bottom: 12vw;
+
+      svg {
+        width: 7vw;
+        height: 7vw;
+      }
     }
 
     a {
@@ -230,11 +256,6 @@ footer {
       text-align: center;
       margin: 0 auto;
       max-width: none;
-
-      svg {
-        width: 7vw;
-        height: 7vw;
-      }
     }
   }
 
@@ -249,16 +270,16 @@ footer {
   }
 }
 
-.footer {
-  position: fixed;
-  bottom: -100px; /* Початково схований */
-  left: 0;
-  width: 100%;
-  background: #333;
-  color: white;
-  transition: bottom 0.6s ease-in-out;
+/* Footer.module.css */
+footer {
+  /* Початкове положення задається через JS */
+  transition: transform 0.1s linear;
+  position: relative;
 }
 
-.footer.show {
-  bottom: 0;
+.border {
+  /* Наприклад, рамка для сторінки /portfolio */
+  border-top: 1px solid #ccc;
 }
+
+/* Інші стилі залишаються без змін */

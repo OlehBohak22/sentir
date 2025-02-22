@@ -34,7 +34,7 @@ export const HeaderNavigation = ({
             <NavLink to="/">Home</NavLink>
           </li>
 
-          <li className={s.backdrop}>
+          <li className={`${s.backdrop} backdrop`}>
             <NavLink className={s.serviceLink} to="/services">
               Services
               <svg
@@ -50,58 +50,36 @@ export const HeaderNavigation = ({
               <Link
                 to="/services#project"
                 className={location.hash === "#project" ? s.activeLink : ""}
-                style={
-                  location.hash === "#project"
-                    ? { color: headerStyle.color }
-                    : {}
-                }
               >
                 Project Kick-Off
               </Link>
               <Link
                 to="/services#discovery"
                 className={location.hash === "#discovery" ? s.activeLink : ""}
-                style={
-                  location.hash === "#discovery"
-                    ? { color: headerStyle.color }
-                    : {}
-                }
               >
                 Discovery
               </Link>
               <Link
                 to="/services#UXUI"
                 className={location.hash === "#UXUI" ? s.activeLink : ""}
-                style={
-                  location.hash === "#UXUI" ? { color: headerStyle.color } : {}
-                }
               >
                 UX/UI
               </Link>
               <Link
                 to="/services#web"
                 className={location.hash === "#web" ? s.activeLink : ""}
-                style={
-                  location.hash === "#web" ? { color: headerStyle.color } : {}
-                }
               >
                 Web & Mobile <br /> Development
               </Link>
               <Link
                 to="/services#due"
                 className={location.hash === "#due" ? s.activeLink : ""}
-                style={
-                  location.hash === "#due" ? { color: headerStyle.color } : {}
-                }
               >
                 Due Diligence
               </Link>
               <Link
                 to="/services#staff"
                 className={location.hash === "#staff" ? s.activeLink : ""}
-                style={
-                  location.hash === "#staff" ? { color: headerStyle.color } : {}
-                }
               >
                 Staff Augmentation
               </Link>

@@ -18,11 +18,11 @@ export const MainForm = ({ closePopup }) => {
   };
 
   const validationSchema = Yup.object({
-    name: Yup.string().required("*incorrect name"),
+    name: Yup.string().required("*enter your name"),
     email: Yup.string()
-      .email("Invalid email address")
-      .required("*incorrect email"),
-    text: Yup.string().required("*is required"),
+      .email("*invalid email address")
+      .required("*enter your email"),
+    text: Yup.string().required("*please fill in your request details"),
   });
 
   const handleFileChange = (event) => {

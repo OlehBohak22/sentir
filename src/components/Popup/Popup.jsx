@@ -96,7 +96,7 @@ export const Popup = ({ onClose, token }) => {
               </div>
 
               <div>
-                <h4 className="mb-[1.2vw]">SOCIAL MEDIA</h4>
+                <h4 className="mb-[5vw]">SOCIAL MEDIA</h4>
                 <ul className={s.socialLinks} role="list">
                   {contactInfo?.social_media_images ? (
                     contactInfo.social_media_images.map((item, index) => (

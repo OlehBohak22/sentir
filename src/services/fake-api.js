@@ -182,22 +182,23 @@ export const stackIcons = [
   },
   {
     id: 2,
-    icon: "/icons/stack-icons.svg#icon-PY",
-  },
-  {
-    id: 3,
-    icon: "/icons/stack-icons.svg#icon-JAVA",
-  },
-  {
-    id: 4,
     icon: "/icons/stack-icons.svg#icon-NET",
   },
   {
-    id: 5,
-    icon: "/icons/stack-icons.svg#icon-PHP",
+    id: 3,
+    icon: "/icons/stack-icons.svg#icon-PY",
   },
   {
-    id: 6,
+    id: 4,
+    icon: "/icons/stack-icons.svg#icon-JAVA",
+  },
+  {
+    id: 5,
     icon: "/icons/stack-icons.svg#icon-C",
+  },
+
+  {
+    id: 6,
+    icon: "/icons/stack-icons.svg#icon-PHP",
   },
 ];

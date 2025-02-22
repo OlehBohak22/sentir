@@ -1,8 +1,11 @@
 .section {
+  position: relative;
   min-height: 110vh;
   padding-top: 8.3vw;
   padding-bottom: 5vw;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: white;
+  z-index: 1;
   h1 {
     font-family: Almarai;
     font-size: 7vw;

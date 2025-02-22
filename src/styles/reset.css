@@ -103,3 +103,8 @@ input:-webkit-autofill {
 input:-webkit-autofill {
   filter: brightness(100%);
 }
+
+/* У файлі CSS */
+.hide {
+  display: none !important;
+}

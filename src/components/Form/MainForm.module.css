@@ -1,11 +1,12 @@
 .formTitle {
   font-family: DM Sans;
-  font-size: 2.2vw;
+  font-size: 1.9vw;
   font-weight: 500;
-  line-height: 2.2vw;
+  line-height: 2vw;
   color: white;
-  margin-bottom: 4.4vw;
-  overflow: hidden;
+  margin-bottom: 2.5vw;
+  overflow-y: hidden;
+  padding-bottom: 0.1vw;
 
   p {
     position: relative;
@@ -113,8 +114,10 @@
   justify-content: space-between;
   align-items: center;
   color: white;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
+  font-family: DM Sans;
+
+  font-size: 1.3vw;
+  font-weight: 300;
   cursor: pointer;
   width: 100%;
   padding: 1vw;
@@ -127,8 +130,10 @@
 }
 
 .uploadIcon {
-  width: 1.5vw;
-  height: 1.5vw;
+  img {
+    width: 1.5vw;
+    height: 1.5vw;
+  }
 }
 
 .uploadLabel:hover {
@@ -214,6 +219,11 @@
     z-index: 2; /* Текст над `::before` */
     transition: color 0.3s ease; /* Плавна зміна кольору тексту */
   }
+
+  img {
+    width: 2.2vw;
+    height: 2.2vw;
+  }
 }
 
 .btn::before {
@@ -289,7 +299,7 @@
 
 .uploadIcon img:nth-child(2) {
   display: none;
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
 }
@@ -408,7 +418,7 @@
     padding: 5.3vw;
   }
 
-  .uploadIcon {
+  .uploadIcon img {
     width: 6.4vw;
     height: 6.4vw;
   }
