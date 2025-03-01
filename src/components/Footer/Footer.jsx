@@ -64,6 +64,16 @@ export const Footer = ({ token }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMobile]);
 
+  const handleScrollTop = () => {
+    if (location.pathname === "/") {
+      document.documentElement.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "auto",
+      });
+    }
+  };
+
   return (
     <footer
       ref={footerRef}
@@ -72,7 +82,7 @@ export const Footer = ({ token }) => {
     >
       <Layout>
         <div className={s.footerContainer}>
-          <Link to="/" className={s.logoContainer}>
+          <Link onClick={handleScrollTop} to="/" className={s.logoContainer}>
             <img src="/icons/colored-logo.svg" alt="Logo" />
             <span>Sentir</span>
           </Link>

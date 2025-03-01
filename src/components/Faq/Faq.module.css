@@ -5,6 +5,7 @@
   background-size: contain;
   background-position: 2vw;
   padding: 2.7vw;
+  overflow-y: scroll;
 
   h3,
   p {

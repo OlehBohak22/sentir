@@ -113,7 +113,7 @@ export const SectionNavigation = ({ token, openPopup }) => {
               <div className={s.imageContainer}>
                 <img
                   data-aos="fade-up"
-                  src="/images/workflow-page/nav-section/intro.jpg"
+                  src="/images/workflow-page/nav-section/introductory.avif"
                   alt="Introduction"
                 />
               </div>
@@ -179,10 +179,11 @@ export const SectionNavigation = ({ token, openPopup }) => {
               <div className={s.imageContainer}>
                 <img
                   data-aos="fade-up"
-                  src="/images/workflow-page/nav-section/research.jpg"
+                  src="/images/workflow-page/nav-section/research.avif"
                   alt="Introduction"
                 />
               </div>
+
               <h3>
                 <AnimatedHeading text="Research and Proposal: Time and Materials."></AnimatedHeading>
               </h3>
@@ -210,8 +211,15 @@ export const SectionNavigation = ({ token, openPopup }) => {
             </div>
           </Element>
 
-          <Element>
+          <Element name="proposal" id="proposal">
             <div className={s.navBlock}>
+              <div className={s.imageContainer}>
+                <img
+                  data-aos="fade-up"
+                  src="/images/workflow-page/nav-section/proposal.avif"
+                  alt="Introduction"
+                />
+              </div>
               <h3>
                 <AnimatedHeading text="Research and Proposal: Fixed Price."></AnimatedHeading>
               </h3>
@@ -248,9 +256,10 @@ export const SectionNavigation = ({ token, openPopup }) => {
 
           <Element name="design" id="design">
             <div className={s.navBlock}>
-              <div className={s.imageContainer} data-aos="fade-up">
+              <div className={s.imageContainer}>
                 <img
-                  src="/images/workflow-page/nav-section/design.jpg"
+                  data-aos="fade-up"
+                  src="/images/workflow-page/nav-section/design.avif"
                   alt="Introduction"
                 />
               </div>
@@ -276,6 +285,14 @@ export const SectionNavigation = ({ token, openPopup }) => {
 
           <Element name="delivery" id="delivery">
             <div className={s.navBlock}>
+              <div className={s.imageContainer}>
+                <img
+                  data-aos="fade-up"
+                  src="/images/workflow-page/nav-section/delivery.avif"
+                  alt="Introduction"
+                />
+              </div>
+
               <h3>
                 <AnimatedHeading text="Delivery and Feedback"></AnimatedHeading>
               </h3>
@@ -302,6 +319,13 @@ export const SectionNavigation = ({ token, openPopup }) => {
 
           <Element name="soft" id="soft">
             <div className={s.navBlock}>
+              <div className={s.imageContainer}>
+                <img
+                  data-aos="fade-up"
+                  src="/images/workflow-page/nav-section/soft.avif"
+                  alt="Introduction"
+                />
+              </div>
               <h3>
                 <AnimatedHeading text="Soft Launch"></AnimatedHeading>
               </h3>
@@ -320,6 +344,13 @@ export const SectionNavigation = ({ token, openPopup }) => {
 
           <Element name="launch" id="launch" style={{ marginBottom: "50px" }}>
             <div className={s.navBlock}>
+              <div className={s.imageContainer}>
+                <img
+                  data-aos="fade-up"
+                  src="/images/workflow-page/nav-section/launch.avif"
+                  alt="Introduction"
+                />
+              </div>
               <h3>
                 <AnimatedHeading text="Launch and Support"></AnimatedHeading>
               </h3>

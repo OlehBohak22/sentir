@@ -1,12 +1,16 @@
 .section {
-  background: var(--primary-gradient);
+  position: relative;
+  overflow: hidden;
+  background-image: url(/images/sections-bg/home-hero-bg.avif);
+  background-size: cover;
   height: 120vh;
-  padding-top: 15vw;
+  padding-top: 13vw;
+  z-index: 9;
 
   h1 {
     position: relative;
     text-align: center;
-    margin-bottom: 7.7vw;
+    margin-bottom: 12vw;
 
     span {
       display: block;
@@ -25,12 +29,27 @@
     font-size: 2.2vw;
     line-height: 2.6vw;
     color: #ffffff;
+    margin-bottom: 2vw;
+  }
+
+  .bottomText {
+    font-family: DM Sans;
+    font-weight: 300;
+    font-size: 1.1vw;
+    line-height: 1.6vw;
+    letter-spacing: -2.2%;
+    text-align: center;
+    max-width: 20vw;
+
+    a {
+      text-decoration: underline;
+    }
   }
 }
 
 .svg {
   position: absolute;
-  top: 4vw;
+  top: -2vw;
   width: 100%;
   height: auto;
   stroke: rgba(255, 255, 255, 0.2);
@@ -104,6 +123,36 @@
   }
 }
 
+.heroHoverLink {
+  display: block;
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  font-family: Almarai, sans-serif;
+  font-size: 1.6vw;
+  font-weight: 700;
+  line-height: 2.5vw;
+  color: #ffffff;
+  transition: 0.3s;
+  margin: 0 auto;
+  margin-bottom: 2.2vw;
+}
+
+.heroHoverLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.heroHoverLink:hover::after {
+  width: 0;
+}
+
 @media (max-width: 1024px) {
   .section {
     padding-top: 55vw;
@@ -121,6 +170,16 @@
       width: 80vw;
       font-size: 6vw;
       line-height: 8vw;
+    }
+
+    .bottomText {
+      font-size: 5vw;
+      line-height: 6 vw;
+      max-width: 60vw;
+
+      a {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -142,5 +201,11 @@
     stroke: rgba(255, 255, 255, 0.2);
     box-shadow: none !important;
     transform: scale(1.5);
+  }
+
+  .heroHoverLink {
+    font-size: 5vw;
+    line-height: 9.6vw;
+    margin-bottom: 10vw;
   }
 }

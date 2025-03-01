@@ -7,6 +7,7 @@
   border-radius: 100%;
   margin: 0 auto;
   margin-bottom: 1.3vw;
+  text-align: center;
 }
 
 .reviewerFullname {
@@ -18,6 +19,7 @@
   line-height: 2.2vw;
   margin-bottom: 0.8vw;
   color: rgb(255, 255, 255);
+  text-align: center;
 }
 
 .reviewerDirect {
@@ -27,7 +29,7 @@
   font-size: 1.6vw;
   font-weight: 400;
   line-height: 1.8vw;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.3);
   margin-bottom: 3.3vw;
 }
 
@@ -85,7 +87,7 @@
   .reviewerFullname {
     font-size: 8.5vw;
     line-height: 8.5vw;
-    color: rgba(255, 255, 255, 0.4);
+    /* color: rgba(255, 255, 255, 0.4); */
     margin-bottom: 3.2vw;
   }
 

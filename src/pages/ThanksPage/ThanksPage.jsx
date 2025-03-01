@@ -2,6 +2,7 @@ import { Layout } from "../../components/Layout/Layout";
 import s from "./ThanksPage.module.css";
 import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export const ThanksPage = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -109,10 +110,13 @@ export const ThanksPage = () => {
           </motion.div>
 
           {isDesktop && (
-            <div>
+            <div
+              className="flex
+             justify-center"
+            >
               <motion.span
                 initial={{ opacity: 0, x: "0" }}
-                whileInView={{ opacity: 1, x: "-17%" }}
+                whileInView={{ opacity: 1, x: "-40%" }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }}
               >
@@ -120,7 +124,7 @@ export const ThanksPage = () => {
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, x: "0" }}
-                whileInView={{ opacity: 1, x: "15%" }}
+                whileInView={{ opacity: 1, x: "35%" }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }}
               >
@@ -152,7 +156,16 @@ export const ThanksPage = () => {
         </h1>
 
         <p>
-          Your customer success manager will contact you in the next 24 hours.
+          We've received your request and will get in touch within 24 hours.
+        </p>
+
+        <Link to="/" className={s.heroHoverLink}>
+          GOT IT
+        </Link>
+
+        <p className={s.bottomText}>
+          Meanwhile, you can read more <Link to="/about">about</Link> Sentir and
+          our Values
         </p>
       </Layout>
     </section>

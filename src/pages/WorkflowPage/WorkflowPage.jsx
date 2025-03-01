@@ -23,7 +23,7 @@ export const WorkflowPage = ({ token, openPopup }) => {
       if (!token) return;
       try {
         const data = await getData(token, "wp-json/wp/v2/reviews");
-        setReview(data.find((item) => item.case_select == "About"));
+        setReview(data.find((item) => item.case_select == "Workflow"));
       } catch (error) {
         console.error("Error fetching reviews:", error);
       }
@@ -86,7 +86,7 @@ export const WorkflowPage = ({ token, openPopup }) => {
           {/* Зарезервоване місце для Roadmap */}
           <div
             style={{
-              minHeight: "700px", // Висота зарезервованого простору
+              minHeight: "600px", // Висота зарезервованого простору
               position: "relative", // Для збереження простору
             }}
           >

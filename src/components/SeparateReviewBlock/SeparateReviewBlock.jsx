@@ -20,19 +20,44 @@ export const SeparateReviewBlock = ({ review }) => {
       animate="animate"
       className={s.container}
     >
-      <motion.div {...fadeUp(0)}>
-        <img
-          className={s.reviewerAvatar}
-          src={review.avatar}
-          alt={review.full_name}
-        />
-      </motion.div>
-      <motion.div {...fadeUp(0.2)}>
-        <p className={s.reviewerFullname}>{review.full_name}</p>
-      </motion.div>
-      <motion.div {...fadeUp(0.4)}>
-        <p className={s.reviewerDirect}>{review.direction}</p>
-      </motion.div>
+      <div className="flex justify-center items-centerd gap-[3.7vw]">
+        <div>
+          <motion.div {...fadeUp(0)}>
+            <img
+              className={s.reviewerAvatar}
+              src={review.avatar}
+              alt={review.full_name}
+            />
+          </motion.div>
+          <motion.div {...fadeUp(0.2)}>
+            <p className={s.reviewerFullname}>{review.full_name}</p>
+          </motion.div>
+          <motion.div {...fadeUp(0.4)}>
+            <p className={s.reviewerDirect}>{review.direction}</p>
+          </motion.div>
+        </div>
+
+        {review.avatar_second &&
+          review.full_name_second &&
+          review.direction_second && (
+            <div>
+              <motion.div {...fadeUp(0)}>
+                <img
+                  className={s.reviewerAvatar}
+                  src={review.avatar_second}
+                  alt={review.full_name}
+                />
+              </motion.div>
+              <motion.div {...fadeUp(0.2)}>
+                <p className={s.reviewerFullname}>{review.full_name_second}</p>
+              </motion.div>
+              <motion.div {...fadeUp(0.4)}>
+                <p className={s.reviewerDirect}>{review.direction_second}</p>
+              </motion.div>
+            </div>
+          )}
+      </div>
+
       <motion.div {...fadeUp(0.6)} className={s.reviewContent}>
         <img src="/icons/gradient-quotes.svg" alt="" />
         <p>
@@ -42,7 +67,7 @@ export const SeparateReviewBlock = ({ review }) => {
                 <span
                   dangerouslySetInnerHTML={{
                     __html: review?.review?.includes("<br")
-                      ? review.review.replace(/<br\s*\/?>/g, "<br />")
+                      ? review.review.replace(/<br\s*\/?>/g, "<br /> ")
                       : review?.review,
                   }}
                 />

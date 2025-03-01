@@ -16,7 +16,6 @@ export const ServicesTabs = ({ token, openPopup }) => {
   const activeService = services.find((tab) => tab.id === activeTab);
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
-
   const location = useLocation();
   const sectionRef = useRef(null);
 
@@ -177,7 +176,11 @@ export const ServicesTabs = ({ token, openPopup }) => {
                 />
 
                 {activeService.service_trigerbtn && (
-                  <div data-aos="fade-up" data-aos-duration="2000">
+                  <div
+                    data-aos="fade-up"
+                    data-aos-offset="100"
+                    data-aos-duration="2000"
+                  >
                     <div className="mt-[2.2vw]" onClick={() => openPopup()}>
                       <DiscussBtn className={clsx(isMobile && "m-0 ")}>
                         {activeService.service_trigerbtn}

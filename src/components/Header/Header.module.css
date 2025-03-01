@@ -15,7 +15,6 @@ header {
 }
 
 .headerContainer.hide {
-  top: -4.5vw; /* Ховаємо хедер */
 }
 
 .headerContainer.show {
@@ -81,7 +80,7 @@ header.scrolled nav li div {
 
 @media (max-width: 1024px) {
   .headerContainer.hide {
-    top: -20vw; /* Ховаємо хедер */
+    /* top: -20vw; Ховаємо хедер */
   }
 
   .logoContainer {

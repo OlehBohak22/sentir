@@ -1,6 +1,8 @@
 .heroSection {
+  position: relative;
   background-color: #000;
-  height: 150vh;
+  height: 120vh;
+  z-index: 9;
 
   .titleContainer {
     color: #ffffff;
