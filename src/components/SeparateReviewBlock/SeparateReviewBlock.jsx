@@ -20,7 +20,7 @@ export const SeparateReviewBlock = ({ review }) => {
       animate="animate"
       className={s.container}
     >
-      <div className="flex justify-center items-centerd gap-[3.7vw]">
+      <div className="flex justify-center items-center gap-[3.7vw]">
         <div>
           <motion.div {...fadeUp(0)}>
             <img

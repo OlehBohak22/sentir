@@ -55,12 +55,14 @@ export const CaseDetails = ({ details }) => {
             <div data-aos="fade-up" className={s.detailsBlock}>
               <span>Service:</span>
               <p>
-                {details.case_mors
-                  .split("|||") // Розбиваємо рядок
+                {/* {details.case_mors
+                  .split("") // Розбиваємо рядок
                   .filter(Boolean) // Видаляємо порожні елементи, якщо вони є
                   .map(
                     (item, index) => (index === 0 ? item : `, ${item}`) // Додаємо кому лише після першого елемента
-                  )}
+                  )} */}
+
+                {details.mors_services}
               </p>
             </div>
           ) : (

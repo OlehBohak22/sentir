@@ -1,9 +1,9 @@
 .section {
-  background-color: #000; /* Чорний фон */
-  background-image: url("/images/sections-bg/service-elipse.png"); /* Шлях до картинки */
-  background-size: contain; /* Картинка покриває всю секцію */
-  background-position: right; /* Картинка вирівнюється по центру */
-  background-repeat: no-repeat; /* Картинка не повторюється */
+  background-color: #000;
+  /* background-image: url("/images/sections-bg/service-elipse.png"); */
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
   padding: 7vw 0;
 
   h2 {

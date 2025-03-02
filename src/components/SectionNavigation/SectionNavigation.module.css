@@ -2,9 +2,13 @@
   padding: 0 0 3.6vw 0;
   border-bottom: 0.06vw solid rgba(11, 11, 11, 0.1);
   margin-bottom: 4.4vw;
-  height: 100vh;
-  overflow-y: scroll;
+  scroll-snap-align: start;
+  /* height: 100vh; */
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* padding-top: 6vw; */
   h3 {
     font-family: DM Sans;
     font-size: 3.3vw;
@@ -28,6 +32,8 @@
 
 .section {
   padding: 8.3vw 0;
+
+  scroll-snap-type: y mandatory; /* або 'x mandatory' для горизонтального */
 }
 
 .container {

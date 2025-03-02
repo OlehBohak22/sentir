@@ -4,7 +4,7 @@
   height: auto !important; /* Секція займає всю висоту екрану */
   max-height: none !important;
   overflow: hidden; /* Приховуємо все, що виходить за межі */
-  padding-top: 7vw !important;
+  padding-top: 8vw !important;
 }
 
 .horizontalBlocks {

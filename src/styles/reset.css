@@ -34,6 +34,7 @@ body {
   overflow-x: hidden;
   width: 100vw;
   min-height: 150vh;
+  /* overflow: hidden; */
 }
 
 /* Видалення рамок для елементів форм */

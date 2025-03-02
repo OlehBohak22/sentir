@@ -177,6 +177,7 @@
       font-size: 8.5vw;
       line-height: 9.3vw;
       margin-bottom: 13.8vw;
+      max-width: none;
     }
 
     div:not(:last-child) {

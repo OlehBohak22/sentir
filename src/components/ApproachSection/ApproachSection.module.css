@@ -145,7 +145,7 @@
   }
 }
 
-.bottomBlock::after {
+/* .bottomBlock::after {
   content: "";
   position: absolute;
   width: 20vw;
@@ -155,7 +155,7 @@
   background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent);
   filter: blur(8vw);
   pointer-events: none;
-}
+} */
 
 .bottomBlock {
   overflow: hidden;
