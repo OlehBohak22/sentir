@@ -104,24 +104,14 @@ footer {
 
 .socialLinks li svg {
   transition: fill 0.3s ease;
-}
-
-.socialLinks li svg path {
-  fill: #0b0b0b; /* Початковий колір */
+  fill: black;
 }
 
 .socialLinks li:hover svg path {
   fill: url(#gradient); /* Градієнт при ховері */
 }
-.socialLinks li:nth-child(2):hover svg path {
-  stroke: url(#gradient); /* Градієнт при ховері */
-}
 
-.socialLinks li:nth-child(2) svg path {
-  fill: transparent; /* Градієнт при ховері */
-}
-
-.socialLinks li svg:hover {
+.socialLinks li:hover {
   cursor: pointer;
 }
 
