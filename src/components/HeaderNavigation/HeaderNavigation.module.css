@@ -159,6 +159,12 @@
     border-radius: 10.1vw;
     font-size: 3.2vw;
     line-height: 4.8vw;
+
+    svg {
+      width: 12vw;
+      height: 4.8vw;
+      transition: fill 0.3s;
+    }
   }
 
   .burger {

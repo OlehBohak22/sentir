@@ -236,7 +236,10 @@ export const HomeHero = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.9, delay: 0.2 + index * 0.3 }}
                 >
-                  <p dangerouslySetInnerHTML={{ __html: text }} />
+                  <p
+                    data-aos="fade-up"
+                    dangerouslySetInnerHTML={{ __html: text }}
+                  />
                 </motion.li>
               ))}
             </motion.ul>
