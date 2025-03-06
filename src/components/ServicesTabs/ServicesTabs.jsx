@@ -178,7 +178,7 @@ export const ServicesTabs = ({ token, openPopup }) => {
                 {activeService.service_trigerbtn && (
                   <div
                     data-aos="fade-up"
-                    data-aos-offset="100"
+                    data-aos-offset="1"
                     data-aos-duration="2000"
                   >
                     <div className="mt-[2.2vw]" onClick={() => openPopup()}>
