@@ -52,7 +52,7 @@
 
   .heroDesc {
     text-align: center;
-    width: 43vw;
+    width: 49vw;
     margin: 0 auto;
     font-family: DM Sans;
 
@@ -221,7 +221,7 @@
     }
 
     .heroDesc {
-      width: 86vw;
+      width: auto;
       font-size: 3.7vw;
       line-height: 4.8vw;
       margin-bottom: 8vw;

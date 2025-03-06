@@ -211,9 +211,12 @@ export const HomeHero = () => {
         </h1>
         <p data-aos="fade-up" className={s.heroDesc}>
           From napkin sketches to full-scale digital solutions, we harness
-          global expertise to turn your idea into a product that people love.
-          Embrace our diverse, collaborative approach to making products that
-          resonate with users and drive business success.
+          global expertise as your trusted Software Development Partner to turn
+          your idea into a product that people love. Embrace our diverse,
+          collaborative approach to building solutions that resonate with users
+          and drive business success. Whether it’s custom web and mobile
+          development, UX/UI design, or technical consulting, we deliver
+          tailored, scalable results for startups and enterprises alike.
         </p>
 
         <Link to="/contact" data-aos="fade-up" className={s.heroHoverLink}>
