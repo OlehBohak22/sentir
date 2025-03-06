@@ -60,6 +60,12 @@
   transition: 0.3s ease; /* Плавний перехід кольору тексту */
   overflow: hidden;
   z-index: 1;
+
+  svg {
+    width: 3.6vw;
+    height: 1.4vw;
+    transition: fill 0.3s;
+  }
 }
 
 .headerContactBtn::before {
@@ -84,9 +90,13 @@
 }
 
 .headerContactBtn:hover {
-  color: #5792ff; /* Чорний колір тексту */
   z-index: 2; /* Текст залишається над фоном */
-  border: 0.06vw solid transparent;
+
+  svg {
+    path {
+      fill: url(#gradient) !important;
+    }
+  }
 }
 
 .navContainer {

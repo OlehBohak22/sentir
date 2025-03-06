@@ -7,3 +7,19 @@
     #ff5a4a 94.01%
   );
 }
+
+.swiper-button-disabled {
+  filter: brightness(0.2);
+}
+
+.swiper-button-disabled:hover {
+  background-color: transparent !important;
+
+  img:nth-child(1) {
+    display: block !important;
+    opacity: 1 !important;
+  }
+  img:nth-child(2) {
+    display: none !important;
+  }
+}

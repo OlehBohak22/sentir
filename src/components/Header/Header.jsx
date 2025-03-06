@@ -104,6 +104,7 @@ export const Header = () => {
               </Link>
 
               <HeaderNavigation
+                className={s.nav}
                 closeMenu={closeMenu}
                 openMenu={openMenu}
                 scrollTop={handleScrollTop}

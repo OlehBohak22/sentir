@@ -21,8 +21,16 @@ header {
   top: 0;
 }
 
-header.scrolled a svg {
+header.scrolled a::before {
+  background-color: rgb(245, 245, 245);
+}
+
+header.scrolled .nav a svg {
   fill: black;
+
+  path {
+    fill: black;
+  }
 }
 
 header.scrolled {
@@ -32,7 +40,7 @@ header.scrolled {
 }
 
 header.scrolled .logoContainer svg {
-  fill: black; /* Зміна кольору іконки при скролі */
+  /* fill: none; */
 }
 
 header.scrolled .logoContainer span {

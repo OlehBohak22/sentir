@@ -1,9 +1,9 @@
 .section {
-  height: 100vh;
+  height: 49.7vw;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
-  padding-top: 31vw;
+  padding-top: 36vw;
 }
 
 .section::before {
