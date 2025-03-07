@@ -1,7 +1,8 @@
 .section {
-  height: 49.7vw;
+  height: 48vw;
   position: relative;
-  background-size: cover;
+  background-size: contain;
+  background-position: 0 4.15vw;
   background-repeat: no-repeat;
   padding-top: 36vw;
 }
