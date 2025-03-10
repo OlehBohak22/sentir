@@ -128,7 +128,7 @@ svg {
     h2 {
       font-size: 9.6vw;
       line-height: 9.6vw;
-      text-align: center;
+      justify-content: center;
       margin-bottom: 10.6vw;
     }
 
