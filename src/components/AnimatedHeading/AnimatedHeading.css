@@ -19,3 +19,9 @@
   line-height: inherit;
   will-change: transform, opacity;
 }
+
+@media (max-width: 1024px) {
+  .animated-heading {
+    padding-bottom: 1vw;
+  }
+}

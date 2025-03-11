@@ -1,31 +1,11 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion"; // Підключення Framer Motion
 import s from "./ContactPage.module.css";
 import { Layout } from "../../components/Layout/Layout";
-import { getData } from "../../services/api";
 import { MainForm } from "../../components/Form/MainForm";
 import { Helmet } from "react-helmet";
 
-export const ContactPage = ({ token }) => {
-  const [contactInfo, setContactInfo] = useState({});
-  const [isVisible, setIsVisible] = useState(false); // Для керування видимістю
-
-  useEffect(() => {
-    const fetchCompanies = async () => {
-      if (!token) return;
-      try {
-        const data = await getData(token, "wp-json/wp/v2/contact-info");
-        setContactInfo(data);
-        setIsVisible(true); // Показати після завантаження
-      } catch (error) {
-        console.error("Error fetching info:", error);
-      }
-    };
-
-    fetchCompanies();
-  }, [token]);
-
+export const ContactPage = ({ contactInfo }) => {
   // Анімаційні параметри
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -49,8 +29,7 @@ export const ContactPage = ({ token }) => {
           <Layout className={s.container}>
             <motion.div
               className="shrink-0"
-              initial="hidden"
-              animate={isVisible ? "visible" : "hidden"}
+              initial="visible"
               variants={fadeIn}
             >
               <div className={s.contactInfo}>
@@ -217,8 +196,7 @@ export const ContactPage = ({ token }) => {
 
             <motion.div
               className="shrink-0"
-              initial="hidden"
-              animate={isVisible ? "visible" : "hidden"}
+              initial="visible"
               variants={fadeIn}
             >
               <MainForm />

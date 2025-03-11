@@ -1,34 +1,15 @@
 import { useState, useEffect } from "react";
 import s from "./Popup.module.css";
 import { MainForm } from "../Form/MainForm";
-import { getData } from "../../services/api";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { AnimatedHeadingFaster } from "../AnimatedHeading/AnimatedHeading";
 
-export const Popup = ({ onClose, token }) => {
+export const Popup = ({ onClose, contactInfo }) => {
   const [isClosing, setIsClosing] = useState(false);
-  const [isVisible, setIsVisible] = useState(false); // Для керування видимістю
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
-
-  const [contactInfo, setContactInfo] = useState({});
-
-  useEffect(() => {
-    const fetchCompanies = async () => {
-      if (!token) return;
-      try {
-        const data = await getData(token, "wp-json/wp/v2/contact-info");
-        setContactInfo(data);
-        setIsVisible(true); // Показати після завантаження
-      } catch (error) {
-        console.error("Error fetching info:", error);
-      }
-    };
-
-    fetchCompanies();
-  }, [token]);
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -79,12 +60,7 @@ export const Popup = ({ onClose, token }) => {
         </button>
 
         {isDesktop && (
-          <motion.div
-            className="shrink-0"
-            initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
-            variants={fadeIn}
-          >
+          <motion.div className="shrink-0" initial="visible" variants={fadeIn}>
             <div className={s.contactInfo}>
               <h1>CONTACT</h1>
 

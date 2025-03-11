@@ -138,12 +138,12 @@
 
 @media (max-width: 1024px) {
   .scroller {
-    padding-top: 20vw !important;
+    padding-top: 30vw !important;
     padding-bottom: 10vw;
   }
 
   .progressBarWrapper {
-    top: 15vw;
+    top: 21vw;
     height: 2px;
   }
 
@@ -167,9 +167,10 @@
     }
 
     ul {
-      padding-left: 6vw;
+      padding-left: 4vw;
       overflow-y: auto;
       max-height: 80vw;
+      height: 28vh;
 
       li {
         font-size: 4.9vw;

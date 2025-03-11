@@ -20,6 +20,7 @@ import { Popup } from "./components/Popup/Popup";
 import { ThanksPage } from "./pages/ThanksPage/ThanksPage";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { ToastContainer } from "react-toastify";
+import { getData } from "./services/api";
 
 export default function App() {
   const [token, setToken] = useState();
@@ -29,6 +30,23 @@ export default function App() {
   const openPopup = () => setPopupOpen(true);
   const closePopup = () => setPopupOpen(false);
   const location = useLocation();
+
+  const [contactInfo, setContactInfo] = useState({});
+
+  // Отримання даних контактів
+  useEffect(() => {
+    const fetchCompanies = async () => {
+      if (!token) return;
+      try {
+        const data = await getData(token, "wp-json/wp/v2/contact-info");
+        setContactInfo(data);
+      } catch (error) {
+        console.error("Error fetching info:", error);
+      }
+    };
+
+    fetchCompanies();
+  }, [token]);
 
   useEffect(() => {
     setShowFooter(false);
@@ -168,7 +186,7 @@ export default function App() {
       <div className="cursor"></div>
       <Header />
 
-      {isPopupOpen && <Popup onClose={closePopup} token={token} />}
+      {isPopupOpen && <Popup onClose={closePopup} contactInfo={contactInfo} />}
 
       <ScrollTop />
 
@@ -226,7 +244,7 @@ export default function App() {
             path="/contact"
             element={
               <PageWrapper>
-                <ContactPage token={token} />
+                <ContactPage contactInfo={contactInfo} />
               </PageWrapper>
             }
           />
@@ -260,7 +278,7 @@ export default function App() {
         </Routes>
       </AnimatePresence>
 
-      {showFooter && <Footer token={token} />}
+      {showFooter && <Footer contactInfo={contactInfo} />}
     </>
   );
 }

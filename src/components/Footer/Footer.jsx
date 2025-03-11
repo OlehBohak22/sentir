@@ -1,37 +1,20 @@
 import { Link } from "react-router-dom";
 import { Layout } from "../Layout/Layout";
 import s from "./Footer.module.css";
-import { getData } from "../../services/api";
 import { useMediaQuery } from "react-responsive";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import Aos from "aos";
 
-export const Footer = ({ token }) => {
+export const Footer = ({ contactInfo }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
   const location = useLocation();
-  const [contactInfo, setContactInfo] = useState({});
 
   // ref для футера
   const footerRef = useRef(null);
   // стан для збереження translateY
   const [translateY, setTranslateY] = useState(100);
-
-  // Отримання даних контактів
-  useEffect(() => {
-    const fetchCompanies = async () => {
-      if (!token) return;
-      try {
-        const data = await getData(token, "wp-json/wp/v2/contact-info");
-        setContactInfo(data);
-      } catch (error) {
-        console.error("Error fetching info:", error);
-      }
-    };
-
-    fetchCompanies();
-  }, [token]);
 
   useEffect(() => {
     Aos.init();

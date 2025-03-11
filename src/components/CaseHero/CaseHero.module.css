@@ -1,8 +1,8 @@
 .section {
   height: 48vw;
   position: relative;
-  background-size: contain;
-  background-position: 0 4.15vw;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   padding-top: 36vw;
 }
@@ -47,6 +47,7 @@
     padding: 70vw 0 13vw 0;
     background-position: center;
     height: auto;
+    background-size: cover;
   }
 
   .section::before {
