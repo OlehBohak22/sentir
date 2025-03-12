@@ -219,7 +219,12 @@ export const HomeHero = () => {
           tailored, scalable results for startups and enterprises alike.
         </p>
 
-        <Link to="/contact" data-aos="fade-up" className={s.heroHoverLink}>
+        <Link
+          to="/contact"
+          data-aos="fade-up"
+          data-aos-offset="10"
+          className={s.heroHoverLink}
+        >
           GET NO-COST DISCOVERY
         </Link>
 
