@@ -157,6 +157,7 @@
     background-image: url(/images/sections-bg/home-hero-bg.jpg);
     background-size: cover;
     background-position: center;
+    background-attachment: unset;
     padding: 21.3vw 0;
 
     .container {
