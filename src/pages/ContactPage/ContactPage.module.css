@@ -1,6 +1,7 @@
 .section {
   min-height: 100vh;
-  background-image: url("/images/sections-bg/contact-page-bg.avif");
+  background-image: url("/images/sections-bg/contact-page-bg.avif"),
+    var(--primary-gradient);
   background-size: cover;
   background-attachment: fixed;
   /* background-position: -40vw; */
