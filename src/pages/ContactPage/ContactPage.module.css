@@ -81,6 +81,7 @@
   .section {
     padding-top: 36vw;
     padding-bottom: 20vw;
+    background-attachment: unset;
   }
 
   .container {

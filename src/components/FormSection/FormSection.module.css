@@ -32,6 +32,7 @@
   .section {
     padding: 21.3vw 0;
     background-size: 100% 100%;
+    background-attachment: unset;
   }
   .container {
     display: block;
