@@ -3,12 +3,11 @@
   padding-top: 12.8vw;
   padding-bottom: 6vw;
   overflow: hidden;
-
-  /* background-image: url(/images/sections-bg/home-hero-bg.avif); */
   background: url(/images/sections-bg/home-hero-bg.avif),
     var(--primary-gradient);
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 
   .heroTitle {
     padding-top: 2vw;

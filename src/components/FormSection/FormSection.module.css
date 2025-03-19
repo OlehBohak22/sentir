@@ -3,6 +3,7 @@
   /* background: var(--primary-gradient); */
   background-image: url("/images/sections-bg/form-section-bg.avif");
   background-size: cover;
+  background-attachment: fixed;
   padding: 7.2vw 0 8.3vw 0;
   overflow: hidden;
   z-index: 1;

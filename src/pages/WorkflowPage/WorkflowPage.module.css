@@ -92,6 +92,7 @@
 .innovationSection {
   background-image: url(/images/sections-bg/home-hero-bg.jpg);
   background-size: cover;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center -30vw;
   padding: 8.3vw 2.7vw;
