@@ -27,11 +27,7 @@ export const ContactPage = ({ contactInfo }) => {
       <main>
         <section className={s.section}>
           <Layout className={s.container}>
-            <motion.div
-              className="shrink-0"
-              initial="visible"
-              variants={fadeIn}
-            >
+            <div>
               <div className={s.contactInfo}>
                 <h1>CONTACT</h1>
 
@@ -192,7 +188,7 @@ export const ContactPage = ({ contactInfo }) => {
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             <motion.div
               className="shrink-0"

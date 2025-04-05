@@ -71,6 +71,7 @@
   position: sticky;
   top: 5vw;
   width: 16vw;
+  height: max-content;
 
   a {
     display: block;

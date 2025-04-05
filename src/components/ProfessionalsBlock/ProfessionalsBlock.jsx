@@ -50,9 +50,15 @@ export const ProfessionalsBlock = () => {
         <div>
           {/* Заголовок із анімацією */}
           <h2>
-            <span data-aos="fade-right">Professionals</span>
-            <span data-aos="fade-left">behind</span>
-            <span data-aos="fade-right">your project</span>
+            <span data-aos="fade-right" data-aos-duration="800">
+              Professionals
+            </span>
+            <span data-aos="fade-left" data-aos-duration="800">
+              behind
+            </span>
+            <span data-aos="fade-right" data-aos-duration="800">
+              your project
+            </span>
           </h2>
 
           {/* Список із анімацією */}
