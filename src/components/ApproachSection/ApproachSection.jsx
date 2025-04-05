@@ -65,14 +65,18 @@ export const ApproachSection = ({ openPopup, isPopupOpen }) => {
             isStickyFixed ? s.fixedPosition : ""
           }`}
         >
-          <p data-aos="fade-up">
+          <p data-aos="fade-up" data-aos-duration="800">
             Take the first
             <br />
             step towards realizing
             <br />
             your idea
           </p>
-          <div onClick={() => openPopup()} data-aos="fade-up">
+          <div
+            onClick={() => openPopup()}
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
             <DiscussBtn>Discuss a project</DiscussBtn>
           </div>
         </div>
@@ -88,19 +92,35 @@ export const ApproachSection = ({ openPopup, isPopupOpen }) => {
           viewport={{ once: false, amount: 0.1 }}
         >
           <motion.h2 className={s.title}>
-            <span data-aos="fade-right" className={s.firstLine}>
+            <span
+              data-aos="fade-right"
+              data-aos-duration="800"
+              className={s.firstLine}
+            >
               sentir
             </span>
-            <span data-aos="fade-left" className={s.secondLine}>
+            <span
+              data-aos="fade-left"
+              data-aos-duration="800"
+              className={s.secondLine}
+            >
               tailored approach
             </span>
-            <span data-aos="fade-right" className={s.thirdLine}>
+            <span
+              data-aos="fade-right"
+              data-aos-duration="800"
+              className={s.thirdLine}
+            >
               for success
             </span>
           </motion.h2>
 
           <div className={s.mainItems}>
-            <div data-aos="fade-up" className={`${s.topBlocks} ${s.gradient}`}>
+            <div
+              data-aos="fade-up"
+              data-aos-duration="800"
+              className={`${s.topBlocks} ${s.gradient}`}
+            >
               <AnimateSvgFlexibility />
               <h3>Flexibility in Engagement Models</h3>
               <p>
@@ -114,7 +134,11 @@ export const ApproachSection = ({ openPopup, isPopupOpen }) => {
             </div>
 
             {/* Елемент 2 */}
-            <div data-aos="fade-up" className={`${s.topBlocks} ${s.grey}`}>
+            <div
+              data-aos="fade-up"
+              data-aos-duration="800"
+              className={`${s.topBlocks} ${s.grey}`}
+            >
               <h3>Strong Communication and Transparency</h3>
               <p className="opacity-[0.5]">
                 Our commitment to clarity is demonstrated through consistent
@@ -126,7 +150,11 @@ export const ApproachSection = ({ openPopup, isPopupOpen }) => {
             </div>
 
             {/* Елемент 3 */}
-            <div data-aos="fade-up" className={s.bottomBlock}>
+            <div
+              data-aos="fade-up"
+              data-aos-duration="800"
+              className={s.bottomBlock}
+            >
               <AnimateSvgHands />
               <div className={s.rotatingCircles}>
                 <img
@@ -143,7 +171,7 @@ export const ApproachSection = ({ openPopup, isPopupOpen }) => {
               <h3>
                 <AnimatedHeading text="Long-Term Support and Maintenance"></AnimatedHeading>
               </h3>
-              <p data-aos="fade-up">
+              <p data-aos="fade-up" data-aos-duration="800">
                 Our commitment to clients extends beyond the initial project
                 delivery. We offer ongoing support and maintenance to ensure
                 that the solutions we develop continue to perform optimally and

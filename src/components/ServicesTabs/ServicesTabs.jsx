@@ -9,6 +9,7 @@ import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { useLenis } from "../../utils/LenisProvider";
 
 export const ServicesTabs = ({ token, openPopup }) => {
   const [activeTab, setActiveTab] = useState(null);
@@ -18,51 +19,64 @@ export const ServicesTabs = ({ token, openPopup }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
   const location = useLocation();
   const sectionRef = useRef(null);
+  const lenis = useLenis();
 
   useEffect(() => {
-    Aos.init();
+    Aos.init({ once: true });
 
     const fetchServices = async () => {
       if (!token) return;
+
       try {
         const data = await getData(token, "wp-json/wp/v2/services");
         setServices(data);
 
-        if (location.hash) {
-          switch (location.hash) {
-            case "#project":
-              setActiveTab(data[0]?.id);
-              break;
-            case "#discovery":
-              setActiveTab(data[1]?.id);
-              break;
-            case "#UXUI":
-              setActiveTab(data[2]?.id);
-              break;
-            case "#web":
-              setActiveTab(data[3]?.id);
-              break;
-            case "#due":
-              setActiveTab(data[4]?.id);
-              break;
-            default:
-              setActiveTab(data[5]?.id);
-              break;
-          }
-
-          if (sectionRef.current) {
-            sectionRef.current.scrollIntoView({ behavior: "smooth" });
-          }
-        } else {
-          setActiveTab(data[0]?.id);
+        let selectedId;
+        switch (location.hash) {
+          case "#project":
+            selectedId = data[0]?.id;
+            break;
+          case "#discovery":
+            selectedId = data[1]?.id;
+            break;
+          case "#UXUI":
+            selectedId = data[2]?.id;
+            break;
+          case "#web":
+            selectedId = data[3]?.id;
+            break;
+          case "#due":
+            selectedId = data[4]?.id;
+            break;
+          default:
+            selectedId = data[5]?.id;
         }
+
+        setActiveTab(selectedId || data[0]?.id);
+
+        setTimeout(() => {
+          if (sectionRef.current && lenis) {
+            lenis.scrollTo(sectionRef.current, {
+              offset: 0,
+              duration: 1.1,
+              easing: (t) => 1 - Math.pow(1 - t, 4),
+            });
+          }
+        }, 500);
       } catch (error) {
         console.error("Error fetching Services:", error);
       }
     };
 
     fetchServices();
-  }, [token, location.hash]);
+  }, [token, location.hash, lenis]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      Aos.refresh();
+    }, 300);
+    return () => clearTimeout(timeout);
+  }, [activeTab]);
 
   const tabContentVariants = {
     hidden: { opacity: 0, x: -50 },
@@ -120,7 +134,7 @@ export const ServicesTabs = ({ token, openPopup }) => {
         <AnimatePresence mode="wait">
           {activeService && (
             <motion.div
-              key={activeTab} // Ключ для анімації при зміні табу
+              key={activeTab}
               variants={tabContentVariants}
               initial="hidden"
               animate="visible"
@@ -146,14 +160,12 @@ export const ServicesTabs = ({ token, openPopup }) => {
                       <p>{activeService.service_timeframe}</p>
                     </div>
                   )}
-
                   {activeService.service_team && (
                     <div data-aos="fade-up" data-aos-duration="1400">
                       <span>Team:</span>
                       <p>{activeService.service_team}</p>
                     </div>
                   )}
-
                   {activeService.service_outcomes && (
                     <div data-aos="fade-up" data-aos-duration="1600">
                       <span>Outcomes:</span>

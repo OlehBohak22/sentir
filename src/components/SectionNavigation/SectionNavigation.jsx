@@ -71,7 +71,6 @@ export const SectionNavigation = ({ token, openPopup }) => {
       )}
 
       <Layout className={s.container}>
-        {/* Ліва панель навігації */}
         <nav
           style={{
             position: "relative",

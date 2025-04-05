@@ -37,7 +37,7 @@ const PortfolioItem = ({ item }) => {
   // };
 
   return (
-    <div data-aos="fade-up" ref={ref} className="case">
+    <div data-aos="fade-up" data-aos-duration="800" ref={ref} className="case">
       <Link to={`/cases/${item.slug}`}>
         <motion.div
           className={s.container}
@@ -54,11 +54,13 @@ const PortfolioItem = ({ item }) => {
 
           <motion.div className={s.containerContent}>
             {/* Анімація заголовка */}
-            <h3 data-aos="fade-up">{item.case_title}</h3>
+            <h3 data-aos="fade-up" data-aos-duration="800">
+              {item.case_title}
+            </h3>
 
             <div>
               {/* Анімація списку */}
-              <ul data-aos="fade-up">
+              <ul data-aos="fade-up" data-aos-duration="800">
                 {mors
                   .sort((a, b) => (a === "NDA" ? -1 : b === "NDA" ? 1 : 0))
                   .map((item, index) => (
@@ -69,7 +71,9 @@ const PortfolioItem = ({ item }) => {
               </ul>
 
               {/* Анімація опису */}
-              <p data-aos="fade-up">{item.case_short_description}</p>
+              <p data-aos="fade-up" data-aos-duration="800">
+                {item.case_short_description}
+              </p>
             </div>
           </motion.div>
         </motion.div>

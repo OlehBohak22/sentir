@@ -14,7 +14,6 @@ import { Helmet } from "react-helmet";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-// Меморизація компонентів
 const MemoizedPortfolioTitularSection = memo(PortfolioTitularSection);
 const MemoizedPortfolioSection = memo(PortfolioSection);
 const MemoizedHomeReviewSwiper = memo(HomeReviewSwiper);

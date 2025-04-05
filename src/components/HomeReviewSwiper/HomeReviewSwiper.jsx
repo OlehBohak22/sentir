@@ -10,36 +10,15 @@ import "./swiperPagination.css";
 import { useMediaQuery } from "react-responsive";
 
 export const HomeReviewSwiper = ({ reviews }) => {
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(1);
   const [activeIndex, setActiveIndex] = useState(0); // Активний індекс слайда
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
 
-  // Анімаційні варіанти
-  const slideVariantsName = {
-    hidden: { opacity: 0, y: 50 }, // Початковий стан
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }, // Вхідний стан
-  };
-  const slideVariantsDirect = {
-    hidden: { opacity: 0, y: 50 }, // Початковий стан
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.1 } }, // Вхідний стан
-  };
-  const slideVariantsCompany = {
-    hidden: { opacity: 0, y: 50 }, // Початковий стан
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } }, // Вхідний стан
-  };
-  const slideVariantsImage = {
-    hidden: { opacity: 0, y: 50 }, // Початковий стан
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }, // Вхідний стан
-  };
-  const slideVariantsReview = {
-    hidden: { opacity: 0, y: 50 }, // Початковий стан
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } }, // Вхідний стан
-  };
-
   return (
     <div className={s.swiperContainer}>
       <Swiper
+        speed={600} // Плавність
         spaceBetween={50}
         slidesPerView={1}
         modules={[Navigation, Pagination]}
@@ -53,10 +32,11 @@ export const HomeReviewSwiper = ({ reviews }) => {
           type: "progressbar",
         }}
         onSlideChange={(swiper) => {
+          const realIndex = swiper.realIndex; // ✅ справжній індекс, без урахування клонів
           const currentProgress =
-            ((swiper.activeIndex + 1) / swiper.slides.length) * 100;
+            ((realIndex + 1) / swiper.slides.length) * 100;
           setProgress(currentProgress);
-          setActiveIndex(swiper.activeIndex); // Оновлюємо індекс активного слайда
+          setActiveIndex(realIndex);
         }}
       >
         {reviews
@@ -65,14 +45,16 @@ export const HomeReviewSwiper = ({ reviews }) => {
             <SwiperSlide key={review.id}>
               {/* Використовуємо motion.div з унікальним key для кожного слайда */}
               <motion.div
-                key={activeIndex} // Залежність від активного слайда
+                key={reviews[activeIndex]?.id} // ✅ Прив'язка до унікального review
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
                 className={s.swiperSlide}
               >
                 <div className={s.reviewerInfo}>
                   <motion.img
                     initial="hidden"
                     animate="visible"
-                    variants={slideVariantsImage}
                     className={s.reviewerAvatar}
                     src={review.avatar}
                     alt={review.full_name}
@@ -81,7 +63,6 @@ export const HomeReviewSwiper = ({ reviews }) => {
                     <motion.p
                       initial="hidden"
                       animate="visible"
-                      variants={slideVariantsName}
                       className={s.reviewerFullname}
                     >
                       {review.full_name}
@@ -89,7 +70,6 @@ export const HomeReviewSwiper = ({ reviews }) => {
                     <motion.p
                       initial="hidden"
                       animate="visible"
-                      variants={slideVariantsDirect}
                       className={s.reviewerDirect}
                     >
                       {review.direction}
@@ -99,7 +79,6 @@ export const HomeReviewSwiper = ({ reviews }) => {
                       <motion.div
                         initial="hidden"
                         animate="visible"
-                        variants={slideVariantsCompany}
                         className={s.reviewerCompany}
                       >
                         <img
@@ -111,11 +90,7 @@ export const HomeReviewSwiper = ({ reviews }) => {
                     )}
                   </div>
                 </div>
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={slideVariantsReview}
-                >
+                <motion.div initial="hidden" animate="visible">
                   <p
                     className={s.reviewContent}
                     dangerouslySetInnerHTML={{ __html: review.review }}

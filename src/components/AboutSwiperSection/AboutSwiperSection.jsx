@@ -17,39 +17,43 @@ export const AboutSwiperSection = () => {
   const scrollerRef = useRef();
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
 
+  const width = isDesktop ? 10.79 : 8.5;
+
   useEffect(() => {
     Aos.init();
   }, []);
 
   useLayoutEffect(() => {
-    const panels = gsap.utils.toArray(`.${s.slide}`);
-    const panelWidth = panels[0].offsetWidth; // Ширина одного слайда
+    const ctx = gsap.context(() => {
+      const panels = gsap.utils.toArray(`.${s.slide}`);
+      const panelWidth = panels[0].offsetWidth;
+      const totalWidth = panelWidth * width;
 
-    // Налаштування горизонтального скролу
-    gsap.to(panels, {
-      x:
-        -panelWidth *
-        ((isDesktop && panels.length - 0.54) || panels.length - 1), // Горизонтальне переміщення
-      ease: "none",
-      scrollTrigger: {
-        trigger: scrollerRef.current,
-        pin: true,
-        scrub: 0.5, // Плавна прокрутка
-        start: "top top",
-        end: `top -2500`, // Збалансувати ширину
-        onUpdate: (self) => {
-          const progressBar = document.getElementById("progress-bar");
-          if (progressBar) {
-            progressBar.style.width = `${self.progress * 100}%`;
-          }
+      const viewportWidth = window.innerWidth;
+      const scrollLength = totalWidth - viewportWidth;
+
+      gsap.to(panels, {
+        x: -scrollLength,
+        ease: "none",
+        scrollTrigger: {
+          trigger: scrollerRef.current,
+          pin: true,
+          scrub: 0.5,
+          start: "top top",
+          end: `+=${scrollLength}`, // 👈 Динамічна довжина скролу
+          anticipatePin: 1, // 👈 запобігає ривку при pin/unpin
+          onUpdate: (self) => {
+            const progressBar = document.getElementById("progress-bar");
+            if (progressBar) {
+              progressBar.style.width = `${self.progress * 100}%`;
+            }
+          },
         },
-      },
-    });
+      });
+    }, scrollerRef);
 
-    return () => {
-      ScrollTrigger.getAll().forEach((st) => st.kill());
-    };
-  }, []);
+    return () => ctx.revert(); // Очищення тригерів
+  }, [isDesktop]);
 
   return (
     <div ref={containerRef}>

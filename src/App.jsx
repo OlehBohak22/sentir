@@ -12,7 +12,7 @@ import { WorkflowPage } from "./pages/WorkflowPage/WorkflowPage";
 import { ServicesPage } from "./pages/ServicesPage/ServicesPage";
 import { CasePage } from "./pages/CasePage/CasePage";
 import { ContactPage } from "./pages/ContactPage/ContactPage";
-import { ScrollTop } from "./components/ScrollTop";
+// import { ScrollTop } from "./components/ScrollTop";
 import "./App.css";
 import { PolicyPage } from "./pages/PolicyPage/PolicyPage";
 import Lenis from "@studio-freight/lenis";
@@ -21,19 +21,29 @@ import { ThanksPage } from "./pages/ThanksPage/ThanksPage";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { ToastContainer } from "react-toastify";
 import { getData } from "./services/api";
+import Loader from "./components/Loader/Loader";
+import { LenisProvider } from "./utils/LenisProvider";
 
 export default function App() {
   const [token, setToken] = useState();
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [showFooter, setShowFooter] = useState(false);
-
+  const [loading, setLoading] = useState(true);
+  const [fadeOutLoader, setFadeOutLoader] = useState(false); // для анімації
   const openPopup = () => setPopupOpen(true);
   const closePopup = () => setPopupOpen(false);
   const location = useLocation();
+  const [lenis, setLenis] = useState();
 
   const [contactInfo, setContactInfo] = useState({});
 
-  // Отримання даних контактів
+  useEffect(() => {
+    setTimeout(() => {
+      setFadeOutLoader(true);
+      setTimeout(() => setLoading(false), 1000);
+    }, 1500);
+  }, []);
+
   useEffect(() => {
     const fetchCompanies = async () => {
       if (!token) return;
@@ -77,7 +87,6 @@ export default function App() {
 
   useEffect(() => {
     const handleMouseEnter = (e) => {
-      // Перевірка, чи існує target і чи має він клас "case"
       if (e.target && e.target.classList) {
         if (
           e.target.tagName === "A" ||
@@ -96,7 +105,6 @@ export default function App() {
     };
 
     const handleMouseLeave = (e) => {
-      // Перевірка, чи існує target і чи має він клас "case"
       if (e.target && e.target.classList) {
         if (
           e.target.tagName === "A" ||
@@ -113,7 +121,6 @@ export default function App() {
       }
     };
 
-    // Додаємо події на весь документ для лінків і елементів з класом "case"
     document.addEventListener("mouseenter", handleMouseEnter, true);
     document.addEventListener("mouseleave", handleMouseLeave, true);
 
@@ -126,12 +133,11 @@ export default function App() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       document.body.classList.remove("cursor-case");
-    }, 1000); // Затримка у 300 мс (можна змінити за потреби)
+    }, 1000);
 
-    return () => clearTimeout(timeout); // Очищення таймера при розмонтуванні або зміні маршруту
+    return () => clearTimeout(timeout);
   }, [location]);
 
-  // Отримання токена
   useEffect(() => {
     const fetchToken = async () => {
       try {
@@ -149,136 +155,147 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    // Перевірка на десктоп
     const isDesktop = window.innerWidth > 1024;
 
-    if (!isDesktop) return; // Якщо не десктоп, пропускаємо інерційний скрол
+    if (!isDesktop) return;
 
     const lenis = new Lenis();
 
-    // Функція raf для постійного оновлення скролу
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
 
-    // Початкова анімація
     requestAnimationFrame(raf);
 
-    // Перевіряємо, чи відкрито попап, і виконуємо необхідні дії
+    setLenis(lenis);
+
     if (isPopupOpen) {
-      lenis.stop(); // Зупиняємо скрол при відкритому попапі
+      lenis.stop();
     } else {
-      lenis.start(); // Відновлюємо скрол після закриття попапу
+      lenis.start();
     }
 
-    // Очистка після розмонтування або зміни isPopupOpen
     return () => {
-      document.body.style.overflow = ""; // Скидаємо overflow на default при розмонтуванні
-      lenis.destroy(); // Очищаємо ресурси Lenis
+      document.body.style.overflow = "";
+      lenis.destroy();
     };
-  }, [isPopupOpen]); // useEffect буде викликатись при зміні isPopupOpen
+  }, [isPopupOpen]);
 
   return (
     <>
       <ToastContainer />
 
+      {loading && (
+        <div
+          className={`fixed inset-0 z-[9999999999999999999] transition-opacity duration-1000 bg-white ${
+            fadeOutLoader ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
+        >
+          <Loader />
+        </div>
+      )}
+
       <div className="cursor"></div>
-      <Header />
+      <LenisProvider>
+        <Header />
 
-      {isPopupOpen && <Popup onClose={closePopup} contactInfo={contactInfo} />}
+        {isPopupOpen && (
+          <Popup onClose={closePopup} contactInfo={contactInfo} />
+        )}
 
-      <ScrollTop />
+        {/* <ScrollTop /> */}
 
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route
-            path="/"
-            element={
-              <PageWrapper>
-                <HomePage token={token} openPopup={openPopup} />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <PageWrapper>
-                <AboutPage token={token} openPopup={openPopup} />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="/portfolio"
-            element={
-              <PageWrapper>
-                <PortfilioPage token={token} />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="/workflow"
-            element={
-              <PageWrapper>
-                <WorkflowPage token={token} openPopup={openPopup} />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="/services"
-            element={
-              <PageWrapper>
-                <ServicesPage token={token} openPopup={openPopup} />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="/cases/:slug"
-            element={
-              <PageWrapper>
-                <CasePage token={token} />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <PageWrapper>
-                <ContactPage contactInfo={contactInfo} />
-              </PageWrapper>
-            }
-          />
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route
+              path="/"
+              element={
+                <PageWrapper lenis={lenis}>
+                  <HomePage token={token} openPopup={openPopup} />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <PageWrapper lenis={lenis}>
+                  <AboutPage token={token} openPopup={openPopup} />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/portfolio"
+              element={
+                <PageWrapper lenis={lenis}>
+                  <PortfilioPage token={token} />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/workflow"
+              element={
+                <PageWrapper lenis={lenis}>
+                  <WorkflowPage token={token} openPopup={openPopup} />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/services"
+              element={
+                <PageWrapper lenis={lenis}>
+                  <ServicesPage token={token} openPopup={openPopup} />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/cases/:slug"
+              element={
+                <PageWrapper lenis={lenis}>
+                  <CasePage token={token} />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <PageWrapper lenis={lenis}>
+                  <ContactPage contactInfo={contactInfo} />
+                </PageWrapper>
+              }
+            />
 
-          <Route
-            path="/policy-page"
-            element={
-              <PageWrapper>
-                <PolicyPage token={token} />
-              </PageWrapper>
-            }
-          />
+            <Route
+              path="/policy-page"
+              element={
+                <PageWrapper lenis={lenis}>
+                  <PolicyPage token={token} />
+                </PageWrapper>
+              }
+            />
 
-          <Route
-            path="/thanks-page"
-            element={
-              <PageWrapper>
-                <ThanksPage />
-              </PageWrapper>
-            }
-          />
+            <Route
+              path="/thanks-page"
+              element={
+                <PageWrapper lenis={lenis}>
+                  <ThanksPage />
+                </PageWrapper>
+              }
+            />
 
-          <Route
-            path="*"
-            element={
-              <PageWrapper>
-                <ErrorPage />
-              </PageWrapper>
-            }
-          />
-        </Routes>
-      </AnimatePresence>
+            <Route
+              path="*"
+              element={
+                <PageWrapper lenis={lenis}>
+                  <ErrorPage />
+                </PageWrapper>
+              }
+            />
+          </Routes>
+        </AnimatePresence>
 
-      {showFooter && <Footer contactInfo={contactInfo} />}
+        {showFooter && <Footer contactInfo={contactInfo} />}
+      </LenisProvider>
     </>
   );
 }

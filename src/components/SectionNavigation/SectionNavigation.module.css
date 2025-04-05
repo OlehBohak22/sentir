@@ -4,11 +4,14 @@
   margin-bottom: 4.4vw;
   scroll-snap-align: start;
   /* height: 100vh; */
-
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   /* padding-top: 6vw; */
+  /* height: 100vh; */
+  scroll-snap-align: start;
+
   h3 {
     font-family: DM Sans;
     font-size: 3.3vw;
@@ -24,6 +27,10 @@
     line-height: 1.8vw;
     color: rgba(11, 11, 11, 0.5);
   }
+}
+
+.navBlock:nth-child(:last-child) {
+  margin-bottom: 0;
 }
 
 .navBlock::-webkit-scrollbar {
@@ -43,6 +50,10 @@
 
 .imageContainer {
   margin-bottom: 2.5vw;
+}
+
+.scrollContainer {
+  scroll-snap-type: y mandatory;
 }
 
 .navList {

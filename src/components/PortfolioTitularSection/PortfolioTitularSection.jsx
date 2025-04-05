@@ -21,7 +21,7 @@ export const PortfolioTitularSection = ({ titulInfo, className }) => {
 
   return (
     <Layout className={className}>
-      <div data-aos="fade-up" className="case">
+      <div data-aos="fade-up" data-aos-duration="800" className="case">
         <Link to={`/cases/${titulInfo.slug}`}>
           <div
             className={s.titularContainer}
@@ -37,10 +37,12 @@ export const PortfolioTitularSection = ({ titulInfo, className }) => {
                 </div>
               )}
 
-              <p data-aos="fade-up">{titulInfo.case_short_description}</p>
+              <p data-aos="fade-up" data-aos-duration="800">
+                {titulInfo.case_short_description}
+              </p>
 
               {/* Анімація списку */}
-              <ul data-aos="fade-up">
+              <ul data-aos="fade-up" data-aos-duration="800">
                 {mors
                   .sort((a, b) => (a === "NDA" ? -1 : b === "NDA" ? 1 : 0)) // Сортуємо, щоб "NDA" завжди було першим
                   .map((item, index) => (
@@ -51,7 +53,7 @@ export const PortfolioTitularSection = ({ titulInfo, className }) => {
               </ul>
 
               {/* Анімація заголовку */}
-              <h3>
+              <h3 data-aos="fade-up" data-aos-duration="800">
                 <AnimatedHeading text={titulInfo.case_title}></AnimatedHeading>
               </h3>
             </div>

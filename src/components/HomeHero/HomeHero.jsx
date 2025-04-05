@@ -111,10 +111,10 @@ export const HomeHero = () => {
       <Layout>
         <h1 className={s.heroTitle}>
           <motion.div
-            initial={{ opacity: 0 }} // Початкова позиція: зліва
-            whileInView={{ opacity: 1 }} // Кінцева позиція: звичайна
-            transition={{ duration: 3, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.5 }} // Повторна анімація при поверненні у видиму зону
+            initial={{ opacity: 0, width: 50 }}
+            whileInView={{ opacity: 1, width: 1000 }}
+            transition={{ duration: 7, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.5 }}
             className={s.rotatingCircles}
           >
             <img
@@ -134,8 +134,8 @@ export const HomeHero = () => {
               <motion.span
                 initial={{ opacity: 0, x: "0" }}
                 whileInView={{ opacity: 1, x: "-60%" }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.5 }}
+                transition={{ duration: 1.5, ease: "easeOut", delay: 1.5 }}
+                viewport={{ once: true, amount: 0.5 }}
               >
                 BUILDING
               </motion.span>
@@ -144,16 +144,16 @@ export const HomeHero = () => {
               <motion.span
                 initial={{ opacity: 0, x: "0" }}
                 whileInView={{ opacity: 1, x: "-25%" }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.5 }}
+                transition={{ duration: 1.5, ease: "easeOut", delay: 1.5 }}
+                viewport={{ once: true, amount: 0.5 }}
               >
                 PRODUCTS
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, x: "0" }}
                 whileInView={{ opacity: 1, x: "20%" }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.5 }}
+                transition={{ duration: 1.5, ease: "easeOut", delay: 1.5 }}
+                viewport={{ once: true, amount: 0.5 }}
               >
                 THROUGH
               </motion.span>
@@ -161,8 +161,8 @@ export const HomeHero = () => {
               <motion.span
                 initial={{ opacity: 0, x: "0" }}
                 whileInView={{ opacity: 1, x: "65%" }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.5 }}
+                transition={{ duration: 1.5, ease: "easeOut", delay: 1.5 }}
+                viewport={{ once: true, amount: 0.5 }}
               >
                 EMPATHY
               </motion.span>
@@ -223,6 +223,7 @@ export const HomeHero = () => {
           to="/contact"
           data-aos="fade-up"
           data-aos-offset="10"
+          data-aos-duration="1500"
           className={s.heroHoverLink}
         >
           GET NO-COST DISCOVERY
@@ -246,6 +247,7 @@ export const HomeHero = () => {
                 >
                   <p
                     data-aos="fade-up"
+                    data-aos-duration="1500"
                     dangerouslySetInnerHTML={{ __html: text }}
                   />
                 </motion.li>
