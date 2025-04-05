@@ -12,25 +12,14 @@ export const CaseHorizontalSection = ({ cases }) => {
 
   useLayoutEffect(() => {
     const panels = gsap.utils.toArray(`.${s.block}`);
-    const panelWidth = scrollerRef.current.offsetWidth; // Ширина контейнера
-    const gap = 0.02 * window.innerWidth; // 2vw у пікселях
+    const panelWidth = scrollerRef.current.offsetWidth;
+    const gap = 0.02 * window.innerWidth;
     const totalScrollWidth =
-      panels.length * panelWidth + (panels.length - 1) * gap; // Загальна довжина прокрутки
-    const header = document.querySelector("header"); // Замінити селектор на правильний
+      panels.length * panelWidth + (panels.length - 1) * gap;
+    const header = document.querySelector("header");
 
-    if (header) {
-      ScrollTrigger.create({
-        trigger: scrollerRef.current,
-        start: "top top", // Коли верх скролера доходить до верху екрану
-        end: "bottom top", // Коли скролер закінчується
-        onEnter: () => gsap.to(header, { y: "-100%", duration: 0.3 }), // Ховаємо хедер
-        onLeaveBack: () => gsap.to(header, { y: "0%", duration: 0.3 }), // Повертаємо хедер
-      });
-    }
-
-    // Додаємо горизонтальний скрол
     gsap.to(panels, {
-      x: -(panelWidth + gap) * (panels.length - 1), // Рух блоків із врахуванням gap
+      x: -(panelWidth + gap) * (panels.length - 1),
       ease: "none",
       scrollTrigger: {
         trigger: scrollerRef.current,
@@ -40,6 +29,12 @@ export const CaseHorizontalSection = ({ cases }) => {
         start: "top -50",
         end: `+=${totalScrollWidth - panelWidth}`,
         markers: false,
+
+        onEnter: () => gsap.to(header, { y: "-100%", duration: 0.3 }),
+        onLeave: () => gsap.to(header, { y: "0%", duration: 0.3 }),
+        onEnterBack: () => gsap.to(header, { y: "-100%", duration: 0.3 }),
+        onLeaveBack: () => gsap.to(header, { y: "0%", duration: 0.3 }),
+
         onUpdate: (self) => {
           const progressBar = document.getElementById("progress-bar");
           if (progressBar) {
@@ -49,7 +44,6 @@ export const CaseHorizontalSection = ({ cases }) => {
       },
     });
 
-    // Рефреш тригерів після оновлення
     const timeoutId = setTimeout(() => {
       ScrollTrigger.refresh();
     }, 1000);

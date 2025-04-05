@@ -12,13 +12,13 @@ export const ServicesSection = () => {
 
   // Анімація для елементів списку
   const listItemVariants = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0, y: 50 },
     visible: (i) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.3, // Затримка для кожного елемента
-        duration: 0.7,
+        delay: i * 0.2, // Затримка для кожного елемента
+        duration: 1,
         ease: "easeOut",
       },
     }),

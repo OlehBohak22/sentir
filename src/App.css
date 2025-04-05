@@ -5,6 +5,7 @@
 
 /* Стиль кастомного курсора */
 .cursor {
+  left: -2vw;
   position: fixed;
   width: 1.42vw;
   height: 1.42vw;

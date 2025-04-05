@@ -56,14 +56,14 @@ export const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 200); // Після 100px додаємо бекграунд
+      setIsScrolled(scrollTop > 200);
 
       if (scrollTop > lastScrollTop.current) {
-        setShowHeader(false); // Скрол вниз - ховаємо хедер
+        setShowHeader(false);
       } else {
-        setShowHeader(true); // Скрол вгору - показуємо хедер
+        setShowHeader(true);
       }
-      lastScrollTop.current = scrollTop; // Оновлюємо значення scroll
+      lastScrollTop.current = scrollTop;
     };
 
     window.addEventListener("scroll", handleScroll);
