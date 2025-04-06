@@ -45,17 +45,16 @@
 }
 
 .headerContactBtn {
+  padding: 1.6vw 0 1.2vw 0;
+
   position: relative;
-  padding: 0.5vw 1.3vw;
-  border: 0.06vw solid;
   border-color: inherit;
-  border-radius: 2.6vw;
-  font-family: Inter, sans-serif;
+  font-family: DM Sans;
   font-size: 0.9vw;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.4vw;
-  color: inherit; /* Стандартний колір тексту */
-  text-align: center;
+  letter-spacing: 0.5px;
+  color: inherit;
   background: transparent;
   transition: 0.3s ease; /* Плавний перехід кольору тексту */
   overflow: hidden;
@@ -71,32 +70,26 @@
 .headerContactBtn::before {
   content: "";
   position: absolute;
-  top: 0;
+  bottom: 1.2vw;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 1px;
   background: #fff; /* Білий фон на ховері */
   border-radius: 2.6vw;
   transform: scaleX(
-    0
+    1
   ); /* Початкове значення (фон стискається по горизонталі) */
   transform-origin: left; /* Розгортання зліва направо */
   transition: transform 0.3s ease; /* Плавна анімація заповнення фону */
   z-index: -1; /* Фон нижче за текст */
 }
 
-.headerContactBtn:hover::before {
-  transform: scaleX(1); /* Фон повністю заповнює кнопку */
+.scrolled::before {
+  background: black !important;
 }
 
-.headerContactBtn:hover {
-  z-index: 2; /* Текст залишається над фоном */
-
-  svg {
-    path {
-      fill: url(#gradient) !important;
-    }
-  }
+.headerContactBtn:hover::before {
+  transform: scaleX(0); /* Фон повністю заповнює кнопку */
 }
 
 .navContainer {
@@ -159,12 +152,17 @@
     border-radius: 10.1vw;
     font-size: 3.2vw;
     line-height: 4.8vw;
+    margin-bottom: 0;
 
     svg {
       width: 12vw;
       height: 4.8vw;
       transition: fill 0.3s;
     }
+  }
+
+  .headerContactBtn::before {
+    display: none;
   }
 
   .burger {
