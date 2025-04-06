@@ -25,7 +25,14 @@ export const CaseHorizontalSection = ({ cases }) => {
         trigger: scrollerRef.current,
         pin: true,
         scrub: 1,
-        snap: 1 / (panels.length - 1),
+        snap: (progress) => {
+          const total = panels.length - 1;
+          const snapIndex = progress * total;
+          const floored = Math.floor(snapIndex);
+          const diff = snapIndex - floored;
+
+          return diff > 0.3 ? (floored + 1) / total : floored / total;
+        },
         start: "top -50",
         end: `+=${totalScrollWidth - panelWidth}`,
         markers: false,

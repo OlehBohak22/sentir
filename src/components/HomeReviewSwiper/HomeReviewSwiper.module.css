@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.swiperContainer > div {
+  overflow: visible;
+}
+
 .swiperSlide {
   display: grid;
   grid-template-columns: 1fr 1.52fr;

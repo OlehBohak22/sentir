@@ -12,6 +12,8 @@ import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
+ScrollTrigger.normalizeScroll(true);
+
 export const AboutSwiperSection = () => {
   const containerRef = useRef();
   const scrollerRef = useRef();
@@ -28,7 +30,6 @@ export const AboutSwiperSection = () => {
       const panels = gsap.utils.toArray(`.${s.slide}`);
       const panelWidth = panels[0].offsetWidth;
       const totalWidth = panelWidth * width;
-
       const viewportWidth = window.innerWidth;
       const scrollLength = totalWidth - viewportWidth;
 
@@ -38,10 +39,10 @@ export const AboutSwiperSection = () => {
         scrollTrigger: {
           trigger: scrollerRef.current,
           pin: true,
-          scrub: 0.5,
+          scrub: 1,
           start: "top top",
-          end: `+=${scrollLength}`, // 👈 Динамічна довжина скролу
-          anticipatePin: 1, // 👈 запобігає ривку при pin/unpin
+          end: `+=${scrollLength}`,
+          anticipatePin: 1,
           onUpdate: (self) => {
             const progressBar = document.getElementById("progress-bar");
             if (progressBar) {
@@ -50,9 +51,15 @@ export const AboutSwiperSection = () => {
           },
         },
       });
+
+      // ⏳ Імітація "Ctrl+S": ручне оновлення ScrollTrigger через 100ms
+      setTimeout(() => {
+        console.log("refresh");
+        ScrollTrigger.refresh();
+      }, 2000);
     }, scrollerRef);
 
-    return () => ctx.revert(); // Очищення тригерів
+    return () => ctx.revert();
   }, [isDesktop]);
 
   return (

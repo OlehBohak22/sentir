@@ -49,7 +49,7 @@ export const HomeReviewSwiper = ({ reviews }) => {
     <div className={s.swiperContainer}>
       <Swiper
         loop={true}
-        speed={600}
+        speed={800}
         spaceBetween={50}
         slidesPerView={1}
         modules={[Navigation, Pagination]}

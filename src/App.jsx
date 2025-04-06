@@ -21,7 +21,7 @@ import { ThanksPage } from "./pages/ThanksPage/ThanksPage";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { ToastContainer } from "react-toastify";
 import { getData } from "./services/api";
-import Loader from "./components/Loader/Loader";
+import { Loader } from "./components/Loader/Loader";
 import { LenisProvider } from "./utils/LenisProvider";
 
 export default function App() {
@@ -192,7 +192,7 @@ export default function App() {
             fadeOutLoader ? "opacity-0 pointer-events-none" : "opacity-100"
           }`}
         >
-          <Loader />
+          <Loader fadeOutLoader={fadeOutLoader} />
         </div>
       )}
 
