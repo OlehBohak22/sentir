@@ -71,51 +71,34 @@ export const HomeReviewSwiper = ({ reviews }) => {
           setProgress(((index + 1) / totalSlides) * 100);
         }}
       >
-        {filteredReviews.map((review, index) => (
+        {filteredReviews.map((review) => (
           <SwiperSlide key={review.id}>
             <motion.div
               key={review.id}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
               className={s.swiperSlide}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <div className={s.reviewerInfo}>
-                <motion.img
-                  initial="hidden"
-                  animate="visible"
+                <img
                   className={s.reviewerAvatar}
                   src={review.avatar}
                   alt={review.full_name}
                 />
                 <div>
-                  <motion.p
-                    initial="hidden"
-                    animate="visible"
-                    className={s.reviewerFullname}
-                  >
-                    {review.full_name}
-                  </motion.p>
-                  <motion.p
-                    initial="hidden"
-                    animate="visible"
-                    className={s.reviewerDirect}
-                  >
-                    {review.direction}
-                  </motion.p>
+                  <p className={s.reviewerFullname}>{review.full_name}</p>
+                  <p className={s.reviewerDirect}>{review.direction}</p>
 
                   {isDesktop && (
-                    <motion.div
-                      initial="hidden"
-                      animate="visible"
-                      className={s.reviewerCompany}
-                    >
+                    <div className={s.reviewerCompany}>
                       <img
                         src={review.company_icon}
                         alt={review.company_name}
                       />
                       <p>{review.company_name}</p>
-                    </motion.div>
+                    </div>
                   )}
                 </div>
               </div>
