@@ -61,7 +61,7 @@ export const MobileMenu = ({ className, closeOverlay }) => {
               </p>
               <svg
                 style={{
-                  transform: isOverlayOpen ? "rotate(180deg)" : "rotate(0deg)",
+                  transform: isOverlayOpen ? "rotate(0deg)" : "rotate(180deg)",
                   transition: "transform 0.3s ease",
                 }}
                 width="9"

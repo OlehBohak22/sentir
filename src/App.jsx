@@ -41,7 +41,7 @@ export default function App() {
     setTimeout(() => {
       setFadeOutLoader(true);
       setTimeout(() => setLoading(false), 1000);
-    }, 1500);
+    }, 2500);
   }, []);
 
   useEffect(() => {

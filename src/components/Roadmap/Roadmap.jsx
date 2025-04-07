@@ -60,7 +60,7 @@ export const Roadmap = () => {
   }, []);
 
   return (
-    <Layout className={s.roadmapLayout}>
+    <Layout className={s.roadmapLayout} data-lenis-prevent>
       <div ref={sectionRef} className={s.titleContainer}>
         <p>This is how we make it disappear...</p>
         <h2>Roadmap</h2>

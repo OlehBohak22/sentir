@@ -23,7 +23,7 @@ export const Loader = ({ fadeOutLoader }) => {
   // ⏳ коли fadeOutLoader активується — сховати контент через 0.5с
   useEffect(() => {
     if (fadeOutLoader) {
-      setTimeout(() => setHideContent(true), 1);
+      setTimeout(() => setHideContent(true), 0.1);
     }
   }, [fadeOutLoader]);
 
@@ -39,7 +39,7 @@ export const Loader = ({ fadeOutLoader }) => {
         className={s.percent}
         initial={{ opacity: 1 }}
         animate={{ opacity: hideContent ? 0 : 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.1 }}
       >
         {progress}%
       </motion.p>
