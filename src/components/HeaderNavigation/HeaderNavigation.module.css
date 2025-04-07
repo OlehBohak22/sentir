@@ -13,7 +13,7 @@
     transition: color 0.3s;
     text-align: left;
     color: inherit; /* Використовуємо колір, який буде задано в React */
-    padding: 1.6vw 1.5vw 1.2vw 1.5vw;
+    padding: 1.4vw 1.5vw;
 
     svg {
       width: 0.7vw;
@@ -32,7 +32,7 @@
     width: calc(100% - 3vw);
     background-color: currentColor; /* Фон успадковує колір тексту */
     height: 1px;
-    bottom: 1.4vw;
+    bottom: 1.6vw;
     left: 50%;
     transform: translateX(-50%) scaleX(0); /* Початкове значення — приховано */
     transform-origin: center; /* Початок трансформації */
@@ -45,7 +45,7 @@
 }
 
 .headerContactBtn {
-  padding: 1.6vw 0 1.2vw 0;
+  padding: 1.4vw 0 1.4vw 0;
 
   position: relative;
   border-color: inherit;
@@ -70,7 +70,7 @@
 .headerContactBtn::before {
   content: "";
   position: absolute;
-  bottom: 1.2vw;
+  bottom: 1.6vw;
   left: 0;
   width: 100%;
   height: 1px;
