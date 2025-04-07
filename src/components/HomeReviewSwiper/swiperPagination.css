@@ -23,3 +23,11 @@
     display: none !important;
   }
 }
+
+.swiper-slide {
+  opacity: 0 !important;
+}
+
+.swiper-slide-active {
+  opacity: 1 !important;
+}
