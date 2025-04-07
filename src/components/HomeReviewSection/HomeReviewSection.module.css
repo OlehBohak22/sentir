@@ -7,6 +7,7 @@
   background-position: left 27vw;
   background-repeat: no-repeat;
   padding: 10.4vw 0;
+  overflow: hidden;
 }
 
 @media (max-width: 1024px) {

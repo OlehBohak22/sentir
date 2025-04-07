@@ -294,7 +294,9 @@ export default function App() {
           </Routes>
         </AnimatePresence>
 
-        {showFooter && <Footer contactInfo={contactInfo} />}
+        <div className="footer">
+          {showFooter && <Footer contactInfo={contactInfo} />}
+        </div>
       </LenisProvider>
     </>
   );

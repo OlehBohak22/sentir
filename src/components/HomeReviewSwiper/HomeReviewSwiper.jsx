@@ -46,105 +46,107 @@ export const HomeReviewSwiper = ({ reviews }) => {
   }, [totalSlides]);
 
   return (
-    <div className={s.swiperContainer}>
-      <Swiper
-        loop={true}
-        speed={800}
-        spaceBetween={50}
-        slidesPerView={1}
-        modules={[Navigation, Pagination]}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        pagination={{
-          el: ".custom-pagination",
-          clickable: true,
-          type: "progressbar",
-        }}
-        onInit={(swiper) => {
-          swiperRef.current = swiper;
-        }}
-        onSlideChange={(swiper) => {
-          const index = swiper.realIndex;
-          setActiveIndex(index);
-          setProgress(((index + 1) / totalSlides) * 100);
-        }}
-      >
-        {filteredReviews.map((review) => (
-          <SwiperSlide key={review.id}>
-            <motion.div
-              key={review.id}
-              className={s.swiperSlide}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 40 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <div className={s.reviewerInfo}>
-                <img
-                  className={s.reviewerAvatar}
-                  src={review.avatar}
-                  alt={review.full_name}
-                />
-                <div>
-                  <p className={s.reviewerFullname}>{review.full_name}</p>
-                  <p className={s.reviewerDirect}>{review.direction}</p>
+    <section>
+      <div className={s.swiperContainer}>
+        <Swiper
+          loop={true}
+          speed={800}
+          spaceBetween={50}
+          slidesPerView={1}
+          modules={[Navigation, Pagination]}
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          pagination={{
+            el: ".custom-pagination",
+            clickable: true,
+            type: "progressbar",
+          }}
+          onInit={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          onSlideChange={(swiper) => {
+            const index = swiper.realIndex;
+            setActiveIndex(index);
+            setProgress(((index + 1) / totalSlides) * 100);
+          }}
+        >
+          {filteredReviews.map((review) => (
+            <SwiperSlide key={review.id}>
+              <motion.div
+                key={review.id}
+                className={s.swiperSlide}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 40 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <div className={s.reviewerInfo}>
+                  <img
+                    className={s.reviewerAvatar}
+                    src={review.avatar}
+                    alt={review.full_name}
+                  />
+                  <div>
+                    <p className={s.reviewerFullname}>{review.full_name}</p>
+                    <p className={s.reviewerDirect}>{review.direction}</p>
 
-                  {isDesktop && (
-                    <div className={s.reviewerCompany}>
-                      <img
-                        src={review.company_icon}
-                        alt={review.company_name}
-                      />
-                      <p>{review.company_name}</p>
-                    </div>
-                  )}
+                    {isDesktop && (
+                      <div className={s.reviewerCompany}>
+                        <img
+                          src={review.company_icon}
+                          alt={review.company_name}
+                        />
+                        <p>{review.company_name}</p>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-              <motion.div initial="hidden" animate="visible">
-                <p
-                  className={s.reviewContent}
-                  dangerouslySetInnerHTML={{ __html: review.review }}
-                />
+                <motion.div initial="hidden" animate="visible">
+                  <p
+                    className={s.reviewContent}
+                    dangerouslySetInnerHTML={{ __html: review.review }}
+                  />
+                </motion.div>
+
+                {isMobile && (
+                  <div className={s.reviewerCompany}>
+                    <img src={review.company_icon} alt={review.company_name} />
+                    <p>{review.company_name}</p>
+                  </div>
+                )}
               </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-              {isMobile && (
-                <div className={s.reviewerCompany}>
-                  <img src={review.company_icon} alt={review.company_name} />
-                  <p>{review.company_name}</p>
-                </div>
-              )}
-            </motion.div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-      <div className={s.swiperOptions}>
-        <div className={s.swiperNav}>
-          <div className="swiper-prev" ref={prevRef}>
-            <img src="/icons/swiper-arrow-prev.svg" alt="Arrow" />
-            <img src="/icons/swiper-colored-prev.svg" alt="Arrow" />
+        <div className={s.swiperOptions}>
+          <div className={s.swiperNav}>
+            <div className="swiper-prev" ref={prevRef}>
+              <img src="/icons/swiper-arrow-prev.svg" alt="Arrow" />
+              <img src="/icons/swiper-colored-prev.svg" alt="Arrow" />
+            </div>
+            <div className="swiper-next" ref={nextRef}>
+              <img src="/icons/swiper-arrow-next.svg" alt="Arrow" />
+              <img src="/icons/swiper-colored-next.svg" alt="Arrow" />
+            </div>
           </div>
-          <div className="swiper-next" ref={nextRef}>
-            <img src="/icons/swiper-arrow-next.svg" alt="Arrow" />
-            <img src="/icons/swiper-colored-next.svg" alt="Arrow" />
-          </div>
-        </div>
 
-        <div className={s.customPaginationContainer}>
-          <div className="custom-pagination">
-            <div
-              style={{
-                width: `${progress}%`,
-                background: "linear-gradient(to right, #ff0080, #7928ca)",
-                height: "4px",
-                transition: "width 0.3s ease",
-              }}
-            />
+          <div className={s.customPaginationContainer}>
+            <div className="custom-pagination">
+              <div
+                style={{
+                  width: `${progress}%`,
+                  background: "linear-gradient(to right, #ff0080, #7928ca)",
+                  height: "4px",
+                  transition: "width 0.3s ease",
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
