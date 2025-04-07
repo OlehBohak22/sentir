@@ -55,7 +55,7 @@ export const Loader = ({ fadeOutLoader }) => {
 
       {/* Відсотки */}
       <motion.p
-        className="text-gray-700 lg:text-7xl text-3xl font-medium z-10"
+        className="text-black-700 lg:text-7xl text-3xl font-medium z-10"
         initial={{ opacity: 1 }}
         animate={{ opacity: hideContent ? 0 : 1 }}
         transition={{ duration: 0.5 }}

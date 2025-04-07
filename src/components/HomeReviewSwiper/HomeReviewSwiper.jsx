@@ -17,7 +17,7 @@ export const HomeReviewSwiper = ({ reviews }) => {
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
 
-  const filteredReviews = reviews.filter((r) => r.add_to_reviews == 1);
+  const filteredReviews = reviews.filter((r) => r.case_select !== "About");
   const totalSlides = filteredReviews.length;
 
   const [progress, setProgress] = useState(0);
