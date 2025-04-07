@@ -1,74 +1,67 @@
-.rotatingCircles {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
-  width: 22vw;
-  height: 22vw;
-
-  img:nth-child(1) {
-    position: absolute;
-
-    transform: translateY(-50%) translateX(-50%);
-  }
-
-  img:nth-child(2) {
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 90%;
-    transform: translateY(-50%) translateX(-50%);
-  }
-}
-
-.circle1,
-.circle2 {
-  position: absolute;
+.overlay {
+  background-color: black;
   width: 100%;
   height: 100%;
-  animation-duration: 10s; /* Тривалість обертання */
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.circle1 {
-  animation-name: rotateClockwise;
+.percent {
+  color: white;
+  font-family: DM Sans;
+  font-weight: 500;
+  font-size: 1.6vw;
+  line-height: 100%;
+  letter-spacing: -0.01vw;
 }
 
-.circle2 {
-  animation-name: rotateCounterClockwise;
+.overlay::before {
+  content: "";
+  position: absolute;
+  top: 20vw;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  width: 70vw;
+  height: 70vw;
+  background-image: url(/images/about-page/about-hero-elipse.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-/* Анімація за годинниковою стрілкою */
-@keyframes rotateClockwise {
+@keyframes rotateElipse {
   from {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
-/* Анімація проти годинникової стрілки */
-@keyframes rotateCounterClockwise {
-  from {
-    transform: rotate(0deg);
+.overlay::before {
+  animation: pulseBackground 5s ease-in-out infinite,
+    rotateElipse 10s linear infinite;
+}
+
+@keyframes pulseBackground {
+  0%,
+  100% {
+    background-image: url(/images/about-page/about-hero-elipse.png);
   }
-  to {
-    transform: rotate(-360deg);
+  32% {
+    background-image: url(/images/about-page/about-hero-brightness-elipse.png);
   }
 }
 
 @media (max-width: 1024px) {
-  .rotatingCircles {
-    width: 40vw;
-    height: 40vw;
+  /* Застосовується лише для мобільних пристроїв */
+  .overlay::before {
+    top: 30vh;
+    width: 220vw;
+    height: 220vw;
+  }
 
-    img {
-      position: absolute;
-
-      transform: translateY(-50%) translateX(-50%);
-    }
+  .percent {
+    font-size: 6.4vw;
   }
 }

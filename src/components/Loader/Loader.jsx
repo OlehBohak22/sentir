@@ -29,33 +29,14 @@ export const Loader = ({ fadeOutLoader }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 flex flex-col items-center justify-center bg-white z-50"
+      className={s.overlay}
       initial={{ opacity: 1 }}
       animate={{ opacity: fadeOutLoader ? 0 : 1 }}
       transition={{ duration: 1 }}
     >
-      {/* Кола */}
-      <motion.div
-        initial={{ opacity: 1 }}
-        animate={{ opacity: hideContent ? 0 : 1 }}
-        transition={{ duration: 0.5 }}
-        className={s.rotatingCircles}
-      >
-        <img
-          className={s.circle1}
-          src="/icons/animated_circles/circle1.svg"
-          alt="Circle 1"
-        />
-        <img
-          className={s.circle2}
-          src="/icons/animated_circles/circle2.svg"
-          alt="Circle 2"
-        />
-      </motion.div>
-
       {/* Відсотки */}
       <motion.p
-        className="text-black-700 lg:text-7xl text-3xl font-medium z-10"
+        className={s.percent}
         initial={{ opacity: 1 }}
         animate={{ opacity: hideContent ? 0 : 1 }}
         transition={{ duration: 0.5 }}
