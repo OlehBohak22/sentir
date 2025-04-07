@@ -26,6 +26,7 @@
 
 .swiper-slide {
   opacity: 0 !important;
+  transition: opacity 0.3s !important;
 }
 
 .swiper-slide-active {
