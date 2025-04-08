@@ -10,7 +10,10 @@ export const LenisProvider = ({ children }) => {
   useEffect(() => {
     const lenis = new Lenis({
       smooth: true,
-      lerp: 0.1,
+      lerp: 0.08,
+      syncTouch: true, // 🔧 це дозволяє гармонійно працювати з тачскролом
+      smoothTouch: true, // 🔧 true = плавний скрол на touch
+      touchMultiplier: 1.2, // 🔧 можна збільшити чутливість на мобілках
     });
 
     lenisRef.current = lenis;
