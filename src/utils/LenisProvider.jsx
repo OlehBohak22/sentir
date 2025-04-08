@@ -8,6 +8,12 @@ export const LenisProvider = ({ children }) => {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    // 🧠 Вимикаємо Lenis для ширини екрану < 768px (можна змінити)
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      setReady(true);
+      return;
+    }
+
     const lenis = new Lenis({
       smooth: true,
       lerp: 0.1,

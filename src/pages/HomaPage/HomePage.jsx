@@ -11,8 +11,6 @@ import { HomeReviewSwiper } from "../../components/HomeReviewSwiper/HomeReviewSw
 import { CompanyList } from "../../components/CompanyList/CompanyList";
 import { FormSection } from "../../components/FormSection/FormSection";
 import { Helmet } from "react-helmet";
-import Aos from "aos";
-import "aos/dist/aos.css";
 
 const MemoizedPortfolioTitularSection = memo(PortfolioTitularSection);
 const MemoizedPortfolioSection = memo(PortfolioSection);
@@ -24,8 +22,6 @@ export const HomePage = ({ token, openPopup }) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    Aos.init();
-
     const fetchPosts = async () => {
       if (!token) return;
       try {

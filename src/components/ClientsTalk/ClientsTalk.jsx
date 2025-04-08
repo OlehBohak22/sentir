@@ -3,16 +3,12 @@ import s from "./ClientsTalk.module.css";
 import { useEffect, useState } from "react";
 import { getData } from "../../services/api";
 import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
-import Aos from "aos";
-import "aos/dist/aos.css";
 
 export const ClientsTalk = ({ token }) => {
   const [logos, setLogos] = useState([]);
   const [isAnimationActive, setIsAnimationActive] = useState(false);
 
   useEffect(() => {
-    Aos.init();
-
     const fetchServices = async () => {
       if (!token) return;
       try {

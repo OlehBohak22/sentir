@@ -7,9 +7,6 @@ import { ClientsTalk } from "../../components/ClientsTalk/ClientsTalk";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { AnimatedHeading } from "../../components/AnimatedHeading/AnimatedHeading";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 
 export const ServicesPage = ({ token, openPopup }) => {
   // Варіанти анімації
@@ -21,10 +18,6 @@ export const ServicesPage = ({ token, openPopup }) => {
       transition: { duration: 1, ease: "easeOut" },
     },
   };
-
-  useEffect(() => {
-    Aos.init();
-  }, []);
 
   return (
     <>

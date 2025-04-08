@@ -1,15 +1,8 @@
 import s from "./CaseDetails.module.css";
 import { Layout } from "../../components/Layout/Layout";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 import { AnimatedHeadingFaster } from "../AnimatedHeading/AnimatedHeading";
 
 export const CaseDetails = ({ details }) => {
-  useEffect(() => {
-    Aos.init();
-  }, []);
-
   return (
     <section className={s.section}>
       <Layout className={s.container}>

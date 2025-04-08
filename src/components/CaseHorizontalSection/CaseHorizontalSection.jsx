@@ -55,6 +55,13 @@ export const CaseHorizontalSection = ({ cases }) => {
       ScrollTrigger.refresh();
     }, 1000);
 
+    const scrollableLists = document.querySelectorAll(`.${s.scrollableList}`);
+    scrollableLists.forEach((el) => {
+      el.addEventListener("wheel", (e) => {
+        e.stopPropagation(); // ✅ не дає ScrollTrigger захопити подію
+      });
+    });
+
     return () => {
       clearTimeout(timeoutId);
       ScrollTrigger.getAll().forEach((st) => st.kill());
@@ -103,13 +110,15 @@ export const CaseHorizontalSection = ({ cases }) => {
                     <AnimatedHeading text={cases["title-2"]} />
                   </h3>
                   {cases["data-table-2"] && (
-                    <ul>
-                      {Object.values(cases["data-table-2"]).map(
-                        (item, index) => (
-                          <li key={index}>{item}</li>
-                        )
-                      )}
-                    </ul>
+                    <div className={s.scrollableList}>
+                      <ul>
+                        {Object.values(cases["data-table-2"]).map(
+                          (item, index) => (
+                            <li key={index}>{item}</li>
+                          )
+                        )}
+                      </ul>
+                    </div>
                   )}
                 </div>
 

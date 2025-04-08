@@ -1,5 +1,0 @@
-.horizontal-scroll-container {
-  display: flex;
-  overflow-x: hidden; /* Сховаємо стандартний скрол */
-  width: 100%;
-}

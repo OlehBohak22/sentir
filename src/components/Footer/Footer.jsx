@@ -4,7 +4,6 @@ import s from "./Footer.module.css";
 import { useMediaQuery } from "react-responsive";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import Aos from "aos";
 
 export const Footer = ({ contactInfo }) => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -17,8 +16,6 @@ export const Footer = ({ contactInfo }) => {
   const [translateY, setTranslateY] = useState(100);
 
   useEffect(() => {
-    Aos.init();
-
     const handleScroll = () => {
       if (!footerRef.current) return;
 

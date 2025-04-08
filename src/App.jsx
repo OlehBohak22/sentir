@@ -23,6 +23,8 @@ import { ToastContainer } from "react-toastify";
 import { getData } from "./services/api";
 import { Loader } from "./components/Loader/Loader";
 import { LenisProvider } from "./utils/LenisProvider";
+import Aos from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
 
 export default function App() {
   const [token, setToken] = useState();
@@ -33,9 +35,13 @@ export default function App() {
   const openPopup = () => setPopupOpen(true);
   const closePopup = () => setPopupOpen(false);
   const location = useLocation();
-  const [lenis, setLenis] = useState();
+  const [lenis, _] = useState();
 
   const [contactInfo, setContactInfo] = useState({});
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -154,33 +160,41 @@ export default function App() {
     fetchToken();
   }, []);
 
+  // useEffect(() => {
+  //   const isDesktop = window.innerWidth > 1024;
+
+  //   if (!isDesktop) return;
+
+  //   const lenis = new Lenis();
+
+  //   function raf(time) {
+  //     lenis.raf(time);
+  //     requestAnimationFrame(raf);
+  //   }
+
+  //   requestAnimationFrame(raf);
+
+  //   setLenis(lenis);
+
+  //   if (isPopupOpen) {
+  //     lenis.stop();
+  //   } else {
+  //     lenis.start();
+  //   }
+
+  //   return () => {
+  //     document.body.style.overflow = "";
+  //     lenis.destroy();
+  //   };
+  // }, [isPopupOpen]);
+
   useEffect(() => {
-    const isDesktop = window.innerWidth > 1024;
-
-    if (!isDesktop) return;
-
-    const lenis = new Lenis();
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+    if (window.innerWidth < 1024) {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 1); // можна змінити на 200-300 при потребі
     }
-
-    requestAnimationFrame(raf);
-
-    setLenis(lenis);
-
-    if (isPopupOpen) {
-      lenis.stop();
-    } else {
-      lenis.start();
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-      lenis.destroy();
-    };
-  }, [isPopupOpen]);
+  }, [location.pathname]);
 
   return (
     <>

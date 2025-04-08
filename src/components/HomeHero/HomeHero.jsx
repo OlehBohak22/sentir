@@ -6,9 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css"; // Стилі для Swiper
 import "swiper/css/pagination";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export const HomeHero = () => {
@@ -20,14 +17,6 @@ export const HomeHero = () => {
     "personalized,<br />boutique<br />experience",
     "Accelerated<br />MVP Launch for<br />Startups",
   ];
-
-  // const handleOpen = () => {
-  //   openPopup();
-  // };
-
-  useEffect(() => {
-    Aos.init();
-  }, []);
 
   const HomeHeroLine = () => {
     let svgContent;

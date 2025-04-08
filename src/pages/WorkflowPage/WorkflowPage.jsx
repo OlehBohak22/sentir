@@ -9,15 +9,13 @@ import { FormSection } from "../../components/FormSection/FormSection";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { AnimatedHeading } from "../../components/AnimatedHeading/AnimatedHeading";
-import Aos from "aos";
-import "aos/dist/aos.css";
 
 export const WorkflowPage = ({ token, openPopup }) => {
   const [review, setReview] = useState([]);
   const [showRoadmap, setShowRoadmap] = useState(false); // Стан для Roadmap
 
   useEffect(() => {
-    Aos.init();
+    // Aos.init();
 
     const fetchReviews = async () => {
       if (!token) return;

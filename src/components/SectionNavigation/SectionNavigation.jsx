@@ -5,8 +5,6 @@ import { Layout } from "../Layout/Layout";
 import Faq from "../Faq/Faq";
 import { useMediaQuery } from "react-responsive";
 import { DiscussBtn } from "../../components/DiscussBtn/DiscussBtn";
-import Aos from "aos";
-import "aos/dist/aos.css";
 import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
 // ...імпорти (залишаються ті самі)
@@ -94,7 +92,6 @@ export const SectionNavigation = ({ token, openPopup }) => {
   ];
 
   useEffect(() => {
-    Aos.init();
     const handleScroll = () => {
       sections.forEach((section) => {
         const element = document.getElementById(section.id);

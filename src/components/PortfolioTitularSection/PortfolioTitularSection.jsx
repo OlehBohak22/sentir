@@ -3,9 +3,6 @@ import s from "./PortfolioTitularSection.module.css";
 import { Link } from "react-router-dom";
 import "./PortfolioCursor.css";
 import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 
 export const PortfolioTitularSection = ({ titulInfo, className }) => {
@@ -14,10 +11,6 @@ export const PortfolioTitularSection = ({ titulInfo, className }) => {
   const mors = titulInfo.case_mors
     .split("|||")
     .filter((item) => item.trim() !== "");
-
-  useEffect(() => {
-    Aos.init();
-  }, []);
 
   return (
     <Layout className={className}>

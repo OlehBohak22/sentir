@@ -7,8 +7,6 @@ import { useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
-import Aos from "aos";
-import "aos/dist/aos.css";
 import { useLenis } from "../../utils/LenisProvider";
 
 export const ServicesTabs = ({ token, openPopup }) => {
@@ -22,8 +20,6 @@ export const ServicesTabs = ({ token, openPopup }) => {
   const lenis = useLenis();
 
   useEffect(() => {
-    Aos.init({ once: true });
-
     const fetchServices = async () => {
       if (!token) return;
 
@@ -55,12 +51,21 @@ export const ServicesTabs = ({ token, openPopup }) => {
         setActiveTab(selectedId || data[0]?.id);
 
         setTimeout(() => {
-          if (sectionRef.current && lenis) {
-            lenis.scrollTo(sectionRef.current, {
-              offset: 0,
-              duration: 1.1,
-              easing: (t) => 1 - Math.pow(1 - t, 4),
-            });
+          if (sectionRef.current) {
+            if (lenis) {
+              // десктоп (Lenis активний)
+              lenis.scrollTo(sectionRef.current, {
+                offset: 0,
+                duration: 1.1,
+                easing: (t) => 1 - Math.pow(1 - t, 4),
+              });
+            } else {
+              // мобілка (Lenis вимкнений)
+              sectionRef.current.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
           }
         }, 500);
       } catch (error) {
@@ -71,12 +76,12 @@ export const ServicesTabs = ({ token, openPopup }) => {
     fetchServices();
   }, [token, location.hash, lenis]);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      Aos.refresh();
-    }, 300);
-    return () => clearTimeout(timeout);
-  }, [activeTab]);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     Aos.refresh();
+  //   }, 300);
+  //   return () => clearTimeout(timeout);
+  // }, [activeTab]);
 
   const tabContentVariants = {
     hidden: { opacity: 0, x: -50 },

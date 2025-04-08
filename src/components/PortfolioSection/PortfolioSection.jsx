@@ -3,9 +3,6 @@ import { motion, useInView } from "framer-motion";
 import s from "./PortfolioSection.module.css";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 
 export const PortfolioSection = ({ restInfo }) => {
   return (
@@ -19,10 +16,6 @@ export const PortfolioSection = ({ restInfo }) => {
 
 const PortfolioItem = ({ item }) => {
   const mors = item.case_mors.split("|||").filter((item) => item.trim() !== "");
-
-  useEffect(() => {
-    Aos.init();
-  }, []);
 
   const ref = useRef(null);
   const isInView = useInView(ref, { triggerOnce: false }); // triggerOnce: false означає, що анімація повторюється

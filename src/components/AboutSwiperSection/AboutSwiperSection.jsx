@@ -6,9 +6,6 @@ import { useRef, useLayoutEffect } from "react";
 import { slides } from "../../services/fake-api";
 import { useMediaQuery } from "react-responsive";
 import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,10 +17,6 @@ export const AboutSwiperSection = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
 
   const width = isDesktop ? 10.79 : 8.5;
-
-  useEffect(() => {
-    Aos.init();
-  }, []);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {

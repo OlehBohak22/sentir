@@ -109,3 +109,8 @@ input:-webkit-autofill {
 .hide {
   display: none !important;
 }
+
+html,
+body {
+  touch-action: auto !important;
+}

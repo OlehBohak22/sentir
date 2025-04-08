@@ -2,17 +2,10 @@ import s from "./ProfessionalsBlock.module.css";
 import { professionals } from "../../services/fake-api";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 
 export const ProfessionalsBlock = () => {
   // Контролери анімацій
   const listControls = useAnimation();
-
-  useEffect(() => {
-    Aos.init();
-  }, []);
 
   // Intersection Observer для списку
   const [listRef, listInView] = useInView({

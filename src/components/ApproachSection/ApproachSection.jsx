@@ -7,8 +7,6 @@ import {
 } from "../AninmateSvgLine/AninmateSvgLine";
 import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 import { motion } from "framer-motion";
-import Aos from "aos";
-import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 
 const fadeIn = {
@@ -18,10 +16,6 @@ const fadeIn = {
 
 export const ApproachSection = ({ openPopup, isPopupOpen }) => {
   const [isStickyFixed, setIsStickyFixed] = useState(false);
-
-  useEffect(() => {
-    Aos.init();
-  }, []);
 
   useEffect(() => {
     // Змінюємо позицію на fixed, якщо попап відкритий
