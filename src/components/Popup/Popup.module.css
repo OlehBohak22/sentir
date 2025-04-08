@@ -12,6 +12,7 @@
   opacity: 0; /* Початковий стан */
   animation: fadeInOverlay 0.5s forwards; /* Анімація появи */
   overflow: hidden;
+  touch-action: auto !important;
 }
 @keyframes fadeInOverlay {
   0% {
@@ -37,6 +38,7 @@
   opacity: 0; /* Початковий стан прозорості */
   animation: fadeInContent 0.5s 0.3s forwards; /* Анімація появи контенту */
   border-radius: 0; /* Додаємо для кращого вигляду */
+  touch-action: auto !important;
 }
 
 @keyframes fadeInContent {

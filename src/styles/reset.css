@@ -112,5 +112,5 @@ input:-webkit-autofill {
 
 html,
 body {
-  touch-action: auto !important;
+  /* touch-action: auto !important; */
 }

@@ -15,10 +15,10 @@
 }
 
 .menuList {
-  /* Приховування скролбару для Webkit браузерів (Chrome, Safari, Opera) */
   -webkit-overflow-scrolling: touch; /* Гладкий скролінг для мобільних */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer/Edge */
+  touch-action: auto !important;
 }
 
 .menuList::-webkit-scrollbar {
