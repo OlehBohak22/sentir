@@ -40,7 +40,7 @@ export default function App() {
   const [contactInfo, setContactInfo] = useState({});
 
   useEffect(() => {
-    // Aos.init();
+    Aos.init();
   }, []);
 
   useEffect(() => {
