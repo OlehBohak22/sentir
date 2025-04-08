@@ -36,6 +36,7 @@ export const Popup = ({ onClose, contactInfo }) => {
 
   return (
     <div
+      data-lenis-prevent
       className={`${s.popupOverlay} ${isClosing ? s.hide : ""}`}
       onClick={handleClose}
     >

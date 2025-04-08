@@ -31,9 +31,9 @@ export const MobileMenu = ({ className, closeOverlay }) => {
   };
 
   return (
-    <div className={`${s.menuOverlay} ${className}`}>
+    <div data-lenis-prevent className={`${s.menuOverlay} ${className}`}>
       <Layout className={s.container}>
-        <ul className={s.menuList}>
+        <ul data-lenis-prevent className={s.menuList}>
           <li>
             <Link to="/" onClick={closeOverlayHandler}>
               HOME

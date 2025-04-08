@@ -14,6 +14,7 @@ export const LenisProvider = ({ children }) => {
       syncTouch: true, // 🔧 це дозволяє гармонійно працювати з тачскролом
       smoothTouch: true, // 🔧 true = плавний скрол на touch
       touchMultiplier: 1.2, // 🔧 можна збільшити чутливість на мобілках
+      gestureOrientation: "vertical", // важливо для мобільного scroll
     });
 
     lenisRef.current = lenis;
