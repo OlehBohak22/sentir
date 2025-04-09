@@ -46,7 +46,7 @@ export const HomeReviewSwiper = ({ reviews }) => {
   }, [totalSlides]);
 
   return (
-    <section>
+    <section className="home-swiper">
       <div className={s.swiperContainer}>
         <Swiper
           loop={true}

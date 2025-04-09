@@ -9,7 +9,7 @@ import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 
 gsap.registerPlugin(ScrollTrigger);
 
-ScrollTrigger.normalizeScroll(true);
+// ScrollTrigger.normalizeScroll(true);
 
 export const AboutSwiperSection = () => {
   const containerRef = useRef();

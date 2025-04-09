@@ -60,15 +60,11 @@ export const ServicesPage = ({ token, openPopup }) => {
             </motion.p>
           </Layout>
         </section>
-
-        <ServicesTabs token={token} openPopup={openPopup} />
-
+        <ServicesTabs token={token} openPopup={openPopup} />s
         <StackSection />
-
         <div>
           <ClientsTalk token={token} />
         </div>
-
         <FormSection />
       </main>
     </>

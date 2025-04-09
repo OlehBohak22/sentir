@@ -8,11 +8,18 @@ export const LenisProvider = ({ children }) => {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 1024;
+    if (isMobile) {
+      setReady(true); // просто рендеримо children без Lenis
+      return;
+    }
+
     const lenis = new Lenis({
       smooth: true,
       lerp: 0.08,
-      syncTouch: true, // 🔧 це дозволяє гармонійно працювати з тачскролом
-      gestureOrientation: "vertical", // важливо для мобільного scroll
+      syncTouch: true,
+      smoothTouch: true,
+      gestureOrientation: "vertical",
     });
 
     lenisRef.current = lenis;
@@ -25,7 +32,9 @@ export const LenisProvider = ({ children }) => {
 
     setReady(true);
 
-    return () => lenis.destroy();
+    return () => {
+      lenis.destroy();
+    };
   }, []);
 
   return (

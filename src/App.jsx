@@ -12,10 +12,8 @@ import { WorkflowPage } from "./pages/WorkflowPage/WorkflowPage";
 import { ServicesPage } from "./pages/ServicesPage/ServicesPage";
 import { CasePage } from "./pages/CasePage/CasePage";
 import { ContactPage } from "./pages/ContactPage/ContactPage";
-// import { ScrollTop } from "./components/ScrollTop";
 import "./App.css";
 import { PolicyPage } from "./pages/PolicyPage/PolicyPage";
-import Lenis from "@studio-freight/lenis";
 import { Popup } from "./components/Popup/Popup";
 import { ThanksPage } from "./pages/ThanksPage/ThanksPage";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
@@ -24,7 +22,7 @@ import { getData } from "./services/api";
 import { Loader } from "./components/Loader/Loader";
 import { LenisProvider } from "./utils/LenisProvider";
 import Aos from "aos";
-import "aos/dist/aos.css"; // You can also use <link> for styles
+import "aos/dist/aos.css";
 
 export default function App() {
   const [token, setToken] = useState();
@@ -35,7 +33,6 @@ export default function App() {
   const openPopup = () => setPopupOpen(true);
   const closePopup = () => setPopupOpen(false);
   const location = useLocation();
-  const [lenis, _] = useState();
 
   const [contactInfo, setContactInfo] = useState({});
 
@@ -218,14 +215,12 @@ export default function App() {
           <Popup onClose={closePopup} contactInfo={contactInfo} />
         )}
 
-        {/* <ScrollTop /> */}
-
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route
               path="/"
               element={
-                <PageWrapper lenis={lenis}>
+                <PageWrapper>
                   <HomePage token={token} openPopup={openPopup} />
                 </PageWrapper>
               }
@@ -233,7 +228,7 @@ export default function App() {
             <Route
               path="/about"
               element={
-                <PageWrapper lenis={lenis}>
+                <PageWrapper>
                   <AboutPage token={token} openPopup={openPopup} />
                 </PageWrapper>
               }
@@ -241,7 +236,7 @@ export default function App() {
             <Route
               path="/portfolio"
               element={
-                <PageWrapper lenis={lenis}>
+                <PageWrapper>
                   <PortfilioPage token={token} />
                 </PageWrapper>
               }
@@ -249,7 +244,7 @@ export default function App() {
             <Route
               path="/workflow"
               element={
-                <PageWrapper lenis={lenis}>
+                <PageWrapper>
                   <WorkflowPage token={token} openPopup={openPopup} />
                 </PageWrapper>
               }
@@ -257,7 +252,7 @@ export default function App() {
             <Route
               path="/services"
               element={
-                <PageWrapper lenis={lenis}>
+                <PageWrapper>
                   <ServicesPage token={token} openPopup={openPopup} />
                 </PageWrapper>
               }
@@ -265,7 +260,7 @@ export default function App() {
             <Route
               path="/cases/:slug"
               element={
-                <PageWrapper lenis={lenis}>
+                <PageWrapper>
                   <CasePage token={token} />
                 </PageWrapper>
               }
@@ -273,7 +268,7 @@ export default function App() {
             <Route
               path="/contact"
               element={
-                <PageWrapper lenis={lenis}>
+                <PageWrapper>
                   <ContactPage contactInfo={contactInfo} />
                 </PageWrapper>
               }
@@ -282,7 +277,7 @@ export default function App() {
             <Route
               path="/policy-page"
               element={
-                <PageWrapper lenis={lenis}>
+                <PageWrapper>
                   <PolicyPage token={token} />
                 </PageWrapper>
               }
@@ -291,7 +286,7 @@ export default function App() {
             <Route
               path="/thanks-page"
               element={
-                <PageWrapper lenis={lenis}>
+                <PageWrapper>
                   <ThanksPage />
                 </PageWrapper>
               }
@@ -300,7 +295,7 @@ export default function App() {
             <Route
               path="*"
               element={
-                <PageWrapper lenis={lenis}>
+                <PageWrapper>
                   <ErrorPage />
                 </PageWrapper>
               }
