@@ -123,7 +123,7 @@ export const HomeHero = () => {
               <motion.span
                 initial={{ opacity: 0, x: "0" }}
                 whileInView={{ opacity: 1, x: "-60%" }}
-                transition={{ duration: 1.5, ease: "easeOut", delay: 1.5 }}
+                transition={{ duration: 1.5, ease: "easeOut", delay: 2 }}
                 viewport={{ once: true, amount: 0.5 }}
               >
                 BUILDING
@@ -133,7 +133,7 @@ export const HomeHero = () => {
               <motion.span
                 initial={{ opacity: 0, x: "0" }}
                 whileInView={{ opacity: 1, x: "-25%" }}
-                transition={{ duration: 1.5, ease: "easeOut", delay: 1.5 }}
+                transition={{ duration: 1.5, ease: "easeOut", delay: 2 }}
                 viewport={{ once: true, amount: 0.5 }}
               >
                 PRODUCTS
@@ -141,7 +141,7 @@ export const HomeHero = () => {
               <motion.span
                 initial={{ opacity: 0, x: "0" }}
                 whileInView={{ opacity: 1, x: "20%" }}
-                transition={{ duration: 1.5, ease: "easeOut", delay: 1.5 }}
+                transition={{ duration: 1.5, ease: "easeOut", delay: 2 }}
                 viewport={{ once: true, amount: 0.5 }}
               >
                 THROUGH
@@ -150,7 +150,7 @@ export const HomeHero = () => {
               <motion.span
                 initial={{ opacity: 0, x: "0" }}
                 whileInView={{ opacity: 1, x: "65%" }}
-                transition={{ duration: 1.5, ease: "easeOut", delay: 1.5 }}
+                transition={{ duration: 1.5, ease: "easeOut", delay: 2 }}
                 viewport={{ once: true, amount: 0.5 }}
               >
                 EMPATHY
@@ -163,7 +163,7 @@ export const HomeHero = () => {
               <motion.span
                 initial={{ opacity: 0, x: "--50%" }}
                 whileInView={{ opacity: 1, x: "0" }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: "easeOut", delay: 2 }}
                 viewport={{ once: false, amount: 0.5 }}
               >
                 BUILDING
@@ -172,7 +172,7 @@ export const HomeHero = () => {
               <motion.span
                 initial={{ opacity: 0, x: "-50%" }}
                 whileInView={{ opacity: 1, x: "-18%" }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: "easeOut", delay: 2 }}
                 viewport={{ once: false, amount: 0.5 }}
                 className="mb-[10vw]"
               >
@@ -181,7 +181,7 @@ export const HomeHero = () => {
               <motion.span
                 initial={{ opacity: 0, x: "50%" }}
                 whileInView={{ opacity: 1, x: "20%" }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: "easeOut", delay: 2 }}
                 viewport={{ once: false, amount: 0.5 }}
               >
                 THROUGH
@@ -190,7 +190,7 @@ export const HomeHero = () => {
               <motion.span
                 initial={{ opacity: 0, x: "50%" }}
                 whileInView={{ opacity: 1, x: "0" }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: "easeOut", delay: 2 }}
                 viewport={{ once: false, amount: 0.5 }}
               >
                 EMPATHY
