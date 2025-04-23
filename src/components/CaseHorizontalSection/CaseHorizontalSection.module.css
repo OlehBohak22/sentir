@@ -147,12 +147,6 @@
     display: block;
   }
 
-  .horizontalBlocks::after {
-    content: "";
-    display: block;
-    height: 30vh;
-  }
-
   .progressBarWrapper {
     top: 21vw;
     height: 2px;
