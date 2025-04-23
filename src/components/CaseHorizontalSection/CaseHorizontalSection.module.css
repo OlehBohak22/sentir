@@ -140,10 +140,17 @@
   .scroller {
     padding-top: 30vw !important;
     padding-bottom: 10vw;
+    overflow: visible !important;
   }
 
   .horizontalBlocks {
     display: block;
+  }
+
+  .horizontalBlocks::after {
+    content: "";
+    display: block;
+    height: 30vh;
   }
 
   .progressBarWrapper {
@@ -153,6 +160,8 @@
 
   .block {
     flex-direction: column-reverse;
+    min-height: unset;
+    height: auto;
   }
 
   .block:not(:last-child) {

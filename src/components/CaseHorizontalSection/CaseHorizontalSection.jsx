@@ -15,6 +15,7 @@ export const CaseHorizontalSection = ({ cases }) => {
 
   useLayoutEffect(() => {
     if (isMobile) {
+      ScrollTrigger.getAll().forEach((st) => st.kill()); // 💣 на всяк випадок
       return;
     }
 
