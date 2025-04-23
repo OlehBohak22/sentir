@@ -137,16 +137,13 @@
 }
 
 @media (max-width: 1024px) {
-  .scrollableList {
-    max-height: 300px;
-    overflow-y: auto;
-    touch-action: auto;
-    overscroll-behavior: contain;
-  }
-
   .scroller {
     padding-top: 30vw !important;
     padding-bottom: 10vw;
+  }
+
+  .horizontalBlocks {
+    display: block;
   }
 
   .progressBarWrapper {
@@ -156,6 +153,10 @@
 
   .block {
     flex-direction: column-reverse;
+  }
+
+  .block:not(:last-child) {
+    margin-bottom: 10vw;
   }
 
   .image {
@@ -175,11 +176,6 @@
 
     ul {
       padding-left: 4vw;
-      overflow-y: auto;
-      max-height: 80vw;
-      height: 27vh;
-      touch-action: auto;
-      overscroll-behavior: contain;
 
       li {
         font-size: 4.9vw;

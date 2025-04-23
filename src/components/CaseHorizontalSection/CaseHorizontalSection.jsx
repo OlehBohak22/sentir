@@ -5,12 +5,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useLayoutEffect } from "react";
 import { AnimatedHeading } from "../AnimatedHeading/AnimatedHeading";
 gsap.registerPlugin(ScrollTrigger);
+import { useMediaQuery } from "react-responsive";
 
 export const CaseHorizontalSection = ({ cases }) => {
   const containerRef = useRef();
   const scrollerRef = useRef();
 
+  const isMobile = useMediaQuery({ query: "(max-width: 1023px)" });
+
   useLayoutEffect(() => {
+    if (isMobile) {
+      return;
+    }
+
     const panels = gsap.utils.toArray(`.${s.block}`);
     const panelWidth = scrollerRef.current.offsetWidth;
     const gap = 0.02 * window.innerWidth;
@@ -66,13 +73,13 @@ export const CaseHorizontalSection = ({ cases }) => {
       clearTimeout(timeoutId);
       ScrollTrigger.getAll().forEach((st) => st.kill());
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div ref={containerRef}>
       <section className={s.scroller} ref={scrollerRef}>
         <Layout>
-          {cases["title-1"] !== "" && (
+          {cases["title-1"] !== "" && !isMobile && (
             <div className={s.progressBarWrapper}>
               <div className={s.progressBar} id="progress-bar"></div>
             </div>
