@@ -159,7 +159,7 @@
   }
 
   .block:not(:last-child) {
-    margin-bottom: 10vw;
+    margin-bottom: 20vw;
   }
 
   .image {
